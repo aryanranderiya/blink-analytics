@@ -17,13 +17,29 @@ function HeroSection() {
 }
 
 function ServicesSection() {
+  function ServiceCard() {
+    return (
+      <div className="h-[250px] w-[25vw] bg-[#EDE8F5] rounded-xl flex flex-col">
+        <div className="grow"></div>
+        <div className="p-3 text-xl font-medium">Service Title</div>
+      </div>
+    );
+  }
+
   return (
-    <div className="bg-[#3D52A0] w-full h-screen z-[1] sticky top-0 rounded-t-3xl flex flex-col p-10 items-center ">
+    <div className="bg-[#3D52A0] w-full h-screen z-[1] sticky top-0 rounded-t-3xl flex flex-col p-10 gap-5 items-center ">
       <div className="font-bold text-4xl uppercase text-center text-white">
         Our Services
       </div>
 
-      <div className="flex grow"></div>
+      <div className="flex grow p-2 flex-wrap gap-5 justify-center">
+        <ServiceCard />
+        <ServiceCard />
+        <ServiceCard />
+        <ServiceCard />
+        <ServiceCard />
+        <ServiceCard />
+      </div>
 
       <Button className="bg-[#EDE8F5]" radius="sm">
         Know More
@@ -40,7 +56,7 @@ function ContactSection() {
 
 function LastSection() {
   return (
-    <div className="bg-[#3D52A0] w-full h-[50vh] z-[1] sticky top-0 rounded-3xl flex flex-col p-10 items-center justify-center gap-4">
+    <div className="bg-[#3D52A0] w-full h-[50vh] z-[1] sticky top-0 rounded-3xl rounded-b-3xl flex flex-col p-10 items-center justify-center gap-4">
       <div className="font-bold text-5xl text-white w-[60%] text-center">
         Lorem ipsum dolor sit amet consectetur adipisicing elit.
       </div>
