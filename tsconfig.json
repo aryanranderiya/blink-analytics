@@ -6,7 +6,9 @@
   ],
   "compilerOptions": {
     "allowJs": true,
+    "jsx": "react-jsx",
     "baseUrl": ".",
+    "strict": true,
     "paths": {
       "@/*": ["./src/*"]
     }

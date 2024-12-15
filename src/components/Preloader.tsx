@@ -33,12 +33,12 @@ export default function Preloader() {
           setNumber((old) => {
             if (typeof old === "number") {
               if (old >= 100) {
-                clearInterval(intervalId); // Clear interval when old reaches or exceeds 100
-                return "welcome!"; // Set the value to "Welcome"
+                clearInterval(intervalId);
+                return "welcome!";
               }
               return old + 1;
             }
-            return old; // If old is already a string, just return it
+            return old;
           });
         }, 15);
 
