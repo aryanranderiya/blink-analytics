@@ -80,9 +80,7 @@ function HeroSection() {
         trigger: heroRef.current,
         scroller: "body",
         start: "top 0%",
-        end: "top -80%",
         scrub: 0.3,
-        markers: true, // You can remove this line later to hide markers
       },
     });
 
@@ -94,7 +92,6 @@ function HeroSection() {
         trigger: heroRef.current,
         scroller: "body",
         start: "top 0%",
-        end: "top -80%",
         scrub: 0.3,
       },
     });
@@ -110,9 +107,9 @@ function HeroSection() {
       <div className="absolute inset-0 bg-black/50 z-[5] pointer-events-none">
         <div className="absolute inset-0 top-[63%] bg-gradient-to-r from-transparent to-black/50 backdrop-blur-lg"></div>
       </div>
-      <h1 ref={ref1} className="bebasneue text-white font-[800] uppercase text-[5vw] tracking-wide z-[10] blink absolute left-[15%] top-[35%] select-none">Transforming Data into Intelligence, </h1>
-      <h1 ref={ref2} className="bebasneue text-white font-[800] uppercase text-[5vw]  tracking-wide  z-[10] analytics absolute left-[35%] top-[45%] select-none">Models into Impact,</h1>
-      <h1 ref={ref3} className="bebasneue text-white font-[800] uppercase text-[5vw]  z-[10] tracking-wide  analytics absolute left-[25%] top-[55%] select-none">and AI into Your Advantage</h1>
+      <h1 ref={ref1} className="bebasneue text-white font-[800] uppercase text-[5vw] tracking-wide z-[10] blink absolute left-[15%] top-[35%] select-none">Transforming Data into <span className="bebasneue text-green-500 font-[800] uppercase">Intelligence</span> </h1>
+      <h1 ref={ref2} className="bebasneue text-white font-[800] uppercase text-[5vw]  tracking-wide  z-[10] analytics absolute left-[35%] top-[45%] select-none"><span className="bebasneue text-blue-500 font-[800] uppercase">Models</span> into Impact,</h1>
+      <h1 ref={ref3} className="bebasneue text-white font-[800] uppercase text-[5vw]  z-[10] tracking-wide  analytics absolute left-[25%] top-[55%] select-none">and <span className="bebasneue text-yellow-400 font-[800] uppercase">AI</span> into Your Advantage</h1>
       <p ref={paragraphRef1} className="bebasneue text-white absolute text-[2vw] top-[50%] left-[35%] z-10">Welcome!</p>
       <p ref={paragraphRef2} className="bebasneue text-white absolute text-[1vw] top-[58%] left-[65%] z-10 w-[15vw]">Our mission is to empower businesses with intelligent, scalable, and transformative analytics.</p>
     </section>
