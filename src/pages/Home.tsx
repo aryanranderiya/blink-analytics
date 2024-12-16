@@ -1,18 +1,46 @@
-import { Button } from "@nextui-org/react";
+import { Button, user } from "@nextui-org/react";
 import { ArrowRight } from "lucide-react";
-import ParticlesBg from "../components/ParticlesBg"
+// import ParticlesBg from "../components/ParticlesBg"
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import { useEffect, useRef } from "react";
+import { World, GlobeConfig } from "@/components/ui/globe";
+import { positionData } from "@/data/positionData";
 
 function HeroSection() {
+  const ref1 = useRef(null);
+  const ref2 = useRef(null);
+  const ref3 = useRef(null);
   const heroRef = useRef(null);
-  const blinkRef = useRef(null);
-  const analyticsRef = useRef(null);
+  
+  const globeConfig: GlobeConfig = {
+    pointSize: 4,
+    globeColor: "#062056",
+    showAtmosphere: false,
+    atmosphereColor: "#FFFFFF",
+    atmosphereAltitude: 0.1,
+    emissive: "#062056",
+    emissiveIntensity: 0.1,
+    shininess: 0.9,
+    polygonColor: "rgb(255, 255, 255)",
+    ambientLight: "#38bdf8",
+    directionalLeftLight: "#ffffff",
+    directionalTopLight: "#ffffff",
+    pointLight: "#ffffff",
+    arcTime: 1000,
+    arcLength: 0.9,
+    rings: 1,
+    maxRings: 3,
+    initialPosition: { lat: 22.3193, lng: 114.1694 },
+    autoRotate: false,
+  };
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-    gsap.to(blinkRef.current, {
+    // gsap.fromTo('.lottie', {y: '-100%', opacity: 0}, {y: 0, delay: 2, opacity: 100})
+
+
+    gsap.to(ref1.current, {
       transform: "translateX(-100%)",
       scrollTrigger: {
         trigger: heroRef.current,
@@ -20,27 +48,37 @@ function HeroSection() {
         start: "top 0%",
         end: "top -100%",
         scrub: 0.3,
-        markers: true
       }
     });
-    gsap.to(analyticsRef.current, {
+    gsap.to(ref2.current, {
       transform: "translateX(150%)",
       scrollTrigger: {
         trigger: heroRef.current,
         scroller: "body",
         start: "top 0%",
         scrub: 0.3,
-        markers: true
       }
-    })
+    });
+    gsap.to(ref3.current, {
+      transform: "translateX(-100%)",
+      scrollTrigger: {
+        trigger: heroRef.current,
+        scroller: "body",
+        start: "top 0%",
+        end: "top -100%",
+        scrub: 0.3,
+      }
+    });
+
   }, []);
 
   return (
     <>
-    <section ref={heroRef} className="w-full h-screen from-[#3D52A0] to-[#EDE8F5] bg-gradient-to-b sticky top-0 z-[1] relative">
-      <ParticlesBg></ParticlesBg>
-      <h1 ref={blinkRef} className="font-grot font-[800] uppercase text-[10vw]  w-[60vw] z-[10] blink absolute left-[15%] top-[25%]">Blink</h1>
-      <h1 ref={analyticsRef} className="font-grot font-[800] uppercase text-[10vw] w-[60vw] z-[10] analytics absolute left-[25%] top-[45%]">Analytics</h1>
+    <section ref={heroRef} className="w-full h-screen bg-black sticky top-0 z-[1] relative">
+      <World globeConfig={globeConfig} data={positionData}></World>
+      <h1 ref={ref1} className="bebasneue text-white font-[800] uppercase text-[5vw] tracking-wide z-[10] blink absolute left-[15%] top-[35%] select-none">Transforming Data into Intelligence, </h1>
+      <h1 ref={ref2} className="bebasneue text-white font-[800] uppercase text-[5vw]  tracking-wide  z-[10] analytics absolute left-[35%] top-[45%] select-none">Models into Impact,</h1>
+      <h1 ref={ref3} className="bebasneue text-white font-[800] uppercase text-[5vw]  z-[10] tracking-wide  analytics absolute left-[25%] top-[55%] select-none">and AI into Your Advantage</h1>
     </section>
     </>
   );
