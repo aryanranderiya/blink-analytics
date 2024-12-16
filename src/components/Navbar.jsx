@@ -2,7 +2,7 @@ import { MenuIcon } from "lucide-react";
 
 export default function NavbarComponent() {
   return (
-    <div className="flex w-screen left-0 py-6 px-8 fixed top-0 z-10 items-center">
+    <div className="flex w-screen left-0 py-4 px-8 fixed top-0 z-10 items-center">
       <div className="font-bold text-lg uppercase text-white">
         Blink Analytics
       </div>

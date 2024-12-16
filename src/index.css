@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@font-face {
+    font-family: 'Grotesque';
+    src: url('/src/assets/fonts/BasementGrotesque-Black_v1.202.otf') format('otf');
+}

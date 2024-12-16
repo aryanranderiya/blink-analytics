@@ -1,18 +1,48 @@
 import { Button } from "@nextui-org/react";
 import { ArrowRight } from "lucide-react";
+import ParticlesBg from "../components/ParticlesBg"
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
+import { useEffect, useRef } from "react";
 
 function HeroSection() {
+  const heroRef = useRef(null);
+  const blinkRef = useRef(null);
+  const analyticsRef = useRef(null);
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.to(blinkRef.current, {
+      transform: "translateX(-100%)",
+      scrollTrigger: {
+        trigger: heroRef.current,
+        scroller: "body",
+        start: "top 0%",
+        end: "top -100%",
+        scrub: 0.3,
+        markers: true
+      }
+    });
+    gsap.to(analyticsRef.current, {
+      transform: "translateX(150%)",
+      scrollTrigger: {
+        trigger: heroRef.current,
+        scroller: "body",
+        start: "top 0%",
+        scrub: 0.3,
+        markers: true
+      }
+    })
+  }, []);
+
   return (
-    <div className="w-full h-screen from-[#7091E6] to-[#ADBBDA] bg-gradient-to-b flex items-center justify-center flex-col gap-2 sticky top-0 z-[1]">
-      <h1 className="font-bold text-9xl text-left uppercase w-[60vw]">Blink</h1>
-      <h1 className="font-bold text-9xl uppercase text-right w-[60vw]">
-        Analytics
-      </h1>
-      <div className="text-lg">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo,
-        architecto.
-      </div>
+    <>
+    <div ref={heroRef} className="w-full h-screen from-[#3D52A0] to-[#EDE8F5] bg-gradient-to-b sticky top-0 z-[1] relative">
+      <ParticlesBg></ParticlesBg>
+      <h1 ref={blinkRef} className="font-grot font-[800] uppercase text-[10vw]  w-[60vw] z-[10] blink absolute left-[15%] top-[25%]">Blink</h1>
+      <h1 ref={analyticsRef} className="font-grot font-[800] uppercase text-[10vw] w-[60vw] z-[10] analytics absolute left-[25%] top-[45%]">Analytics</h1>
     </div>
+    </>
   );
 }
 
@@ -82,6 +112,7 @@ function LastSection() {
 }
 
 export default function Home() {
+  
   return (
     <div className="flex flex-col">
       <HeroSection />

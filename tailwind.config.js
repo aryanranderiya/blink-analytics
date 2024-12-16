@@ -95,6 +95,11 @@ export default {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      fontFamily: {
+        bebas: ['Bebas Neue', 'sans-serif'],
+        cat: ['Catamaran', 'sans-serif'],
+        grot: ['Grotesque', 'sans-serif']
+      }
     },
   },
   plugins: [
