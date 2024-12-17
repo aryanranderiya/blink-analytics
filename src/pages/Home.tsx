@@ -1,8 +1,8 @@
 import { Button, user } from "@nextui-org/react";
 import { ArrowRight } from "lucide-react";
 // import ParticlesBg from "../components/ParticlesBg"
-import gsap from 'gsap';
-import ScrollTrigger from 'gsap/ScrollTrigger';
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 import { useEffect, useRef } from "react";
 import { World, GlobeConfig } from "@/components/ui/globe";
 import { positionData } from "@/data/positionData";
@@ -14,18 +14,18 @@ function HeroSection() {
   const paragraphRef1 = useRef(null);
   const paragraphRef2 = useRef(null);
   const heroRef = useRef(null);
-  
+
   const globeConfig: GlobeConfig = {
-    pointSize: 5,
-    globeColor: "#052056",
+    pointSize: 10,
+    globeColor: "#3D52A0",
     showAtmosphere: false,
     atmosphereColor: "#FFFFFF",
     atmosphereAltitude: 0.1,
-    emissive: "#062056",
-    emissiveIntensity: 0.1,
-    shininess: 0.9,
-    polygonColor: "rgb(0, 255, 0)",
-    ambientLight: "#38bdf8",
+    emissive: "#000000",
+    emissiveIntensity: 0,
+    shininess: 0,
+    polygonColor: "#ADBBDA",
+    ambientLight: "#ffffff",
     directionalLeftLight: "#ffffff",
     directionalTopLight: "#ffffff",
     pointLight: "#ffffff",
@@ -41,7 +41,6 @@ function HeroSection() {
     gsap.registerPlugin(ScrollTrigger);
     // gsap.fromTo('.lottie', {y: '-100%', opacity: 0}, {y: 0, delay: 2, opacity: 100})
 
-
     gsap.to(ref1.current, {
       transform: "translateX(-100%)",
       scrollTrigger: {
@@ -50,7 +49,7 @@ function HeroSection() {
         start: "top 0%",
         end: "top -100%",
         scrub: 0.3,
-      }
+      },
     });
     gsap.to(ref2.current, {
       transform: "translateX(150%)",
@@ -59,7 +58,7 @@ function HeroSection() {
         scroller: "body",
         start: "top 0%",
         scrub: 0.3,
-      }
+      },
     });
     gsap.to(ref3.current, {
       transform: "translateX(-100%)",
@@ -69,50 +68,90 @@ function HeroSection() {
         start: "top 0%",
         end: "top -100%",
         scrub: 0.3,
+      },
+    });
+
+    gsap.fromTo(
+      paragraphRef1.current,
+      { opacity: 0 },
+      {
+        opacity: 5,
+        y: 0,
+        x: 50,
+        scrollTrigger: {
+          trigger: heroRef.current,
+          scroller: "body",
+          start: "top 0%",
+          scrub: 0.3,
+        },
       }
-    });
+    );
 
-    gsap.fromTo(paragraphRef1.current,{opacity: 0}, {
-      opacity: 5,
-      y: 0,
-      x: 50,
-      scrollTrigger: {
-        trigger: heroRef.current,
-        scroller: "body",
-        start: "top 0%",
-        scrub: 0.3,
-      },
-    });
-
-    gsap.fromTo(paragraphRef2.current, {opacity: 0}, {
-      opacity: 5,
-      y: 0,
-      x: -50,
-      scrollTrigger: {
-        trigger: heroRef.current,
-        scroller: "body",
-        start: "top 0%",
-        scrub: 0.3,
-      },
-    });
-
-
+    gsap.fromTo(
+      paragraphRef2.current,
+      { opacity: 0 },
+      {
+        opacity: 5,
+        y: 0,
+        x: -50,
+        scrollTrigger: {
+          trigger: heroRef.current,
+          scroller: "body",
+          start: "top 0%",
+          scrub: 0.3,
+        },
+      }
+    );
   }, []);
 
   return (
     <>
-    <section ref={heroRef} className="w-full h-screen bg-black sticky top-0 z-[1] relative hero-section overflow-hidden">
-      <div className="Globe w-[150vw] absolute top-[35%] h-[150vh] transform -translate-x-[16%] overflow-hidden"><World globeConfig={globeConfig} data={positionData}></World></div>
-      
-      {/* <div className="absolute inset-0 bg-black/50 z-[5] pointer-events-none">
+      <section
+        ref={heroRef}
+        className="w-full h-screen bg-gradient-to-b from-[#8697C4] via-[#7091e6] to-[#3d52a0] sticky top-0 z-[1] hero-section overflow-hidden"
+      >
+        <div className="Globe w-[150vw] absolute top-[35%] h-[150vh] transform -translate-x-[16%] overflow-hidden">
+          <World globeConfig={globeConfig} data={positionData} />
+        </div>
+
+        {/* <div className="absolute inset-0 bg-black/50 z-[5] pointer-events-none">
         <div className="absolute inset-0 top-[63%] bg-gradient-to-r from-transparent to-black/50 backdrop-blur-lg"></div>
       </div> */}
-      <h1 ref={ref1} className="bebasneue text-white font-[800] uppercase text-[5vw] tracking-wide z-[10] blink absolute left-[15%] top-[35%] select-none">Transforming Data into <span className="bebasneue text-green-500 font-[800] uppercase">Intelligence</span> </h1>
-      <h1 ref={ref2} className="bebasneue text-white font-[800] uppercase text-[5vw]  tracking-wide  z-[10] analytics absolute left-[35%] top-[45%] select-none"><span className="bebasneue text-blue-500 font-[800] uppercase">Models</span> into Impact,</h1>
-      <h1 ref={ref3} className="bebasneue text-white font-[800] uppercase text-[5vw]  z-[10] tracking-wide  analytics absolute left-[25%] top-[55%] select-none">and <span className="bebasneue text-yellow-400 font-[800] uppercase">AI</span> into Your Advantage</h1>
-      <p ref={paragraphRef1} className="bebasneue text-white absolute text-[2vw] top-[50%] left-[35%] z-10">Welcome!</p>
-      <p ref={paragraphRef2} className="bebasneue text-white absolute text-[1vw] top-[60%] left-[65%] z-10 w-[18vw]">Our mission is to empower businesses with intelligent, scalable, and transformative analytics.</p>
-    </section>
+        <h1
+          ref={ref1}
+          className="michroma text-white font-[1000] uppercase text-[2vw] tracking-wide z-[10] blink absolute left-[9%] top-[34%] select-none"
+        >
+          Transforming Data into{" "}
+          <span className="michroma font-[1000] uppercase">Intelligence,</span>{" "}
+        </h1>
+        <h1
+          ref={ref2}
+          className="michroma text-white font-[1000] uppercase text-[2vw]  tracking-wide  z-[10] analytics absolute left-[42%] top-[45%] select-none"
+        >
+          <span className="michroma font-[1000] uppercase">Models</span> into
+          Impact,
+        </h1>
+        <h1
+          ref={ref3}
+          className="michroma text-white font-[1000] uppercase text-[2vw]  z-[10] tracking-wide  analytics absolute left-[25%] top-[55%] select-none"
+        >
+          and <span className="michroma font-[1000] uppercase">AI</span> into
+          Your Advantage
+        </h1>
+        <p
+          ref={paragraphRef1}
+          className="michroma text-white absolute text-[2vw] top-[50%] left-[35%] z-10"
+        >
+          Welcome!
+        </p>
+        <p
+          ref={paragraphRef2}
+          className="michroma text-white absolute text-[1vw] top-[60%] left-[65%] z-10 w-[18vw]"
+        >
+          Our mission is to empower businesses with intelligent, scalable, and
+          transformative analytics.
+        </p>
+      </section>
     </>
   );
 }
@@ -200,7 +239,6 @@ function LastSection() {
 }
 
 export default function Home() {
-  
   return (
     <div className="flex flex-col">
       <HeroSection />

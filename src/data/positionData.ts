@@ -8,7 +8,7 @@ export const positionData: Position[] = [
       endLat: 51.5074, // London, UK
       endLng: -0.1278,
       arcAlt: 0.5,
-      color: "#ff0000",
+      color: "#FFFFFF",
     },
     {
       order: 2,
@@ -17,7 +17,7 @@ export const positionData: Position[] = [
       endLat: 34.0522, // Los Angeles, USA
       endLng: -118.2437,
       arcAlt: 0.6,
-      color: "#00ff00",
+      color: "#FFFFFF",
     },
     {
       order: 3,
@@ -26,7 +26,7 @@ export const positionData: Position[] = [
       endLat: 39.9042, // Beijing, China
       endLng: 116.4074,
       arcAlt: 0.7,
-      color: "#0000ff",
+      color: "#FFFFFF",
     },
     {
       order: 4,
@@ -35,7 +35,7 @@ export const positionData: Position[] = [
       endLat: 48.8566, // Paris, France
       endLng: 2.3522,
       arcAlt: 0.8,
-      color: "#ffa500",
+      color: "#FFFFFF",
     },
     {
       order: 5,
@@ -44,7 +44,7 @@ export const positionData: Position[] = [
       endLat: -37.8136, // Melbourne, Australia
       endLng: 144.9631,
       arcAlt: 0.5,
-      color: "#ffff00",
+      color: "#FFFFFF",
     },
     {
       order: 6,
@@ -53,7 +53,7 @@ export const positionData: Position[] = [
       endLat: 19.4326, // Mexico City, Mexico
       endLng: -99.1332,
       arcAlt: 0.4,
-      color: "#ff00ff",
+      color: "#FFFFFF",
     },
     {
       order: 7,
@@ -62,7 +62,7 @@ export const positionData: Position[] = [
       endLat: -6.2088, // Jakarta, Indonesia
       endLng: 106.8456,
       arcAlt: 0.6,
-      color: "#00ffff",
+      color: "#FFFFFF",
     },
     {
       order: 8,
@@ -71,7 +71,7 @@ export const positionData: Position[] = [
       endLat: 40.4168, // Madrid, Spain
       endLng: -3.7038,
       arcAlt: 0.5,
-      color: "#ff4500",
+      color: "#FFFFFF",
     },
     {
       order: 9,
@@ -80,7 +80,7 @@ export const positionData: Position[] = [
       endLat: -33.9249, // Cape Town, South Africa
       endLng: 18.4241,
       arcAlt: 0.9,
-      color: "#8a2be2",
+      color: "#FFFFFF",
     },
     {
       order: 10,
@@ -89,7 +89,7 @@ export const positionData: Position[] = [
       endLat: -26.2041, // Johannesburg, South Africa
       endLng: 28.0473,
       arcAlt: 0.5,
-      color: "#228b22",
+      color: "#FFFFFF",
     },
     {
       order: 11,
@@ -98,7 +98,7 @@ export const positionData: Position[] = [
       endLat: 52.5200, // Berlin, Germany
       endLng: 13.4050,
       arcAlt: 0.6,
-      color: "#d2691e",
+      color: "#FFFFFF",
     },
     {
       order: 12,
@@ -107,7 +107,7 @@ export const positionData: Position[] = [
       endLat: 29.7604, // Houston, USA
       endLng: -95.3698,
       arcAlt: 0.7,
-      color: "#4682b4",
+      color: "#FFFFFF",
     },
     {
       order: 13,
@@ -116,7 +116,7 @@ export const positionData: Position[] = [
       endLat: 43.65107, // Toronto, Canada
       endLng: -79.347015,
       arcAlt: 0.6,
-      color: "#ff6347",
+      color: "#FFFFFF",
     },
     {
       order: 14,
@@ -125,7 +125,7 @@ export const positionData: Position[] = [
       endLat: 40.7128, // New York City, USA
       endLng: -74.006,
       arcAlt: 0.7,
-      color: "#b8860b",
+      color: "#FFFFFF",
     },
     {
       order: 15,
@@ -134,7 +134,7 @@ export const positionData: Position[] = [
       endLat: -23.5505, // São Paulo, Brazil
       endLng: -46.6333,
       arcAlt: 0.8,
-      color: "#6495ed",
+      color: "#FFFFFF",
     },
     {
       order: 16,
@@ -143,7 +143,7 @@ export const positionData: Position[] = [
       endLat: 31.7683, // Jerusalem, Israel
       endLng: 35.2137,
       arcAlt: 0.4,
-      color: "#800000",
+      color: "#FFFFFF",
     },
     {
       order: 17,
@@ -152,7 +152,7 @@ export const positionData: Position[] = [
       endLat: 55.7558, // Moscow, Russia
       endLng: 37.6173,
       arcAlt: 0.6,
-      color: "#daa520",
+      color: "#FFFFFF",
     },
   ];
   
