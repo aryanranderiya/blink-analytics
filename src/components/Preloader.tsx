@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
-export default function Preloader({ preloaderFinished, setPreloaderFinished }) {
+export default function Preloader() {
+  const [preloaderFinished, setPreloaderFinished] = useState(false);
   const [initial, setInitial] = useState(false);
   const [state2, setState2] = useState(false);
   const [number, setNumber] = useState<number | string>(0);

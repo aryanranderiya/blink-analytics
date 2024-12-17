@@ -4,23 +4,15 @@ import { Button } from "@nextui-org/react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { ArrowRight, Mouse } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
-function HeroSection({ preloaderFinished }: { preloaderFinished: boolean }) {
-  console.log(preloaderFinished);
-  const [textVisible, setTextVisible] = useState(false);
+function HeroSection() {
   const ref1 = useRef(null);
   const ref2 = useRef(null);
   const ref3 = useRef(null);
   const paragraphRef1 = useRef(null);
   const paragraphRef2 = useRef(null);
   const heroRef = useRef(null);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setTextVisible(preloaderFinished);
-    }, 1000);
-  }, [preloaderFinished]);
 
   const globeConfig: GlobeConfig = {
     pointSize: 10,
@@ -317,11 +309,10 @@ function LastSection() {
     </section>
   );
 }
-
-export default function Home({ preloaderFinished }) {
+export default function Home() {
   return (
     <div className="flex flex-col">
-      <HeroSection preloaderFinished={preloaderFinished} />
+      <HeroSection />
       {/* <FirstSection /> */}
       <ServicesSection />
       <ContactSection />

@@ -14,6 +14,8 @@ function ServiceCard({
   reverse: boolean;
 }) {
   const cardRef = useRef(null);
+  const titleRef = useRef(null);
+  const descRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -23,36 +25,49 @@ function ServiceCard({
           setIsVisible(entry.isIntersecting);
         });
       },
-      { threshold: 0.3 }
+      { threshold: 0.3 } // Trigger when 30% of the element is visible
     );
 
-    if (cardRef.current) {
-      observer.observe(cardRef.current);
-    }
+    if (cardRef.current) observer.observe(cardRef.current);
+    if (titleRef.current) observer.observe(titleRef.current);
+    if (descRef.current) observer.observe(descRef.current);
 
     return () => {
       if (cardRef.current) observer.unobserve(cardRef.current);
+      if (titleRef.current) observer.unobserve(titleRef.current);
+      if (descRef.current) observer.unobserve(descRef.current);
     };
   }, []);
 
   return (
     <div
       ref={cardRef}
-      className={`h-[50vh] w-screen flex justify-evenly gap-5 transition-all ${
-        reverse ? "flex-row-reverse" : ""
+      className={`h-[50vh]  w-screen flex justify-evenly gap-5 transition-all ${
+        reverse ? "flex-row-reverse bg-[#8697C4]" : ""
       } ${isVisible ? "opacity-100" : "opacity-0 translate-y-10"}`}
     >
       <div
-        className={`w-full flex flex-col text-white h-full justify-center  ${
+        className={`w-full flex flex-col text-white h-full justify-center ${
           reverse ? "items-end" : "items-start"
         } gap-4 p-5`}
       >
-        <div
-          className={`text-4xl w-full ${reverse ? "text-right" : "text-left"} `}
-        >
-          {title}
+        <div className="overflow-hidden">
+          <div
+            ref={titleRef}
+            className={`text-4xl w-full transition-transform duration-500 ${
+              reverse ? "text-right" : "text-left"
+            } ${isVisible ? "translate-y-0" : "translate-y-10"}`}
+          >
+            {title}
+          </div>
         </div>
-        <div className={`text-xl  ${reverse ? "text-right" : "text-left"}`}>
+
+        <div
+          ref={descRef}
+          className={`text-xl transition-transform duration-500 ${
+            reverse ? "text-right" : "text-left"
+          } ${isVisible ? "translate-y-0 delay-200" : "translate-y-10"}`}
+        >
           {description}
         </div>
 
