@@ -7,6 +7,7 @@ import { ReactLenis } from "@studio-freight/react-lenis";
 import Preloader from "./components/Preloader";
 import Contact from "./pages/Contact";
 import { useState } from "react";
+import Services from "./pages/Services";
 
 function App() {
   const [preloaderFinished, setPreloaderFinished] = useState(false);
@@ -25,6 +26,7 @@ function App() {
             element={<Home preloaderFinished={preloaderFinished} />}
           />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/services" element={<Services />} />
         </Routes>
         <Footer />
       </main>

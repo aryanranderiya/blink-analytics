@@ -33,11 +33,9 @@ export default function NavbarComponent() {
   };
 
   return (
-    <header className="flex w-screen left-0 py-6 px-8 fixed top-0 z-[50] items-center backdrop-blur-lg bg-black bg-opacity-20">
+    <header className="flex w-screen left-0 py-4 px-8 fixed top-0 z-[50] items-center backdrop-blur-lg bg-white bg-opacity-10 rounded-b-3xl">
       <Link to={"/"}>
-        <div className="font-[800] text-2xl uppercase text-white nav-text">
-          Blink Analytics
-        </div>
+        <div className="text-2xl text-white">Blink Analytics</div>
       </Link>
 
       <div
