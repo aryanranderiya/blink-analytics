@@ -43,7 +43,7 @@ function HeroSection() {
     gsap.to('.arrow-down', {
       y: 30,
       repeat: -1,
-      delay: 15,
+      delay: 10,
       duration: 1,
       ease: "smooth"
     })
@@ -188,17 +188,17 @@ function ServicesSection() {
   function ServiceCard({name}) {
     return (
       <section
-        className="h-[35vh] w-[25vw] bg-[#EDE8F5] rounded-xl flex flex-col relative cursor-pointer"
+        className="h-[35vh] w-[25vw] bg-[#3d52a0] rounded-xl flex flex-col relative cursor-pointer"
       >
         <div className="grow"></div>
-        <div className="p-3 bebas text-large font-medium">{name}</div>
+        <div className="p-3 bebas text-large text-white font-medium">{name}</div>
       </section>
     );
   }
 
   return (
-    <section ref={serviceRef} className="bg-[#3D52A0] w-full h-screen z-[1] sticky top-0 rounded-t-3xl flex flex-col p-10 gap-5 items-center ">
-      <div className="font-[800] bebasneue tracking-[2px] text-4xl uppercase text-center text-white cursor-pointer">
+    <section ref={serviceRef} className="bg-[#EDE8F5] w-full h-screen z-[1] sticky top-0 rounded-t-3xl flex flex-col p-10 gap-5 items-center bg-grid-black/[0.1]">
+      <div className="font-[800] bebasneue tracking-[2px] text-4xl uppercase text-center text-[#112241] cursor-pointer">
         Our Services
       </div>
 
@@ -224,16 +224,10 @@ function ContactSection() {
 export function FirstSection() {
   return (
     <section className="bg-[#EDE8F5] h-screen z-[1] sticky top-0 flex flex-col p-10 items-center rounded-t-3xl  bg-grid-black/[0.1] ">
-      {/* <div className="font-bold text-3xl uppercase text-center"> */}
-      {/* Leverage AI and Data <br /> to propel your business */}
-      {/* </div> */}
+      
       <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-[#EDE8F5] [mask-image:radial-gradient(ellipse_at_center,transparent_50%,black)] rounded-t-3xl"></div>
 
-      {/* <div className="h-[50rem] w-full dark:bg-black bg-white  dark:bg-grid-white/[0.2] bg-grid-black/[0.2] relative flex items-center justify-center">
-          <p className="text-4xl sm:text-7xl font-bold relative z-20 bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-500 py-8">
-            Backgrounds
-          </p>
-        </div> */}
+      
     </section>
   );
 }
@@ -269,7 +263,7 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       <HeroSection />
-      <FirstSection />
+      {/* <FirstSection /> */}
       <ServicesSection />
       <ContactSection />
       <LastSection />
