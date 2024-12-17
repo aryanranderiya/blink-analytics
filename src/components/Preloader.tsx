@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 
-export default function Preloader() {
+export default function Preloader({ preloaderFinished, setPreloaderFinished }) {
   const [initial, setInitial] = useState(false);
   const [state2, setState2] = useState(false);
-  const [final, setFinal] = useState(false);
   const [number, setNumber] = useState<number | string>(0);
   const text = [
     "B",
@@ -43,7 +42,7 @@ export default function Preloader() {
         }, 15);
 
         setTimeout(() => {
-          setFinal(true);
+          setPreloaderFinished(true);
         }, 1500);
       }, 300);
     }, 200);
@@ -52,12 +51,12 @@ export default function Preloader() {
   return (
     <div
       className={`fixed h-screen w-screen z-50 bg-white duration-700 ease-out transition-all ${
-        final ? "top-[-150vh]" : "top-0"
+        preloaderFinished ? "top-[-150vh]" : "top-0"
       }`}
     >
       <div
         className={`h-screen fixed left-0 w-screen z-50 bg-gradient-to-b from-[#3D52A0] to-[#7091E6] ${
-          final ? "-top-[150vh]" : initial ? "top-0" : "top-[100vh]"
+          preloaderFinished ? "-top-[150vh]" : initial ? "top-0" : "top-[100vh]"
         } transition-all duration-200 flex justify-center items-center`}
       >
         <div

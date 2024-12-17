@@ -1,19 +1,27 @@
-import { Button } from "@nextui-org/react";
-import { ArrowRight, CircleArrowDown, ArrowUpRight } from "lucide-react";
-import gsap from 'gsap';
-import ScrollTrigger from 'gsap/ScrollTrigger';
-import { useEffect, useRef, useState } from "react";
-import { World, GlobeConfig } from "@/components/ui/globe";
+import { GlobeConfig, World } from "@/components/ui/globe";
 import { positionData } from "@/data/positionData";
+import { Button } from "@nextui-org/react";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import { ArrowRight, Mouse } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
-function HeroSection() {
+function HeroSection({ preloaderFinished }: { preloaderFinished: boolean }) {
+  console.log(preloaderFinished);
+  const [textVisible, setTextVisible] = useState(false);
   const ref1 = useRef(null);
   const ref2 = useRef(null);
   const ref3 = useRef(null);
   const paragraphRef1 = useRef(null);
   const paragraphRef2 = useRef(null);
   const heroRef = useRef(null);
-  
+
+  useEffect(() => {
+    setTimeout(() => {
+      setTextVisible(preloaderFinished);
+    }, 1000);
+  }, [preloaderFinished]);
+
   const globeConfig: GlobeConfig = {
     pointSize: 10,
     globeColor: "#3D52A0",
@@ -23,7 +31,7 @@ function HeroSection() {
     emissive: "#000000",
     emissiveIntensity: 0,
     shininess: 0,
-    polygonColor: "#00ff00",
+    polygonColor: "#ffffff",
     ambientLight: "#ffffff",
     directionalLeftLight: "#ffffff",
     directionalTopLight: "#ffffff",
@@ -38,18 +46,22 @@ function HeroSection() {
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-    // gsap.fromTo('.lottie', {y: '-100%', opacity: 0}, {y: 0, delay: 2, opacity: 100})
+    gsap.fromTo(
+      ".lottie",
+      { y: "-100%", opacity: 0 },
+      { y: 0, delay: 2, opacity: 100 }
+    );
 
-    gsap.to('.arrow-down', {
-      y: 30,
-      repeat: -1,
-      delay: 10,
-      duration: 1,
-      ease: "smooth"
-    })
-
+    // gsap.to(".arrow-down", {
+    //   y: 30,
+    //   repeat: -1,
+    //   delay: 10,
+    //   duration: 1,
+    //   ease: "smooth",
+    // });
     gsap.to(ref1.current, {
-      transform: "translateX(-100%)",
+      x: "-50vw",
+      color: "#7091e6",
       scrollTrigger: {
         trigger: heroRef.current,
         scroller: "body",
@@ -59,16 +71,18 @@ function HeroSection() {
       },
     });
     gsap.to(ref2.current, {
-      transform: "translateX(150%)",
+      x: "50vw",
+      color: "#7091e6",
       scrollTrigger: {
         trigger: heroRef.current,
         scroller: "body",
         start: "top 0%",
-        scrub: 0.3,
+        scrub: 0.1,
       },
     });
     gsap.to(ref3.current, {
-      transform: "translateX(-100%)",
+      x: "-30vw",
+      color: "#7091e6",
       scrollTrigger: {
         trigger: heroRef.current,
         scroller: "body",
@@ -80,11 +94,11 @@ function HeroSection() {
 
     gsap.fromTo(
       paragraphRef1.current,
-      { opacity: 0 },
+      { opacity: 0, x: 0 },
       {
         opacity: 5,
         y: 0,
-        x: 50,
+        x: 200,
         scrollTrigger: {
           trigger: heroRef.current,
           scroller: "body",
@@ -112,50 +126,63 @@ function HeroSection() {
   }, []);
 
   return (
-      <section
-        ref={heroRef}
-        className="w-full h-screen bg-gradient-to-b from-[#0B0F30] to-[#000000] sticky top-0 z-[1] hero-section overflow-hidden"
-      >
-        <div className="Globe w-[150vw] absolute top-[35%] h-[150vh] transform -translate-x-[16%] overflow-hidden">
-          <World globeConfig={globeConfig} data={positionData} />
-        </div>
+    <section
+      ref={heroRef}
+      className="w-full h-screen bg-gradient-to-b from-[#0B0F30] to-[#000000] sticky top-0 z-[1] hero-section overflow-hidden"
+    >
+      <div className="Globe w-[150vw] absolute top-[35%] h-[150vh] transform -translate-x-[16%] overflow-hidden">
+        <World globeConfig={globeConfig} data={positionData} />
+      </div>
 
-      <CircleArrowDown color="white" size="50px" className="arrow-down absolute bottom-[5%] left-[48%]"></CircleArrowDown>
+      <div className="absolute bottom-[50px] flex w-full justify-center">
+        <Mouse color="white" size="50px" className="" />
+      </div>
+      <div className="flex h-screen items-center flex-col justify-center">
         <h1
           ref={ref1}
-          className="bebasneue text-white font-[800] uppercase text-[4.5vw] tracking-wide z-[10] blink absolute left-[20%] top-[34%] select-none"
+          className={` text-white font-[800] text-[5vw] tracking-wide z-[10] left-[20%] select-none`}
         >
-          Transforming Data into Intelligence,
+          Transforming Data into{" "}
+          <span className="instrumentserif-italic capitalize text-white">
+            Intelligence,
+          </span>
         </h1>
         <h1
           ref={ref2}
-          className="bebasneue text-white font-[800] uppercase text-[4.5vw]  tracking-wide  z-[10] analytics absolute left-[40%] top-[46%] select-none"
+          className="text-white font-[800] text-[5vw] tracking-wide z-[10] left-[35%] select-none"
         >
-          Models into Impact,
+          Models into
+          <span className="instrumentserif-italic capitalize text-white">
+            {" "}
+            Impact,
+          </span>
         </h1>
         <h1
           ref={ref3}
-          className="bebasneue text-white font-[800] uppercase text-[4.5vw]  z-[10] tracking-wide  analytics absolute left-[34%] top-[57%] select-none"
+          className="text-white font-[800] text-[5vw] z-[10] tracking-wide left-[30%]  select-none"
         >
-          and AI into your Advantage
+          and <span className="text-white">AI</span> into your
+          <span className="instrumentserif-italic capitalize text-white">
+            {" "}
+            Advantage
+          </span>
         </h1>
-        <p
-          ref={paragraphRef1}
-          className="michroma text-white absolute text-[2vw] top-[49%] left-[35%] z-10"
-        >
-          Welcome!
-        </p>
-        <p
-          ref={paragraphRef2}
-          className="michroma text-white absolute text-[1vw] top-[59%] left-[65%] z-10 w-[24vw]"
-        >
-          Our mission is to empower businesses with intelligent, scalable, and
-          transformative analytics.
-        </p>
-      </section>
-      
-      
-    
+      </div>
+
+      <p
+        ref={paragraphRef1}
+        className="text-white absolute text-[1.5vw] top-[49%] left-[10%] z-10"
+      >
+        Welcome to Blink Analytics
+      </p>
+      <p
+        ref={paragraphRef2}
+        className="text-white absolute text-[1vw] top-[62%] right-[5%] z-10 w-[24vw] text-right"
+      >
+        Our mission is to empower businesses with intelligent, scalable, and
+        transformative analytics.
+      </p>
+    </section>
   );
 }
 
@@ -171,7 +198,7 @@ function ServicesSection() {
         y: 0,
         opacity: 1,
         duration: 0.8,
-        stagger: 0.2, // Delay between each animation
+        stagger: 0.3,
         ease: "smooth",
         scrollTrigger: {
           trigger: serviceRef.current,
@@ -183,34 +210,69 @@ function ServicesSection() {
       }
     );
   }, []);
-  
 
-  function ServiceCard({name}) {
+  function ServiceCard({ name }: { name: string }) {
     return (
-      <section
-        className="h-[35vh] w-[25vw] bg-[#3d52a0] rounded-xl flex flex-col relative cursor-pointer"
-      >
-        <div className="grow"></div>
-        <div className="p-3 bebas text-large text-white font-medium">{name}</div>
+      <section className="h-[30vh] w-[80vw] sm:h-[25vh] sm:w-[70vw] md:h-[20vh] md:w-[50vw] lg:h-[20vh] lg:w-[45vw] xl:h-[20vh] xl:w-[40vw] bg-[#3d52a0] rounded-xl flex flex-col relative cursor-pointer overflow-hidden group">
+        <div className="absolute left-0 w-full">
+          <img
+            src="https://placehold.co/600x400"
+            className="object-contain min-w-full group-hover:scale-125 transition-transform duration-400"
+          />
+        </div>
+
+        <div className="grow" />
+
+        <div className="p-3 text-white z-[1]">
+          <div className="text-xl font-medium">{name}</div>
+
+          <div className="text-normal instrumentserif-italic text-foreground-300">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat,
+            ratione laboriosam. Sequi obcaecati reiciendis porro ad assumenda
+            iste adipisci possimus?
+          </div>
+        </div>
+
+        <div className="bg-gradient-to-t absolute top-0 h-full from-[#00000070] left-0 w-full to-transparent  rounded-xl" />
       </section>
     );
   }
 
   return (
-    <section ref={serviceRef} className="bg-[#EDE8F5] w-full h-screen z-[1] sticky top-0 rounded-t-3xl flex flex-col p-10 gap-5 items-center bg-grid-black/[0.1]">
-      <div className="font-[800] bebasneue tracking-[2px] text-4xl uppercase text-center text-[#112241] cursor-pointer">
-        Our Services
+    <section
+      ref={serviceRef}
+      className="bg-[#EDE8F5] w-full h-screen z-[1] sticky top-0 rounded-t-3xl flex justify-start flex-col p-10 gap-14 items-center bg-grid-black/[0.1]"
+    >
+      <div className="space-y-4">
+        <div className="font-bold tracking-[2px] text-4xl text-center text-[#112241] cursor-pointer">
+          What can we offer?
+        </div>
+
+        <div
+          ref={cardsDivRef}
+          className="flex p-2 flex-wrap gap-5 justify-center h-fit"
+        >
+          <ServiceCard name={"RLHF and SFT"} />
+          <ServiceCard name={"RAG implementation"} />
+          <ServiceCard name={"Generative AI services"} />
+          <ServiceCard name={"Chatbot making"} />
+          <ServiceCard name={"AI agents implementation"} />
+          <ServiceCard name={"Enterprise based secure models"} />
+        </div>
       </div>
 
-      <div ref={cardsDivRef} className="flex grow p-2 flex-wrap gap-5 justify-center cards-div">
-      <ServiceCard name={"RLHF and SFT"}/>
-        <ServiceCard name={"RAG implementation"} />
-        <ServiceCard name={"Generative AI services"} />
-        <ServiceCard name={"Chatbot making"}/>
-        <ServiceCard name={"AI agents implementation"}  />
-        <ServiceCard name={"Enterprise based secure models"}  />
-      </div>
-
+      <Button
+        radius="full"
+        variant="faded"
+        size="lg"
+        endContent={
+          <div className="rounded-full bg-[#7091E6] min-h-[40px] min-w-[40px] flex justify-center items-center ">
+            <ArrowRight color="white" />
+          </div>
+        }
+      >
+        Hire us now
+      </Button>
     </section>
   );
 }
@@ -224,10 +286,7 @@ function ContactSection() {
 export function FirstSection() {
   return (
     <section className="bg-[#EDE8F5] h-screen z-[1] sticky top-0 flex flex-col p-10 items-center rounded-t-3xl  bg-grid-black/[0.1] ">
-      
       <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-[#EDE8F5] [mask-image:radial-gradient(ellipse_at_center,transparent_50%,black)] rounded-t-3xl"></div>
-
-      
     </section>
   );
 }
@@ -259,10 +318,10 @@ function LastSection() {
   );
 }
 
-export default function Home() {
+export default function Home({ preloaderFinished }) {
   return (
     <div className="flex flex-col">
-      <HeroSection />
+      <HeroSection preloaderFinished={preloaderFinished} />
       {/* <FirstSection /> */}
       <ServicesSection />
       <ContactSection />
