@@ -1,5 +1,6 @@
 import { MenuIcon, X } from "lucide-react";
 import { useRef } from "react";
+import { FaLinkedin, FaInstagram } from "react-icons/fa";
 import gsap from "gsap";
 
 export default function NavbarComponent() {
@@ -38,25 +39,38 @@ export default function NavbarComponent() {
       {/* Navbar Slide-in Panel */}
       <div
         ref={navbarRef}
-        className="fixed top-0 right-0 h-screen w-[55%] rounded-tl-[20px] rounded-bl-[20px] bg-[#222222] bg-opacity-90 shadow-lg flex flex-col items-start px-6 py-8 transform translate-x-full backdrop-blur-lg"
+        className="fixed top-0 right-0 h-screen w-[55%] rounded-tl-[20px] rounded-bl-[20px] bg-[#E3EDFD] bg-opacity-90 shadow-lg flex flex-col items-start px-6 py-8 transform translate-x-full backdrop-blur-lg"
       >
         {/* Close Button */}
         <div
-          className="self-end bg-white p-2 rounded-full bg-opacity-20 backdrop-blur-lg outline outline-white outline-[1px] w-[40px] h-[40px] flex items-center justify-center cursor-pointer"
+          className="self-end bg-[#ff0000] p-2 rounded-full bg-opacity-70 backdrop-blur-lg outline outline-black outline-[2px] w-[40px] h-[40px] flex items-center justify-center cursor-pointer"
           onClick={closeNavbar}
         >
           <X width={20} color="white" />
         </div>
-
         {/* Navbar Content */}
-        <nav className="mt-8 w-full text-white text-xl">
-          <ul className="flex flex-col gap-6">
-            <li className="cursor-pointer hover:underline">Home</li>
-            <li className="cursor-pointer hover:underline">About Us</li>
-            <li className="cursor-pointer hover:underline">Services</li>
-            <li className="cursor-pointer hover:underline">Contact</li>
+        <nav className="mt-8 w-full text-black text-xl">
+          <ul className="flex flex-col gap-6 pl-10">
+            <li className="cursor-pointer hover:tracking-[3px] hover:text-[4.5vw] hover:line-through decoration-4 decoration-red-500 bebasneue text-[4vw] tracking-wide">Home</li>
+            <li className="cursor-pointer hover:tracking-[3px] hover:text-[4.5vw] hover:line-through decoration-4 decoration-red-500 bebasneue text-[4vw] tracking-wide">About Us</li>
+            <li className="cursor-pointer hover:tracking-[3px] hover:text-[4.5vw] hover:line-through decoration-4 decoration-red-500 bebasneue text-[4vw] tracking-wide">Services</li>
+            <li className="cursor-pointer hover:tracking-[3px] hover:text-[4.5vw] hover:line-through decoration-4 decoration-red-500 bebasneue text-[4vw] tracking-wide">Contact Us</li>
           </ul>
         </nav>
+        <div className="bottom mt-auto pl-10 pr-10 flex justify-between align-center w-full">
+          <div className="left">
+            <h3 className=" bebasneue text-[3vw] tracking-wide text-black">Blink Analytics</h3>
+          </div>
+          <div className="right flex gap-5 items-center">
+            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+              <FaLinkedin size={35} className="text-black hover:text-red-500" />
+            </a>
+            {/* Instagram Icon */}
+            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+              <FaInstagram size={35} className="text-black hover:text-red-500" />
+            </a>
+          </div>
+        </div>
       </div>
     </header>
   );

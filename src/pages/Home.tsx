@@ -29,8 +29,8 @@ function HeroSection() {
     directionalLeftLight: "#ffffff",
     directionalTopLight: "#ffffff",
     pointLight: "#ffffff",
-    arcTime: 1000,
-    arcLength: 0.9,
+    arcTime: 800,
+    arcLength: 0.8,
     rings: 1,
     maxRings: 3,
     initialPosition: { lat: 22.3193, lng: 114.1694 },
@@ -111,7 +111,7 @@ function HeroSection() {
       <h1 ref={ref2} className="bebasneue text-white font-[800] uppercase text-[5vw]  tracking-wide  z-[10] analytics absolute left-[35%] top-[45%] select-none"><span className="bebasneue text-blue-500 font-[800] uppercase">Models</span> into Impact,</h1>
       <h1 ref={ref3} className="bebasneue text-white font-[800] uppercase text-[5vw]  z-[10] tracking-wide  analytics absolute left-[25%] top-[55%] select-none">and <span className="bebasneue text-yellow-400 font-[800] uppercase">AI</span> into Your Advantage</h1>
       <p ref={paragraphRef1} className="bebasneue text-white absolute text-[2vw] top-[50%] left-[35%] z-10">Welcome!</p>
-      <p ref={paragraphRef2} className="bebasneue text-white absolute text-[1vw] top-[58%] left-[65%] z-10 w-[15vw]">Our mission is to empower businesses with intelligent, scalable, and transformative analytics.</p>
+      <p ref={paragraphRef2} className="bebasneue text-white absolute text-[1vw] top-[60%] left-[65%] z-10 w-[18vw]">Our mission is to empower businesses with intelligent, scalable, and transformative analytics.</p>
     </section>
     </>
   );
