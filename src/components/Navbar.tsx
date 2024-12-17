@@ -1,112 +1,68 @@
 import { MenuIcon, X } from "lucide-react";
-import { useEffect, useRef } from "react";
-import { FaLinkedin, FaInstagram } from "react-icons/fa";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useEffect, useState } from "react";
 
 export default function NavbarComponent() {
-  const navbarRef = useRef(null);
+  const [isMenuVisible, setisMenuVisible] = useState(false);
+  const [isTextVisible, setisTextVisible] = useState(false);
+
+  const navItems = ["Home", "About Us", "Services", "Contact Us"];
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-  
-    gsap.to('.nav-text', {
-      color: "black",
-      scrollTrigger: {
-        trigger: '.hero-section', // Make sure it's class or ID matching the hero-section
-        scroller: "body",
-        start: "bottom top", // When bottom of hero-section hits top of viewport
-        scrub: 0.3,
-      }
-    });
-  
-    gsap.to('.menu-button', {
-      color: "black",
-      scrollTrigger: {
-        trigger: '.hero-section',
-        scroller: "body",
-        start: "bottom top",
-        scrub: 0.3,
-      }
-    });
-  
-    gsap.to('.menu-button-container', {
-      borderColor: "black", // Animate border color to black
-      scrollTrigger: {
-        trigger: '.hero-section',
-        scroller: "body",
-        start: "bottom top",
-        scrub: 0.3,
-      }
-    });
-  }, []);
-  
+    // Trigger text animation when the menu is visible
+    if (isMenuVisible) {
+      setTimeout(() => setisTextVisible(true), 200); // Delay to ensure menu visibility
+    } else {
+      setisTextVisible(false);
+    }
+  }, [isMenuVisible]);
 
-  const openNavbar = () => {
-    gsap.to(navbarRef.current, {
-      x: 0, // Slide to its original position
-      duration: 1,
-      ease: "power3.out",
-    });
-  };
-
-  const closeNavbar = () => {
-    gsap.to(navbarRef.current, {
-      x: "100%", // Slide out of view to the right
-      duration: 1,
-      ease: "power3.in",
-    });
+  const getTextStyle = (index) => {
+    return {
+      transform: isTextVisible ? "translateY(0)" : "translateY(150%)",
+      // opacity: isTextVisible ? 1 : 0,
+      transitionDelay: "50ms",
+      transitionDuration: `${(index + 1) * 250}ms`,
+    };
   };
 
   return (
-    <header className="flex w-screen left-0 py-6 px-8 fixed top-0 z-50 items-center ">
-      <div className="font-[800] tracking-wide text-2xl uppercase text-white nav-text">
+    <header className="flex w-screen left-0 py-6 px-8 fixed top-0 z-[50] items-center">
+      <div className="font-[800] text-2xl uppercase text-white nav-text">
         Blink Analytics
       </div>
 
-      {/* Menu Button */}
       <div
-        className="ml-auto bg-white p-2 rounded-full bg-opacity-20 backdrop-blur-lg  border-white border-[2px] w-[50px] h-[50px] flex items-center justify-center cursor-pointer menu-button-container"
-        onClick={openNavbar}
+        className="ml-auto bg-white p-2 rounded-full bg-opacity-20 backdrop-blur-lg border-white border-[2px] w-[50px] h-[50px] flex items-center justify-center cursor-pointer menu-button-container"
+        onClick={() => setisMenuVisible(true)}
       >
         <MenuIcon width={18} className="text-white menu-button" />
       </div>
 
-      {/* Navbar Slide-in Panel */}
       <div
-        ref={navbarRef}
-        className="fixed top-0 right-0 h-screen w-[55%] rounded-tl-[20px] rounded-bl-[20px] bg-[#E3EDFD] bg-opacity-80 shadow-lg flex flex-col items-start px-6 py-8 transform translate-x-full backdrop-blur-lg"
+        className={`fixed z-[10] top-0 ${
+          isMenuVisible ? "right-0" : "right-[-100%]"
+        } transition-all duration-400 h-screen w-[28vw] rounded-tl-[20px] rounded-bl-[20px] bg-[#E3EDFD] bg-opacity-60 shadow-lg flex flex-col items-start px-6 py-8 backdrop-blur-lg`}
       >
-        {/* Close Button */}
         <div
-          className="self-end bg-[#ff0000] p-2 rounded-full bg-opacity-70 backdrop-blur-lg outline outline-black outline-[2px] w-[40px] h-[40px] flex items-center justify-center cursor-pointer"
-          onClick={closeNavbar}
+          className="ml-auto bg-black p-2 rounded-full bg-opacity-20 backdrop-blur-lg border-white border-[2px] w-[50px] h-[50px] flex items-center justify-center cursor-pointer menu-button-container"
+          onClick={() => setisMenuVisible(false)}
         >
           <X width={20} color="white" />
         </div>
-        {/* Navbar Content */}
-        <nav className="mt-8 w-full text-black text-xl">
-          <ul className="flex flex-col gap-6 pl-10">
-            <li className="cursor-pointer hover:tracking-[3px] hover:text-[4.5vw] hover:line-through decoration-4 decoration-red-500 bebasneue text-[4vw] tracking-wide">Home</li>
-            <li className="cursor-pointer hover:tracking-[3px] hover:text-[4.5vw] hover:line-through decoration-4 decoration-red-500 bebasneue text-[4vw] tracking-wide">About Us</li>
-            <li className="cursor-pointer hover:tracking-[3px] hover:text-[4.5vw] hover:line-through decoration-4 decoration-red-500 bebasneue text-[4vw] tracking-wide">Services</li>
-            <li className="cursor-pointer hover:tracking-[3px] hover:text-[4.5vw] hover:line-through decoration-4 decoration-red-500 bebasneue text-[4vw] tracking-wide">Contact Us</li>
-          </ul>
+
+        <nav className="mt-8 w-full text-black text-xl flex flex-col gap-[10px] pl-10 h-full">
+          {navItems.map((item, index) => (
+            <div className="overflow-hidden py-[20px]">
+              <div
+                key={index}
+                className="cursor-pointer font-medium uppercase text-[5vw] nav-text-item transition-all bebasneue"
+                style={getTextStyle(index)}
+              >
+                {item}
+              </div>
+            </div>
+          ))}
         </nav>
-        <div className="bottom mt-auto pl-10 pr-10 flex justify-between align-center w-full">
-          <div className="left">
-            <h3 className=" bebasneue text-[3vw] tracking-wide text-black">Blink Analytics</h3>
-          </div>
-          <div className="right flex gap-5 items-center">
-            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
-              <FaLinkedin size={35} className="text-black hover:text-red-500" />
-            </a>
-            {/* Instagram Icon */}
-            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-              <FaInstagram size={35} className="text-black hover:text-red-500" />
-            </a>
-          </div>
-        </div>
       </div>
     </header>
   );
