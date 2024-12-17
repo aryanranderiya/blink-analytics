@@ -52,12 +52,12 @@ export default function Preloader() {
   return (
     <div
       className={`fixed h-screen w-screen z-50 bg-white duration-700 ease-out transition-all ${
-        final ? "top-[-100vh]" : "top-0"
+        final ? "top-[-150vh]" : "top-0"
       }`}
     >
       <div
         className={`h-screen fixed left-0 w-screen z-50 bg-gradient-to-b from-[#3D52A0] to-[#7091E6] ${
-          final ? "-top-[100vh]" : initial ? "top-0" : "top-[100vh]"
+          final ? "-top-[150vh]" : initial ? "top-0" : "top-[100vh]"
         } transition-all duration-200 flex justify-center items-center`}
       >
         <div

@@ -101,12 +101,12 @@ function HeroSection() {
 
   return (
     <>
-    <section ref={heroRef} className="w-full h-screen bg-black sticky top-0 z-[1] relative hero-section">
-      <World globeConfig={globeConfig} data={positionData}></World>
-      {/* <BrainModel></BrainModel> */}
-      <div className="absolute inset-0 bg-black/50 z-[5] pointer-events-none">
+    <section ref={heroRef} className="w-full h-screen bg-black sticky top-0 z-[1] relative hero-section overflow-hidden">
+      <div className="Globe w-[150vw] absolute top-[35%] h-[150vh] transform -translate-x-[16%] overflow-hidden"><World globeConfig={globeConfig} data={positionData}></World></div>
+      
+      {/* <div className="absolute inset-0 bg-black/50 z-[5] pointer-events-none">
         <div className="absolute inset-0 top-[63%] bg-gradient-to-r from-transparent to-black/50 backdrop-blur-lg"></div>
-      </div>
+      </div> */}
       <h1 ref={ref1} className="bebasneue text-white font-[800] uppercase text-[5vw] tracking-wide z-[10] blink absolute left-[15%] top-[35%] select-none">Transforming Data into <span className="bebasneue text-green-500 font-[800] uppercase">Intelligence</span> </h1>
       <h1 ref={ref2} className="bebasneue text-white font-[800] uppercase text-[5vw]  tracking-wide  z-[10] analytics absolute left-[35%] top-[45%] select-none"><span className="bebasneue text-blue-500 font-[800] uppercase">Models</span> into Impact,</h1>
       <h1 ref={ref3} className="bebasneue text-white font-[800] uppercase text-[5vw]  z-[10] tracking-wide  analytics absolute left-[25%] top-[55%] select-none">and <span className="bebasneue text-yellow-400 font-[800] uppercase">AI</span> into Your Advantage</h1>
