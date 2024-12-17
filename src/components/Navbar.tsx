@@ -1,10 +1,46 @@
 import { MenuIcon, X } from "lucide-react";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { FaLinkedin, FaInstagram } from "react-icons/fa";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function NavbarComponent() {
   const navbarRef = useRef(null);
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+  
+    gsap.to('.nav-text', {
+      color: "black",
+      scrollTrigger: {
+        trigger: '.hero-section', // Make sure it's class or ID matching the hero-section
+        scroller: "body",
+        start: "bottom top", // When bottom of hero-section hits top of viewport
+        scrub: 0.3,
+      }
+    });
+  
+    gsap.to('.menu-button', {
+      color: "black",
+      scrollTrigger: {
+        trigger: '.hero-section',
+        scroller: "body",
+        start: "bottom top",
+        scrub: 0.3,
+      }
+    });
+  
+    gsap.to('.menu-button-container', {
+      borderColor: "black", // Animate border color to black
+      scrollTrigger: {
+        trigger: '.hero-section',
+        scroller: "body",
+        start: "bottom top",
+        scrub: 0.3,
+      }
+    });
+  }, []);
+  
 
   const openNavbar = () => {
     gsap.to(navbarRef.current, {
@@ -24,22 +60,22 @@ export default function NavbarComponent() {
 
   return (
     <header className="flex w-screen left-0 py-6 px-8 fixed top-0 z-50 items-center ">
-      <div className="font-[800] tracking-wide text-2xl uppercase text-white">
+      <div className="font-[800] tracking-wide text-2xl uppercase text-white nav-text">
         Blink Analytics
       </div>
 
       {/* Menu Button */}
       <div
-        className="ml-auto bg-white p-2 rounded-full bg-opacity-20 backdrop-blur-lg outline outline-white outline-[1px] w-[50px] h-[50px] flex items-center justify-center cursor-pointer"
+        className="ml-auto bg-white p-2 rounded-full bg-opacity-20 backdrop-blur-lg  border-white border-[2px] w-[50px] h-[50px] flex items-center justify-center cursor-pointer menu-button-container"
         onClick={openNavbar}
       >
-        <MenuIcon width={18} fill="white" color="white" />
+        <MenuIcon width={18} className="text-white menu-button" />
       </div>
 
       {/* Navbar Slide-in Panel */}
       <div
         ref={navbarRef}
-        className="fixed top-0 right-0 h-screen w-[55%] rounded-tl-[20px] rounded-bl-[20px] bg-[#E3EDFD] bg-opacity-90 shadow-lg flex flex-col items-start px-6 py-8 transform translate-x-full backdrop-blur-lg"
+        className="fixed top-0 right-0 h-screen w-[55%] rounded-tl-[20px] rounded-bl-[20px] bg-[#E3EDFD] bg-opacity-80 shadow-lg flex flex-col items-start px-6 py-8 transform translate-x-full backdrop-blur-lg"
       >
         {/* Close Button */}
         <div
