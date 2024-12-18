@@ -52,11 +52,13 @@ export default function NavbarComponent() {
         </Link>
 
         <div
-          className="ml-auto bg-white p-2 rounded-full bg-opacity-20 backdrop-blur-lg border-white border-[2px] w-[50px] h-[50px] flex items-center justify-center cursor-pointer menu-button-container"
+          className={`ml-auto bg-white p-2 rounded-full bg-opacity-20 backdrop-blur-lg ${
+            isMenuVisible ? 'border-black' : 'border-white'
+          } border-[2px] w-[50px] h-[50px] flex items-center justify-center cursor-pointer menu-button-container`}
           onClick={() => setisMenuVisible((old) => !old)}
         >
           {isMenuVisible ? (
-            <X width={20} color="white" />
+            <X width={20} color="#112241" />
           ) : (
             <MenuIcon width={18} color="white" />
           )}
@@ -66,7 +68,7 @@ export default function NavbarComponent() {
       <div
         className={`fixed z-[10] top-0 ${
           isMenuVisible ? "right-0" : "right-[-100%]"
-        } transition-all duration-400 h-screen w-[28vw] rounded-tl-[20px] rounded-bl-[20px] bg-[#E3EDFD] bg-opacity-60 shadow-lg flex flex-col items-start py-6 px-8 backdrop-blur-lg`}
+        } transition-all duration-400 h-screen w-[40vw] rounded-tl-[20px] rounded-bl-[20px] bg-[#ede8f5] shadow-lg flex flex-col items-start py-6 px-8 backdrop-blur-lg`}
       >
         {/* <div
           className="ml-auto bg-black p-2 rounded-full relative top-[2px] bg-opacity-20 backdrop-blur-lg border-white border-[2px] w-[50px] h-[50px] flex items-center justify-center cursor-pointer menu-button-container"
@@ -74,7 +76,7 @@ export default function NavbarComponent() {
         >
           <X width={20} color="white" />
         </div> */}
-        <nav className="mt-[100px] w-full text-black text-xl flex flex-col gap-[20px] pl-10 h-full">
+        <nav className="mt-[100px] w-full text-black text-xl flex flex-col gap-[20px] pl-5 h-full">
           {navItems.map((item, index) => (
             <div key={index} className="overflow-hidden">
               <div
