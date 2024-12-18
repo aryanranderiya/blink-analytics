@@ -2,12 +2,9 @@ import { Button, Chip, Input, Textarea } from "@nextui-org/react";
 
 export default function Contact() {
   return (
-    <div className="h-screen bg-[#7091e6] z-[1] sticky flex flex-col justify-center">
-      {/* <div className="bebasneue text-white text-9xl">
-        BUILDING THE NEXT BEST THING?
-      </div> */}
-
-      <div className="p-10 pt-[180px]">
+    <div className="min-h-screen bg-[#7091e6] z-[1] flex flex-col">
+      {/* Header Section */}
+      <div className="p-10 pt-20">
         <h1 className="font-bold text-9xl text-white">Let's Talk!</h1>
         <h2 className="font-medium text-4xl text-white">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque,
@@ -25,13 +22,14 @@ export default function Contact() {
         </div>
       </div>
 
-      <div className="bg-[#3d52a0]  grow rounded-3xl p-10">
+      {/* Form Section */}
+      <div className="bg-[#3d52a0] flex-grow rounded-3xl p-10">
         <div className="w-full flex gap-3 flex-col mt-5">
           <div className="flex items-center gap-3 w-full">
             <Input label="Enter Name" size="lg" />
             <Input label="Enter Email" size="lg" />
           </div>
-          <Textarea size="lg" label="Enter Message" minRows={100} />
+          <Textarea size="lg" label="Enter Message" minRows={4} />
 
           <Button size="lg" radius="full">
             Submit

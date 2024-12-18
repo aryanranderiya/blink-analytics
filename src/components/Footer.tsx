@@ -1,16 +1,16 @@
 export default function Footer() {
   return (
-    <footer className="h-[18vh] sticky bottom-0 flex justify-end flex-col z-[0]">
+    <footer className="h-[30vh] flex justify-end flex-col z-[0]">
       <div className="justify-between flex w-full px-3">
         <div>+91 1234567890</div>
         <div>blinkanalytics@gmail.com</div>
         <div>
           Designed & Developed by{" "}
-          <a href="https://aryanranderiya.com" className="underline">
+          <a href="https://aryanranderiya.com" target="_blank" className="underline">
             Aryan
           </a>{" "}
           &{" "}
-          <a href="https://meetdholakia.com" className="underline">
+          <a href="https://linkedin.com/in/meetdholakia2074" target="_blank" className="underline">
             Meet
           </a>
         </div>

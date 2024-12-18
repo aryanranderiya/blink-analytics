@@ -1,5 +1,6 @@
 import { GlobeConfig, World } from "@/components/ui/globe";
 import { positionData } from "@/data/positionData";
+import Marquee from "react-fast-marquee";
 import { Button } from "@nextui-org/react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -44,13 +45,14 @@ function HeroSection() {
       { y: 0, delay: 2, opacity: 100 }
     );
 
-    // gsap.to(".arrow-down", {
-    //   y: 30,
-    //   repeat: -1,
-    //   delay: 10,
-    //   duration: 1,
-    //   ease: "smooth",
-    // });
+    gsap.to('.mouse', {
+      color: "#7091e6",
+      duration: 0.5,
+      repeat: -1,
+      yoyo: true,
+      ease: "smooth"
+    })
+  
     gsap.to(ref1.current, {
       x: "-50vw",
       color: "#7091e6",
@@ -117,6 +119,8 @@ function HeroSection() {
     );
   }, []);
 
+  
+
   return (
     <section
       ref={heroRef}
@@ -126,8 +130,8 @@ function HeroSection() {
         <World globeConfig={globeConfig} data={positionData} />
       </div>
 
-      <div className="absolute bottom-[50px] flex w-full justify-center">
-        <Mouse color="white" size="50px" className="" />
+      <div className="absolute bottom-[30px] flex w-full justify-center">
+        <Mouse  size="50px" className="mouse text-white" />
       </div>
       <div className="flex h-screen items-center flex-col justify-center">
         <h1
@@ -163,13 +167,13 @@ function HeroSection() {
 
       <p
         ref={paragraphRef1}
-        className="text-white absolute text-[1.5vw] top-[49%] left-[10%] z-10"
+        className="text-white absolute text-[1.5vw] top-[48%] left-[10%] z-10"
       >
-        Welcome to Blink Analytics
+        Welcome to Blink Analytics!
       </p>
       <p
         ref={paragraphRef2}
-        className="text-white absolute text-[1vw] top-[62%] right-[5%] z-10 w-[24vw] text-right"
+        className="text-white absolute text-[1vw] top-[64%] right-[5%] z-10 w-[24vw] text-right"
       >
         Our mission is to empower businesses with intelligent, scalable, and
         transformative analytics.
@@ -181,8 +185,21 @@ function HeroSection() {
 function ServicesSection() {
   const serviceRef = useRef(null);
   const cardsDivRef = useRef(null);
+  const firstRef = useRef(null);
 
   useEffect(() => {
+    gsap.fromTo('.services-title', {y: 100, opacity: 0}, {
+      y: 0,
+      opacity: 1,
+      duration: 0.8,
+      scrollTrigger: {
+        trigger: serviceRef.current,
+        scroller: "body",
+        start: "top 70%",
+        end: "top 20%",
+        scrub: 0.5,
+      },
+    })
     gsap.fromTo(
       ".cards-div section",
       { y: 100, opacity: 0 },
@@ -201,56 +218,133 @@ function ServicesSection() {
         },
       }
     );
+    gsap.fromTo('.marquee-container', {y: 100, opacity: 0}, {
+      y: 0,
+      opacity: 1,
+      duration: 1,
+      ease: "smooth",
+      scrollTrigger: {
+        trigger: firstRef.current,
+        scroller: "body",
+        start: "top 20%",
+        end: "top 0%",
+        scrub: 0.5,
+      },
+    })
+    gsap.fromTo('.first-info', {y: 100, opacity: 0}, {
+      y: 0,
+      opacity: 1,
+      duration: 0.5,
+      ease: "smooth",
+      scrollTrigger: {
+        trigger: firstRef.current,
+        scroller: "body",
+        start: "top 40%",
+        end: "top 20%",
+        scrub: 0.5,
+      },
+    })
+    gsap.fromTo('.first-heading', {y: 100, opacity: 0}, {
+      y: 0,
+      opacity: 1,
+      duration: 0.5,
+      ease: "smooth",
+      scrollTrigger: {
+        trigger: firstRef.current,
+        scroller: "body",
+        start: "top 60%",
+        end: "top 20%",
+        scrub: 0.5,
+      },
+    })
+    
   }, []);
+  
 
-  function ServiceCard({ name }: { name: string }) {
-    return (
-      <section className="h-[30vh] w-[80vw] sm:h-[25vh] sm:w-[70vw] md:h-[20vh] md:w-[50vw] lg:h-[20vh] lg:w-[45vw] xl:h-[20vh] xl:w-[40vw] bg-[#3d52a0] rounded-xl flex flex-col relative cursor-pointer overflow-hidden group">
-        <div className="absolute left-0 w-full">
-          <img
-            src="https://placehold.co/600x400"
-            className="object-contain min-w-full group-hover:scale-125 transition-transform duration-400"
-          />
-        </div>
-
-        <div className="grow" />
-
-        <div className="p-3 text-white z-[1]">
-          <div className="text-xl font-medium">{name}</div>
-
-          <div className="text-normal instrumentserif-italic text-foreground-300">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat,
-            ratione laboriosam. Sequi obcaecati reiciendis porro ad assumenda
-            iste adipisci possimus?
-          </div>
-        </div>
-
-        <div className="bg-gradient-to-t absolute top-0 h-full from-[#00000070] left-0 w-full to-transparent  rounded-xl" />
-      </section>
-    );
-  }
 
   return (
-    <section
-      ref={serviceRef}
-      className="bg-[#EDE8F5] w-full h-screen z-[1] sticky top-0 rounded-t-3xl flex justify-start flex-col p-10 gap-14 items-center bg-grid-black/[0.1]"
-    >
-      <div className="space-y-4">
-        <div className="font-bold tracking-[2px] text-4xl text-center text-[#112241] cursor-pointer">
-          What can we offer?
-        </div>
-
-        <div
-          ref={cardsDivRef}
-          className="flex p-2 flex-wrap gap-5 justify-center h-fit"
+    <>
+    <section ref={firstRef} className="bg-[#EDE8F5] pt-10 h-screen z-[1] flex flex-col items-center justify-between rounded-t-3xl  bg-grid-black/[0.1] ">
+      <div className="first-section-text pl-10 pr-10 flex flex-col items-center justify-center w-full gap-10">
+        <h1
+          className="text-[#112241] font-[800] text-[3vw] text-center select-none first-heading"
         >
-          <ServiceCard name={"RLHF and SFT"} />
-          <ServiceCard name={"RAG implementation"} />
-          <ServiceCard name={"Generative AI services"} />
-          <ServiceCard name={"Chatbot making"} />
-          <ServiceCard name={"AI agents implementation"} />
-          <ServiceCard name={"Enterprise based secure models"} />
+          What we do <br/> at
+          <span className="instrumentserif-italic capitalize text-[#112241] ">
+            {" "}
+            Blink Analytics
+          </span>
+        </h1>
+        <div className="first-info flex items-center justify-between w-full">
+          <p className="text-[#3d52a0] max-w-[800px] text-[2vw]">
+            At <span className="instrumentserif-italic">Blink Analytics</span>, we empower businesses with innovative and secure AI solutions. 
+            Our mission is to make AI accessible and impactful, helping organizations thrive in a 
+            fast-changing digital world. We work closely with clients to turn their vision into reality, 
+            creating smarter systems and driving business growth. Join us in shaping a future fueled 
+            by the power of AI.
+          </p>
+          <div className="video">Some kind of Video or Image</div>
         </div>
+      </div>
+      <div className="marquee-container">
+        <Marquee className='marquee mb-10 border-t-[#112241] border-t-4 border-b-[#112241] border-b-4 bg-[#7091e6] bg-opacity-[60%] cursor-pointer'  speed={200} pauseOnHover>
+          <h1 className='text-[3vw]'>
+            <span className="text-[#112241] michroma font-[700]">&nbsp;Tailored AI Services </span>
+            <span  className="text-[#EDE8F5]">✦ </span>
+            <span className="text-[#112241] michroma font-[700]">Enterprise Grade AI models </span>
+            <span  className="text-[#EDE8F5]">✦ </span>
+            <span className="text-[#112241] michroma font-[700]">Secure AI Models </span>
+            <span  className="text-[#EDE8F5]">✦ </span>
+            <span className="text-[#112241] michroma font-[700]">Future Ready AI </span>
+            <span  className="text-[#EDE8F5]">✦ </span>
+            <span className="text-[#112241] michroma font-[700]">Contact Us! </span>
+            <span  className="text-[#EDE8F5]">✦ </span>
+          </h1>
+        </Marquee>
+      </div>
+    </section>
+    <section ref={serviceRef} className="bg-[#EDE8F5] w-full h-screen z-[1] sticky top-0 flex flex-col p-10 gap-5 items-center bg-grid-black/[0.1]">
+      <div className="services-title font-[800] bebasneue tracking-[2px] text-4xl uppercase text-center text-[#112241] cursor-pointer">
+        Our Services
+      </div>
+
+      <div ref={cardsDivRef} className="flex grow p-2 flex-wrap gap-5 justify-center cards-div">
+        <section
+          className="h-[35vh] w-[25vw] bg-[#3d52a0] rounded-xl flex flex-col relative cursor-pointer p-5"
+        >
+          <div className="grow"></div>
+          <div className="pt-3 bebas text-large text-white font-medium">RLHF and SFT</div>
+        </section>
+        <section
+          className="h-[35vh] w-[25vw] bg-[#3d52a0] rounded-xl flex flex-col relative cursor-pointer p-5"
+        >
+          <div className="grow"></div>
+          <div className="pt-3 bebas text-large text-white font-medium">RAG implementation</div>
+        </section>
+        <section
+          className="h-[35vh] w-[25vw] bg-[#3d52a0] rounded-xl flex flex-col relative cursor-pointer p-5"
+        >
+          <div className="grow "></div>
+          <div className="pt-3 bebas text-large text-white font-medium">Generative AI services</div>
+        </section>
+        <section
+          className="h-[35vh] w-[25vw] bg-[#3d52a0] rounded-xl flex flex-col relative cursor-pointer p-5"
+        >
+          <div className="grow"></div>
+          <div className="pt-3 bebas text-large text-white font-medium">Chatbot making</div>
+        </section>
+        <section
+          className="h-[35vh] w-[25vw] bg-[#3d52a0] rounded-xl flex flex-col relative cursor-pointer p-5"
+        >
+          <div className="grow"></div>
+          <div className="pt-3 bebas text-large text-white font-medium">AI agents implementation</div>
+        </section>
+        <section
+          className="h-[35vh] w-[25vw] bg-[#3d52a0] rounded-xl flex flex-col relative cursor-pointer p-5"
+        >
+          <div className="grow "></div>
+          <div className="pt-3 bebas text-large text-white font-medium">Enterprise based secure models</div>
+        </section>
       </div>
 
       <Button
@@ -266,6 +360,7 @@ function ServicesSection() {
         Hire us now
       </Button>
     </section>
+    </>
   );
 }
 
@@ -275,13 +370,6 @@ function ContactSection() {
   );
 }
 
-export function FirstSection() {
-  return (
-    <section className="bg-[#EDE8F5] h-screen z-[1] sticky top-0 flex flex-col p-10 items-center rounded-t-3xl  bg-grid-black/[0.1] ">
-      <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-[#EDE8F5] [mask-image:radial-gradient(ellipse_at_center,transparent_50%,black)] rounded-t-3xl"></div>
-    </section>
-  );
-}
 
 function LastSection() {
   return (
@@ -313,7 +401,6 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       <HeroSection />
-      {/* <FirstSection /> */}
       <ServicesSection />
       <ContactSection />
       <LastSection />
