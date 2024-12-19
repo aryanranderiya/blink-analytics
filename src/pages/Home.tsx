@@ -6,6 +6,7 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { ArrowRight, Mouse } from "lucide-react";
 import { useEffect, useRef } from "react";
+import { Link } from "@nextui-org/react";
 
 function HeroSection() {
   const ref1 = useRef(null);
@@ -200,24 +201,7 @@ function ServicesSection() {
         scrub: 0.5,
       },
     })
-    gsap.fromTo(
-      ".cards-div section",
-      { y: 100, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 0.8,
-        stagger: 0.3,
-        ease: "smooth",
-        scrollTrigger: {
-          trigger: serviceRef.current,
-          scroller: "body",
-          start: "top 50%",
-          end: "top 20%",
-          scrub: 0.5,
-        },
-      }
-    );
+    
     gsap.fromTo('.marquee-container', {y: 100, opacity: 0}, {
       y: 0,
       opacity: 1,
@@ -257,7 +241,24 @@ function ServicesSection() {
         scrub: 0.5,
       },
     })
-    
+
+    const animation = gsap.to('.cards-div', {
+      xPercent: -130,
+      ease: "none",
+      scrollTrigger: {
+        trigger: '.services-div',
+        start: 'top top',
+        end: "top -100%",
+        pin: true,
+        scrub: 1,
+        
+      }
+    })
+    return () => {
+      // Cleanup GSAP instance
+      animation.kill();
+    };
+
   }, []);
   
 
@@ -303,62 +304,67 @@ function ServicesSection() {
         </Marquee>
       </div>
     </section>
-    <section ref={serviceRef} className="bg-[#EDE8F5] w-full h-screen z-[1] sticky top-0 flex flex-col p-10 gap-5 items-center bg-grid-black/[0.1]">
-      <div className="services-title font-[800] bebasneue tracking-[2px] text-4xl uppercase text-center text-[#112241] cursor-pointer">
-        Our Services
+    <section ref={serviceRef} className="bg-[#EDE8F5] w-full h-[200vh] overflow-hidden z-[1] bg-grid-black/[0.1] relative services-div">
+      <div className="services-title flex items-center justify-center w-full cursor-pointer absolute top-20 left-1/2 transform -translate-x-1/2 overflow-hidden">
+        <h1 className="font-[800] bebasneue tracking-[2px] text-4xl uppercase text-[#112241] text-center">Our Services</h1>
       </div>
-
-      <div ref={cardsDivRef} className="flex grow p-2 flex-wrap gap-5 justify-center cards-div">
-        <section
-          className="h-[35vh] w-[25vw] bg-[#3d52a0] rounded-xl flex flex-col relative cursor-pointer p-5"
-        >
-          <div className="grow"></div>
-          <div className="pt-3 bebas text-large text-white font-medium">RLHF and SFT</div>
-        </section>
-        <section
-          className="h-[35vh] w-[25vw] bg-[#3d52a0] rounded-xl flex flex-col relative cursor-pointer p-5"
-        >
-          <div className="grow"></div>
-          <div className="pt-3 bebas text-large text-white font-medium">RAG implementation</div>
-        </section>
-        <section
-          className="h-[35vh] w-[25vw] bg-[#3d52a0] rounded-xl flex flex-col relative cursor-pointer p-5"
-        >
-          <div className="grow "></div>
-          <div className="pt-3 bebas text-large text-white font-medium">Generative AI services</div>
-        </section>
-        <section
-          className="h-[35vh] w-[25vw] bg-[#3d52a0] rounded-xl flex flex-col relative cursor-pointer p-5"
-        >
-          <div className="grow"></div>
-          <div className="pt-3 bebas text-large text-white font-medium">Chatbot making</div>
-        </section>
-        <section
-          className="h-[35vh] w-[25vw] bg-[#3d52a0] rounded-xl flex flex-col relative cursor-pointer p-5"
-        >
-          <div className="grow"></div>
-          <div className="pt-3 bebas text-large text-white font-medium">AI agents implementation</div>
-        </section>
-        <section
-          className="h-[35vh] w-[25vw] bg-[#3d52a0] rounded-xl flex flex-col relative cursor-pointer p-5"
-        >
-          <div className="grow "></div>
-          <div className="pt-3 bebas text-large text-white font-medium">Enterprise based secure models</div>
-        </section>
+      <div ref={cardsDivRef} className="cards-div flex flex-col gap-10 p-10 items-start justify-center mt-[10%]">
+        
+        <div className="flex gap-10 cards-div-container overflow-hidden">
+          <section
+            className="h-[50vh] w-[35vw] bg-[#3d52a0] rounded-xl flex flex-col  cursor-pointer p-5"
+          >
+            <div className="grow"></div>
+            <div className="pt-3 bebas text-large text-white font-medium">RLHF and SFT</div>
+          </section>
+          <section
+            className="h-[50vh] w-[35vw] bg-[#3d52a0] rounded-xl flex flex-col relative cursor-pointer p-5"
+          >
+            <div className="grow"></div>
+            <div className="pt-3 bebas text-large text-white font-medium">RAG implementation</div>
+          </section>
+          <section
+            className="h-[50vh] w-[35vw] bg-[#3d52a0] rounded-xl flex flex-col relative cursor-pointer p-5"
+          >
+            <div className="grow "></div>
+            <div className="pt-3 bebas text-large text-white font-medium">Generative AI services</div>
+          </section>
+          <section
+            className="h-[50vh] w-[35vw] bg-[#3d52a0] rounded-xl flex flex-col relative cursor-pointer p-5"
+          >
+            <div className="grow"></div>
+            <div className="pt-3 bebas text-large text-white font-medium">Chatbot making</div>
+          </section>
+          <section
+            className="h-[50vh] w-[35vw] bg-[#3d52a0] rounded-xl flex flex-col relative cursor-pointer p-5"
+          >
+            <div className="grow"></div>
+            <div className="pt-3 bebas text-large text-white font-medium">AI agents implementation</div>
+          </section>
+          <section
+            className="h-[50vh] w-[35vw] bg-[#3d52a0] rounded-xl flex flex-col relative cursor-pointer p-5"
+          >
+            <div className="grow "></div>
+            <div className="pt-3 bebas text-large text-white font-medium">Enterprise based secure models</div>
+          </section>
+        </div>
       </div>
-
-      <Button
-        radius="full"
-        variant="faded"
-        size="lg"
-        endContent={
-          <div className="rounded-full bg-[#7091E6] min-h-[40px] min-w-[40px] flex justify-center items-center ">
-            <ArrowRight color="white" />
-          </div>
-        }
-      >
-        Hire us now
-      </Button>
+      <div className="flex items-center w-full justify-center absolute top-[85vh] left-45">
+          <Link href="/services">
+          <Button
+            radius="full"
+            variant="faded"
+            size="lg"
+            endContent={
+              <div className="rounded-full bg-[#7091E6] min-h-[40px] min-w-[40px] flex justify-center items-center ">
+                <ArrowRight color="white" />
+              </div>
+            }
+          >
+            Hire us now
+          </Button>
+          </Link>
+        </div>
     </section>
     </>
   );
@@ -373,14 +379,15 @@ function ContactSection() {
 
 function LastSection() {
   return (
-    <section className="bg-[#3D52A0] w-full h-[50vh] z-[1] sticky top-0 rounded-3xl rounded-b-3xl flex flex-col p-10 items-center justify-center gap-4">
+    <section className="bg-[#3D52A0] w-full h-[50vh] z-[1] sticky top-0  rounded-t-3xl flex flex-col p-10 items-center justify-center gap-4">
       <div className="font-bold text-5xl text-white w-[60%] text-center">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Transform Your Business with <br />Cutting-Edge AI Solutions
       </div>
-      <div className="font-medium text-xl text-white">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      <div className="font-medium text-xl text-white text-center">
+        Partner with us to leverage advanced AI technologies to drive innovation and growth. 
+        <br />Reach out today to see how we can help you achieve your business goals.
       </div>
-
+      <Link href="/contact">
       <Button
         radius="full"
         variant="faded"
@@ -394,12 +401,13 @@ function LastSection() {
       >
         Hire us now
       </Button>
+      </Link>
     </section>
   );
 }
 export default function Home() {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col relative">
       <HeroSection />
       <ServicesSection />
       <ContactSection />
