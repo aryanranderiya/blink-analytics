@@ -1,4 +1,4 @@
-import { GlobeConfig, World } from "@/components/ui/globe";
+import { World } from "@/components/ui/globe";
 import { positionData } from "@/data/positionData";
 import Marquee from "react-fast-marquee";
 import { Button } from "@nextui-org/react";
@@ -16,7 +16,7 @@ function HeroSection() {
   const paragraphRef2 = useRef(null);
   const heroRef = useRef(null);
 
-  const globeConfig: GlobeConfig = {
+  const globeConfig = {
     pointSize: 10,
     globeColor: "#3D52A0",
     showAtmosphere: true,
@@ -39,88 +39,114 @@ function HeroSection() {
   };
 
   useEffect(() => {
+    // Scroll to top on page reload
+    window.scrollTo(0, 0);
+
+    // Register ScrollTrigger
     gsap.registerPlugin(ScrollTrigger);
-    gsap.fromTo(
-      ".lottie",
-      { y: "-100%", opacity: 0 },
-      { y: 0, delay: 2, opacity: 100 }
+
+    // Animations
+    const animations: gsap.core.Tween[] = [];
+
+    animations.push(
+      gsap.fromTo(
+        ".lottie",
+        { y: "-100%", opacity: 0 },
+        { y: 0, delay: 2, opacity: 1 }
+      )
     );
 
-    gsap.to('.mouse', {
-      color: "#7091e6",
-      duration: 0.5,
-      repeat: -1,
-      yoyo: true,
-      ease: "smooth"
-    })
-  
-    gsap.to(ref1.current, {
-      x: "-50vw",
-      color: "#7091e6",
-      scrollTrigger: {
-        trigger: heroRef.current,
-        scroller: "body",
-        start: "top 0%",
-        end: "top -100%",
-        scrub: 0.3,
-      },
-    });
-    gsap.to(ref2.current, {
-      x: "50vw",
-      color: "#7091e6",
-      scrollTrigger: {
-        trigger: heroRef.current,
-        scroller: "body",
-        start: "top 0%",
-        scrub: 0.1,
-      },
-    });
-    gsap.to(ref3.current, {
-      x: "-30vw",
-      color: "#7091e6",
-      scrollTrigger: {
-        trigger: heroRef.current,
-        scroller: "body",
-        start: "top 0%",
-        end: "top -100%",
-        scrub: 0.3,
-      },
-    });
+    animations.push(
+      gsap.to(".mouse", {
+        color: "#7091e6",
+        duration: 0.5,
+        repeat: -1,
+        yoyo: true,
+        ease: "smooth",
+      })
+    );
 
-    gsap.fromTo(
-      paragraphRef1.current,
-      { opacity: 0, x: 0 },
-      {
-        opacity: 5,
-        y: 0,
-        x: 200,
+    animations.push(
+      gsap.to(ref1.current, {
+        x: "-50vw",
+        color: "#7091e6",
         scrollTrigger: {
           trigger: heroRef.current,
-          scroller: "body",
-          start: "top -6%",
+          start: "top 0%",
+          end: "top -100%",
           scrub: 0.3,
         },
-      }
+      })
     );
 
-    gsap.fromTo(
-      paragraphRef2.current,
-      { opacity: 0 },
-      {
-        opacity: 5,
-        y: 0,
-        x: -50,
+    animations.push(
+      gsap.to(ref2.current, {
+        x: "50vw",
+        color: "#7091e6",
         scrollTrigger: {
           trigger: heroRef.current,
-          scroller: "body",
-          start: "top -6%",
+          start: "top 0%",
+          scrub: 0.1,
+        },
+      })
+    );
+
+    animations.push(
+      gsap.to(ref3.current, {
+        x: "-30vw",
+        color: "#7091e6",
+        scrollTrigger: {
+          trigger: heroRef.current,
+          start: "top 0%",
+          end: "top -100%",
           scrub: 0.3,
         },
-      }
+      })
     );
+
+    animations.push(
+      gsap.fromTo(
+        paragraphRef1.current,
+        { opacity: 0, x: 0 },
+        {
+          opacity: 1,
+          y: 0,
+          x: 200,
+          scrollTrigger: {
+            trigger: heroRef.current,
+            start: "top -6%",
+            scrub: 0.3,
+          },
+        }
+      )
+    );
+
+    animations.push(
+      gsap.fromTo(
+        paragraphRef2.current,
+        { opacity: 0 },
+        {
+          opacity: 1,
+          y: 0,
+          x: -50,
+          scrollTrigger: {
+            trigger: heroRef.current,
+            start: "top -6%",
+            scrub: 0.3,
+          },
+        }
+      )
+    );
+
+    // Refresh ScrollTrigger after all animations
+    ScrollTrigger.refresh();
+
+    // Cleanup animations and ScrollTrigger instances
+    return () => {
+      animations.forEach((anim) => anim.kill());
+      ScrollTrigger.getAll().forEach((instance) => instance.kill());
+    };
   }, []);
-
-  
 
   return (
     <section
@@ -132,12 +158,12 @@ function HeroSection() {
       </div>
 
       <div className="absolute bottom-[30px] flex w-full justify-center">
-        <Mouse  size="50px" className="mouse text-white" />
+        <Mouse size="50px" className="mouse text-white" />
       </div>
       <div className="flex h-screen items-center flex-col justify-center">
         <h1
           ref={ref1}
-          className={` text-white font-[800] text-[5vw] tracking-wide z-[10] left-[20%] select-none`}
+          className="text-white font-[800] text-[5vw] tracking-wide z-[10] left-[20%] select-none"
         >
           Transforming Data into{" "}
           <span className="instrumentserif-italic capitalize text-white">
@@ -148,19 +174,17 @@ function HeroSection() {
           ref={ref2}
           className="text-white font-[800] text-[5vw] tracking-wide z-[10] left-[35%] select-none"
         >
-          Models into
+          Models into{" "}
           <span className="instrumentserif-italic capitalize text-white">
-            {" "}
             Impact,
           </span>
         </h1>
         <h1
           ref={ref3}
-          className="text-white font-[800] text-[5vw] z-[10] tracking-wide left-[30%]  select-none"
+          className="text-white font-[800] text-[5vw] z-[10] tracking-wide left-[30%] select-none"
         >
-          and <span className="text-white">AI</span> into your
+          and <span className="text-white">AI</span> into your{" "}
           <span className="instrumentserif-italic capitalize text-white">
-            {" "}
             Advantage
           </span>
         </h1>
@@ -315,37 +339,37 @@ function ServicesSection() {
             className="h-[50vh] w-[35vw] bg-[#3d52a0] rounded-xl flex flex-col  cursor-pointer p-5"
           >
             <div className="grow"></div>
-            <div className="pt-3 bebas text-large text-white font-medium">RLHF and SFT</div>
+            <div className="pt-3 bebas text-large text-white font-medium">RLHF AND SFT</div>
           </section>
           <section
             className="h-[50vh] w-[35vw] bg-[#3d52a0] rounded-xl flex flex-col relative cursor-pointer p-5"
           >
             <div className="grow"></div>
-            <div className="pt-3 bebas text-large text-white font-medium">RAG implementation</div>
+            <div className="pt-3 bebas text-large text-white font-medium">RAG IMPLEMENTATION</div>
           </section>
           <section
             className="h-[50vh] w-[35vw] bg-[#3d52a0] rounded-xl flex flex-col relative cursor-pointer p-5"
           >
             <div className="grow "></div>
-            <div className="pt-3 bebas text-large text-white font-medium">Generative AI services</div>
+            <div className="pt-3 bebas text-large text-white font-medium">GENERATIVE AI SERVICES</div>
           </section>
           <section
             className="h-[50vh] w-[35vw] bg-[#3d52a0] rounded-xl flex flex-col relative cursor-pointer p-5"
           >
             <div className="grow"></div>
-            <div className="pt-3 bebas text-large text-white font-medium">Chatbot making</div>
+            <div className="pt-3 bebas text-large text-white font-medium">CHATBOT MAKING</div>
           </section>
           <section
             className="h-[50vh] w-[35vw] bg-[#3d52a0] rounded-xl flex flex-col relative cursor-pointer p-5"
           >
             <div className="grow"></div>
-            <div className="pt-3 bebas text-large text-white font-medium">AI agents implementation</div>
+            <div className="pt-3 bebas text-large text-white font-medium">AI AGENTS IMPLEMENTATION</div>
           </section>
           <section
             className="h-[50vh] w-[35vw] bg-[#3d52a0] rounded-xl flex flex-col relative cursor-pointer p-5"
           >
             <div className="grow "></div>
-            <div className="pt-3 bebas text-large text-white font-medium">Enterprise based secure models</div>
+            <div className="pt-3 bebas text-large text-white font-medium">ENTERPRISE BASED SECURE MODELS</div>
           </section>
         </div>
       </div>
@@ -357,7 +381,7 @@ function ServicesSection() {
             size="lg"
             endContent={
               <div className="rounded-full bg-[#7091E6] min-h-[40px] min-w-[40px] flex justify-center items-center ">
-                <ArrowRight color="white" />
+                <ArrowRight color="white"/>
               </div>
             }
           >
