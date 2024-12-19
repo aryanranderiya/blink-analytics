@@ -323,7 +323,7 @@ function ServicesSection() {
       </div>
     </section>
     <section ref={serviceRef} className="bg-[#EDE8F5] w-full h-[200vh] overflow-hidden z-[1] bg-grid-black/[0.1] relative services-div">
-      <div className="services-title flex items-center justify-center w-full cursor-pointer absolute top-20 left-45">
+      <div className="services-title flex items-center justify-center w-full cursor-pointer absolute top-20 left-1/2 transform -translate-x-1/2 overflow-hidden">
         <h1 className="font-[800] bebasneue tracking-[2px] text-4xl uppercase text-[#112241] text-center">Our Services</h1>
       </div>
       <div ref={cardsDivRef} className="cards-div flex flex-col gap-10 p-10 items-start justify-center mt-[10%]">
