@@ -3,7 +3,7 @@ export default function Footer() {
     <footer className="h-[30vh] flex justify-end flex-col z-[0]">
       <div className="justify-between flex w-full px-3">
         <div>+91 1234567890</div>
-        <div>blinkanalytics@gmail.com</div>
+        <div><a href="mailto:support@blinkanalytics.in">support@blinkanalytics.in</a></div>
         <div>
           Designed & Developed by{" "}
           <a href="https://aryanranderiya.com" target="_blank" className="underline">

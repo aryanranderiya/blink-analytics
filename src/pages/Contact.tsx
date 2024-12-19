@@ -17,13 +17,13 @@ export default function Contact() {
           </Chip>
 
           <Chip size="lg" variant="flat">
-            <div className="text-white">email@gmail.com</div>
+            <div className="text-white"><a href="mailto:support@blinkanalytics.in">support@blinkanalytics.in</a></div>
           </Chip>
         </div>
       </div>
 
       {/* Form Section */}
-      <div className="bg-[#3d52a0] flex-grow rounded-3xl p-10">
+      <div className="bg-[#3d52a0] flex-grow rounded-t-3xl p-10">
         <div className="w-full flex gap-3 flex-col mt-5">
           <div className="flex items-center gap-3 w-full">
             <Input label="Enter Name" size="lg" />
@@ -35,7 +35,7 @@ export default function Contact() {
             Submit
           </Button>
           <div className="text-white">
-            some disclaimer Lorem ipsum dolor sit amet consectetur adipisicing.
+            Send us a message directly!
           </div>
         </div>
       </div>

@@ -6,6 +6,7 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { ArrowRight, Mouse } from "lucide-react";
 import { useEffect, useRef } from "react";
+import { Link } from "@nextui-org/react";
 
 function HeroSection() {
   const ref1 = useRef(null);
@@ -188,38 +189,19 @@ function ServicesSection() {
   const firstRef = useRef(null);
 
   useEffect(() => {
-    // gsap.fromTo('.services-title', {y: 100, opacity: 0}, {
-    //   y: 0,
-    //   opacity: 1,
-    //   duration: 0.8,
-    //   scrollTrigger: {
-    //     trigger: serviceRef.current,
-    //     scroller: "body",
-    //     start: "top 70%",
-    //     end: "top 20%",
-    //     scrub: 0.5,
-    //   },
-    // })
-    // gsap.fromTo(
-    //   ".cards-div section",
-    //   { y: 100, opacity: 0 },
-    //   {
-    //     y: 0,
-    //     opacity: 1,
-    //     duration: 0.8,
-    //     stagger: 0.3,
-    //     ease: "smooth",
-    //     scrollTrigger: {
-    //       trigger: serviceRef.current,
-    //       scroller: "body",
-    //       start: "top 50%",
-    //       end: "top 20%",
-    //       scrub: 0.5,
-    //     },
-    //   }
-    // );
+    gsap.fromTo('.services-title', {y: 100, opacity: 0}, {
+      y: 0,
+      opacity: 1,
+      duration: 0.8,
+      scrollTrigger: {
+        trigger: serviceRef.current,
+        scroller: "body",
+        start: "top 70%",
+        end: "top 20%",
+        scrub: 0.5,
+      },
+    })
     
-
     gsap.fromTo('.marquee-container', {y: 100, opacity: 0}, {
       y: 0,
       opacity: 1,
@@ -368,6 +350,7 @@ function ServicesSection() {
         </div>
       </div>
       <div className="flex items-center w-full justify-center absolute top-[85vh] left-45">
+          <Link href="/services">
           <Button
             radius="full"
             variant="faded"
@@ -380,6 +363,7 @@ function ServicesSection() {
           >
             Hire us now
           </Button>
+          </Link>
         </div>
     </section>
     </>
@@ -395,14 +379,15 @@ function ContactSection() {
 
 function LastSection() {
   return (
-    <section className="bg-[#3D52A0] w-full h-[50vh] z-[1] sticky top-0 rounded-3xl rounded-b-3xl flex flex-col p-10 items-center justify-center gap-4">
+    <section className="bg-[#3D52A0] w-full h-[50vh] z-[1] sticky top-0  rounded-t-3xl flex flex-col p-10 items-center justify-center gap-4">
       <div className="font-bold text-5xl text-white w-[60%] text-center">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Transform Your Business with <br />Cutting-Edge AI Solutions
       </div>
-      <div className="font-medium text-xl text-white">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      <div className="font-medium text-xl text-white text-center">
+        Partner with us to leverage advanced AI technologies to drive innovation and growth. 
+        <br />Reach out today to see how we can help you achieve your business goals.
       </div>
-
+      <Link href="/contact">
       <Button
         radius="full"
         variant="faded"
@@ -416,6 +401,7 @@ function LastSection() {
       >
         Hire us now
       </Button>
+      </Link>
     </section>
   );
 }

@@ -1,6 +1,7 @@
 import { Button } from "@nextui-org/react";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { Link } from "@nextui-org/react";
 function ServiceCard({
   title,
   description,
@@ -33,23 +34,24 @@ function ServiceCard({
   return (
     <div
       ref={cardRef}
-      className={`h-[50vh] w-screen flex justify-evenly gap-5 transition-all ${
+      className={`h-[55vh] w-screen flex justify-between gap-5 transition-all p-10 ${
         reverse ? "flex-row-reverse" : ""
       } ${isVisible ? "opacity-100" : "opacity-0 translate-y-10"}`}
     >
       <div
         className={`w-full flex flex-col text-white h-full justify-center  ${
           reverse ? "items-end" : "items-start"
-        } gap-4 p-5`}
+        } gap-4 `}
       >
         <div
-          className={`text-4xl w-full ${reverse ? "text-right" : "text-left"} `}
+          className={`text-3xl bebasneue text-[400] text-[#112241] w-full ${reverse ? "text-right" : "text-left"} `}
         >
           {title}
         </div>
-        <div className={`text-xl  ${reverse ? "text-right" : "text-left"}`}>
+        <div className={`text-lg  ${reverse ? "text-right" : "text-left"}`}>
           {description}
         </div>
+        <Link href="/contact">
         <Button
           className="w-fit"
           radius="full"
@@ -58,8 +60,9 @@ function ServiceCard({
         >
           Call to Action
         </Button>
+        </Link>
       </div>
-      <div className="min-w-[50vw] max-w-[50vw] rounded-3xl">
+      <div className="min-w-[40vw] max-w-[40vw] rounded-3xl">
         <img
           src={image}
           alt="Service"
@@ -88,7 +91,7 @@ export default function Services() {
     {
       title: "Generative AI Services",
       description:
-        "Blink Analytics offers cutting-edge Generative AI services, which enable businesses to create highly personalized and innovative content at scale. Generative AI leverages powerful machine learning algorithms to understand and mimic the structure of existing data, whether it’s text, images, or audio. This allows for the creation of new, realistic content that fits the specific needs of your business. From generating dynamic marketing copy to designing unique visuals or audio clips, our generative models ensure that you get high-quality, tailored outputs that drive creativity, enhance productivity, and reduce manual work. Let Blink Analytics help you unlock the potential of generative AI for your business needs.",
+        "Blink Analytics offers cutting-edge Generative AI services, which enable businesses to create highly personalized and innovative content at scale. Generative AI leverages powerful machine learning algorithms to understand and mimic the structure of existing data, whether it’s text, images, or audio. This allows for the creation of new, realistic content that fits the specific needs of your business. From generating dynamic marketing copy to designing unique visuals or audio clips, our generative models ensure that you get high-quality, tailored outputs that drive creativity, enhance productivity, and reduce manual work. Let Blink Analytics help you unlock the potential of generative AI for your business needs today! Contact Us now!",
       image: "https://placehold.co/600x400",
       reverse: false,
     },
@@ -116,8 +119,8 @@ export default function Services() {
   ];
   return (
     <>
-      <div className="h-fit bg-[#7091e6] z-[1] sticky flex flex-col snap-y snap-mandatory overflow-y-scroll">
-        <div className="p-10 bg-[#3D52A0] rounded-3xl pt-[150px] pb-[70px]">
+      <div className="h-fit bg-[#7091e6] z-[1] sticky flex flex-col snap-y snap-mandatory overflow-hidden">
+        <div className="p-10 bg-[#3D52A0] rounded-b-3xl pt-[150px] pb-[70px]">
           <h1 className="font-bold text-7xl text-white">Our Services</h1>
           <div className="text-white text-lg">
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum,
@@ -138,6 +141,7 @@ export default function Services() {
         <div className="text-4xl text-white">
           Interested in working with us?
         </div>
+        <Link href="/contact">
         <Button
           radius="full"
           variant="faded"
@@ -150,6 +154,7 @@ export default function Services() {
         >
           Get in Touch
         </Button>
+        </Link>
       </div>
     </>
   );
