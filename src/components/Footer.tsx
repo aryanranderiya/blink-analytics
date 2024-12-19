@@ -15,7 +15,7 @@ export default function Footer() {
           </a>
         </div>
       </div>
-      <div className="text-[11vw] font-bold leading-none text-center">
+      <div className="text-[11vw] font-bold leading-none text-center overflow-y-hidden">
         <span className="instrumentserif-italic text-[12vw] ">BLINK </span>
         ANALYTICS
       </div>
