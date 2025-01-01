@@ -16,6 +16,11 @@ export default {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        'oval-gradient': `conic-gradient(from 70deg, #7091e6 0%, #7091e6 50%, transparent 100%)`,
+        'custom-grid': `linear-gradient(rgba(10, 14, 45, 0.3) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(10, 14, 45, 0.3) 1px, transparent 1px)`
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
