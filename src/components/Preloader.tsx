@@ -56,7 +56,7 @@ export default function Preloader() {
       }`}
     >
       <div
-        className={`h-screen fixed left-0 w-screen z-50 bg-gradient-to-b from-[#3D52A0] to-[#7091E6] ${
+        className={`h-screen fixed left-0 w-screen z-50 bg-gradient-to-tr from-[#7b2cbf] to-[#3c096c] ${
           preloaderFinished ? "-top-[150vh]" : initial ? "top-0" : "top-[100vh]"
         } transition-all duration-200 flex justify-center items-center`}
       >
@@ -74,7 +74,7 @@ export default function Preloader() {
               style={{
                 transitionDuration: `${(index + 1) * 70}ms`,
               }}
-              className={`transition-all text-[#ADBBDA] bebasneue font-medium leading-none inline-block text-[18vw] h-fit ${
+              className={`transition-all text-[#e0aaff] bebasneue font-medium leading-none inline-block text-[18vw] h-fit ${
                 state2 ? "translate-y-0" : "translate-y-[100%]"
               }`}
             >

@@ -44,7 +44,7 @@ function ServiceCard({
         } gap-4 `}
       >
         <div
-          className={`text-3xl bebasneue text-[400] text-[#112241] w-full ${reverse ? "text-right" : "text-left"} `}
+          className={`text-4xl bebasneue text-[400] text-[#9d4edd] w-full ${reverse ? "text-right" : "text-left"} `}
         >
           {title}
         </div>
@@ -53,7 +53,7 @@ function ServiceCard({
         </div>
         <Link href="/contact">
         <Button
-          className="w-fit"
+          className="w-fit bg-black text-white"
           radius="full"
           size="lg"
           endContent={<ArrowUpRight />}
@@ -119,8 +119,8 @@ export default function Services() {
   ];
   return (
     <>
-      <div className="h-fit bg-[#7091e6] z-[1] sticky flex flex-col snap-y snap-mandatory overflow-hidden">
-        <div className="p-10 bg-[#3D52A0] rounded-b-3xl pt-[150px] pb-[70px]">
+      <div className="h-fit bg-[#3c096c] z-[1] sticky flex flex-col snap-y snap-mandatory overflow-hidden">
+        <div className="p-10 bg-[#240046] rounded-b-3xl pt-[150px] pb-[70px]">
           <h1 className="font-bold text-7xl text-white">Our Services</h1>
           <div className="text-white text-lg">
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum,
@@ -137,7 +137,7 @@ export default function Services() {
           />
         ))}
       </div>
-      <div className="h-[30vh] sticky bg-[#3d52a0] z-[1] rounded-b-3xl p-10 flex justify-center items-center flex-col gap-3">
+      <div className="h-[30vh] sticky bg-[#7b2cbf] z-[1] rounded-b-3xl p-10 flex justify-center items-center flex-col gap-3">
         <div className="text-4xl text-white">
           Interested in working with us?
         </div>
@@ -147,7 +147,7 @@ export default function Services() {
           variant="faded"
           size="lg"
           endContent={
-            <div className="rounded-full bg-[#7091E6] min-h-[40px] min-w-[40px] flex justify-center items-center ">
+            <div className="rounded-full bg-[#7b2cbf] min-h-[40px] min-w-[40px] flex justify-center items-center ">
               <ArrowRight color="white" />
             </div>
           }

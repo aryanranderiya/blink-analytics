@@ -1,12 +1,15 @@
 import { World } from "@/components/ui/globe";
 import { positionData } from "@/data/positionData";
-import Marquee from "react-fast-marquee";
 import { Button } from "@nextui-org/react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { ArrowRight, Mouse } from "lucide-react";
 import { useEffect, useRef } from "react";
 import { Link } from "@nextui-org/react";
+import ParticlesBg from "@/components/ParticlesBg";
+import Slider from 'react-infinite-logo-slider'
+import App from "@/components/BrainModel";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 function HeroSection() {
   const ref1 = useRef(null);
@@ -18,9 +21,9 @@ function HeroSection() {
 
   const globeConfig = {
     pointSize: 10,
-    globeColor: "#3D52A0",
+    globeColor: "#3c096c",
     showAtmosphere: true,
-    atmosphereColor: "#7091e6",
+    atmosphereColor: "#7b2cbf",
     atmosphereAltitude: 0.3,
     emissive: "#000000",
     emissiveIntensity: 0,
@@ -107,14 +110,15 @@ function HeroSection() {
     animations.push(
       gsap.fromTo(
         paragraphRef1.current,
-        { opacity: 0, x: 0 },
+        { opacity: 0, x: 200 },
         {
           opacity: 1,
           y: 0,
-          x: 200,
+          x: 0,
           scrollTrigger: {
             trigger: heroRef.current,
             start: "top -6%",
+            end: "top -15%",
             scrub: 0.3,
           },
         }
@@ -124,14 +128,15 @@ function HeroSection() {
     animations.push(
       gsap.fromTo(
         paragraphRef2.current,
-        { opacity: 0 },
+        { opacity: 0, x: -100 },
         {
           opacity: 1,
           y: 0,
-          x: -50,
+          x: 0,
           scrollTrigger: {
             trigger: heroRef.current,
             start: "top -6%",
+            end: "top -15%",
             scrub: 0.3,
           },
         }
@@ -151,7 +156,7 @@ function HeroSection() {
   return (
     <section
       ref={heroRef}
-      className="w-full h-screen bg-gradient-to-b from-[#0B0F30] to-[#000000] sticky top-0 z-[1] hero-section overflow-hidden"
+      className="w-full h-screen bg-gradient-to-b from-[#10002b] to-[#000000] sticky top-0 z-[1] hero-section overflow-hidden"
     >
       <div className="Globe w-[150vw] absolute top-[35%] h-[150vh] transform -translate-x-[16%] overflow-hidden">
         <World globeConfig={globeConfig} data={positionData} />
@@ -166,7 +171,7 @@ function HeroSection() {
           className="text-white font-[800] text-[5vw] tracking-wide z-[10] left-[20%] select-none"
         >
           Transforming Data into{" "}
-          <span className="instrumentserif-italic capitalize text-white">
+          <span className="instrumentserif-italic capitalize text-[#c77dff]">
             Intelligence,
           </span>
         </h1>
@@ -175,7 +180,7 @@ function HeroSection() {
           className="text-white font-[800] text-[5vw] tracking-wide z-[10] left-[35%] select-none"
         >
           Models into{" "}
-          <span className="instrumentserif-italic capitalize text-white">
+          <span className="instrumentserif-italic capitalize text-[#c77dff]">
             Impact,
           </span>
         </h1>
@@ -184,7 +189,7 @@ function HeroSection() {
           className="text-white font-[800] text-[5vw] z-[10] tracking-wide left-[30%] select-none"
         >
           and <span className="text-white">AI</span> into your{" "}
-          <span className="instrumentserif-italic capitalize text-white">
+          <span className="instrumentserif-italic capitalize text-[#c77dff]">
             Advantage
           </span>
         </h1>
@@ -192,13 +197,13 @@ function HeroSection() {
 
       <p
         ref={paragraphRef1}
-        className="text-white absolute text-[1.5vw] top-[48%] left-[10%] z-10"
+        className="text-white absolute text-[1.5vw] top-[48%] left-[20%] z-10"
       >
         Welcome to Blink Analytics!
       </p>
       <p
         ref={paragraphRef2}
-        className="text-white absolute text-[1vw] top-[64%] right-[5%] z-10 w-[24vw] text-right"
+        className="text-white absolute text-[1vw] top-[64%] right-[5%] z-10 w-[24vw] text-left"
       >
         Our mission is to empower businesses with intelligent, scalable, and
         transformative analytics.
@@ -206,6 +211,7 @@ function HeroSection() {
     </section>
   );
 }
+
 
 function ServicesSection() {
   const serviceRef = useRef(null);
@@ -225,6 +231,19 @@ function ServicesSection() {
         scrub: 0.5,
       },
     })
+
+    gsap.fromTo('.cards-div', {y: 100, opacity: 0}, {
+      y: 0,
+      opacity: 1,
+      duration: 0.8,
+      scrollTrigger: {
+        trigger: serviceRef.current,
+        scroller: "body",
+        start: "top 60%",
+        end: "top 10%",
+        scrub: 0.5,
+      },
+    })
     
     gsap.fromTo('.marquee-container', {y: 100, opacity: 0}, {
       y: 0,
@@ -239,16 +258,29 @@ function ServicesSection() {
         scrub: 0.5,
       },
     })
-    gsap.fromTo('.first-info', {y: 100, opacity: 0}, {
-      y: 0,
+    gsap.fromTo('.first-info .left', {x: -150, opacity: 0}, {
+      x: 0,
       opacity: 1,
       duration: 0.5,
       ease: "smooth",
       scrollTrigger: {
         trigger: firstRef.current,
         scroller: "body",
-        start: "top 40%",
-        end: "top 20%",
+        start: "top 30%",
+        end: "top 10%",
+        scrub: 0.5,
+      },
+    })
+    gsap.fromTo('.first-info .right', {x: 150, opacity: 0}, {
+      x: 0,
+      opacity: 1,
+      duration: 0.5,
+      ease: "smooth",
+      scrollTrigger: {
+        trigger: firstRef.current,
+        scroller: "body",
+        start: "top 30%",
+        end: "top 10%",
         scrub: 0.5,
       },
     })
@@ -267,7 +299,7 @@ function ServicesSection() {
     })
 
     const animation = gsap.to('.cards-div', {
-      xPercent: -130,
+      xPercent: -168,
       ease: "none",
       scrollTrigger: {
         trigger: '.services-div',
@@ -289,87 +321,103 @@ function ServicesSection() {
 
   return (
     <>
-    <section ref={firstRef} className="bg-[#EDE8F5] pt-10 h-screen z-[1] flex flex-col items-center justify-between rounded-t-3xl  bg-grid-black/[0.1] ">
-      <div className="first-section-text pl-10 pr-10 flex flex-col items-center justify-center w-full gap-10">
-        <h1
-          className="text-[#112241] font-[800] text-[3vw] text-center select-none first-heading"
+    
+    <section ref={firstRef} className="bg-[#ede8f5] pt-10 h-[100vh] z-[1] sticky top-0 flex flex-col items-center justify-start rounded-t-3xl relative">
+      <ParticlesBg parentRef={firstRef} />
+      <h1
+          className="text-[#112241] font-[800] text-[4vw] text-center select-none first-heading instrumentserif-italic"
         >
-          What we do <br/> at
-          <span className="instrumentserif-italic capitalize text-[#112241] ">
-            {" "}
-            Blink Analytics
-          </span>
-        </h1>
-        <div className="first-info flex items-center justify-between w-full">
-          <p className="text-[#3d52a0] max-w-[800px] text-[2vw]">
-            At <span className="instrumentserif-italic">Blink Analytics</span>, we empower businesses with innovative and secure AI solutions. 
-            Our mission is to make AI accessible and impactful, helping organizations thrive in a 
-            fast-changing digital world. We work closely with clients to turn their vision into reality, 
-            creating smarter systems and driving business growth. Join us in shaping a future fueled 
-            by the power of AI.
-          </p>
-          <div className="video">Some kind of Video or Image</div>
+          What we do
+      </h1>
+      <div className="first-section-text p-10 flex flex-col items-center justify-center w-full gap-10 h-full relative">
+        <div className="first-info flex w-full h-full justify-evenly overflow-hidden">
+          <div className="left flex flex-col gap-5 ">
+            <div className="video bg-[#3c096c] w-[40vw] h-full rounded-3xl p-10 flex flex-col justify-between">
+              <div className="brainmodel absolute right-0 bottom-0"><App scale={5}/></div>
+              <div>
+                <Link href="/generative-ai" className="bebasneue text-[3vw] text-transparent bg-clip-text bg-gradient-to-tr from-[#c77dff] to-[#e0aaff] cursor-pointer hover:underline decoration-[#7b2cbf]">Generative AI</Link>
+                </div>
+              <ul className="flex flex-col gap-5 list-none">
+                <li className="bg-white rounded-r-3xl max-w-max px-5 py-2 font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">Automated Content Generation</li>
+                <li className="bg-white rounded-r-3xl max-w-max px-5 py-2 font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">Personalized Experiences</li>
+                <li className="bg-white rounded-r-3xl max-w-max px-5 py-2 font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">Efficient Workflows</li>
+                <li className="bg-white rounded-r-3xl max-w-max px-5 py-2 font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">Innovative Problem Solving</li>
+              </ul>
+            </div>
+            
+          </div>
+          <div className="right flex flex-col gap-5 ">
+            <div className="video w-[40vw] h-full bg-[#3c096c] rounded-3xl flex flex-col p-10 relative justify-between">
+              <div className="brainmodel absolute right-[-8%] bottom-5 w-[20vw]">
+                <DotLottieReact
+                  src="https://lottie.host/a34aa3a0-d30f-4567-9042-a88b8765bed3/w746MJysmy.lottie"
+                  loop
+                  autoplay
+                />
+              </div>
+              <div>
+                <Link href="/data-analytics" className="bebasneue text-[3vw] text-transparent bg-clip-text bg-gradient-to-tr from-[#c77dff] to-[#e0aaff] cursor-pointer hover:underline decoration-[#7b2cbf]">Data Analytics</Link>
+                 </div>
+              <ul className="flex flex-col gap-5 list-none">
+                <li className="bg-white rounded-r-3xl max-w-max px-5 py-2 font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">Informed Decision-Making</li>
+                <li className="bg-white rounded-r-3xl max-w-max px-5 py-2 font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">Trend Identification</li>
+                <li className="bg-white rounded-r-3xl max-w-max px-5 py-2 font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">Predictive Analytics</li>
+                <li className="bg-white rounded-r-3xl max-w-max px-5 py-2 font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">Business Intelligence</li>
+              </ul>
+              </div>
+          </div>
         </div>
       </div>
-      <div className="marquee-container">
-        <Marquee className='marquee mb-10 border-t-[#112241] border-t-4 border-b-[#112241] border-b-4 bg-[#7091e6] bg-opacity-[60%] cursor-pointer'  speed={200} pauseOnHover>
-          <h1 className='text-[3vw]'>
-            <span className="text-[#112241] michroma font-[700]">&nbsp;Tailored AI Services </span>
-            <span  className="text-[#EDE8F5]">✦ </span>
-            <span className="text-[#112241] michroma font-[700]">Enterprise Grade AI models </span>
-            <span  className="text-[#EDE8F5]">✦ </span>
-            <span className="text-[#112241] michroma font-[700]">Secure AI Models </span>
-            <span  className="text-[#EDE8F5]">✦ </span>
-            <span className="text-[#112241] michroma font-[700]">Future Ready AI </span>
-            <span  className="text-[#EDE8F5]">✦ </span>
-            <span className="text-[#112241] michroma font-[700]">Contact Us! </span>
-            <span  className="text-[#EDE8F5]">✦ </span>
-          </h1>
-        </Marquee>
-      </div>
     </section>
-    <section ref={serviceRef} className="bg-[#EDE8F5] w-full h-[200vh] overflow-hidden z-[1] bg-grid-black/[0.1] relative services-div">
+    <section ref={serviceRef} className="bg-[#5a189a] w-full h-[200vh] overflow-hidden z-[1] rounded-t-3xl relative services-div ">
+
       <div className="services-title flex items-center justify-center w-full cursor-pointer absolute top-20 left-1/2 transform -translate-x-1/2 overflow-hidden">
-        <h1 className="font-[800] bebasneue tracking-[2px] text-4xl uppercase text-[#112241] text-center">Our Services</h1>
+        <h1 className="font-[800] bebasneue tracking-[3px]  text-[4vw] uppercase text-white text-center">Our Services</h1>
       </div>
       <div ref={cardsDivRef} className="cards-div flex flex-col gap-10 p-10 items-start justify-center mt-[10%]">
         
         <div className="flex gap-10 cards-div-container overflow-hidden">
           <section
-            className="h-[50vh] w-[35vw] bg-[#3d52a0] rounded-xl flex flex-col  cursor-pointer p-5"
+            className="h-[50vh] w-[35vw] bg-[#ede8f5] rounded-xl flex flex-col  cursor-pointer p-5"
           >
             <div className="grow"></div>
-            <div className="pt-3 bebas text-large text-white font-medium">RLHF AND SFT</div>
+            <div className="pt-3 bebas text-large text-black font-medium">RLHF AND SFT</div>
           </section>
           <section
-            className="h-[50vh] w-[35vw] bg-[#3d52a0] rounded-xl flex flex-col relative cursor-pointer p-5"
+            className="h-[50vh] w-[35vw] bg-[#ede8f5] rounded-xl flex flex-col relative cursor-pointer p-5"
           >
             <div className="grow"></div>
-            <div className="pt-3 bebas text-large text-white font-medium">RAG IMPLEMENTATION</div>
+            <div className="pt-3 bebas text-large text-black font-medium">RAG IMPLEMENTATION</div>
           </section>
           <section
-            className="h-[50vh] w-[35vw] bg-[#3d52a0] rounded-xl flex flex-col relative cursor-pointer p-5"
+            className="h-[50vh] w-[35vw] bg-[#ede8f5] rounded-xl flex flex-col relative cursor-pointer p-5"
           >
             <div className="grow "></div>
-            <div className="pt-3 bebas text-large text-white font-medium">GENERATIVE AI SERVICES</div>
+            <div className="pt-3 bebas text-large text-black font-medium">GENERATIVE AI SERVICES</div>
           </section>
           <section
-            className="h-[50vh] w-[35vw] bg-[#3d52a0] rounded-xl flex flex-col relative cursor-pointer p-5"
+            className="h-[50vh] w-[35vw] bg-[#ede8f5] rounded-xl flex flex-col relative cursor-pointer p-5"
           >
             <div className="grow"></div>
-            <div className="pt-3 bebas text-large text-white font-medium">CHATBOT MAKING</div>
+            <div className="pt-3 bebas text-large text-black font-medium">CHATBOT MAKING</div>
           </section>
           <section
-            className="h-[50vh] w-[35vw] bg-[#3d52a0] rounded-xl flex flex-col relative cursor-pointer p-5"
+            className="h-[50vh] w-[35vw] bg-[#ede8f5] rounded-xl flex flex-col relative cursor-pointer p-5"
           >
             <div className="grow"></div>
-            <div className="pt-3 bebas text-large text-white font-medium">AI AGENTS IMPLEMENTATION</div>
+            <div className="pt-3 bebas text-large text-black font-medium">AI AGENTS IMPLEMENTATION</div>
           </section>
           <section
-            className="h-[50vh] w-[35vw] bg-[#3d52a0] rounded-xl flex flex-col relative cursor-pointer p-5"
+            className="h-[50vh] w-[35vw] bg-[#ede8f5] rounded-xl flex flex-col relative cursor-pointer p-5"
           >
             <div className="grow "></div>
-            <div className="pt-3 bebas text-large text-white font-medium">ENTERPRISE BASED SECURE MODELS</div>
+            <div className="pt-3 bebas text-large text-black font-medium">ENTERPRISE BASED SECURE MODELS</div>
+          </section>
+          <section
+            className="h-[50vh] w-[35vw] bg-[#ede8f5] rounded-xl flex flex-col relative cursor-pointer p-5"
+          >
+            <div className="grow "></div>
+            <div className="pt-3 bebas text-large text-black font-medium">DATA ANALYTICS SERVICES</div>
           </section>
         </div>
       </div>
@@ -380,7 +428,7 @@ function ServicesSection() {
             variant="faded"
             size="lg"
             endContent={
-              <div className="rounded-full bg-[#7091E6] min-h-[40px] min-w-[40px] flex justify-center items-center ">
+              <div className="rounded-full bg-gradient-to-tr from-pink-500 to-purple-500 min-h-[40px] min-w-[40px] flex justify-center items-center ">
                 <ArrowRight color="white"/>
               </div>
             }
@@ -395,17 +443,115 @@ function ServicesSection() {
 }
 
 function ContactSection() {
+  const contactsRef = useRef(null);
+
+  useEffect(()=> {
+    gsap.fromTo('.top', {y: 150, opacity: 0}, {
+      y: 0,
+      opacity: 1,
+      duration: 0.5,
+      ease: "smooth",
+      scrollTrigger: {
+        trigger: contactsRef.current,
+        scroller: "body",
+        start: "top 50%",
+        end: "top 30%",
+        scrub: 0.5,
+      },
+    })
+    gsap.fromTo('.bottom p', {y: 150, opacity: 0}, {
+      y: 0,
+      opacity: 1,
+      duration: 0.5,
+      ease: "smooth",
+      scrollTrigger: {
+        trigger: contactsRef.current,
+        scroller: "body",
+        start: "top 40%",
+        end: "top 20%",
+        scrub: 0.5,
+      },
+    })
+  }, []);
+
   return (
-    <section className="bg-[#7091E6] w-full h-screen z-[1] sticky top-0 rounded-3xl flex flex-col p-10 items-center "></section>
+    <section ref={contactsRef} className="bg-[#3c096c] w-full h-screen z-[1] sticky top-0 rounded-t-3xl flex flex-col p-10 items-center relative overflow-hidden bg-custom-grid bg-[length:150px_150px]">
+      <div className="absolute top-10 left-[-30%]"><img src='../src/assets/gradient-vtex.png' alt="gradient"></img></div>
+      <div className="container flex flex-col items-center justify-between p-10 w-full h-full">
+        <div className="top flex flex-col items-center justify-center gap-5">
+          <p className="text-[24px] font-bold text-[#888888]">01</p>
+          <h1 className="bebasneue font-[800] tracking-wide leading-none text-[4vw] text-white text-center spacing-[5px]">Leverage&nbsp; 
+            <span className="bebasneue font-[800] tracking-wide leading-none text-[4vw] text-transparent bg-clip-text bg-gradient-to-tr from-pink-500 to-purple-500 text-center spacing-[5px]">AI and Data </span>
+            <br/> to propel your Business</h1>
+            <Button
+            radius="full"
+            variant="faded"
+            size="lg"
+            endContent={
+              <div className="rounded-full bg-gradient-to-tr from-pink-500 to-purple-500 min-h-[40px] min-w-[40px] flex justify-center items-center ">
+                <ArrowRight color="white"/>
+              </div>
+            }
+          >
+            Get Access
+          </Button>
+        </div>
+        <div className="bottom flex flex-col items-center justify-center gap-10 ">
+        <p className="text-[24px] font-bold text-[#999999] tracking-wide max-w-[60vw] text-center">Powering innovation with the best in AI technology—our expertise is built on cutting-edge tools that redefine analytics and decision-making. These trusted solutions enable us to deliver precision, performance, and unparalleled insights for your business.</p>
+        <Slider
+            width="250px"
+            duration={30}
+            pauseOnHover={false}
+            blurBorders={false}
+            blurBorderColor={'#fff'}
+        >
+            <Slider.Slide>
+              <img src="https://cdn.brandfetch.io/hf.co/w/512/h/474/logo?c=1idPZb5Qfl3f_wFk7o2" alt="" className="w-24"/>   
+            </Slider.Slide>
+            <Slider.Slide>
+              <img src="https://cdn.brandfetch.io/python.org/w/467/h/512/logo?c=1idPZb5Qfl3f_wFk7o2" alt="" className="w-24"/> 
+            </Slider.Slide>
+            <Slider.Slide>
+            <img src="https://cdn.brandfetch.io/snowflake.com/w/512/h/487/symbol?c=1idPZb5Qfl3f_wFk7o2" alt="" className="w-24"/>
+            </Slider.Slide>
+            <Slider.Slide>
+            <img src="https://cdn.brandfetch.io/mysql.com/w/512/h/348/logo?c=1idPZb5Qfl3f_wFk7o2" alt="" className="w-24"/>
+            </Slider.Slide>
+            <Slider.Slide>
+            <img src="https://cdn.brandfetch.io/openai.com/w/506/h/512/theme/light/symbol?c=1idPZb5Qfl3f_wFk7o2" alt="" className="w-24"/>
+            </Slider.Slide>
+            <Slider.Slide>
+            <img src="https://cdn.brandfetch.io/langchain.com/w/400/h/400?c=1idPZb5Qfl3f_wFk7o2" alt="" className="w-24"/>
+            </Slider.Slide>
+            <Slider.Slide>
+            <img src="../src/assets/slider/spark.png" alt="" className="w-24"/>
+            </Slider.Slide>
+            <Slider.Slide>
+            <img src="../src/assets/slider/bigquery.png" alt="" className="w-24"/>
+            </Slider.Slide>  
+          
+        </Slider>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function RandomSection() {
+  return (
+    <section className="bg-[#240046] w-full h-screen z-[1] sticky top-0 rounded-3xl flex flex-col p-10 items-center ">
+      {/* <AnimatedFlowDiagram /> */}
+    </section>
   );
 }
 
 
 function LastSection() {
   return (
-    <section className="bg-[#3D52A0] w-full h-[50vh] z-[1] sticky top-0  rounded-t-3xl flex flex-col p-10 items-center justify-center gap-4">
+    <section className="bg-[#10002b] w-full h-[50vh] z-[1] sticky top-0  rounded-t-3xl flex flex-col p-10 items-center justify-center gap-4">
+      <p className="text-[24px] font-bold text-[#888888]">02</p>
       <div className="font-bold text-5xl text-white w-[60%] text-center">
-        Transform Your Business with <br />Cutting-Edge AI Solutions
+        Transform Your Business with <br /> <span className="text-transparent bg-clip-text bg-gradient-to-tr from-pink-500 to-purple-500">Cutting-Edge</span>&nbsp;AI Solutions
       </div>
       <div className="font-medium text-xl text-white text-center">
         Partner with us to leverage advanced AI technologies to drive innovation and growth. 
@@ -417,7 +563,7 @@ function LastSection() {
         variant="faded"
         size="lg"
         endContent={
-          <div className="rounded-full bg-[#7091E6] min-h-[40px] min-w-[40px] flex justify-center items-center ">
+          <div className="rounded-full bg-gradient-to-tr from-pink-500 to-purple-500 min-h-[40px] min-w-[40px] flex justify-center items-center ">
             <ArrowRight color="white" />
           </div>
         }
@@ -435,6 +581,7 @@ export default function Home() {
       <HeroSection />
       <ServicesSection />
       <ContactSection />
+      {/* <RandomSection /> */}
       <LastSection />
     </div>
   );

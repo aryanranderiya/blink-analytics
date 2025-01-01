@@ -8,6 +8,8 @@ import Preloader from "./components/Preloader";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home";
 import Services from "./pages/Services";
+import GenerativeAI from "./pages/GenerativeAI";
+import DataAnalytics from './pages/DataAnalytics';
 
 function App() {
   const location = useLocation();
@@ -25,6 +27,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/generative-ai" element={<GenerativeAI />} />
+          <Route path="/data-analytics" element={<DataAnalytics />} />
         </Routes>
         <Footer />
       </main>
