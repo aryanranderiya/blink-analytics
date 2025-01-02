@@ -21,50 +21,50 @@ export default function NavbarComponent() {
   const logoRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
 
-  const handleMouseEnter = () => {
-    gsap
-      .timeline()
-      .to(logoRef.current, {
-        scale: 0.5,
-        duration: 0.2,
-        ease: "power3.in",
-        y: "-25px",
-        x: "55px",
-      })
-      .to(
-        textRef.current,
-        {
-          opacity: 1,
-          y: "-20px",
-          duration: 0.3,
-          delay: 0.2,
-          ease: "power3.out",
-        },
-        "<"
-      );
-  };
+  // const handleMouseEnter = () => {
+  //   gsap
+  //     .timeline()
+  //     .to(logoRef.current, {
+  //       scale: 0.5,
+  //       duration: 0.2,
+  //       ease: "power3.in",
+  //       y: "-25px",
+  //       x: "55px",
+  //     })
+  //     .to(
+  //       textRef.current,
+  //       {
+  //         opacity: 1,
+  //         y: "-20px",
+  //         duration: 0.3,
+  //         delay: 0.2,
+  //         ease: "power3.out",
+  //       },
+  //       "<"
+  //     );
+  // };
 
-  const handleMouseLeave = () => {
-    gsap
-      .timeline()
-      .to(textRef.current, {
-        opacity: 0,
-        y: "0",
-        duration: 0.3,
-        ease: "power2.in",
-      })
-      .to(
-        logoRef.current,
-        {
-          scale: 1,
-          duration: 0.3,
-          ease: "power2.in",
-          y: "0",
-          x: "0",
-        },
-        "<"
-      );
-  };
+  // const handleMouseLeave = () => {
+  //   gsap
+  //     .timeline()
+  //     .to(textRef.current, {
+  //       opacity: 0,
+  //       y: "0",
+  //       duration: 0.3,
+  //       ease: "power2.in",
+  //     })
+  //     .to(
+  //       logoRef.current,
+  //       {
+  //         scale: 1,
+  //         duration: 0.3,
+  //         ease: "power2.in",
+  //         y: "0",
+  //         x: "0",
+  //       },
+  //       "<"
+  //     );
+  // };
 
   useEffect(() => {
     const navItems = navRef.current.querySelectorAll(".nav-text-item");
@@ -98,9 +98,9 @@ export default function NavbarComponent() {
       >
         <Link to={"/"}>
           <div
-            className="relative cursor-pointer"
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
+            className="relative cursor-pointer group"
+            // onMouseEnter={handleMouseEnter}
+            // onMouseLeave={handleMouseLeave}
           >
             <div
               ref={logoRef}
@@ -108,9 +108,10 @@ export default function NavbarComponent() {
             >
               <img src="../src/assets/logo-alone.png" alt="" />
             </div>
+
             <div
               ref={textRef}
-              className="absolute bebasneue tracking-wide top-8 left-[0%] text-white whitespace-nowrap opacity-0 text-[2vw]"
+              className="absolute font-medium tracking-wide flex h-full w-fit text-white whitespace-nowrap text-xl group-hover:opacity-100 transition-all"
             >
               Blink Analytics
             </div>
