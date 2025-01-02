@@ -94,7 +94,7 @@ export default function NavbarComponent() {
   return (
     <>
       <header
-        className={`flex w-screen left-0 py-4 px-4 pr-8 fixed top-0' z-[50] items-center rounded-b-3xl overflow-hidden`}
+        className={`flex w-screen left-0 py-2 px-4 pr-8 fixed top-0' z-[50] items-center rounded-b-[25px] overflow-hidden`}
       >
         <Link to={"/"}>
           <div
