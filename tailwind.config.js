@@ -17,9 +17,9 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        'oval-gradient': `conic-gradient(from 70deg, #7091e6 0%, #7091e6 50%, transparent 100%)`,
-        'custom-grid': `linear-gradient(rgba(10, 14, 45, 0.3) 1px, transparent 1px),
-                        linear-gradient(90deg, rgba(10, 14, 45, 0.3) 1px, transparent 1px)`
+        "oval-gradient": `conic-gradient(from 70deg, #7091e6 0%, #7091e6 50%, transparent 100%)`,
+        "custom-grid": `linear-gradient(rgba(10, 14, 45, 0.3) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(10, 14, 45, 0.3) 1px, transparent 1px)`,
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -95,24 +95,29 @@ export default {
             height: "0",
           },
         },
+        bob: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-30px)" },
+        },
       },
       animation: {
+        bob: "bob 3s ease-in-out infinite",
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       rotate: {
-        '-25': '-25deg',
-        '25': '25deg',
-        '-30': '-30deg',
-        '30': '30deg',
-        '-15': '-15deg',
-        '15': '15deg'
+        "-25": "-25deg",
+        25: "25deg",
+        "-30": "-30deg",
+        30: "30deg",
+        "-15": "-15deg",
+        15: "15deg",
       },
       fontFamily: {
-        bebas: ['Bebas Neue', 'sans-serif'],
-        cat: ['Catamaran', 'sans-serif'],
-        grot: ['Grotesque', 'sans-serif']
-      }
+        bebas: ["Bebas Neue", "sans-serif"],
+        cat: ["Catamaran", "sans-serif"],
+        grot: ["Grotesque", "sans-serif"],
+      },
     },
   },
   plugins: [

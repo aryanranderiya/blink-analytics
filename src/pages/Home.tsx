@@ -60,7 +60,7 @@ function HeroSection() {
 
     animations.push(
       gsap.to(".mouse", {
-        color: "#7091e6",
+        color: "#E0AAFF",
         duration: 0.5,
         repeat: -1,
         yoyo: true,
@@ -71,7 +71,7 @@ function HeroSection() {
     animations.push(
       gsap.to(ref1.current, {
         x: "-50vw",
-        color: "#7091e6",
+        color: "#E0AAFF",
         scrollTrigger: {
           trigger: heroRef.current,
           start: "top 0%",
@@ -84,7 +84,7 @@ function HeroSection() {
     animations.push(
       gsap.to(ref2.current, {
         x: "50vw",
-        color: "#7091e6",
+        color: "#E0AAFF",
         scrollTrigger: {
           trigger: heroRef.current,
           start: "top 0%",
@@ -96,7 +96,7 @@ function HeroSection() {
     animations.push(
       gsap.to(ref3.current, {
         x: "-30vw",
-        color: "#7091e6",
+        color: "#E0AAFF",
         scrollTrigger: {
           trigger: heroRef.current,
           start: "top 0%",
@@ -170,7 +170,7 @@ function HeroSection() {
           className="text-white font-[800] text-[5vw] tracking-wide z-[10] left-[20%] select-none"
         >
           Transforming Data into{" "}
-          <span className="instrumentserif-italic capitalize text-[#c77dff]">
+          <span className="instrumentserif-italic capitalize text-[#E0AAFF]">
             Intelligence,
           </span>
         </h1>
@@ -179,7 +179,7 @@ function HeroSection() {
           className="text-white font-[800] text-[5vw] tracking-wide z-[10] left-[35%] select-none"
         >
           Models into{" "}
-          <span className="instrumentserif-italic capitalize text-[#c77dff]">
+          <span className="instrumentserif-italic capitalize text-[#E0AAFF]">
             Impact,
           </span>
         </h1>
@@ -188,7 +188,7 @@ function HeroSection() {
           className="text-white font-[800] text-[5vw] z-[10] tracking-wide left-[30%] select-none"
         >
           and <span className="text-white">AI</span> into your{" "}
-          <span className="instrumentserif-italic capitalize text-[#c77dff]">
+          <span className="instrumentserif-italic capitalize text-[#E0AAFF]">
             Advantage
           </span>
         </h1>
@@ -357,7 +357,7 @@ function ServicesSection() {
                 <div>
                   <Link
                     href="/generative-ai"
-                    className="bebasneue text-[3vw] text-transparent bg-clip-text bg-gradient-to-tr from-[#c77dff] to-[#e0aaff] cursor-pointer hover:underline decoration-[#7b2cbf]"
+                    className="bebasneue text-[3vw] text-transparent bg-clip-text bg-gradient-to-tr from-[#E0AAFF] to-[#e0aaff] cursor-pointer hover:underline decoration-[#7b2cbf]"
                   >
                     Generative AI
                   </Link>
@@ -390,7 +390,7 @@ function ServicesSection() {
                 <div>
                   <Link
                     href="/data-analytics"
-                    className="bebasneue text-[3vw] text-transparent bg-clip-text bg-gradient-to-tr from-[#c77dff] to-[#e0aaff] cursor-pointer hover:underline decoration-[#7b2cbf]"
+                    className="bebasneue text-[3vw] text-transparent bg-clip-text bg-gradient-to-tr from-[#E0AAFF] to-[#e0aaff] cursor-pointer hover:underline decoration-[#7b2cbf]"
                   >
                     Data Analytics
                   </Link>
@@ -418,7 +418,8 @@ function ServicesSection() {
         ref={serviceRef}
         className="bg-[#5a189a] w-full h-[200vh] overflow-hidden z-[1] rounded-t-3xl relative services-div "
       >
-        <div className="services-title flex items-center justify-center w-full cursor-pointer absolute top-20 left-1/2 transform -translate-x-1/2 overflow-hidden">
+        <div className="services-title flex items-center justify-center w-full cursor-pointer absolute top-20 left-1/2 transform -translate-x-1/2 overflow-hidden flex-col">
+          <p className="text-[24px] font-bold text-[#888888]">01</p>
           <h1 className="font-[800] bebasneue tracking-[3px]  text-[4vw] uppercase text-white text-center">
             Our Services
           </h1>
@@ -575,11 +576,11 @@ function ContactSection() {
       className="bg-[#3c096c] w-full h-screen z-[1] sticky top-0 rounded-t-3xl flex flex-col p-10 items-center  overflow-hidden bg-custom-grid bg-[length:150px_150px]"
     >
       <div className="absolute top-10 left-[-30%]">
-        <img src="../src/assets/gradient-vtex.png" alt="gradient"></img>
+        <img src="../src/assets/gradient-vtex.png" alt="gradient" />
       </div>
       <div className="container flex flex-col items-center justify-around p-10 w-full h-full">
         <div className="top flex flex-col items-center justify-center gap-5">
-          <p className="text-[24px] font-bold text-[#888888]">01</p>
+          <p className="text-[24px] font-bold text-[#888888]">02</p>
           <h1 className="bebasneue font-[800] tracking-wide leading-none text-[4vw] text-white text-center spacing-[5px]">
             Leverage&nbsp;
             <span className="bebasneue font-[800] tracking-wide leading-none text-[4vw] text-transparent bg-clip-text bg-gradient-to-tr from-pink-500 to-purple-500 text-center spacing-[5px]">
@@ -634,7 +635,7 @@ function ContactSection() {
 function LastSection() {
   return (
     <section className="bg-[#10002b] w-full h-[50vh] z-[1] sticky top-0  rounded-t-3xl flex flex-col p-10 items-center justify-center gap-4">
-      <p className="text-[24px] font-bold text-[#888888]">02</p>
+      <p className="text-[24px] font-bold text-[#888888]">03</p>
       <div className="font-bold text-5xl text-white w-[60%] text-center">
         Transform Your Business with <br />{" "}
         <span className="text-transparent bg-clip-text bg-gradient-to-tr from-pink-500 to-purple-500">
