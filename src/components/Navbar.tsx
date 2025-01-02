@@ -1,12 +1,11 @@
+import gsap from "gsap";
 import { MenuIcon, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { Link, useNavigate, useLocation } from "react-router-dom";
-import gsap from "gsap";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function NavbarComponent() {
   const [isMenuVisible, setisMenuVisible] = useState(false);
   const navigate = useNavigate();
-  const location = useLocation();
 
   const navItems = [
     { title: "Home", link: "/" },
@@ -17,7 +16,7 @@ export default function NavbarComponent() {
     { title: "Contact", link: "/contact" },
   ];
 
-  const navRef = useRef(null);
+  const navRef = useRef<HTMLDivElement>(null);
   const logoRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
 
@@ -67,7 +66,8 @@ export default function NavbarComponent() {
   // };
 
   useEffect(() => {
-    const navItems = navRef.current.querySelectorAll(".nav-text-item");
+    if (!navRef.current) return;
+    const navItems = navRef.current?.querySelectorAll(".nav-text-item");
 
     if (isMenuVisible) {
       gsap.fromTo(
@@ -94,7 +94,7 @@ export default function NavbarComponent() {
   return (
     <>
       <header
-        className={`flex w-screen left-0 py-4 px-8 fixed top-0' z-[50] items-center rounded-b-3xl overflow-hidden`}
+        className={`flex w-screen left-0 py-4 px-4 pr-8 fixed top-0' z-[50] items-center rounded-b-3xl overflow-hidden`}
       >
         <Link to={"/"}>
           <div
@@ -104,16 +104,16 @@ export default function NavbarComponent() {
           >
             <div
               ref={logoRef}
-              className="w-[60px] h-[60px] rounded-full mx-auto flex items-center justify-center"
+              className="size-[60px] rounded-full mx-auto flex items-center justify-center group-hover:scale-75 transition-all"
             >
               <img src="../src/assets/logo-alone.png" alt="" />
             </div>
 
             <div
               ref={textRef}
-              className="absolute font-medium tracking-wide flex h-full w-fit text-white whitespace-nowrap text-xl group-hover:opacity-100 transition-all"
+              className="absolute font-medium tracking-wide flex h-full w-fit text-white whitespace-nowrap text-2xl opacity-0 group-hover:left-[60px] group-hover:opacity-100 transition-all left-0 top-0 items-center"
             >
-              Blink Analytics
+              <span>Blink Analytics</span>
             </div>
           </div>
         </Link>
