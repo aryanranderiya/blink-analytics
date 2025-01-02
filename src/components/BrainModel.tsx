@@ -3,7 +3,7 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls, useAnimations, useGLTF } from "@react-three/drei";
 
 function Model({ scale }: { scale: number }) {
-  const { scene, animations } = useGLTF("../src/assets/scene.gltf");
+  const { scene, animations } = useGLTF("/scene.gltf");
   const { actions } = useAnimations(animations, scene);
   useEffect(() => {
     actions["Scene"]?.play();
@@ -11,7 +11,7 @@ function Model({ scale }: { scale: number }) {
   return <primitive object={scene} scale={scale} />;
 }
 
-function App({ scale }: { scale: number }) {
+function BrainModel({ scale }: { scale: number }) {
   return (
     <Canvas>
       <ambientLight intensity={0.5} />
@@ -28,4 +28,4 @@ function App({ scale }: { scale: number }) {
   );
 }
 
-export default App;
+export default BrainModel;

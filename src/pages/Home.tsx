@@ -1,4 +1,4 @@
-import App from "@/components/BrainModel";
+import BrainModel from "@/components/BrainModel";
 import ParticlesBg from "@/components/ParticlesBg";
 import { World } from "@/components/ui/globe";
 import { positionData } from "@/data/positionData";
@@ -352,7 +352,7 @@ function ServicesSection() {
             <div className="left flex flex-col gap-5 ">
               <div className="video bg-[#3c096c] w-[40vw] h-full rounded-3xl p-10 flex flex-col justify-between">
                 <div className="brainmodel absolute right-0 bottom-0">
-                  <App scale={5} />
+                  <BrainModel scale={5} />
                 </div>
                 <div>
                   <Link

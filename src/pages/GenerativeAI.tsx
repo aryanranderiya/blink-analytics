@@ -1,7 +1,7 @@
 import { Button } from "@nextui-org/react";
 import { ArrowRight } from "lucide-react";
 import { Link } from "@nextui-org/react";
-import App from "@/components/BrainModel";
+import BrainModel from "@/components/BrainModel";
 import { useEffect } from "react";
 import gsap from "gsap";
 
@@ -25,7 +25,7 @@ export default function Services() {
     <>
       <div className="h-fit bg-[#3c096c] z-[1] sticky flex flex-col snap-y snap-mandatory overflow-hidden">
         <div className="model absolute top-[10%] right-[-15%] w-[60vw] h-[60vh]">
-          <App scale={4} />
+          <BrainModel scale={4} />
         </div>
         <div className="p-10 bg-[#240046] rounded-b-3xl pt-[150px] pb-[70px]">
           <h1 className="font-bold text-7xl text-white">
