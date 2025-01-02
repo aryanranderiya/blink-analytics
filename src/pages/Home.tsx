@@ -576,7 +576,7 @@ function ContactSection() {
       className="bg-[#3c096c] w-full h-screen z-[1] sticky top-0 rounded-t-3xl flex flex-col p-10 items-center  overflow-hidden bg-custom-grid bg-[length:150px_150px]"
     >
       <div className="absolute top-10 left-[-30%]">
-        <img src="../src/assets/gradient-vtex.png" alt="gradient" />
+        <img src="/gradient-vtex.png" alt="gradient" />
       </div>
       <div className="container flex flex-col items-center justify-around p-10 w-full h-full">
         <div className="top flex flex-col items-center justify-center gap-5">

@@ -1,12 +1,11 @@
 import { Button, Chip, Input, Textarea } from "@nextui-org/react";
 
 export default function Contact() {
-
   return (
     <div className="min-h-screen bg-[#e3edfd] z-[1] flex relative">
       {/* Header Section */}
       <img
-        src="../src/assets/bg-vtex.png"
+        src="/bg-vtex.png"
         alt="cubes-abstract"
         className="abstract-img absolute bottom-0 left-[35%] z-[1] animate-bob"
         width={600}

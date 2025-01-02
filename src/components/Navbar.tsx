@@ -106,7 +106,7 @@ export default function NavbarComponent() {
               ref={logoRef}
               className="size-[60px] rounded-full mx-auto flex items-center justify-center group-hover:scale-75 transition-all"
             >
-              <img src="../src/assets/logo-alone.png" alt="" />
+              <img src="/logo-alone.png" alt="" />
             </div>
 
             <div
