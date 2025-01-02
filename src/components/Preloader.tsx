@@ -74,6 +74,7 @@ export default function Preloader() {
               style={{
                 transitionDuration: `${(index + 1) * 70}ms`,
               }}
+              key={index}
               className={`transition-all text-[#e0aaff] bebasneue font-medium leading-none inline-block text-[18vw] h-fit ${
                 state2 ? "translate-y-0" : "translate-y-[100%]"
               }`}

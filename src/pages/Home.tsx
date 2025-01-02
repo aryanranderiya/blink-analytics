@@ -1,15 +1,14 @@
+import App from "@/components/BrainModel";
+import ParticlesBg from "@/components/ParticlesBg";
 import { World } from "@/components/ui/globe";
 import { positionData } from "@/data/positionData";
-import { Button } from "@nextui-org/react";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+import { Button, Link } from "@nextui-org/react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { ArrowRight, Mouse } from "lucide-react";
 import { useEffect, useRef } from "react";
-import { Link } from "@nextui-org/react";
-import ParticlesBg from "@/components/ParticlesBg";
-import Slider from 'react-infinite-logo-slider'
-import App from "@/components/BrainModel";
-import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+import Slider from "react-infinite-logo-slider";
 
 function HeroSection() {
   const ref1 = useRef(null);
@@ -212,284 +211,390 @@ function HeroSection() {
   );
 }
 
-
 function ServicesSection() {
   const serviceRef = useRef(null);
   const cardsDivRef = useRef(null);
   const firstRef = useRef(null);
 
   useEffect(() => {
-    gsap.fromTo('.services-title', {y: 100, opacity: 0}, {
-      y: 0,
-      opacity: 1,
-      duration: 0.8,
-      scrollTrigger: {
-        trigger: serviceRef.current,
-        scroller: "body",
-        start: "top 70%",
-        end: "top 20%",
-        scrub: 0.5,
-      },
-    })
+    gsap.fromTo(
+      ".services-title",
+      { y: 100, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        scrollTrigger: {
+          trigger: serviceRef.current,
+          scroller: "body",
+          start: "top 70%",
+          end: "top 20%",
+          scrub: 0.5,
+        },
+      }
+    );
 
-    gsap.fromTo('.cards-div', {y: 100, opacity: 0}, {
-      y: 0,
-      opacity: 1,
-      duration: 0.8,
-      scrollTrigger: {
-        trigger: serviceRef.current,
-        scroller: "body",
-        start: "top 60%",
-        end: "top 10%",
-        scrub: 0.5,
-      },
-    })
-    
-    gsap.fromTo('.marquee-container', {y: 100, opacity: 0}, {
-      y: 0,
-      opacity: 1,
-      duration: 1,
-      ease: "smooth",
-      scrollTrigger: {
-        trigger: firstRef.current,
-        scroller: "body",
-        start: "top 20%",
-        end: "top 0%",
-        scrub: 0.5,
-      },
-    })
-    gsap.fromTo('.first-info .left', {x: -150, opacity: 0}, {
-      x: 0,
-      opacity: 1,
-      duration: 0.5,
-      ease: "smooth",
-      scrollTrigger: {
-        trigger: firstRef.current,
-        scroller: "body",
-        start: "top 30%",
-        end: "top 10%",
-        scrub: 0.5,
-      },
-    })
-    gsap.fromTo('.first-info .right', {x: 150, opacity: 0}, {
-      x: 0,
-      opacity: 1,
-      duration: 0.5,
-      ease: "smooth",
-      scrollTrigger: {
-        trigger: firstRef.current,
-        scroller: "body",
-        start: "top 30%",
-        end: "top 10%",
-        scrub: 0.5,
-      },
-    })
-    gsap.fromTo('.first-heading', {y: 100, opacity: 0}, {
-      y: 0,
-      opacity: 1,
-      duration: 0.5,
-      ease: "smooth",
-      scrollTrigger: {
-        trigger: firstRef.current,
-        scroller: "body",
-        start: "top 60%",
-        end: "top 20%",
-        scrub: 0.5,
-      },
-    })
+    gsap.fromTo(
+      ".cards-div",
+      { y: 100, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        scrollTrigger: {
+          trigger: serviceRef.current,
+          scroller: "body",
+          start: "top 60%",
+          end: "top 10%",
+          scrub: 0.5,
+        },
+      }
+    );
 
-    const animation = gsap.to('.cards-div', {
+    gsap.fromTo(
+      ".marquee-container",
+      { y: 100, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: "smooth",
+        scrollTrigger: {
+          trigger: firstRef.current,
+          scroller: "body",
+          start: "top 20%",
+          end: "top 0%",
+          scrub: 0.5,
+        },
+      }
+    );
+    gsap.fromTo(
+      ".first-info .left",
+      { x: -150, opacity: 0 },
+      {
+        x: 0,
+        opacity: 1,
+        duration: 0.5,
+        ease: "smooth",
+        scrollTrigger: {
+          trigger: firstRef.current,
+          scroller: "body",
+          start: "top 30%",
+          end: "top 10%",
+          scrub: 0.5,
+        },
+      }
+    );
+    gsap.fromTo(
+      ".first-info .right",
+      { x: 150, opacity: 0 },
+      {
+        x: 0,
+        opacity: 1,
+        duration: 0.5,
+        ease: "smooth",
+        scrollTrigger: {
+          trigger: firstRef.current,
+          scroller: "body",
+          start: "top 30%",
+          end: "top 10%",
+          scrub: 0.5,
+        },
+      }
+    );
+    gsap.fromTo(
+      ".first-heading",
+      { y: 100, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.5,
+        ease: "smooth",
+        scrollTrigger: {
+          trigger: firstRef.current,
+          scroller: "body",
+          start: "top 60%",
+          end: "top 20%",
+          scrub: 0.5,
+        },
+      }
+    );
+
+    const animation = gsap.to(".cards-div", {
       xPercent: -168,
       ease: "none",
       scrollTrigger: {
-        trigger: '.services-div',
-        start: 'top top',
+        trigger: ".services-div",
+        start: "top top",
         end: "top -100%",
         pin: true,
         scrub: 1,
-        
-      }
-    })
+      },
+    });
     return () => {
       // Cleanup GSAP instance
       animation.kill();
     };
-
   }, []);
-  
-
 
   return (
     <>
-    
-    <section ref={firstRef} className="bg-[#ede8f5] pt-10 h-[100vh] z-[1] sticky top-0 flex flex-col items-center justify-start rounded-t-3xl relative">
-      <ParticlesBg parentRef={firstRef} />
-      <h1
-          className="text-[#112241] font-[800] text-[4vw] text-center select-none first-heading instrumentserif-italic"
-        >
+      <section
+        ref={firstRef}
+        className="bg-[#ede8f5] pt-10 h-[100vh] z-[1] sticky top-0 flex flex-col items-center justify-start rounded-t-3xl "
+      >
+        <ParticlesBg parentRef={firstRef} />
+        <h1 className="text-[#112241] font-[800] text-[4vw] text-center select-none first-heading instrumentserif-italic">
           What we do
-      </h1>
-      <div className="first-section-text p-10 flex flex-col items-center justify-center w-full gap-10 h-full relative">
-        <div className="first-info flex w-full h-full justify-evenly overflow-hidden">
-          <div className="left flex flex-col gap-5 ">
-            <div className="video bg-[#3c096c] w-[40vw] h-full rounded-3xl p-10 flex flex-col justify-between">
-              <div className="brainmodel absolute right-0 bottom-0"><App scale={5}/></div>
-              <div>
-                <Link href="/generative-ai" className="bebasneue text-[3vw] text-transparent bg-clip-text bg-gradient-to-tr from-[#c77dff] to-[#e0aaff] cursor-pointer hover:underline decoration-[#7b2cbf]">Generative AI</Link>
+        </h1>
+        <div className="first-section-text p-10 flex flex-col items-center justify-center w-full gap-10 h-full relative">
+          <div className="first-info flex w-full h-full justify-evenly overflow-hidden">
+            <div className="left flex flex-col gap-5 ">
+              <div className="video bg-[#3c096c] w-[40vw] h-full rounded-3xl p-10 flex flex-col justify-between">
+                <div className="brainmodel absolute right-0 bottom-0">
+                  <App scale={5} />
                 </div>
-              <ul className="flex flex-col gap-5 list-none">
-                <li className="bg-white rounded-r-3xl max-w-max px-5 py-2 font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">Automated Content Generation</li>
-                <li className="bg-white rounded-r-3xl max-w-max px-5 py-2 font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">Personalized Experiences</li>
-                <li className="bg-white rounded-r-3xl max-w-max px-5 py-2 font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">Efficient Workflows</li>
-                <li className="bg-white rounded-r-3xl max-w-max px-5 py-2 font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">Innovative Problem Solving</li>
-              </ul>
+                <div>
+                  <Link
+                    href="/generative-ai"
+                    className="bebasneue text-[3vw] text-transparent bg-clip-text bg-gradient-to-tr from-[#c77dff] to-[#e0aaff] cursor-pointer hover:underline decoration-[#7b2cbf]"
+                  >
+                    Generative AI
+                  </Link>
+                </div>
+                <ul className="flex flex-col gap-5 list-none">
+                  <li className="bg-white rounded-r-3xl max-w-max px-5 py-2 font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">
+                    Automated Content Generation
+                  </li>
+                  <li className="bg-white rounded-r-3xl max-w-max px-5 py-2 font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">
+                    Personalized Experiences
+                  </li>
+                  <li className="bg-white rounded-r-3xl max-w-max px-5 py-2 font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">
+                    Efficient Workflows
+                  </li>
+                  <li className="bg-white rounded-r-3xl max-w-max px-5 py-2 font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">
+                    Innovative Problem Solving
+                  </li>
+                </ul>
+              </div>
             </div>
-            
-          </div>
-          <div className="right flex flex-col gap-5 ">
-            <div className="video w-[40vw] h-full bg-[#3c096c] rounded-3xl flex flex-col p-10 relative justify-between">
-              <div className="brainmodel absolute right-[-8%] bottom-5 w-[20vw]">
-                <DotLottieReact
-                  src="https://lottie.host/a34aa3a0-d30f-4567-9042-a88b8765bed3/w746MJysmy.lottie"
-                  loop
-                  autoplay
-                />
+            <div className="right flex flex-col gap-5 ">
+              <div className="video w-[40vw] h-full bg-[#3c096c] rounded-3xl flex flex-col p-10 relative justify-between">
+                <div className="brainmodel absolute right-[-8%] bottom-5 w-[20vw]">
+                  <DotLottieReact
+                    src="https://lottie.host/a34aa3a0-d30f-4567-9042-a88b8765bed3/w746MJysmy.lottie"
+                    loop
+                    autoplay
+                  />
+                </div>
+                <div>
+                  <Link
+                    href="/data-analytics"
+                    className="bebasneue text-[3vw] text-transparent bg-clip-text bg-gradient-to-tr from-[#c77dff] to-[#e0aaff] cursor-pointer hover:underline decoration-[#7b2cbf]"
+                  >
+                    Data Analytics
+                  </Link>
+                </div>
+                <ul className="flex flex-col gap-5 list-none">
+                  <li className="bg-white rounded-r-3xl max-w-max px-5 py-2 font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">
+                    Informed Decision-Making
+                  </li>
+                  <li className="bg-white rounded-r-3xl max-w-max px-5 py-2 font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">
+                    Trend Identification
+                  </li>
+                  <li className="bg-white rounded-r-3xl max-w-max px-5 py-2 font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">
+                    Predictive Analytics
+                  </li>
+                  <li className="bg-white rounded-r-3xl max-w-max px-5 py-2 font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">
+                    Business Intelligence
+                  </li>
+                </ul>
               </div>
-              <div>
-                <Link href="/data-analytics" className="bebasneue text-[3vw] text-transparent bg-clip-text bg-gradient-to-tr from-[#c77dff] to-[#e0aaff] cursor-pointer hover:underline decoration-[#7b2cbf]">Data Analytics</Link>
-                 </div>
-              <ul className="flex flex-col gap-5 list-none">
-                <li className="bg-white rounded-r-3xl max-w-max px-5 py-2 font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">Informed Decision-Making</li>
-                <li className="bg-white rounded-r-3xl max-w-max px-5 py-2 font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">Trend Identification</li>
-                <li className="bg-white rounded-r-3xl max-w-max px-5 py-2 font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">Predictive Analytics</li>
-                <li className="bg-white rounded-r-3xl max-w-max px-5 py-2 font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">Business Intelligence</li>
-              </ul>
-              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-    <section ref={serviceRef} className="bg-[#5a189a] w-full h-[200vh] overflow-hidden z-[1] rounded-t-3xl relative services-div ">
-
-      <div className="services-title flex items-center justify-center w-full cursor-pointer absolute top-20 left-1/2 transform -translate-x-1/2 overflow-hidden">
-        <h1 className="font-[800] bebasneue tracking-[3px]  text-[4vw] uppercase text-white text-center">Our Services</h1>
-      </div>
-      <div ref={cardsDivRef} className="cards-div flex flex-col gap-10 p-10 items-start justify-center mt-[10%]">
-        
-        <div className="flex gap-10 cards-div-container overflow-hidden">
-          <section
-            className="h-[50vh] w-[35vw] bg-[#ede8f5] rounded-xl flex flex-col  cursor-pointer p-5"
-          >
-            <div className="grow"></div>
-            <div className="pt-3 bebas text-large text-black font-medium">RLHF AND SFT</div>
-          </section>
-          <section
-            className="h-[50vh] w-[35vw] bg-[#ede8f5] rounded-xl flex flex-col relative cursor-pointer p-5"
-          >
-            <div className="grow"></div>
-            <div className="pt-3 bebas text-large text-black font-medium">RAG IMPLEMENTATION</div>
-          </section>
-          <section
-            className="h-[50vh] w-[35vw] bg-[#ede8f5] rounded-xl flex flex-col relative cursor-pointer p-5"
-          >
-            <div className="grow "></div>
-            <div className="pt-3 bebas text-large text-black font-medium">GENERATIVE AI SERVICES</div>
-          </section>
-          <section
-            className="h-[50vh] w-[35vw] bg-[#ede8f5] rounded-xl flex flex-col relative cursor-pointer p-5"
-          >
-            <div className="grow"></div>
-            <div className="pt-3 bebas text-large text-black font-medium">CHATBOT MAKING</div>
-          </section>
-          <section
-            className="h-[50vh] w-[35vw] bg-[#ede8f5] rounded-xl flex flex-col relative cursor-pointer p-5"
-          >
-            <div className="grow"></div>
-            <div className="pt-3 bebas text-large text-black font-medium">AI AGENTS IMPLEMENTATION</div>
-          </section>
-          <section
-            className="h-[50vh] w-[35vw] bg-[#ede8f5] rounded-xl flex flex-col relative cursor-pointer p-5"
-          >
-            <div className="grow "></div>
-            <div className="pt-3 bebas text-large text-black font-medium">ENTERPRISE BASED SECURE MODELS</div>
-          </section>
-          <section
-            className="h-[50vh] w-[35vw] bg-[#ede8f5] rounded-xl flex flex-col relative cursor-pointer p-5"
-          >
-            <div className="grow "></div>
-            <div className="pt-3 bebas text-large text-black font-medium">DATA ANALYTICS SERVICES</div>
-          </section>
+      </section>
+      <section
+        ref={serviceRef}
+        className="bg-[#5a189a] w-full h-[200vh] overflow-hidden z-[1] rounded-t-3xl relative services-div "
+      >
+        <div className="services-title flex items-center justify-center w-full cursor-pointer absolute top-20 left-1/2 transform -translate-x-1/2 overflow-hidden">
+          <h1 className="font-[800] bebasneue tracking-[3px]  text-[4vw] uppercase text-white text-center">
+            Our Services
+          </h1>
         </div>
-      </div>
-      <div className="flex items-center w-full justify-center absolute top-[85vh] left-45">
+        <div
+          ref={cardsDivRef}
+          className="cards-div flex flex-col gap-10 p-10 items-start justify-center mt-[10%]"
+        >
+          <div className="flex gap-10 cards-div-container overflow-hidden">
+            <section className="h-[50vh] w-[35vw] bg-[#ede8f5] rounded-xl flex flex-col  cursor-pointer p-5">
+              <div className="grow"></div>
+              <div className="pt-3 bebas text-large text-black font-medium">
+                RLHF AND SFT
+              </div>
+            </section>
+            <section className="h-[50vh] w-[35vw] bg-[#ede8f5] rounded-xl flex flex-col relative cursor-pointer p-5">
+              <div className="grow"></div>
+              <div className="pt-3 bebas text-large text-black font-medium">
+                RAG IMPLEMENTATION
+              </div>
+            </section>
+            <section className="h-[50vh] w-[35vw] bg-[#ede8f5] rounded-xl flex flex-col relative cursor-pointer p-5">
+              <div className="grow "></div>
+              <div className="pt-3 bebas text-large text-black font-medium">
+                GENERATIVE AI SERVICES
+              </div>
+            </section>
+            <section className="h-[50vh] w-[35vw] bg-[#ede8f5] rounded-xl flex flex-col relative cursor-pointer p-5">
+              <div className="grow"></div>
+              <div className="pt-3 bebas text-large text-black font-medium">
+                CHATBOT MAKING
+              </div>
+            </section>
+            <section className="h-[50vh] w-[35vw] bg-[#ede8f5] rounded-xl flex flex-col relative cursor-pointer p-5">
+              <div className="grow"></div>
+              <div className="pt-3 bebas text-large text-black font-medium">
+                AI AGENTS IMPLEMENTATION
+              </div>
+            </section>
+            <section className="h-[50vh] w-[35vw] bg-[#ede8f5] rounded-xl flex flex-col relative cursor-pointer p-5">
+              <div className="grow "></div>
+              <div className="pt-3 bebas text-large text-black font-medium">
+                ENTERPRISE BASED SECURE MODELS
+              </div>
+            </section>
+            <section className="h-[50vh] w-[35vw] bg-[#ede8f5] rounded-xl flex flex-col relative cursor-pointer p-5">
+              <div className="grow "></div>
+              <div className="pt-3 bebas text-large text-black font-medium">
+                DATA ANALYTICS SERVICES
+              </div>
+            </section>
+          </div>
+        </div>
+        <div className="flex items-center w-full justify-center absolute top-[85vh] left-45">
           <Link href="/services">
-          <Button
-            radius="full"
-            variant="faded"
-            size="lg"
-            endContent={
-              <div className="rounded-full bg-gradient-to-tr from-pink-500 to-purple-500 min-h-[40px] min-w-[40px] flex justify-center items-center ">
-                <ArrowRight color="white"/>
-              </div>
-            }
-          >
-            Hire us now
-          </Button>
+            <Button
+              radius="full"
+              variant="faded"
+              size="lg"
+              className="pr-[2px]"
+              endContent={
+                <div className="rounded-full bg-gradient-to-tr from-pink-500 to-purple-500 min-h-[40px] min-w-[40px] flex justify-center items-center ">
+                  <ArrowRight color="white" />
+                </div>
+              }
+            >
+              Hire us now
+            </Button>
           </Link>
         </div>
-    </section>
+      </section>
     </>
   );
 }
 
+const slides = [
+  {
+    src: "https://cdn.brandfetch.io/hf.co/w/512/h/474/logo?c=1idPZb5Qfl3f_wFk7o2",
+    alt: "Hugging Face",
+  },
+  {
+    src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg",
+    alt: "Python",
+  },
+  {
+    src: "https://cdn.brandfetch.io/snowflake.com/w/512/h/487/symbol?c=1idPZb5Qfl3f_wFk7o2",
+    alt: "Snowflake",
+  },
+  {
+    src: "https://cdn.brandfetch.io/mysql.com/w/512/h/348/logo?c=1idPZb5Qfl3f_wFk7o2",
+    alt: "MySQL",
+  },
+  {
+    src: "https://cdn.brandfetch.io/openai.com/w/506/h/512/theme/light/symbol?c=1idPZb5Qfl3f_wFk7o2",
+    alt: "OpenAI",
+  },
+  {
+    src: "https://cdn.brandfetch.io/langchain.com/w/400/h/400?c=1idPZb5Qfl3f_wFk7o2",
+    alt: "LangChain",
+  },
+  {
+    src: "../src/assets/slider/spark.png",
+    alt: "Apache Spark",
+  },
+  {
+    src: "../src/assets/slider/bigquery.png",
+    alt: "BigQuery",
+  },
+];
+
 function ContactSection() {
   const contactsRef = useRef(null);
 
-  useEffect(()=> {
-    gsap.fromTo('.top', {y: 150, opacity: 0}, {
-      y: 0,
-      opacity: 1,
-      duration: 0.5,
-      ease: "smooth",
-      scrollTrigger: {
-        trigger: contactsRef.current,
-        scroller: "body",
-        start: "top 50%",
-        end: "top 30%",
-        scrub: 0.5,
-      },
-    })
-    gsap.fromTo('.bottom p', {y: 150, opacity: 0}, {
-      y: 0,
-      opacity: 1,
-      duration: 0.5,
-      ease: "smooth",
-      scrollTrigger: {
-        trigger: contactsRef.current,
-        scroller: "body",
-        start: "top 40%",
-        end: "top 20%",
-        scrub: 0.5,
-      },
-    })
+  useEffect(() => {
+    gsap.fromTo(
+      ".top",
+      { y: 150, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.5,
+        ease: "smooth",
+        scrollTrigger: {
+          trigger: contactsRef.current,
+          scroller: "body",
+          start: "top 50%",
+          end: "top 30%",
+          scrub: 0.5,
+        },
+      }
+    );
+    gsap.fromTo(
+      ".bottom p",
+      { y: 150, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.5,
+        ease: "smooth",
+        scrollTrigger: {
+          trigger: contactsRef.current,
+          scroller: "body",
+          start: "top 40%",
+          end: "top 20%",
+          scrub: 0.5,
+        },
+      }
+    );
   }, []);
 
   return (
-    <section ref={contactsRef} className="bg-[#3c096c] w-full h-screen z-[1] sticky top-0 rounded-t-3xl flex flex-col p-10 items-center relative overflow-hidden bg-custom-grid bg-[length:150px_150px]">
-      <div className="absolute top-10 left-[-30%]"><img src='../src/assets/gradient-vtex.png' alt="gradient"></img></div>
-      <div className="container flex flex-col items-center justify-between p-10 w-full h-full">
+    <section
+      ref={contactsRef}
+      className="bg-[#3c096c] w-full h-screen z-[1] sticky top-0 rounded-t-3xl flex flex-col p-10 items-center  overflow-hidden bg-custom-grid bg-[length:150px_150px]"
+    >
+      <div className="absolute top-10 left-[-30%]">
+        <img src="../src/assets/gradient-vtex.png" alt="gradient"></img>
+      </div>
+      <div className="container flex flex-col items-center justify-around p-10 w-full h-full">
         <div className="top flex flex-col items-center justify-center gap-5">
           <p className="text-[24px] font-bold text-[#888888]">01</p>
-          <h1 className="bebasneue font-[800] tracking-wide leading-none text-[4vw] text-white text-center spacing-[5px]">Leverage&nbsp; 
-            <span className="bebasneue font-[800] tracking-wide leading-none text-[4vw] text-transparent bg-clip-text bg-gradient-to-tr from-pink-500 to-purple-500 text-center spacing-[5px]">AI and Data </span>
-            <br/> to propel your Business</h1>
-            <Button
+          <h1 className="bebasneue font-[800] tracking-wide leading-none text-[4vw] text-white text-center spacing-[5px]">
+            Leverage&nbsp;
+            <span className="bebasneue font-[800] tracking-wide leading-none text-[4vw] text-transparent bg-clip-text bg-gradient-to-tr from-pink-500 to-purple-500 text-center spacing-[5px]">
+              AI and Data{" "}
+            </span>
+            <br /> to propel your Business
+          </h1>
+          <Button
             radius="full"
             variant="faded"
+            className="pr-[2px]"
             size="lg"
             endContent={
               <div className="rounded-full bg-gradient-to-tr from-pink-500 to-purple-500 min-h-[40px] min-w-[40px] flex justify-center items-center ">
-                <ArrowRight color="white"/>
+                <ArrowRight color="white" />
               </div>
             }
           >
@@ -497,87 +602,73 @@ function ContactSection() {
           </Button>
         </div>
         <div className="bottom flex flex-col items-center justify-center gap-10 ">
-        <p className="text-[24px] font-bold text-[#999999] tracking-wide max-w-[60vw] text-center">Powering innovation with the best in AI technology—our expertise is built on cutting-edge tools that redefine analytics and decision-making. These trusted solutions enable us to deliver precision, performance, and unparalleled insights for your business.</p>
-        <Slider
-            width="250px"
+          <p className="text-[24px] font-bold text-[#999999] tracking-wide max-w-[60vw] text-center mb-5">
+            Powering innovation with the best in AI technology—our expertise is
+            built on cutting-edge tools that redefine analytics and
+            decision-making. These trusted solutions enable us to deliver
+            precision, performance, and unparalleled insights for your business.
+          </p>
+          <Slider
+            // width="220px"
             duration={30}
             pauseOnHover={false}
             blurBorders={false}
-            blurBorderColor={'#fff'}
-        >
-            <Slider.Slide>
-              <img src="https://cdn.brandfetch.io/hf.co/w/512/h/474/logo?c=1idPZb5Qfl3f_wFk7o2" alt="" className="w-24"/>   
-            </Slider.Slide>
-            <Slider.Slide>
-              <img src="https://cdn.brandfetch.io/python.org/w/467/h/512/logo?c=1idPZb5Qfl3f_wFk7o2" alt="" className="w-24"/> 
-            </Slider.Slide>
-            <Slider.Slide>
-            <img src="https://cdn.brandfetch.io/snowflake.com/w/512/h/487/symbol?c=1idPZb5Qfl3f_wFk7o2" alt="" className="w-24"/>
-            </Slider.Slide>
-            <Slider.Slide>
-            <img src="https://cdn.brandfetch.io/mysql.com/w/512/h/348/logo?c=1idPZb5Qfl3f_wFk7o2" alt="" className="w-24"/>
-            </Slider.Slide>
-            <Slider.Slide>
-            <img src="https://cdn.brandfetch.io/openai.com/w/506/h/512/theme/light/symbol?c=1idPZb5Qfl3f_wFk7o2" alt="" className="w-24"/>
-            </Slider.Slide>
-            <Slider.Slide>
-            <img src="https://cdn.brandfetch.io/langchain.com/w/400/h/400?c=1idPZb5Qfl3f_wFk7o2" alt="" className="w-24"/>
-            </Slider.Slide>
-            <Slider.Slide>
-            <img src="../src/assets/slider/spark.png" alt="" className="w-24"/>
-            </Slider.Slide>
-            <Slider.Slide>
-            <img src="../src/assets/slider/bigquery.png" alt="" className="w-24"/>
-            </Slider.Slide>  
-          
-        </Slider>
+            blurBorderColor={"#fff"}
+          >
+            {slides.map((slide, index) => (
+              <Slider.Slide key={index}>
+                <img
+                  src={slide.src}
+                  alt={slide.alt}
+                  className="min-h-[100px] max-h-[100px] min-w-[300px] max-w-[300px] object-contain grayscale hover:grayscale-0 transition-all"
+                />
+              </Slider.Slide>
+            ))}
+          </Slider>
         </div>
       </div>
     </section>
   );
 }
 
-function RandomSection() {
-  return (
-    <section className="bg-[#240046] w-full h-screen z-[1] sticky top-0 rounded-3xl flex flex-col p-10 items-center ">
-      {/* <AnimatedFlowDiagram /> */}
-    </section>
-  );
-}
-
-
 function LastSection() {
   return (
     <section className="bg-[#10002b] w-full h-[50vh] z-[1] sticky top-0  rounded-t-3xl flex flex-col p-10 items-center justify-center gap-4">
       <p className="text-[24px] font-bold text-[#888888]">02</p>
       <div className="font-bold text-5xl text-white w-[60%] text-center">
-        Transform Your Business with <br /> <span className="text-transparent bg-clip-text bg-gradient-to-tr from-pink-500 to-purple-500">Cutting-Edge</span>&nbsp;AI Solutions
+        Transform Your Business with <br />{" "}
+        <span className="text-transparent bg-clip-text bg-gradient-to-tr from-pink-500 to-purple-500">
+          Cutting-Edge
+        </span>
+        &nbsp;AI Solutions
       </div>
       <div className="font-medium text-xl text-white text-center">
-        Partner with us to leverage advanced AI technologies to drive innovation and growth. 
-        <br />Reach out today to see how we can help you achieve your business goals.
+        Partner with us to leverage advanced AI technologies to drive innovation
+        and growth.
+        <br />
+        Reach out today to see how we can help you achieve your business goals.
       </div>
       <Link href="/contact">
-      <Button
-        radius="full"
-        variant="faded"
-        size="lg"
-        endContent={
-          <div className="rounded-full bg-gradient-to-tr from-pink-500 to-purple-500 min-h-[40px] min-w-[40px] flex justify-center items-center ">
-            <ArrowRight color="white" />
-          </div>
-        }
-        className="pr-1"
-      >
-        Hire us now
-      </Button>
+        <Button
+          radius="full"
+          variant="faded"
+          size="lg"
+          endContent={
+            <div className="rounded-full bg-gradient-to-tr from-pink-500 to-purple-500 min-h-[40px] min-w-[40px] flex justify-center items-center ">
+              <ArrowRight color="white" />
+            </div>
+          }
+          className="pr-1"
+        >
+          Hire us now
+        </Button>
       </Link>
     </section>
   );
 }
 export default function Home() {
   return (
-    <div className="flex flex-col relative">
+    <div className="flex flex-col relative ">
       <HeroSection />
       <ServicesSection />
       <ContactSection />
