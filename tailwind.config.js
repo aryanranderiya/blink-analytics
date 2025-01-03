@@ -114,10 +114,12 @@ export default {
         15: "15deg",
       },
       fontFamily: {
-        bebas: ["Bebas Neue", "sans-serif"],
-        cat: ["Catamaran", "sans-serif"],
-        grot: ["Grotesque", "sans-serif"],
-      },
+        satoshi: ['Satoshi', 'sans-serif'],
+        grotesk: ['clash-grotesk', 'sans-serif'],
+        bebas: ['Bebas Neue', 'sans-serif'],
+        cat: ['Catamaran', 'sans-serif'],
+        grot: ['Grotesque', 'sans-serif']
+      }
     },
   },
   plugins: [
