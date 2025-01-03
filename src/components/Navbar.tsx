@@ -9,7 +9,7 @@ export default function NavbarComponent() {
 
   const navItems = [
     { title: "Home", link: "/" },
-    { title: "About", link: "/about" },
+    { title: "About", link: "/about-us" },
     { title: "Services", link: "/services" },
     { title: "Generative AI", link: "/generative-ai" },
     { title: "Data Analytics", link: "/services" },
