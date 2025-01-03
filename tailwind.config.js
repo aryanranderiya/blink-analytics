@@ -114,6 +114,8 @@ export default {
         15: "15deg",
       },
       fontFamily: {
+        switzer: ['Switzer', 'sans-serif'],
+        poppins: ['Poppins', 'sans-serif'],
         satoshi: ['Satoshi', 'sans-serif'],
         grotesk: ['clash-grotesk', 'sans-serif'],
         bebas: ['Bebas Neue', 'sans-serif'],

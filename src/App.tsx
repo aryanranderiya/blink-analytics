@@ -10,6 +10,7 @@ import DataAnalytics from "./pages/DataAnalytics";
 import GenerativeAI from "./pages/GenerativeAI";
 import Home from "./pages/Home";
 import Services from "./pages/Services";
+import About from "./pages/About";
 
 function App() {
   const location = useLocation();
@@ -34,6 +35,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/about-us" element={<About />} />
           <Route path="/services" element={<Services />} />
           <Route path="/generative-ai" element={<GenerativeAI />} />
           <Route path="/data-analytics" element={<DataAnalytics />} />
