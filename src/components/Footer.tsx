@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="h-[30vh] flex justify-end flex-col z-[0]">
+    <footer className="h-[30vh] flex justify-evenly flex-col z-[0]">
       <div className="text-[11vw] font-bold leading-none text-center overflow-y-hidden">
         <span className="instrumentserif-italic text-[12vw] ">BLINK </span>
         ANALYTICS
