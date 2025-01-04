@@ -11,6 +11,7 @@ import GenerativeAI from "./pages/GenerativeAI";
 import Home from "./pages/Home";
 import Services from "./pages/Services";
 import About from "./pages/About";
+import Careers from "./pages/Careers";
 
 function App() {
   const location = useLocation();
@@ -35,6 +36,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/careers" element={<Careers />} />
           <Route path="/about-us" element={<About />} />
           <Route path="/services" element={<Services />} />
           <Route path="/generative-ai" element={<GenerativeAI />} />

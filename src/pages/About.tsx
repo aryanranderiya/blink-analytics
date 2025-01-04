@@ -6,7 +6,7 @@ export default function About() {
         <div className="main bg-black h-fit z-[1] flex items-center justify-between overflow-hidden relative">
           <BackgroundBeams />
           <div className="left p-10 flex-[3] flex flex-col self-start pt-[100px]">
-            <h1 className="text-[3.5vw] font-bold tracking-wide text-white">
+            <h1 className="text-[3.5vw] font-bold tracking-wide text-white z-[10]">
               We deliver&nbsp;
               <span className="text-transparent bg-clip-text bg-gradient-to-tr from-pink-500 to-purple-500">
                 Intelligent
