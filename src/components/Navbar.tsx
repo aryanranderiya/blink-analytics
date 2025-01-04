@@ -13,7 +13,7 @@ export default function NavbarComponent() {
     { title: "Services", link: "/services" },
     { title: "Generative AI", link: "/generative-ai" },
     { title: "Data Analytics", link: "/services" },
-    { title: "Careers", link: "/contact"},
+    { title: "Careers", link: "/careers"},
     { title: "Contact", link: "/contact" },
   ];
 
