@@ -1,19 +1,19 @@
 import gsap from "gsap";
 import { MenuIcon, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 export default function NavbarComponent() {
   const [isMenuVisible, setisMenuVisible] = useState(false);
-  const navigate = useNavigate();
+  const location = useLocation();
 
   const navItems = [
     { title: "Home", link: "/" },
     { title: "About", link: "/about-us" },
     { title: "Services", link: "/services" },
     { title: "Generative AI", link: "/generative-ai" },
-    { title: "Data Analytics", link: "/services" },
-    { title: "Careers", link: "/careers"},
+    { title: "Data Analytics", link: "/data-analytics" },
+    { title: "Careers", link: "/careers" },
     { title: "Contact", link: "/contact" },
   ];
 
@@ -21,51 +21,10 @@ export default function NavbarComponent() {
   const logoRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
 
-  // const handleMouseEnter = () => {
-  //   gsap
-  //     .timeline()
-  //     .to(logoRef.current, {
-  //       scale: 0.5,
-  //       duration: 0.2,
-  //       ease: "power3.in",
-  //       y: "-25px",
-  //       x: "55px",
-  //     })
-  //     .to(
-  //       textRef.current,
-  //       {
-  //         opacity: 1,
-  //         y: "-20px",
-  //         duration: 0.3,
-  //         delay: 0.2,
-  //         ease: "power3.out",
-  //       },
-  //       "<"
-  //     );
-  // };
-
-  // const handleMouseLeave = () => {
-  //   gsap
-  //     .timeline()
-  //     .to(textRef.current, {
-  //       opacity: 0,
-  //       y: "0",
-  //       duration: 0.3,
-  //       ease: "power2.in",
-  //     })
-  //     .to(
-  //       logoRef.current,
-  //       {
-  //         scale: 1,
-  //         duration: 0.3,
-  //         ease: "power2.in",
-  //         y: "0",
-  //         x: "0",
-  //       },
-  //       "<"
-  //     );
-  // };
-
+  useEffect(() => {
+    setisMenuVisible(false);
+  }, [location]);
+  
   useEffect(() => {
     if (!navRef.current) return;
     const navItems = navRef.current?.querySelectorAll(".nav-text-item");
@@ -98,11 +57,7 @@ export default function NavbarComponent() {
         className={`flex w-screen left-0 py-2 px-4 pr-8 fixed top-0' z-[50] items-center rounded-b-[25px] overflow-hidden`}
       >
         <Link to={"/"}>
-          <div
-            className="relative cursor-pointer group"
-            // onMouseEnter={handleMouseEnter}
-            // onMouseLeave={handleMouseLeave}
-          >
+          <div className="relative cursor-pointer group">
             <div
               ref={logoRef}
               className="size-[60px] rounded-full mx-auto flex items-center justify-center group-hover:scale-75 transition-all"
@@ -143,18 +98,16 @@ export default function NavbarComponent() {
           className="mt-[80px] w-full text-black text-xl flex flex-col pl-5 h-full gap-[20px]"
         >
           {navItems.map((item, index) => (
-            <div key={index} className="overflow-hidden relative">
-              <div
-                className="cursor-pointer font-bold select-none uppercase text-[2vw] nav-text-item relative group inline-block"
-                onClick={() => {
-                  navigate(item.link);
-                  setisMenuVisible(false);
-                }}
-              >
+            <Link
+              to={item.link}
+              key={index}
+              className="overflow-hidden relative"
+            >
+              <div className="cursor-pointer font-bold select-none uppercase text-[2vw] nav-text-item relative group inline-block">
                 {item.title}
                 <div className="absolute rounded-full -bottom-[5px] left-0 w-0 h-[3px] bg-black transition-all duration-500 group-hover:w-full" />
               </div>
-            </div>
+            </Link>
           ))}
         </nav>
       </div>
