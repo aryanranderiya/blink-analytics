@@ -1,7 +1,7 @@
 import gsap from "gsap";
 import { MenuIcon, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export default function NavbarComponent() {
   const [isMenuVisible, setisMenuVisible] = useState(false);
@@ -24,7 +24,7 @@ export default function NavbarComponent() {
   useEffect(() => {
     setisMenuVisible(false);
   }, [location]);
-  
+
   useEffect(() => {
     if (!navRef.current) return;
     const navItems = navRef.current?.querySelectorAll(".nav-text-item");
@@ -101,7 +101,7 @@ export default function NavbarComponent() {
             <Link
               to={item.link}
               key={index}
-              className="overflow-hidden relative"
+              className="overflow-hidden relative py-[2px]"
             >
               <div className="cursor-pointer font-bold select-none uppercase text-[2vw] nav-text-item relative group inline-block">
                 {item.title}

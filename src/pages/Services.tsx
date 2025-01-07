@@ -1,7 +1,7 @@
-import { Button } from "@nextui-org/react";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import InterestedSection from "@/components/InterestedSection";
+import { Button, Link } from "@nextui-org/react";
+import { ArrowUpRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { Link } from "@nextui-org/react";
 function ServiceCard({
   title,
   description,
@@ -44,7 +44,9 @@ function ServiceCard({
         } gap-4 `}
       >
         <div
-          className={`text-4xl bebasneue text-[400] text-[#9d4edd] w-full ${reverse ? "text-right" : "text-left"} `}
+          className={`text-4xl bebasneue text-[400] text-[#9d4edd] w-full ${
+            reverse ? "text-right" : "text-left"
+          } `}
         >
           {title}
         </div>
@@ -52,14 +54,14 @@ function ServiceCard({
           {description}
         </div>
         <Link href="/contact">
-        <Button
-          className="w-fit bg-black text-white"
-          radius="full"
-          size="lg"
-          endContent={<ArrowUpRight />}
-        >
-          Call to Action
-        </Button>
+          <Button
+            className="w-fit bg-black text-white"
+            radius="full"
+            size="lg"
+            endContent={<ArrowUpRight />}
+          >
+            Call to Action
+          </Button>
         </Link>
       </div>
       <div className="min-w-[40vw] max-w-[40vw] rounded-3xl">
@@ -137,25 +139,7 @@ export default function Services() {
           />
         ))}
       </div>
-      <div className="h-[30vh] sticky bg-[#7b2cbf] z-[1] rounded-b-3xl p-10 flex justify-center items-center flex-col gap-3">
-        <div className="text-4xl text-white">
-          Interested in working with us?
-        </div>
-        <Link href="/contact">
-        <Button
-          radius="full"
-          variant="faded"
-          size="lg"
-          endContent={
-            <div className="rounded-full bg-[#7b2cbf] min-h-[40px] min-w-[40px] flex justify-center items-center ">
-              <ArrowRight color="white" />
-            </div>
-          }
-        >
-          Get in Touch
-        </Button>
-        </Link>
-      </div>
+      <InterestedSection />
     </>
   );
 }

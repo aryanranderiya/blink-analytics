@@ -40,18 +40,18 @@ export default function Preloader() {
             }
             return old;
           });
-        }, 15);
+        }, 5);
 
         setTimeout(() => {
           setPreloaderFinished(true);
-        }, 1500);
-      }, 300);
+        }, 700);
+      }, 100);
     }, 200);
   }, []);
 
   return (
     <div
-      className={`fixed h-screen w-screen z-50 bg-white duration-700 ease-out transition-all ${
+      className={`fixed h-screen w-screen z-50 bg-white duration-400 ease-out transition-all ${
         preloaderFinished ? "top-[-150vh]" : "top-0"
       }`}
     >

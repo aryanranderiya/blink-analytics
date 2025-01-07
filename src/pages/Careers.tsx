@@ -1,29 +1,8 @@
-import { BackgroundBeams } from "@/components/ui/background-beams";
+import RetroGrid from "@/components/ui/retro-grid";
 import { Button } from "@nextui-org/react";
 import { ArrowRight } from "lucide-react";
-import { useEffect } from "react";
-import gsap from "gsap";
-import RetroGrid from "@/components/ui/retro-grid";
 
 export default function Careers() {
-  useEffect(() => {
-    const boxes = document.querySelectorAll(".box");
-
-    boxes.forEach((box) => {
-      const textTop = box.querySelector(".text-top");
-      const textBottom = box.querySelector(".text-bottom");
-
-      //   box.addEventListener("mouseenter", () => {
-      //     gsap.to(textTop, { y: "-100%", opacity: 0, duration: 0.2 });
-      //     gsap.to(textBottom, { y: "0%", opacity: 1, duration: 0.2 });
-      //   });
-
-      //   box.addEventListener("mouseleave", () => {
-      //     gsap.to(textTop, { y: "0%", opacity: 1, duration: 0.2 });
-      //     gsap.to(textBottom, { y: "100%", opacity: 0, duration: 0.2 });
-      //   });
-    });
-  }, []);
 
   return (
     <>
@@ -52,12 +31,12 @@ export default function Careers() {
             ].map((text, index) => (
               <div
                 key={index}
-                className="box border-2 border-purple-500 flex items-center justify-center p-5 relative cursor-pointer overflow-hidden w-[250px] h-[70px] group"
+                className="box border-2 border-[#c77dff] flex items-center justify-center p-5 relative cursor-pointer overflow-hidden w-[250px] h-[70px] group hover:bg-[#c77dff] transition-colors"
               >
                 <h1 className="text-top absolute text-white text-2xl font-bold w-full text-center transition-all group-hover:opacity-0 group-hover:translate-y-[-100%]">
                   {text}
                 </h1>
-                <h1 className="text-bottom absolute text-2xl font-serif text-purple-300 w-full text-center opacity-0 transition-all group-hover:opacity-100">
+                <h1 className="text-bottom absolute text-2xl font-serif text-[#240046] w-full text-center opacity-0 transition-all group-hover:opacity-100">
                   {text}
                 </h1>
               </div>

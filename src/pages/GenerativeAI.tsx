@@ -1,6 +1,5 @@
 import Section from "@/components/AnalyticsGenerativeSection";
-import { Button, Link } from "@nextui-org/react";
-import { ArrowRight } from "lucide-react";
+import InterestedSection from "@/components/InterestedSection";
 import { useRef } from "react";
 
 export default function Services() {
@@ -35,25 +34,7 @@ export default function Services() {
         services={services}
         videoRefs={videoRefs}
       />
-      <div className="h-[30vh] sticky bg-[#7b2cbf] z-[1] rounded-b-3xl p-10 flex justify-center items-center flex-col gap-3">
-        <div className="text-4xl text-white">
-          Interested in working with us?
-        </div>
-        <Link href="/contact">
-          <Button
-            radius="full"
-            variant="faded"
-            size="lg"
-            endContent={
-              <div className="rounded-full bg-[#7b2cbf] min-h-[40px] min-w-[40px] flex justify-center items-center">
-                <ArrowRight color="white" />
-              </div>
-            }
-          >
-            Get in Touch
-          </Button>
-        </Link>
-      </div>
+      <InterestedSection />
     </>
   );
 }

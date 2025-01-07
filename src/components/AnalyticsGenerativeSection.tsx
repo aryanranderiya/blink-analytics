@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
+import DotPattern from "./ui/dot-pattern";
+import { cn } from "@/lib/utils";
 
 interface ServiceType {
   text: string;
@@ -23,7 +25,9 @@ export default function Section({
 }: SectionType) {
   useEffect(() => {
     const contentDivs = document.querySelectorAll(".content .data");
+
     gsap.registerPlugin(ScrollTrigger);
+
     contentDivs.forEach((div, index) => {
       gsap.fromTo(
         div,
@@ -40,7 +44,7 @@ export default function Section({
             trigger: div,
             start: "center bottom",
             end: "bottom center",
-            scrub: true,
+            scrub: index === 0 ? false : true,
           },
           ease: "power3.out",
         }
@@ -57,7 +61,7 @@ export default function Section({
     };
 
     const observer = new IntersectionObserver(handleVideoPlay, {
-      threshold: 0.5, // Video starts/stops at 50% visibility
+      threshold: 0.5,
     });
 
     videoRefs.current.forEach((video: Element) => {
@@ -73,9 +77,15 @@ export default function Section({
     <div className="h-fit bg-black z-[1] sticky flex flex-col snap-y snap-mandatory overflow-hidden">
       <div className="p-10 bg-gradient-to-r from-[#240046] to-[#7B2CBF] rounded-b-3xl pt-[150px] pb-[70px]">
         <h1 className="font-bold text-7xl text-white">{title}</h1>
-        <div className="text-white text-lg">{subtitle}</div>
+        <div className="text-lg text-foreground-400">{subtitle}</div>
       </div>
-      <div className="content flex flex-col gap-10 py-10">
+      <div className="content flex flex-col gap-10 py-10 relative">
+        <DotPattern
+          className={cn(
+            "[mask-image:linear-gradient(to_right,white,#ffffff60,transparent)] absolute inset-0"
+          )}
+        />
+
         {services.map((item, index) => (
           <div
             key={index}
