@@ -65,11 +65,16 @@ function ServiceCard({
         </Link>
       </div>
       <div className="min-w-[40vw] max-w-[40vw] rounded-3xl">
-        <img
-          src={image}
-          alt="Service"
-          className="w-full h-full object-cover rounded-3xl"
-        />
+      <video
+        width="600"
+        height="auto"
+        loop
+        muted
+        autoPlay
+      >
+        <source src={image} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
       </div>
     </div>
   );
@@ -80,7 +85,7 @@ export default function Services() {
       title: "RLHF and SFT",
       description:
         "At Blink Analytics, we specialize in integrating Reinforcement Learning with Human Feedback (RLHF) and Supervised Fine-Tuning (SFT) to enhance AI model performance. RLHF is a cutting-edge technique that allows models to learn from human feedback, improving the system’s ability to understand complex, context-driven tasks. SFT focuses on fine-tuning pre-trained models with domain-specific datasets, enabling them to deliver more accurate and reliable results. These techniques are essential for creating personalized AI systems that align with business needs, ensuring smarter decision-making and seamless user experiences. Whether you are looking to refine your model’s performance or build sophisticated AI solutions, Blink Analytics can help you achieve exceptional outcomes.",
-      image: "https://placehold.co/600x400",
+      image: "/RAG.mp4",
       reverse: false,
     },
     {

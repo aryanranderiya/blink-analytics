@@ -398,10 +398,21 @@ function ServicesSection() {
         
         <div className="flex gap-10 cards-div-container overflow-hidden">
           <section
-            className="h-[50vh] w-[35vw] bg-[#ede8f5] rounded-xl flex flex-col  cursor-pointer p-5"
+            className="h-[50vh] w-[35vw] bg-black rounded-xl flex flex-col  cursor-pointer p-5"
           >
-            <div className="grow"></div>
-            <div className="pt-3 bebas text-large text-black font-medium">RLHF AND SFT</div>
+            <div className="grow">
+              <video
+                width="600"
+                height="auto"
+                loop
+                muted
+                autoPlay
+              >
+                <source src='/RAG.mp4' type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div className="pt-3 bebas text-large text-white font-medium">RLHF AND SFT</div>
           </section>
           <section
             className="h-[50vh] w-[35vw] bg-[#ede8f5] rounded-xl flex flex-col relative cursor-pointer p-5"
