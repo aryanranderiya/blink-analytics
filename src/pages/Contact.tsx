@@ -2,29 +2,30 @@ import { Button, Chip, Input, Textarea } from "@nextui-org/react";
 
 export default function Contact() {
   return (
-    <div className="min-h-screen bg-[#e3edfd] z-[1] flex relative">
+    <div className="sm:min-h-screen min-h-[75vh] bg-[#e3edfd] z-[1] flex relative sm:flex-row flex-col">
       {/* Header Section */}
       <img
         src="/bg-vtex.png"
         alt="cubes-abstract"
-        className="abstract-img absolute bottom-0 left-[35%] z-[1] animate-bob"
+        className="abstract-img absolute sm:bottom-0 top-[20%] left-[20%] sm:left-[35%] z-[0] animate-bob sm:opacity-100 opacity-50"
         width={600}
       />
-      <div className="p-10 pt-20 flex flex-col gap-5">
-        <h1 className="font-[800] text-6xl text-[#240046]">
+      <div className="sm:p-10 p-4 sm:pt-24 pt-20 flex flex-col sm:gap-5 gap-2 z-[1] sm:pb-10 pb-14">
+        <h1 className="font-[800] sm:text-6xl text-4xl text-[#240046]">
           Ready to Elevate your Business?
         </h1>
-        <h1 className="font-bold text-5xl text-[#240046]">
+        <h1 className="font-bold sm:text-5xl text-3xl text-[#240046] leading-tight">
           Let's turn&nbsp;
-          <span className="text-transparent bg-clip-text bg-gradient-to-tr from-[#9d4edd] to-[#3c096c]">
+          <span className="text-transparent bg-clip-text bg-gradient-to-tr from-[#9d4edd] to-[#3c096c] inline">
             Ideas
           </span>
           &nbsp;into&nbsp;
-          <span className="text-transparent bg-clip-text bg-gradient-to-tr from-[#9d4edd] to-[#3c096c]">
+          <span className="text-transparent bg-clip-text bg-gradient-to-tr from-[#9d4edd] to-[#3c096c] inline">
             Impact.
           </span>
         </h1>
-        <h2 className="font-medium text-4xl text-[#240046] max-w-[70vw]">
+
+        <h2 className="font-medium sm:text-4xl text-2xl text-[#240046] sm:max-w-[70vw] max-w-full">
           We’re just one click away from driving innovation, transforming your
           data, and achieving remarkable results.
         </h2>
@@ -45,11 +46,11 @@ export default function Contact() {
       </div>
 
       {/* Form Section */}
-      <div className="bg-gradient-to-tr from-[#7b2cbf] to-[#3c096c] flex-grow rounded-l-3xl p-10 z-[2] w-[40vw]">
+      <div className="bg-gradient-to-tr from-[#7b2cbf] to-[#3c096c] flex-grow sm:rounded-l-3xl rounded-3xl sm:p-10 p-5 z-[2] sm:w-[40vw] w-full">
         <div className="text-white text-xl font-bold tracking-wide">
           Send us a message directly!
         </div>
-        <div className="w-full flex gap-3 flex-col mt-5">
+        <div className="w-full flex gap-3 flex-col mt-5 sm:pb-0 pb-12">
           <div className="flex items-center gap-3 w-full">
             <Input label="Enter Name" variant="faded" />
             <Input label="Enter Email" variant="faded" />

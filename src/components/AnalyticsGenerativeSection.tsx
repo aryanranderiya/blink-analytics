@@ -8,6 +8,7 @@ interface ServiceType {
   text: string;
   gif: string;
   title: string;
+  isGif?: boolean;
 }
 
 interface SectionType {
@@ -75,8 +76,8 @@ export default function Section({
 
   return (
     <div className="h-fit bg-black z-[1] sticky flex flex-col snap-y snap-mandatory overflow-hidden">
-      <div className="p-10 bg-gradient-to-r from-[#240046] to-[#7B2CBF] rounded-b-3xl pt-[150px] pb-[70px]">
-        <h1 className="font-bold text-7xl text-white">{title}</h1>
+      <div className="p-10 bg-gradient-to-r from-[#240046] to-[#7B2CBF] rounded-b-3xl sm:pt-[150px] pt-[90px] sm:pb-[70px] pb-[30px]">
+        <h1 className="font-bold sm:text-7xl text-5xl text-white">{title}</h1>
         <div className="text-lg text-foreground-400">{subtitle}</div>
       </div>
       <div className="content flex flex-col gap-10 py-10 relative">
@@ -89,32 +90,43 @@ export default function Section({
         {services.map((item, index) => (
           <div
             key={index}
-            className={`data opacity-0  flex items-center justify-evenly gap-5 p-10 ${
+            className={`data opacity-0 flex flex-col sm:flex-row items-center justify-evenly gap-5 p-10 ${
               index % 2 === 0 ? "" : "flex-row-reverse"
             }`}
           >
             <div className="icon">
-              <video
-                ref={(el) => {
-                  if (el) videoRefs.current[index] = el;
-                }}
-                width="600"
-                height="auto"
-                loop
-                muted
-                playsInline
-                className="rounded-md shadow-lg"
-              >
-                <source src={item.gif} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+              {item.isGif ? (
+                <img
+                  width="600"
+                  height="auto"
+                  ref={(el) => {
+                    if (el) videoRefs.current[index] = el;
+                  }}
+                  src={item.gif}
+                />
+              ) : (
+                <video
+                  ref={(el) => {
+                    if (el) videoRefs.current[index] = el;
+                  }}
+                  width="600"
+                  height="auto"
+                  loop
+                  muted
+                  playsInline
+                  className="rounded-md shadow-lg"
+                >
+                  <source src={item.gif} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              )}
             </div>
             <div className="flex flex-col gap-5">
               <span className="bg-purple-500 w-[50px] h-[4px]" />
-              <h1 className="text-[2.5vw] text-purple-500 font-bold tracking-wide">
+              <h1 className="text-2xl text-purple-500 font-bold tracking-wide">
                 {item.title}
               </h1>
-              <p className="text-[20px] max-w-[45vw] text-white">{item.text}</p>
+              <p className="text-lg sm:max-w-[45vw] text-white">{item.text}</p>
             </div>
           </div>
         ))}

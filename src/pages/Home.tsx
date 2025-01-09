@@ -336,7 +336,15 @@ function ServicesSection() {
       animation.kill();
     };
   }, []);
-
+  const sections = [
+    { bgColor: "bg-black", text: "RLHF AND SFT", videoSrc: "/RAG.mp4" },
+    { bgColor: "bg-[#ede8f5]", text: "RAG IMPLEMENTATION" },
+    { bgColor: "bg-[#ede8f5]", text: "GENERATIVE AI SERVICES" },
+    { bgColor: "bg-[#ede8f5]", text: "CHATBOT MAKING" },
+    { bgColor: "bg-[#ede8f5]", text: "AI AGENTS IMPLEMENTATION" },
+    { bgColor: "bg-[#ede8f5]", text: "ENTERPRISE BASED SECURE MODELS" },
+    { bgColor: "bg-[#ede8f5]", text: "DATA ANALYTICS SERVICES" },
+  ];
   return (
     <>
       <section
@@ -344,115 +352,126 @@ function ServicesSection() {
         className="bg-[#ede8f5] pt-10 h-[100vh] z-[1] sticky top-0 flex flex-col items-center justify-start rounded-t-3xl "
       >
         <ParticlesBg parentRef={firstRef} />
-        <h1 className="text-[#112241] font-[800] text-[4vw] text-center select-none first-heading instrumentserif-italic">
+        <h1 className="text-[#112241] font-[800] sm:text-[4vw] text-3xl text-center select-none first-heading instrumentserif-italic">
           What we do
-      </h1>
-      <div className="first-section-text p-10 flex flex-col items-center justify-center w-full gap-10 h-full relative">
-        <div className="first-info flex w-full h-full justify-evenly overflow-hidden">
-          <div className="left flex flex-col gap-5 ">
-            <div className="video bg-[#3c096c] w-[40vw] h-full rounded-3xl p-10 flex flex-col justify-between">
-              <div className="brainmodel absolute right-0 bottom-[-5%] w-[20vw] h-[20vw]"><BrainModel scale={4}/></div>
-              <div>
-                <Link href="/generative-ai" className="bebasneue text-[4vw] text-transparent bg-clip-text bg-gradient-to-tr from-[#c77dff] to-[#e0aaff] cursor-pointer hover:underline decoration-[#7b2cbf]">Generative AI</Link>
-                <p className="text-white ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum repellendus delectus et autem vel impedit error dicta eligendi dolorum quia.</p>
+        </h1>
+        <div className="first-section-text sm:p-10 p-4 flex flex-col items-center justify-center w-full gap-10 h-full relative flex-wrap">
+          <div className="first-info flex w-full h-full justify-evenly overflow-hidden sm:flex-row flex-col">
+            <div className="left flex flex-col gap-5">
+              <div className="video bg-[#3c096c] sm:w-[40vw] w-full h-full rounded-3xl p-10 flex flex-col justify-between">
+                <div className="brainmodel absolute right-0 bottom-[-5%] w-[20vw] h-[20vw]">
+                  <BrainModel scale={4} />
+                </div>
+                <div>
+                  <Link
+                    href="/generative-ai"
+                    className="bebasneue text-4xl text-transparent bg-clip-text bg-gradient-to-tr from-[#c77dff] to-[#e0aaff] cursor-pointer hover:underline decoration-[#7b2cbf]"
+                  >
+                    Generative AI
+                  </Link>
+                  <p className="text-white ">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Laborum repellendus delectus et autem vel impedit error
+                    dicta eligendi dolorum quia.
+                  </p>
+                </div>
+                <ul className="flex flex-col gap-2 list-none mt-2">
+                  <li className="bg-white rounded-r-3xl max-w-max px-5 py-2 font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">
+                    Automated Content Generation
+                  </li>
+                  <li className="bg-white rounded-r-3xl max-w-max px-5 py-2 font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">
+                    Personalized Experiences
+                  </li>
+                  <li className="bg-white rounded-r-3xl max-w-max px-5 py-2 font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">
+                    Efficient Workflows
+                  </li>
+                  <li className="bg-white rounded-r-3xl max-w-max px-5 py-2 font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">
+                    Innovative Problem Solving
+                  </li>
+                </ul>
               </div>
-              <ul className="flex flex-col gap-5 list-none">
-                <li className="bg-white rounded-r-3xl max-w-max px-5 py-2 font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">Automated Content Generation</li>
-                <li className="bg-white rounded-r-3xl max-w-max px-5 py-2 font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">Personalized Experiences</li>
-                <li className="bg-white rounded-r-3xl max-w-max px-5 py-2 font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">Efficient Workflows</li>
-                <li className="bg-white rounded-r-3xl max-w-max px-5 py-2 font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">Innovative Problem Solving</li>
-              </ul>
             </div>
-            
-          </div>
-          <div className="right flex flex-col gap-5 ">
-            <div className="video w-[40vw] h-full bg-[#3c096c] rounded-3xl flex flex-col p-10 relative justify-between">
-              <div className="brainmodel absolute right-[-15%] bottom-5 w-[35vw]">
-              <DotLottieReact
-                src="https://lottie.host/b0a2acd5-a7aa-49bc-89ce-5c66c54ca586/VfQO43rteM.json"
-                loop
-                autoplay
-              />
+            <div className="right flex flex-col gap-5 ">
+              <div className="video sm:w-[40vw] w-full h-full bg-[#3c096c] rounded-3xl flex flex-col p-10 relative justify-between">
+                <div className="brainmodel absolute right-[-15%] bottom-5 w-[35vw]">
+                  <DotLottieReact
+                    src="https://lottie.host/b0a2acd5-a7aa-49bc-89ce-5c66c54ca586/VfQO43rteM.json"
+                    loop
+                    autoplay
+                  />
+                </div>
+                <div>
+                  <Link
+                    href="/data-analytics"
+                    className="bebasneue text-4xl text-transparent bg-clip-text bg-gradient-to-tr from-[#c77dff] to-[#e0aaff] cursor-pointer hover:underline decoration-[#7b2cbf]"
+                  >
+                    Data Analytics
+                  </Link>
+                  <p className="text-white">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Optio suscipit nesciunt in blanditiis nulla quod ipsum
+                    officia similique tempora vero?
+                  </p>
+                </div>
+                <ul className="flex flex-col gap-2 list-none mt-2">
+                  <li className="bg-white rounded-r-3xl max-w-max px-5 py-2 font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">
+                    Informed Decision-Making
+                  </li>
+                  <li className="bg-white rounded-r-3xl max-w-max px-5 py-2 font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">
+                    Trend Identification
+                  </li>
+                  <li className="bg-white rounded-r-3xl max-w-max px-5 py-2 font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">
+                    Predictive Analytics
+                  </li>
+                  <li className="bg-white rounded-r-3xl max-w-max px-5 py-2 font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">
+                    Business Intelligence
+                  </li>
+                </ul>
               </div>
-              <div>
-                <Link href="/data-analytics" className="bebasneue text-[4vw] text-transparent bg-clip-text bg-gradient-to-tr from-[#c77dff] to-[#e0aaff] cursor-pointer hover:underline decoration-[#7b2cbf]">Data Analytics</Link>
-                <p className="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio suscipit nesciunt in blanditiis nulla quod ipsum officia similique tempora vero?</p>
-              </div>
-              <ul className="flex flex-col gap-5 list-none">
-                <li className="bg-white rounded-r-3xl max-w-max px-5 py-2 font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">Informed Decision-Making</li>
-                <li className="bg-white rounded-r-3xl max-w-max px-5 py-2 font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">Trend Identification</li>
-                <li className="bg-white rounded-r-3xl max-w-max px-5 py-2 font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">Predictive Analytics</li>
-                <li className="bg-white rounded-r-3xl max-w-max px-5 py-2 font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">Business Intelligence</li>
-              </ul>
-              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-    <section ref={serviceRef} className="bg-[#5a189a] w-full h-[200vh] overflow-hidden z-[1] rounded-t-3xl relative services-div ">
-      {/* <DotBackground /> */}
-      <div className="services-title flex items-center justify-center w-full cursor-pointer absolute top-20 left-1/2 transform -translate-x-1/2 overflow-hidden">
-        <h1 className="font-[800] bebasneue tracking-[3px]  text-[4vw] uppercase text-white text-center">Our Services</h1>
-      </div>
-      <div ref={cardsDivRef} className="cards-div flex flex-col gap-10 p-10 items-start justify-center mt-[10%]">
-        
-        <div className="flex gap-10 cards-div-container overflow-hidden">
-          <section
-            className="h-[50vh] w-[35vw] bg-black rounded-xl flex flex-col  cursor-pointer p-5"
-          >
-            <div className="grow">
-              <video
-                width="600"
-                height="auto"
-                loop
-                muted
-                autoPlay
+      </section>
+      <section
+        ref={serviceRef}
+        className="bg-[#5a189a] w-full h-[200vh] overflow-hidden z-[1] rounded-t-3xl relative services-div "
+      >
+        {/* <DotBackground /> */}
+        <div className="services-title flex items-center justify-center w-full cursor-pointer absolute top-20 left-1/2 transform -translate-x-1/2 overflow-hidden">
+          <h1 className="font-[800] bebasneue tracking-[3px] sm:text-[4vw] text-5xl uppercase text-white text-center">
+            Our Services
+          </h1>
+        </div>
+        <div
+          ref={cardsDivRef}
+          className="cards-div flex flex-col gap-10 p-10 sm:items-start items-center justify-center pt-[20vh] sm: h-fit max-w-screen"
+        >
+          <div className="flex gap-10 cards-div-container overflow-hidden">
+            {sections.map((section, index) => (
+              <section
+                key={index}
+                className={`min-h-[50vh] sm:w-[35vw] h-full w-[90vw] ${section.bgColor} rounded-xl flex flex-col cursor-pointer p-5`}
               >
-                <source src='/RAG.mp4' type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            </div>
-            <div className="pt-3 bebas text-large text-white font-medium">RLHF AND SFT</div>
-          </section>
-          <section
-            className="h-[50vh] w-[35vw] bg-[#ede8f5] rounded-xl flex flex-col relative cursor-pointer p-5"
-          >
-            <div className="grow"></div>
-            <div className="pt-3 bebas text-large text-black font-medium">RAG IMPLEMENTATION</div>
-          </section>
-          <section
-            className="h-[50vh] w-[35vw] bg-[#ede8f5] rounded-xl flex flex-col relative cursor-pointer p-5"
-          >
-            <div className="grow "></div>
-            <div className="pt-3 bebas text-large text-black font-medium">GENERATIVE AI SERVICES</div>
-          </section>
-          <section
-            className="h-[50vh] w-[35vw] bg-[#ede8f5] rounded-xl flex flex-col relative cursor-pointer p-5"
-          >
-            <div className="grow"></div>
-            <div className="pt-3 bebas text-large text-black font-medium">CHATBOT MAKING</div>
-          </section>
-          <section
-            className="h-[50vh] w-[35vw] bg-[#ede8f5] rounded-xl flex flex-col relative cursor-pointer p-5"
-          >
-            <div className="grow"></div>
-            <div className="pt-3 bebas text-large text-black font-medium">AI AGENTS IMPLEMENTATION</div>
-          </section>
-          <section
-            className="h-[50vh] w-[35vw] bg-[#ede8f5] rounded-xl flex flex-col relative cursor-pointer p-5"
-          >
-            <div className="grow "></div>
-            <div className="pt-3 bebas text-large text-black font-medium">ENTERPRISE BASED SECURE MODELS</div>
-          </section>
-          <section
-            className="h-[50vh] w-[35vw] bg-[#ede8f5] rounded-xl flex flex-col relative cursor-pointer p-5"
-          >
-            <div className="grow "></div>
-            <div className="pt-3 bebas text-large text-black font-medium">DATA ANALYTICS SERVICES</div>
-          </section>
+                <div className="grow">
+                  {section.videoSrc ? (
+                    <video width="600" height="auto" loop muted autoPlay>
+                      <source src={section.videoSrc} type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                  ) : null}
+                </div>
+                <div
+                  className={`pt-3 bebas text-large font-medium ${
+                    section.bgColor === "bg-black" ? "text-white" : "text-black"
+                  }`}
+                >
+                  {section.text}
+                </div>
+              </section>
+            ))}
+          </div>
         </div>
-      </div>
-      <div className="flex items-center w-full justify-center absolute top-[85vh] left-45">
+        <div className="flex items-center w-full justify-center">
           <Link href="/services">
             <Button
               radius="full"
@@ -552,16 +571,16 @@ function ContactSection() {
   return (
     <section
       ref={contactsRef}
-      className="bg-[#3c096c] w-full h-screen z-[1] sticky top-0 rounded-t-3xl flex flex-col p-10 items-center  overflow-hidden bg-custom-grid bg-[length:150px_150px]"
+      className="bg-[#3c096c] w-full h-screen z-[1] sticky top-0 rounded-t-3xl flex flex-col sm:p-10 items-center overflow-hidden bg-custom-grid bg-[length:150px_150px]"
     >
       <div className="absolute top-10 left-[-30%]">
         <img src="/gradient-vtex.png" alt="gradient" />
       </div>
-      <div className="container flex flex-col items-center justify-around p-10 w-full h-full">
-        <div className="top flex flex-col items-center justify-center gap-5">
-          <h1 className="bebasneue font-[800] tracking-wide leading-none text-[4vw] text-white text-center spacing-[5px]">
+      <div className="container flex flex-col items-center justify-center sm:p-10 p-4 w-full h-full gap-10">
+        <div className="top flex flex-col items-center justify-center gap-10">
+          <h1 className="bebasneue font-[800] tracking-wide leading-none sm:text-7xl text-5xl text-white text-center spacing-[5px] gap-4">
             Leverage&nbsp;
-            <span className="bebasneue font-[800] tracking-wide leading-none text-[4vw] text-transparent bg-clip-text bg-gradient-to-tr from-pink-500 to-purple-500 text-center spacing-[5px]">
+            <span className="bebasneue font-[800] tracking-wide leading-none sm:text-7xl text-5xl text-transparent bg-clip-text bg-gradient-to-tr from-pink-500 to-purple-500 text-center spacing-[5px]">
               AI and Data{" "}
             </span>
             <br /> to propel your Business
@@ -581,7 +600,7 @@ function ContactSection() {
           </Button>
         </div>
         <div className="bottom flex flex-col items-center justify-center gap-10 ">
-          <p className="text-[24px] font-bold text-[#999999] tracking-wide max-w-[60vw] text-center mb-5">
+          <p className="sm:text-xl text-md font-bold text-[#999999] tracking-wide max-w-[80vw] sm:max-w-[60vw] text-center mb-5">
             Powering innovation with the best in AI technology—our expertise is
             built on cutting-edge tools that redefine analytics and
             decision-making. These trusted solutions enable us to deliver
@@ -612,15 +631,15 @@ function ContactSection() {
 
 function LastSection() {
   return (
-    <section className="bg-[#10002b] w-full h-[50vh] z-[1] sticky top-0  rounded-t-3xl flex flex-col p-10 items-center justify-center gap-4">
-      <div className="font-bold text-5xl text-white w-[60%] text-center">
-        Transform Your Business with <br />{" "}
+    <section className="bg-[#10002b] w-full h-[50vh] z-[1] sticky top-0  rounded-t-3xl flex flex-col sm:p-10 p-4 items-center justify-center gap-4">
+      <div className="font-bold sm:text-5xl text-4xl text-white max-w-screen-sm sm:max-w-screen-2xl text-center inline">
+        Transform Your Business with{" "}
         <span className="text-transparent bg-clip-text bg-gradient-to-tr from-pink-500 to-purple-500">
           Cutting-Edge
         </span>
         &nbsp;AI Solutions
       </div>
-      <div className="font-medium text-xl text-white text-center">
+      <div className="font-medium sm:text-xl text-lg text-white text-center">
         Partner with us to leverage advanced AI technologies to drive innovation
         and growth.
         <br />

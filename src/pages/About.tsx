@@ -133,8 +133,10 @@ export default function About() {
           "[mask-image:linear-gradient(to_bottom_right,white,transparent)] absolute inset-0"
         )}
       />
-      <div className="left p-10 flex-[3] flex flex-col self-start pt-[100px]">
-        <h1 className="text-2xl text-[#9d4edd] font-semibold">About Us</h1>
+      <div className="left sm:p-10 p-5 flex-[3] flex flex-col self-start !pt-[100px]">
+        <h1 className="sm:text-2xl text-3xl text-[#9d4edd] font-semibold border-l-5 border-l-[#9d4edd] pl-2">
+          About Us
+        </h1>
         <h1 className="text-4xl md:text-6xl font-bold tracking-wide leading-tight text-white z-[10] mt-4">
           <div className="flex flex-wrap">
             {headingWords.map((word, index) => (
@@ -156,7 +158,7 @@ export default function About() {
         </h1>
         <div
           ref={statsRef}
-          className="info-grid grid grid-cols-1 md:grid-cols-2 gap-5 mt-10"
+          className="info-grid grid grid-cols-2 sm:gap-5 gap-2 mt-10"
         >
           {[
             {
@@ -172,16 +174,18 @@ export default function About() {
               info: "Retention Rate of Customers",
             },
             {
-              number: "25%",
-              info: "Increased Efficiency in Client's Businesses",
-            },
-            {
               number: "30%",
               info: "Reduced Manual Work using AI",
             },
+            {
+              number: "25%",
+              info: "Increased Efficiency in Client's Businesses",
+            },
           ].map((item, index) => (
             <div
-              className="info p-5 rounded-md flex flex-col items-start gap-[10px]"
+              className={`info sm:p-5 p-2 rounded-md flex flex-col items-start gap-[10px] sm:w-full w-fit ${
+                index == 4 ? "col-span-2" : ""
+              }`}
               key={index}
             >
               <span className="w-[50px] h-[4px] bg-purple-500" />
