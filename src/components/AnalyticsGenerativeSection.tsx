@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 interface ServiceType {
   text: string;
   gif: string;
+  highResGif?: string;
   title: string;
   isGif?: boolean;
 }
@@ -95,31 +96,45 @@ export default function Section({
             }`}
           >
             <div className="icon">
-              {item.isGif ? (
-                <img
-                  width="600"
-                  height="auto"
-                  ref={(el) => {
-                    if (el) videoRefs.current[index] = el;
-                  }}
-                  src={item.gif}
-                />
-              ) : (
-                <video
-                  ref={(el) => {
-                    if (el) videoRefs.current[index] = el;
-                  }}
-                  width="600"
-                  height="auto"
-                  loop
-                  muted
-                  playsInline
-                  className="rounded-md shadow-lg"
-                >
-                  <source src={item.gif} type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-              )}
+              <video
+                ref={(el) => {
+                  if (el) videoRefs.current[index] = el;
+                }}
+                width="600"
+                height="auto"
+                loop
+                muted
+                playsInline
+                className="rounded-md shadow-lg"
+                onLoadedData={(e) => {
+                  const highResSource = services[index].highResGif;
+                  if (!highResSource) return;
+
+                  const videoElement = e.currentTarget;
+
+                  // Avoid redundant fetching by checking if the high-res is already set
+                  if (videoElement.dataset.highResLoaded === "true") return;
+
+                  // Preload the high-res video
+                  const highResVideo = document.createElement("video");
+                  highResVideo.src = highResSource;
+
+                  highResVideo.addEventListener("loadeddata", () => {
+                    console.log("High-res loaded for", highResSource);
+
+                    // Set high-res as the video source
+                    videoElement.src = highResSource;
+                    videoElement.load();
+                    videoElement.play();
+
+                    // Mark high-res as loaded to avoid redundant fetching
+                    videoElement.dataset.highResLoaded = "true";
+                  });
+                }}
+              >
+                <source src={item.gif} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
             </div>
             <div className="flex flex-col gap-5">
               <span className="bg-purple-500 w-[50px] h-[4px]" />

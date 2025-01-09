@@ -91,7 +91,7 @@ export default function NavbarComponent() {
       <div
         className={`fixed z-[10] top-0 ${
           isMenuVisible ? "right-0" : "right-[-100%]"
-        } transition-all duration-400 h-screen sm:w-[20vw] sm:max-w-[20vw] sm:min-w-[20vw] min-w-[70vw] w-[70vw] max-w-[70vw] rounded-tl-[20px] rounded-bl-[20px] bg-[#ede8f5] shadow-lg flex flex-col items-start py-6 sm:px-8 px-3 backdrop-blur-lg`}
+        } transition-all duration-400 h-screen md:w-[20vw] md:max-w-[20vw] md:min-w-[20vw] min-w-[70vw] w-[70vw] max-w-[70vw] rounded-tl-[20px] rounded-bl-[20px] bg-[#ede8f5] shadow-lg flex flex-col items-start py-6 sm:px-8 px-3 backdrop-blur-lg`}
       >
         <nav
           ref={navRef}
