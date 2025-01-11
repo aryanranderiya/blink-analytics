@@ -56,7 +56,7 @@ export default function NavbarComponent() {
       <header
         className={`flex w-screen left-0 py-2 px-4 sm:pr-8 pr-4 fixed top-0' z-[50] items-center rounded-b-[25px] overflow-hidden`}
       >
-        <Link to={"/"}>
+        
           <div className="relative cursor-pointer group">
             <div
               ref={logoRef}
@@ -72,7 +72,7 @@ export default function NavbarComponent() {
               <span>Blink Analytics</span>
             </div>
           </div>
-        </Link>
+        
 
         <div
           className={`ml-auto bg-white p-2 rounded-full bg-opacity-20 backdrop-blur-lg ${
@@ -91,11 +91,11 @@ export default function NavbarComponent() {
       <div
         className={`fixed z-[10] top-0 ${
           isMenuVisible ? "right-0" : "right-[-100%]"
-        } transition-all duration-400 h-screen md:w-[20vw] md:max-w-[20vw] md:min-w-[20vw] min-w-[70vw] w-[70vw] max-w-[70vw] rounded-tl-[20px] rounded-bl-[20px] bg-[#ede8f5] shadow-lg flex flex-col items-start py-6 sm:px-8 px-3 backdrop-blur-lg`}
+        } transition-all duration-400 h-screen md:w-[25vw] md:max-w-[25vw] md:min-w-[25vw] min-w-[70vw] w-[70vw] max-w-[70vw] rounded-tl-[20px] rounded-bl-[20px] bg-[#ede8f5] shadow-lg flex flex-col items-start py-6 sm:px-8 px-3 backdrop-blur-lg`}
       >
         <nav
           ref={navRef}
-          className="mt-[80px] w-full text-black text-xl flex flex-col sm:pl-5 pl-3 h-full gap-[20px]"
+          className="mt-[80px] w-full text-black sm:text-3xl text-2xl flex flex-col sm:pl-5 pl-3 h-full gap-[20px]"
         >
           {navItems.map((item, index) => (
             <Link
@@ -103,7 +103,7 @@ export default function NavbarComponent() {
               key={index}
               className="overflow-hidden relative py-[2px]"
             >
-              <div className="cursor-pointer font-bold select-none uppercase text-3xl nav-text-item relative group inline-block">
+              <div className="cursor-pointer font-bold select-none uppercase  nav-text-item relative group inline-block">
                 {item.title}
                 <div className="absolute rounded-full -bottom-[5px] left-0 w-0 h-[3px] bg-black transition-all duration-500 group-hover:w-full" />
               </div>
