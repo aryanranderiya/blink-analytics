@@ -4,16 +4,16 @@ import { Link } from "react-router-dom";
 
 export default function InterestedSection() {
   return (
-    <div className="h-[30vh] sticky bg-[#5a189a] z-[1] rounded-b-3xl p-10 flex justify-center items-center flex-col gap-3">
-      <div className="text-4xl text-white">Interested in working with us?</div>
+    <div className="sm:h-[30vh] h-[20vh] sticky bg-[#5a189a] z-[1] rounded-b-3xl p-10 flex justify-center items-center flex-col gap-3">
+      <div className="sm:text-4xl text-2xl text-center text-white">Interested in working with us?</div>
       <Link to="/contact">
         <Button
           radius="full"
           variant="faded"
           className="pr-[2px]"
-          size="lg"
+          size={window.innerWidth > 640 ? 'lg' : 'sm'}
           endContent={
-            <div className="rounded-full bg-gradient-to-tr from-pink-500 to-purple-500 min-h-[40px] min-w-[40px] flex justify-center items-center ">
+            <div className="rounded-full bg-gradient-to-tr from-pink-500 to-purple-500 h-[25px] w-[25px] sm:min-h-[40px] sm:min-w-[40px] flex justify-center items-center ">
               <ArrowRight color="white" />
             </div>
           }

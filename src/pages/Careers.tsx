@@ -7,11 +7,11 @@ export default function Careers() {
     <div className="min-h-screen bg-black z-[1] sticky flex flex-col justify-center snap-y snap-mandatory overflow-hidden">
       {/* <BackgroundBeams /> */}
       <RetroGrid cellSize={25} lightLineColor="#E0AAFF" />
-      <div className="px-10 rounded-b-[50px] pt-[60px] flex flex-col items-center justify-center gap-5">
-        <h1 className="font-bold sm:text-5xl text-3xl bg-clip-text text-transparent bg-gradient-to-t from-pink-600 to-purple-500">
+      <div className="px-10 rounded-b-[50px] sm:pt-[60px] pt-[80px] flex flex-col items-center justify-center gap-5">
+        <h1 className="font-bold sm:text-5xl text-4xl text-center bg-clip-text text-transparent bg-gradient-to-t from-pink-600 to-purple-500">
           Shape the Future with us
         </h1>
-        <div className="text-white sm:text-2xl text-xl text-center sm:max-w-[50vw] leading-none font-bold tracking-wide">
+        <div className="text-white sm:text-2xl text-md text-center sm:max-w-[50vw] leading-none sm:font-bold tracking-wide">
           Join our innovative and passionate team to create impactful solutions
           and unlock your potential.
         </div>
@@ -29,20 +29,20 @@ export default function Careers() {
           ].map((text, index) => (
             <div
               key={index}
-              className="box border-2 border-[#c77dff] flex items-center justify-center p-5 relative cursor-pointer overflow-hidden w-[250px] h-[70px] group hover:bg-[#c77dff] transition-colors"
+              className="box border-2 border-[#c77dff] flex items-center justify-center p-5 relative cursor-pointer overflow-hidden w-[250px] sm:h-[70px] h-[60px] group hover:bg-[#c77dff] transition-colors"
             >
-              <h1 className="text-top absolute text-white sm:text-xl text-2xl font-bold w-full text-center transition-all group-hover:opacity-0 group-hover:translate-y-[-100%]">
+              <h1 className="text-top absolute text-white sm:text-xl text-lg font-bold w-full text-center transition-all group-hover:opacity-0 group-hover:translate-y-[-100%]">
                 {text}
               </h1>
-              <h1 className="text-bottom absolute text-2xl font-serif text-[#240046] w-full text-center opacity-0 transition-all group-hover:opacity-100">
+              <h1 className="text-bottom absolute sm:text-xl text-lg font-serif text-[#240046] w-full text-center opacity-0 transition-all group-hover:opacity-100">
                 {text}
               </h1>
             </div>
           ))}
         </div>
       </div>
-      <div className="button flex flex-col items-center justify-center pt-[50px] gap-5">
-        <p className="text-white text-2xl text-center sm:max-w-[50vw] p-4">
+      <div className="button flex flex-col items-center justify-center py-[50px] gap-5">
+        <p className="text-white sm:text-2xl text-lg text-center sm:max-w-[50vw] p-4">
           We’re always looking for talented individuals to join our team!
           Explore our open positions and apply using the form below.
         </p>
