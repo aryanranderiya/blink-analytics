@@ -67,9 +67,10 @@ export default function DataAnalytics() {
       <ScrollProgress />
 
       <Section
-        title="Data Analytics Services"
+        title="Turn Data Into Actionable Insights"
         services={services}
         videoRefs={videoRefs}
+        subtitle="Empower your business with data-driven strategies. Our analytics services unlock the potential of your data, enabling smarter decisions, predictive capabilities, and optimized performance across all domains."
       />
       <InterestedSection />
     </>

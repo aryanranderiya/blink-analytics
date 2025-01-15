@@ -75,15 +75,15 @@ export default function NavbarComponent() {
         
 
         <div
-          className={`ml-auto bg-white p-2 rounded-full bg-opacity-20 backdrop-blur-lg ${
-            isMenuVisible ? "border-black" : "border-white"
+          className={`ml-auto bg-white p-2 rounded-full bg-opacity-60 backdrop-blur-lg ${
+            isMenuVisible ? "border-black" : "border-black"
           } border-[2px] w-[50px] h-[50px] flex items-center justify-center cursor-pointer menu-button-container`}
           onClick={() => setisMenuVisible((old) => !old)}
         >
           {isMenuVisible ? (
             <X width={20} color="#112241" />
           ) : (
-            <MenuIcon width={18} color="white" />
+            <MenuIcon width={18} color="black" />
           )}
         </div>
       </header>

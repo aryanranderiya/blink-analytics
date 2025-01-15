@@ -1,7 +1,9 @@
 import InterestedSection from "@/components/InterestedSection";
+import DotPattern from "@/components/ui/dot-pattern";
 import { Button, Link } from "@nextui-org/react";
 import { ArrowUpRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { cn } from "@/lib/utils";
 function ServiceCard({
   title,
   description,
@@ -22,7 +24,7 @@ function ServiceCard({
           setIsVisible(entry.isIntersecting);
         });
       },
-      { threshold: window.innerWidth > 640 ? 0.3 : 0.8}
+      { threshold: window.innerWidth > 640 ? 0.3 : 0.9}
     );
     if (cardRef.current) {
       observer.observe(cardRef.current);
@@ -34,7 +36,7 @@ function ServiceCard({
   return (
     <div
       ref={cardRef}
-      className={`h-[55vh] w-screen sm:flex sm:flex-row flex-col-reverse justify-between gap-5 transition-all p-10 ${
+      className={`h-[55vh] w-screen sm:flex sm:flex-row flex-col-reverse justify-between z-[10] gap-5 transition-all p-10 ${
         reverse ? "sm:flex-row-reverse" : ""
       } ${isVisible ? "opacity-100" : "opacity-0 translate-y-10"}`}
     >
@@ -44,7 +46,7 @@ function ServiceCard({
         } gap-4 `}
       >
         <div
-          className={`text-4xl bebasneue text-[400] text-[#9d4edd] w-full ${
+          className={`sm:text-5xl text-4xl bebasneue text-[400] text-[#9d4edd] w-full ${
             reverse ? "sm:text-right" : "sm:text-left"
           } `}
         >
@@ -55,7 +57,7 @@ function ServiceCard({
         </div>
         <Link href="/contact">
           <Button
-            className="w-fit bg-black text-white"
+            className="w-fit bg-gradient-to-r from-pink-700 to-[#7B2CBF] text-white"
             radius="full"
             size="lg"
             endContent={<ArrowUpRight />}
@@ -71,6 +73,7 @@ function ServiceCard({
         loop
         muted
         autoPlay
+        playsInline
       >
         <source src={image} type="video/mp4" />
         Your browser does not support the video tag.
@@ -92,7 +95,7 @@ export default function Services() {
       title: "RAG Implementation",
       description:
         "Retrieval-Augmented Generation (RAG) is a powerful technique that Blink Analytics implements to enhance the quality and relevance of AI-generated content. By combining the capabilities of pre-trained models with a dynamic retrieval system, RAG allows AI to access real-time knowledge bases and databases during inference, ensuring that the generated content is contextually accurate and up-to-date. This is particularly valuable for applications where timely and relevant information is crucial, such as in customer support, content generation, and decision-making systems. At Blink Analytics, we offer RAG implementation services that help businesses achieve better, more reliable AI outputs while reducing the risks of outdated or irrelevant information.",
-      image: "/RAG.mp4",
+      image: "/RAG-updated.mp4",
       reverse: true,
     },
     {
@@ -126,11 +129,16 @@ export default function Services() {
   ];
   return (
     <>
-      <div className="h-fit bg-[#3c096c] z-[1] sticky flex flex-col snap-y snap-mandatory overflow-hidden pb-[150px]">
-      <div className="p-10 bg-[#240046] rounded-b-3xl sm:pt-[150px] pt-[90px] sm:pb-[70px] pb-[30px]">
-        <h1 className="font-bold sm:text-7xl text-5xl text-white">Our Services</h1>
-        <div className="text-lg text-foreground-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, tenetur?</div>
+      <div className="h-fit bg-black z-[1] sticky flex flex-col snap-y snap-mandatory overflow-hidden pb-[150px]">
+      <div className="p-10 bg-gradient-to-r from-[#240046] to-[#7B2CBF] rounded-b-3xl sm:pt-[150px] pt-[90px] sm:pb-[70px] pb-[30px] z-[10]">
+        <h1 className="font-bold sm:text-7xl text-3xl text-white">Custom AI Solutions for Every Need</h1>
+        <div className="sm:text-lg text-sm text-foreground-400 max-w-[80vw]">Explore our range of AI-driven services designed to transform your business operations. From fine-tuning models to implementing secure enterprise solutions, we deliver cutting-edge technologies tailored to your goals.</div>
       </div>
+      <DotPattern
+        className={cn(
+          "[mask-image:linear-gradient(to_right,white,#ffffff60,transparent)] absolute inset-0"
+        )}
+      />
         {services.map((service, index) => (
           <ServiceCard
             key={index}

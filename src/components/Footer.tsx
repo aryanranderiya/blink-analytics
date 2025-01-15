@@ -5,14 +5,14 @@ export default function Footer() {
         <span className="instrumentserif-italic text-[12vw] ">BLINK </span>
         ANALYTICS
       </div>
-      <div className="justify-between flex w-full px-3 pb-[5px] sm:gap-2 gap-0 flex-wrap items-center">
+      <div className="justify-between flex w-full px-3 pb-[5px] sm:text-[16px] text-[8px] sm:gap-2 gap-0 flex-wrap items-center">
         <div className="text-nowrap">+91 1234567890</div>
         <div>
           <a href="mailto:support@blinkanalytics.in" className="text-nowrap">
             support@blinkanalytics.in
           </a>
         </div>
-        <div className="text-nowrap text-center sm:w-fit w-full">
+        <div className="text-nowrap text-center w-fit">
           Designed & Developed by{" "}
           <a
             href="https://aryanranderiya.com"

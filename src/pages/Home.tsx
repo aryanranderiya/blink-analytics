@@ -335,7 +335,7 @@ function ServicesSection() {
       const { isDesktop, isTablet, isMobile } = context.conditions;
 
       const animation = gsap.to(".cards-div", {
-        xPercent: isDesktop ? -168 : isTablet ? -400 : -50,
+        xPercent: isDesktop ? -168 : isTablet ? -400 : -610,
         ease: "none",
         scrollTrigger: {
           trigger: ".services-div",
@@ -343,8 +343,8 @@ function ServicesSection() {
           end: isDesktop
             ? "top -100%"
             : isTablet
-            ? "top -75%"
-            : "top -80%",
+            ? "top -100%"
+            : "top -100%",
           pin: true,
           scrub: 2,
         },
@@ -359,12 +359,12 @@ function ServicesSection() {
   }, []);
   const sections = [
     { bgColor: "bg-black", text: "RLHF AND SFT", videoSrc: "/RAG.mp4" },
-    { bgColor: "bg-[#ede8f5]", text: "RAG IMPLEMENTATION" },
-    { bgColor: "bg-[#ede8f5]", text: "GENERATIVE AI SERVICES" },
-    { bgColor: "bg-[#ede8f5]", text: "CHATBOT MAKING" },
-    { bgColor: "bg-[#ede8f5]", text: "AI AGENTS IMPLEMENTATION" },
-    { bgColor: "bg-[#ede8f5]", text: "ENTERPRISE BASED SECURE MODELS" },
-    { bgColor: "bg-[#ede8f5]", text: "DATA ANALYTICS SERVICES" },
+    { bgColor: "bg-black", text: "RAG IMPLEMENTATION", videoSrc: "/RAG-updated.mp4" },
+    { bgColor: "bg-black", text: "GENERATIVE AI SERVICES", videoSrc: "/RAG-updated.mp4" },
+    { bgColor: "bg-black", text: "CHATBOT MAKING", videoSrc: "/RAG-updated.mp4" },
+    { bgColor: "bg-black", text: "AI AGENTS IMPLEMENTATION", videoSrc: "/RAG-updated.mp4" },
+    { bgColor: "bg-black", text: "ENTERPRISE BASED SECURE MODELS", videoSrc: "/RAG-updated.mp4" },
+    { bgColor: "bg-black", text: "DATA ANALYTICS SERVICES", videoSrc: "/RAG-updated.mp4" },
   ];
   return (
     <>
@@ -379,8 +379,8 @@ function ServicesSection() {
         <div className="first-section-text sm:p-10 p-4 flex flex-col items-center justify-center w-full gap-10 h-full relative flex-wrap">
           <div className="first-info flex w-full h-full justify-evenly items-center sm:items-stretch overflow-hidden sm:flex-row flex-col">
             <div className="left flex flex-col gap-5">
-              <div className="video bg-[#3c096c] sm:w-[40vw] w-[80vw] sm:h-full h-[40vh] rounded-3xl p-5 sm:p-10 flex flex-col justify-between">
-                <div className="brainmodel absolute right-0 sm:bottom-[-5%] bottom-0 sm:w-[20vw] sm:h-[20vw] w-[35vw] h-[35vw]">
+              <div className="video bg-[#3c096c] sm:w-[40vw] w-[80vw] sm:h-full  sm:max-h-[75vh] h-[40vh] rounded-3xl p-5 sm:p-10 flex flex-col justify-between">
+                <div className="brainmodel absolute right-0  bottom-0 sm:w-[20vw] sm:h-[20vw] w-[35vw] h-[35vw]">
                   <BrainModel scale={4} />
                 </div>
                 <div>
@@ -391,9 +391,8 @@ function ServicesSection() {
                     Generative AI
                   </Link>
                   <p className="text-white text-xs sm:text-[20px] sm:leading-[30px] ">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Laborum repellendus delectus et autem vel impedit error
-                    dicta eligendi dolorum quia.
+                  Unleash your creativity and redefine possibilities with our generative AI solutions. Whether it's content creation, marketing automation, or system integration, we help you harness AI to innovate and excel.
+
                   </p>
                 </div>
                 <ul className="flex flex-col gap-2 list-none mt-2 text-[10px] sm:text-[20px] sm:leading-[30px]">
@@ -413,7 +412,7 @@ function ServicesSection() {
               </div>
             </div>
             <div className="right flex flex-col gap-5 ">
-              <div className="video sm:w-[40vw] w-[80vw] sm:h-full h-[40vh] bg-[#3c096c] rounded-3xl flex flex-col p-5 sm:p-10 relative justify-between">
+              <div className="video sm:w-[40vw] w-[80vw] sm:h-full sm:max-h-[75vh] h-[40vh] bg-[#3c096c] rounded-3xl flex flex-col p-5 sm:p-10 relative justify-between">
                 <div className="brainmodel absolute sm:right-[-15%] right-[-20%] bottom-5 sm:w-[35vw] w-[70vw]">
                   <DotLottieReact
                     src="https://lottie.host/b0a2acd5-a7aa-49bc-89ce-5c66c54ca586/VfQO43rteM.json"
@@ -429,9 +428,7 @@ function ServicesSection() {
                     Data Analytics
                   </Link>
                   <p className="text-white text-xs sm:text-[20px] sm:leading-[30px]">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Optio suscipit nesciunt in blanditiis nulla quod ipsum
-                    officia similique tempora vero?
+                  Empower your business with data-driven strategies. Our analytics services unlock the potential of your data, enabling smarter decisions, predictive capabilities, and optimized performance across all domains.
                   </p>
                 </div>
                 <ul className="flex flex-col gap-2 list-none mt-2 text-[10px] sm:text-[20px] sm:leading-[30px]">
@@ -458,31 +455,31 @@ function ServicesSection() {
         className="bg-[#5a189a] w-full h-[200vh] overflow-hidden z-[1] rounded-t-3xl relative services-div "
       >
         {/* <DotBackground /> */}
-        <div className="services-title flex items-center justify-center w-full cursor-pointer absolute top-20 left-1/2 transform -translate-x-1/2 overflow-hidden mb-[50px]">
+        <div className="services-title flex items-center justify-center w-full  cursor-pointer absolute top-20 left-1/2 transform -translate-x-1/2 overflow-hidden mb-[50px]">
           <h1 className="font-[800] bebasneue tracking-[3px] sm:text-[4vw] text-5xl uppercase text-white text-center">
             Our Services
           </h1>
         </div>
         <div
           ref={cardsDivRef}
-          className="cards-div flex flex-col gap-10 p-10 sm:items-start items-center justify-center pt-[20vh] sm: h-fit max-w-screen"
+          className="cards-div flex flex-col sm:p-10 p-5 sm:mt-[150px] mt-[80px] items-start justify-center pt-[20vh] sm: h-fit max-w-screen"
         >
           <div className="flex gap-10 cards-div-container overflow-hidden">
             {sections.map((section, index) => (
               <section
                 key={index}
-                className={`min-h-[50vh] sm:w-[35vw] h-full w-[90vw] ${section.bgColor} rounded-xl flex flex-col cursor-pointer p-5`}
+                className={`sm:min-h-[50vh] sm:w-[35vw] h-full w-[90vw] ${section.bgColor} rounded-xl flex flex-col cursor-pointer p-5`}
               >
                 <div className="grow">
                   {section.videoSrc ? (
-                    <video width="600" height="auto" loop muted autoPlay>
+                    <video width="600" height="auto" loop muted autoPlay playsInline>
                       <source src={section.videoSrc} type="video/mp4" />
                       Your browser does not support the video tag.
                     </video>
                   ) : null}
                 </div>
                 <div
-                  className={`pt-3 bebas text-large font-medium ${
+                  className={`pt-3 bebas sm:text-large text-md font-medium ${
                     section.bgColor === "bg-black" ? "text-white" : "text-black"
                   }`}
                 >
@@ -492,7 +489,7 @@ function ServicesSection() {
             ))}
           </div>
         </div>
-        <div className="flex items-center w-full justify-center">
+        <div className="flex items-center w-full justify-center mt-10">
           <Link href="/services">
             <Button
               radius="full"
@@ -652,7 +649,7 @@ function ContactSection() {
 
 function LastSection() {
   return (
-    <section className="bg-[#10002b] w-full sm:h-[50vh] h-[30vh] z-[1] sticky top-0  rounded-t-3xl flex flex-col sm:p-10 p-5 items-center justify-center sm:gap-4 gap-2">
+    <section className="bg-[#10002b] w-full sm:h-[50vh] h-[35vh] z-[1] sticky top-0  rounded-t-3xl flex flex-col sm:p-10 p-10 items-center sm:justify-center  justify-evenly sm:gap-4 gap-2">
       <div className="font-bold sm:text-5xl text-2xl text-white max-w-screen-sm sm:max-w-screen-2xl text-center inline">
         Transform Your Business with{" "}
         <span className="text-transparent bg-clip-text bg-gradient-to-tr from-pink-500 to-purple-500">
@@ -660,10 +657,9 @@ function LastSection() {
         </span>
         &nbsp;AI Solutions
       </div>
-      <div className="font-medium sm:text-xl text-xs text-white text-center">
+      <div className="font-medium sm:text-xl text-xs text-white text-center max-w-[60vw]">
         Partner with us to leverage advanced AI technologies to drive innovation
         and growth.
-        <br />
         Reach out today to see how we can help you achieve your business goals.
       </div>
       <Link href="/contact">
