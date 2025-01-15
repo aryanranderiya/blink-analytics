@@ -78,8 +78,8 @@ export default function Section({
   return (
     <div className="h-fit bg-black z-[1] sticky flex flex-col snap-y snap-mandatory overflow-hidden">
       <div className="p-10 bg-gradient-to-r from-[#240046] to-[#7B2CBF] rounded-b-3xl sm:pt-[150px] pt-[90px] sm:pb-[70px] pb-[30px]">
-        <h1 className="font-bold sm:text-7xl text-5xl text-white">{title}</h1>
-        <div className="text-lg text-foreground-400">{subtitle}</div>
+        <h1 className="sm:text-7xl text-3xl text-white">{title}</h1>
+        <div className="sm:text-lg text-sm text-foreground-400 max-w-[80vw]">{subtitle}</div>
       </div>
       <div className="content flex flex-col gap-10 py-10 relative">
         <DotPattern

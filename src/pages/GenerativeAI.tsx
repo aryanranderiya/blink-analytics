@@ -34,9 +34,10 @@ export default function Services() {
   return (
     <>
       <Section
-        title="Generative AI Services"
+        title="Innovate with Generative AI"
         services={services}
         videoRefs={videoRefs}
+        subtitle="Unleash your creativity and redefine possibilities with our generative AI solutions. Whether it's content creation, marketing automation, or system integration, we help you harness AI to innovate and excel."
       />
       <InterestedSection />
     </>
