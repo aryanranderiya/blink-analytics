@@ -67,7 +67,7 @@ export default function NavbarComponent() {
 
             <div
               ref={textRef}
-              className="absolute font-medium tracking-wide flex h-full w-fit text-[#112241] whitespace-nowrap text-xl opacity-0 group-hover:left-[85px] group-hover:opacity-100 transition-all left-0 top-0 items-center"
+              className="absolute font-medium tracking-wide flex h-full w-fit text-white whitespace-nowrap text-xl opacity-0 group-hover:left-[85px] group-hover:opacity-100 transition-all left-0 top-0 items-center"
             >
               <span>Blink Analytics</span>
             </div>
