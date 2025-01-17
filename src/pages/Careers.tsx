@@ -1,5 +1,5 @@
 import RetroGrid from "@/components/ui/retro-grid";
-import { Button } from "@nextui-org/react";
+import { Button, Link } from "@nextui-org/react";
 import { ArrowRight } from "lucide-react";
 
 export default function Careers() {
@@ -46,6 +46,7 @@ export default function Careers() {
           We’re always looking for talented individuals to join our team!
           Explore our open positions and apply using the form below.
         </p>
+        <Link target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSf-NtRJC-HA-L8Fja5LtGZlSPrqLSrCyvcMP75isr72VC3z4A/viewform?usp=sharing">
         <Button
           radius="full"
           variant="faded"
@@ -59,6 +60,7 @@ export default function Careers() {
         >
           View Open Positions
         </Button>
+        </Link>
       </div>
     </div>
   );
