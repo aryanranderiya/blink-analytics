@@ -502,7 +502,7 @@ function ServicesSection() {
                 </div>
               }
             >
-              Hire us now
+              Explore more!
             </Button>
           </Link>
         </div>
@@ -603,6 +603,7 @@ function ContactSection() {
             </span>
             <br /> to propel your Business
           </h1>
+          <Link href="/contact">
           <Button
             radius="full"
             variant="faded"
@@ -616,6 +617,7 @@ function ContactSection() {
           >
             Get Access
           </Button>
+          </Link>
         </div>
         <div className="bottom flex flex-col items-center justify-center gap-10 ">
           <p className="sm:text-xl text-sm font-bold text-[#999999] tracking-wide max-w-[80vw] sm:max-w-[60vw] text-center mb-5">

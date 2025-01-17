@@ -54,20 +54,20 @@ export default function NavbarComponent() {
   return (
     <>
       <header
-        className={`flex w-screen left-0 py-2 px-4 sm:pr-8 pr-4 fixed top-0' z-[50] items-center rounded-b-[25px] overflow-hidden`}
+        className={`flex w-screen left-0 px-4 sm:pr-8 pr-4 fixed top-0' z-[50] items-center rounded-b-[25px] overflow-hidden`}
       >
         
           <div className="relative cursor-pointer group">
             <div
               ref={logoRef}
-              className="size-[60px] rounded-full mx-auto flex items-center justify-center group-hover:scale-75 transition-all"
+              className="size-[100px] rounded-full mx-auto flex items-center justify-center group-hover:scale-75 transition-all"
             >
-              <img src="/logo-alone.png" alt="" />
+              <img src="/blink-logo-2-removebg.png" alt="" />
             </div>
 
             <div
               ref={textRef}
-              className="absolute font-medium tracking-wide flex h-full w-fit text-white whitespace-nowrap text-2xl opacity-0 group-hover:left-[60px] group-hover:opacity-100 transition-all left-0 top-0 items-center"
+              className="absolute font-medium tracking-wide flex h-full w-fit text-[#112241] whitespace-nowrap text-xl opacity-0 group-hover:left-[85px] group-hover:opacity-100 transition-all left-0 top-0 items-center"
             >
               <span>Blink Analytics</span>
             </div>
