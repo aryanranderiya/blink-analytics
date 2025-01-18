@@ -335,11 +335,12 @@ function ServicesSection() {
         isDesktop: "(min-width: 1024px)",
         // Tablet view
         isTablet: "(min-width: 768px) and (max-width: 1023px)",
-        // Mobile view
-        isMobile: "(max-width: 767px)",
       },
       (context) => {
-        const { isDesktop, isTablet, isMobile } = context.conditions;
+        const { isDesktop, isTablet } = context.conditions as {
+          isDesktop: boolean;
+          isTablet: boolean;
+        };
 
         const animation = gsap.to(".cards-div", {
           xPercent: isDesktop ? -168 : isTablet ? -400 : -610,
