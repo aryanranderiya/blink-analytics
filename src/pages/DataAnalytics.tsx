@@ -15,8 +15,10 @@ export default function DataAnalytics() {
     {
       title: "Data Annotation and Labeling",
       text: "Ensure high-quality training data for your AI models with precise annotation and labeling services. We categorize, tag, and structure your data for maximum efficiency and accuracy in machine learning.",
-      gif: "/data-analytics/2-low.mp4",
-      highResGif: "/data-analytics/2.mp4",
+      // gif: "/data-analytics/2-low.mp4",
+      // highResGif: "/data-analytics/2.mp4",
+      gif: "/data-analytics/Data Annotation and Labelling_1-low.mp4",
+      highResGif: "/data-analytics/Data Annotation and Labelling_1.mp4",
     },
     {
       title: "Business Intelligence and Reporting",
@@ -45,20 +47,26 @@ export default function DataAnalytics() {
     {
       title: "Deep Learning Solutions",
       text: "Leverage the latest in AI technology with our deep learning expertise. From complex neural networks to cutting-edge applications, we help you solve advanced challenges efficiently.",
-      gif: "/data-analytics/7-low.mp4",
-      highResGif: "/data-analytics/7.mp4",
+      // gif: "/data-analytics/7-low.mp4",
+      // highResGif: "/data-analytics/7.mp4",
+      gif: "/data-analytics/Deep Learning_1-low.mp4",
+      highResGif: "/data-analytics/Deep Learning_1.mp4",
     },
     {
       title: "Computer Vision",
       text: "Transform visual data into actionable insights. Our computer vision solutions automate processes like image recognition, object detection, and video analysis for enhanced decision-making.",
-      gif: "/data-analytics/8-low.mp4",
-      highResGif: "/data-analytics/8.mp4",
+      // gif: "/data-analytics/8-low.mp4",
+      // highResGif: "/data-analytics/8.mp4",
+      gif: "/data-analytics/Computer Vision_1-low.mp4",
+      highResGif: "/data-analytics/Computer Vision_1.mp4",
     },
     {
       title: "Text and Sentiment Analysis",
       text: "Understand the voice of your customers with text and sentiment analysis. We help you uncover trends, gauge sentiment, and refine strategies based on real customer feedback.",
-      gif: "/data-analytics/9-low.mp4",
-      highResGif: "/data-analytics/9.mp4",
+      // gif: "/data-analytics/9-low.mp4",
+      // gif: "/data-analytics/Computer Vision_1.mp4",
+      gif: "/data-analytics/Sentiment Analysis_1-low.mp4",
+      highResGif: "/data-analytics/Sentiment Analysis_1.mp4",
     },
   ];
 

@@ -14,20 +14,26 @@ export default function Services() {
     {
       title: "Generative AI Solutions Development",
       text: "Create tailored generative AI solutions for your business. From text generation to image creation, we design and implement applications that enhance creativity and productivity.",
-      gif: "/generative-ai/laptop-low.mp4",
-      highResGif: "/generative-ai/laptop.mp4",
+      // gif: "/generative-ai/laptop-low.mp4",
+      // highResGif: "/generative-ai/laptop.mp4",
+      gif: "/generative-ai/Gen AI_Services_1-low.mp4",
+      highResGif: "/generative-ai/Gen AI_Services_1.mp4",
     },
     {
       title: "Generative AI Integration",
       text: "Seamlessly incorporate generative AI into your existing systems. We ensure smooth implementation, enabling your business to harness AI-driven innovation effortlessly.",
-      gif: "/generative-ai/gears-low.mp4",
-      highResGif: "/generative-ai/gears.mp4",
+      // gif: "/generative-ai/gears-low.mp4",
+      // highResGif: "/generative-ai/gears.mp4",
+      gif: "/generative-ai/Gen AI_1-low.mp4",
+      highResGif: "/generative-ai/Gen AI_1.mp4",
     },
     {
       title: "AI Marketing Agent Development",
       text: "Transform your marketing efforts with AI-driven agents. Our solutions create personalized campaigns, generate content, and analyze trends to maximize your marketing ROI.",
-      gif: "/generative-ai/agent-low.mp4",
-      highResGif: "/generative-ai/agent.mp4",
+      // gif: "/generative-ai/agent-low.mp4",
+      // highResGif: "/generative-ai/agent.mp4",
+      gif: "/generative-ai/Marketing Agent_1-low.mp4",
+      highResGif: "/generative-ai/Marketing Agent_1.mp4",
     },
   ];
 
