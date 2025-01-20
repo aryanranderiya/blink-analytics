@@ -1,23 +1,32 @@
 import BrainModel from "@/components/BrainModel";
 import ParticlesBg from "@/components/ParticlesBg";
+import DotPattern from "@/components/ui/dot-pattern";
 import { World } from "@/components/ui/globe";
 import { positionData } from "@/data/positionData";
+import { cn } from "@/lib/utils";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import { Button, Link } from "@nextui-org/react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { ArrowRight, Mouse } from "lucide-react";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { isMobile } from "react-device-detect";
 import Slider from "react-infinite-logo-slider";
 
 function HeroSection() {
+  const [isLoaded, setisLoaded] = useState(false);
   const ref1 = useRef(null);
   const ref2 = useRef(null);
   const ref3 = useRef(null);
   const paragraphRef1 = useRef(null);
   // const paragraphRef2 = useRef(null);
   const heroRef = useRef(null);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setisLoaded(true);
+    }, 1300);
+  }, []);
 
   const globeConfig = {
     pointSize: 10,
@@ -162,8 +171,8 @@ function HeroSection() {
       ref={heroRef}
       className="w-full h-screen bg-gradient-to-b from-[#10002b] to-[#000000] sticky top-0 z-[1] hero-section overflow-hidden"
     >
-      <div className="Globe w-[130vw] h-[130vw] top-[45%] -translate-x-[10%] sm:w-[150vw] absolute sm:top-[35%] sm:h-[150vh] transform sm:-translate-x-[16%] sm:overflow-hidden sm:z-[10] z-[9]">
-        <World globeConfig={globeConfig} data={positionData} />
+      <div className="Globe w-[130vw] h-[130vw] top-[45%] -translate-x-[10%] sm:w-[150vw] absolute sm:top-[35%] sm:h-[150vh] transform sm:-translate-x-[16%] sm:overflow-hidden">
+        {isLoaded && <World globeConfig={globeConfig} data={positionData} />}
       </div>
 
       <div className="absolute bottom-[30px] flex w-full justify-center">
@@ -327,49 +336,70 @@ function ServicesSection() {
 
     const mm = gsap.matchMedia();
 
-  mm.add(
-    {
-      // Desktop view
-      isDesktop: "(min-width: 1024px)",
-      // Tablet view
-      isTablet: "(min-width: 768px) and (max-width: 1023px)",
-      // Mobile view
-      isMobile: "(max-width: 767px)",
-    },
-    (context) => {
-      const { isDesktop, isTablet, isMobile } = context.conditions;
+    mm.add(
+      {
+        // Desktop view
+        isDesktop: "(min-width: 1024px)",
+        // Tablet view
+        isTablet: "(min-width: 768px) and (max-width: 1023px)",
+      },
+      (context) => {
+        const { isDesktop, isTablet } = context.conditions as {
+          isDesktop: boolean;
+          isTablet: boolean;
+        };
 
-      const animation = gsap.to(".cards-div", {
-        xPercent: isDesktop ? -168 : isTablet ? -400 : -610,
-        ease: "none",
-        scrollTrigger: {
-          trigger: ".services-div",
-          start: 'top top',
-          end: isDesktop
-            ? "top -100%"
-            : isTablet
-            ? "top -100%"
-            : "top -100%",
-          pin: true,
-          scrub: 2,
-        },
-      });
+        const animation = gsap.to(".cards-div", {
+          xPercent: isDesktop ? -168 : isTablet ? -400 : -610,
+          ease: "none",
+          scrollTrigger: {
+            trigger: ".services-div",
+            start: "top top",
+            end: "top -100%",
+            pin: true,
+            scrub: 2,
+          },
+        });
 
-      // Cleanup for this context
-      return () => animation.kill();
-    }
-  );
+        // Cleanup for this context
+        return () => animation.kill();
+      }
+    );
 
-  return () => mm.revert(); 
+    return () => mm.revert();
   }, []);
   const sections = [
     { bgColor: "bg-black", text: "RLHF AND SFT", videoSrc: "/RAG.mp4" },
-    { bgColor: "bg-black", text: "RAG IMPLEMENTATION", videoSrc: "/RAG-updated.mp4" },
-    { bgColor: "bg-black", text: "GENERATIVE AI SERVICES", videoSrc: "/RAG-updated.mp4" },
-    { bgColor: "bg-black", text: "CHATBOT MAKING", videoSrc: "/RAG-updated.mp4" },
-    { bgColor: "bg-black", text: "AI AGENTS IMPLEMENTATION", videoSrc: "/RAG-updated.mp4" },
-    { bgColor: "bg-black", text: "ENTERPRISE BASED SECURE MODELS", videoSrc: "/RAG-updated.mp4" },
-    { bgColor: "bg-black", text: "DATA ANALYTICS SERVICES", videoSrc: "/RAG-updated.mp4" },
+    {
+      bgColor: "bg-black",
+      text: "RAG IMPLEMENTATION",
+      videoSrc: "/RAG-updated.mp4",
+    },
+    {
+      bgColor: "bg-black",
+      text: "GENERATIVE AI SERVICES",
+      videoSrc: "/RAG-updated.mp4",
+    },
+    {
+      bgColor: "bg-black",
+      text: "CHATBOT MAKING",
+      videoSrc: "/RAG-updated.mp4",
+    },
+    {
+      bgColor: "bg-black",
+      text: "AI AGENTS IMPLEMENTATION",
+      videoSrc: "/RAG-updated.mp4",
+    },
+    {
+      bgColor: "bg-black",
+      text: "ENTERPRISE BASED SECURE MODELS",
+      videoSrc: "/RAG-updated.mp4",
+    },
+    {
+      bgColor: "bg-black",
+      text: "DATA ANALYTICS SERVICES",
+      videoSrc: "/RAG-updated.mp4",
+    },
   ];
   return (
     <>
@@ -385,7 +415,7 @@ function ServicesSection() {
           <div className="first-info flex w-full h-full justify-evenly items-center sm:items-stretch overflow-hidden sm:flex-row flex-col">
             <div className="left flex flex-col gap-5">
               <div className="video bg-[#371367] sm:w-[40vw] w-[80vw] sm:h-full  sm:max-h-[75vh] h-[40vh] rounded-3xl p-5 sm:p-10 flex flex-col justify-between">
-                <div className="brainmodel absolute right-[15px] bottom-[50px] sm:w-[15vw] w-[35vw]">
+                <div className="brainmodel absolute right-[15px] bottom-[50px] sm:w-[15vw] w-[28vw]">
                 <video
                   loop
                   muted
@@ -404,8 +434,10 @@ function ServicesSection() {
                     Generative AI
                   </Link>
                   <p className="text-white text-xs sm:text-[20px] sm:leading-[30px] ">
-                  Unleash your creativity and redefine possibilities with our generative AI solutions. Whether it's content creation, marketing automation, or system integration, we help you harness AI to innovate and excel.
-
+                    Unleash your creativity and redefine possibilities with our
+                    generative AI solutions. Whether it's content creation,
+                    marketing automation, or system integration, we help you
+                    harness AI to innovate and excel.
                   </p>
                 </div>
                 <ul className="flex flex-col gap-2 list-none mt-2 text-[10px] sm:text-[20px] sm:leading-[30px]">
@@ -441,7 +473,10 @@ function ServicesSection() {
                     Data Analytics
                   </Link>
                   <p className="text-white text-xs sm:text-[20px] sm:leading-[30px]">
-                  Empower your business with data-driven strategies. Our analytics services unlock the potential of your data, enabling smarter decisions, predictive capabilities, and optimized performance across all domains.
+                    Empower your business with data-driven strategies. Our
+                    analytics services unlock the potential of your data,
+                    enabling smarter decisions, predictive capabilities, and
+                    optimized performance across all domains.
                   </p>
                 </div>
                 <ul className="flex flex-col gap-2 list-none mt-2 text-[10px] sm:text-[20px] sm:leading-[30px]">
@@ -465,9 +500,13 @@ function ServicesSection() {
       </section>
       <section
         ref={serviceRef}
-        className="bg-[#5a189a] w-full h-[200vh] overflow-hidden z-[1] rounded-t-3xl relative services-div "
+        className="bg-gradient-to-tr from-pink-500 to-[#5a189a] via-[#5a189a] from w-full h-[200vh] overflow-hidden z-[1] rounded-t-3xl relative services-div "
       >
-        {/* <DotBackground /> */}
+        <DotPattern
+          className={cn(
+            "[mask-image:linear-gradient(to_left,white,#ffffff80,transparent)] absolute inset-0"
+          )}
+        />
         <div className="services-title flex items-center justify-center w-full  cursor-pointer absolute top-20 left-1/2 transform -translate-x-1/2 overflow-hidden mb-[50px]">
           <h1 className="font-[800] bebasneue tracking-[3px] sm:text-[4vw] text-5xl uppercase text-white text-center">
             Our Services
@@ -485,7 +524,14 @@ function ServicesSection() {
               >
                 <div className="grow">
                   {section.videoSrc ? (
-                    <video width="600" height="auto" loop muted autoPlay playsInline>
+                    <video
+                      width="600"
+                      height="auto"
+                      loop
+                      muted
+                      autoPlay
+                      playsInline
+                    >
                       <source src={section.videoSrc} type="video/mp4" />
                       Your browser does not support the video tag.
                     </video>
@@ -617,19 +663,19 @@ function ContactSection() {
             <br /> to propel your Business
           </h1>
           <Link href="/contact">
-          <Button
-            radius="full"
-            variant="faded"
-            className="pr-[2px]"
-            size="lg"
-            endContent={
-              <div className="rounded-full bg-gradient-to-tr from-pink-500 to-purple-500 min-h-[40px] min-w-[40px] flex justify-center items-center ">
-                <ArrowRight color="white" />
-              </div>
-            }
-          >
-            Get Access
-          </Button>
+            <Button
+              radius="full"
+              variant="faded"
+              className="pr-[2px]"
+              size="lg"
+              endContent={
+                <div className="rounded-full bg-gradient-to-tr from-pink-500 to-purple-500 min-h-[40px] min-w-[40px] flex justify-center items-center ">
+                  <ArrowRight color="white" />
+                </div>
+              }
+            >
+              Get Access
+            </Button>
           </Link>
         </div>
         <div className="bottom flex flex-col items-center justify-center gap-10 ">
@@ -640,14 +686,14 @@ function ContactSection() {
             precision, performance, and unparalleled insights for your business.
           </p>
           <Slider
-            width={ window.innerWidth > 640 ? '220px' : '100px' }
+            width={window.innerWidth > 640 ? "220px" : "100px"}
             duration={30}
             pauseOnHover={false}
             blurBorders={false}
             blurBorderColor={"#fff"}
           >
             {slides.map((slide, index) => (
-              <Slider.Slide key={index} >
+              <Slider.Slide key={index}>
                 <img
                   src={slide.src}
                   alt={slide.alt}
@@ -674,14 +720,14 @@ function LastSection() {
       </div>
       <div className="font-medium sm:text-xl text-xs text-white text-center max-w-[60vw]">
         Partner with us to leverage advanced AI technologies to drive innovation
-        and growth.
-        Reach out today to see how we can help you achieve your business goals.
+        and growth. Reach out today to see how we can help you achieve your
+        business goals.
       </div>
       <Link href="/contact">
         <Button
           radius="full"
           variant="faded"
-          size={window.innerWidth > 640 ? 'lg' : 'sm'}
+          size={window.innerWidth > 640 ? "lg" : "sm"}
           endContent={
             <div className="rounded-full bg-gradient-to-tr from-pink-500 to-purple-500 h-[25px] w-[25px] sm:min-h-[40px] sm:min-w-[40px] flex justify-center items-center ">
               <ArrowRight color="white" />

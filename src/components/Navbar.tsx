@@ -54,9 +54,9 @@ export default function NavbarComponent() {
   return (
     <>
       <header
-        className={`flex w-screen left-0 px-4 sm:pr-8 pr-4 fixed top-0' z-[50] items-center rounded-b-[25px] overflow-hidden`}
+        className={`flex w-screen left-0 sm:px-2 px-0 sm:pr-8 pr-4 fixed top-0 z-[50] items-center rounded-b-[25px] overflow-hidden`}
       >
-        
+        <Link to={"/"}>
           <div className="relative cursor-pointer group">
             <div
               ref={logoRef}
@@ -67,7 +67,7 @@ export default function NavbarComponent() {
 
             <div
               ref={textRef}
-              className="absolute font-medium tracking-wide flex h-full w-fit whitespace-nowrap text-xl opacity-0 group-hover:left-[85px] group-hover:opacity-100 transition-all left-0 top-0 items-center"
+              className="absolute font-medium tracking-wide flex text-white h-full w-fit whitespace-nowrap text-xl opacity-0 group-hover:left-[85px] group-hover:opacity-100 transition-all left-0 top-0 items-center"
             >
               <span>
                 Blink Analytics
@@ -75,12 +75,10 @@ export default function NavbarComponent() {
             </div>
 
           </div>
-        
+        </Link>
 
         <div
-          className={`ml-auto bg-white p-2 rounded-full bg-opacity-60 backdrop-blur-lg ${
-            isMenuVisible ? "border-black" : "border-black"
-          } border-[2px] w-[50px] h-[50px] flex items-center justify-center cursor-pointer menu-button-container`}
+          className={`ml-auto bg-white p-2 rounded-full bg-opacity-60 backdrop-blur-lg border-black border-[2px] w-[50px] h-[50px] flex items-center justify-center cursor-pointer menu-button-container`}
           onClick={() => setisMenuVisible((old) => !old)}
         >
           {isMenuVisible ? (
@@ -94,7 +92,7 @@ export default function NavbarComponent() {
       <div
         className={`fixed z-[10] top-0 ${
           isMenuVisible ? "right-0" : "right-[-100%]"
-        } transition-all duration-400 h-screen md:w-[25vw] md:max-w-[25vw] md:min-w-[25vw] min-w-[70vw] w-[70vw] max-w-[70vw] rounded-tl-[20px] rounded-bl-[20px] bg-[#ede8f5] shadow-lg flex flex-col items-start py-6 sm:px-8 px-3 backdrop-blur-lg`}
+        } transition-all duration-400 h-screen w-[65vw] sm:w-[350px] rounded-tl-[20px] rounded-bl-[20px] bg-[#ede8f5] shadow-lg flex flex-col items-start py-6 sm:px-8 px-3 backdrop-blur-lg`}
       >
         <nav
           ref={navRef}

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { MutableRefObject, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import DotPattern from "./ui/dot-pattern";
@@ -16,7 +16,7 @@ interface SectionType {
   title: string;
   services: ServiceType[];
   subtitle?: string;
-  videoRefs: any;
+  videoRefs: MutableRefObject<HTMLVideoElement[]>;
 }
 
 export default function Section({
@@ -73,13 +73,15 @@ export default function Section({
     return () => {
       observer.disconnect();
     };
-  }, []);
+  }, [videoRefs]);
 
   return (
     <div className="h-fit bg-black z-[1] sticky flex flex-col snap-y snap-mandatory overflow-hidden">
       <div className="p-10 bg-gradient-to-r from-[#240046] to-[#7B2CBF] rounded-b-3xl sm:pt-[150px] pt-[90px] sm:pb-[70px] pb-[30px]">
-        <h1 className="sm:text-7xl text-3xl text-white">{title}</h1>
-        <div className="sm:text-lg text-sm text-foreground-400 max-w-[80vw]">{subtitle}</div>
+        <h1 className="sm:text-7xl text-2xl text-white">{title}</h1>
+        <div className="sm:text-lg text-sm text-foreground-400 max-w-[80vw]">
+          {subtitle}
+        </div>
       </div>
       <div className="content flex flex-col gap-10 py-10 relative">
         <DotPattern
@@ -92,7 +94,7 @@ export default function Section({
           <div
             key={index}
             className={`data opacity-0 flex flex-col sm:flex-row items-center justify-evenly gap-5 p-10 ${
-              index % 2 === 0 ? "" : "flex-row-reverse"
+              index % 2 === 0 ? "" : "sm:flex-row-reverse"
             }`}
           >
             <div className="icon">
@@ -105,30 +107,24 @@ export default function Section({
                 loop
                 muted
                 playsInline
-                className="rounded-md shadow-lg"
+                className="rounded-3xl shadow-lg"
                 onLoadedData={(e) => {
                   const highResSource = services[index].highResGif;
                   if (!highResSource) return;
 
                   const videoElement = e.currentTarget;
-
-                  // Avoid redundant fetching by checking if the high-res is already set
                   if (videoElement.dataset.highResLoaded === "true") return;
 
-                  // Preload the high-res video
                   const highResVideo = document.createElement("video");
                   highResVideo.src = highResSource;
 
                   highResVideo.addEventListener("loadeddata", () => {
-                    console.log("High-res loaded for", highResSource);
-
-                    // Set high-res as the video source
-                    videoElement.src = highResSource;
-                    videoElement.load();
-                    videoElement.play();
-
-                    // Mark high-res as loaded to avoid redundant fetching
-                    videoElement.dataset.highResLoaded = "true";
+                    setTimeout(() => {
+                      videoElement.src = highResSource;
+                      videoElement.load();
+                      videoElement.play();
+                      videoElement.dataset.highResLoaded = "true";
+                    }, 1000);
                   });
                 }}
               >

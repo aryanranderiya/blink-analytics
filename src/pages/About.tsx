@@ -6,8 +6,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion } from "framer-motion";
 import DotPattern from "@/components/ui/dot-pattern";
 import { cn } from "@/lib/utils";
-import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+// import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import { useLocation } from "react-router-dom";
+import { Lightbulb, ShieldCheck, TargetIcon } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -45,7 +46,8 @@ export default function About() {
   }, [pathname, resetAnimations, isInitialLoad]);
 
   useEffect(() => {
-    if (isLoaded && cardsRef.current && statsRef.current) {
+    // && statsRef.current
+    if (isLoaded && cardsRef.current) {
       // Animate cards from right to left
       gsap.to(cardsRef.current.children, {
         x: 0,
@@ -59,18 +61,18 @@ export default function About() {
         },
       });
 
-      // Animate stats from bottom to top
-      gsap.to(statsRef.current.children, {
-        y: 0,
-        opacity: 1,
-        stagger: 0.1,
-        duration: 0.8,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: statsRef.current,
-          start: "top 80%",
-        },
-      });
+      // // Animate stats from bottom to top
+      // gsap.to(statsRef.current.children, {
+      //   y: 0,
+      //   opacity: 1,
+      //   stagger: 0.1,
+      //   duration: 0.8,
+      //   ease: "power2.out",
+      //   scrollTrigger: {
+      //     trigger: statsRef.current,
+      //     start: "top 80%",
+      //   },
+      // });
     }
 
     return () => {
@@ -156,7 +158,7 @@ export default function About() {
             ))}
           </div>
         </h1>
-        <div
+        {/* <div
           ref={statsRef}
           className="info-grid grid grid-cols-2 sm:gap-5 gap-2 mt-10"
         >
@@ -197,7 +199,7 @@ export default function About() {
               </p>
             </div>
           ))}
-        </div>
+        </div> */}
       </div>
       <div className="right bg-transparent min-h-screen p-10 md:rounded-l-[50px] z-[10] flex-[2] flex flex-col gap-5">
         <div ref={cardsRef} className="content flex flex-col gap-5">
@@ -206,30 +208,40 @@ export default function About() {
               title: "Our Mission",
               desc: "Our mission is to empower businesses with cutting-edge, custom-tailored AI solutions that drive innovation, enhance efficiency, and deliver measurable results. We strive to make advanced AI accessible, secure, and adaptable to meet the unique needs of every client.",
               icon: "https://lottie.host/31a0f588-04d7-4188-8849-5ea3138cfa65/qkYteFyBEh.lottie",
+              icon2: (
+                <TargetIcon className="text-white" height={45} width={45} />
+              ),
             },
             {
               title: "Our Vision",
               desc: "We envision a future where businesses of all sizes harness the transformative power of AI to unlock their full potential. By blending intelligence, security, and customization, we aim to be the leading force behind AI-driven success stories worldwide.",
               icon: "https://lottie.host/44a4cd76-9b6e-4dbf-ae1b-a38fbef24524/IwfLgMm2HL.lottie",
+              icon2: (
+                <Lightbulb className="text-white" height={45} width={45} />
+              ),
             },
             {
               title: "Our Values",
               desc: "We are guided by innovation, integrity, and customer-centricity. Our commitment to delivering secure, high-quality AI solutions is rooted in a passion for excellence, a drive to build lasting partnerships, and a responsibility to create impactful technologies for a better future.",
               icon: "https://lottie.host/4f341394-475a-4aee-8bfe-1664cb23ba17/elKHeqpwIp.lottie",
+              icon2: (
+                <ShieldCheck className="text-white" height={45} width={45} />
+              ),
             },
           ].map((item, index) => (
             <div
-              className={`flex flex-col text-justify group cursor-pointer gap-5 border-2 rounded-l-[40px] relative border-purple-500 p-5 hover:border-[#c77dff] transition-colors hover:bg-[#36096c]`}
+              className={`flex flex-col text-justify group cursor-pointer gap-5 border-2 rounded-l-[40px] relative border-purple-500 p-5 hover:border-[#c77dff] transition-colors hover:bg-[#36096c] bg-black`}
               key={index}
             >
               <div className="flex items-center gap-5 ">
-                <div className="circle bg-purple-500 rounded-full w-[70px] h-[70px] flex items-center justify-center">
-                  <DotLottieReact
+                <div className="circle bg-gradient-to-tr  from-purple-500 to-pink-500 rounded-full w-[70px] h-[70px] flex items-center justify-center">
+                  {/* <DotLottieReact
                     src={item.icon}
                     loop
                     autoplay
                     style={{ width: "50px", height: "50px" }}
-                  />
+                  /> */}
+                  {item.icon2}
                 </div>
                 <h2 className="text-3xl md:text-5xl text-white font-bold tracking-wide">
                   {item.title}

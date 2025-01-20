@@ -11,7 +11,7 @@ export default function Preloader() {
     "I",
     "N",
     "K",
-    "_",
+    " ",
     "A",
     "N",
     "A",
@@ -73,6 +73,7 @@ export default function Preloader() {
             <div
               style={{
                 transitionDuration: `${(index + 1) * 70}ms`,
+                ...(letter === " " && { width: "0.5em" }),
               }}
               key={index}
               className={`transition-all text-[#e0aaff] bebasneue font-medium leading-none inline-block text-[18vw] h-fit ${
