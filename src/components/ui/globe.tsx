@@ -5,6 +5,7 @@ import ThreeGlobe from "three-globe";
 import { useThree, Object3DNode, Canvas, extend } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import countries from "@/data/globe.json";
+import { isMobile } from "react-device-detect";
 declare module "@react-three/fiber" {
   interface ThreeElements {
     threeGlobe: Object3DNode<ThreeGlobe, typeof ThreeGlobe>;
@@ -265,6 +266,8 @@ export function WebGLRendererConfig() {
   return null;
 }
 
+
+
 export function World(props: WorldProps) {
   const { globeConfig } = props;
   const scene = new Scene();
@@ -290,6 +293,7 @@ export function World(props: WorldProps) {
       <OrbitControls
         enablePan={false}
         enableZoom={false}
+        enableRotate={isMobile ? false: true}
         minDistance={cameraZ}
         maxDistance={cameraZ}
         autoRotateSpeed={1}

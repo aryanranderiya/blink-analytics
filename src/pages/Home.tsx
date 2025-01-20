@@ -8,6 +8,7 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { ArrowRight, Mouse } from "lucide-react";
 import { useEffect, useRef } from "react";
+import { isMobile } from "react-device-detect";
 import Slider from "react-infinite-logo-slider";
 
 function HeroSection() {
@@ -152,19 +153,23 @@ function HeroSection() {
     };
   }, []);
 
+  if(isMobile){
+    console.log(World)
+  }
+
   return (
     <section
       ref={heroRef}
       className="w-full h-screen bg-gradient-to-b from-[#10002b] to-[#000000] sticky top-0 z-[1] hero-section overflow-hidden"
     >
-      <div className="Globe w-[130vw] h-[130vw] top-[45%] -translate-x-[10%] sm:w-[150vw] absolute sm:top-[35%] sm:h-[150vh] transform sm:-translate-x-[16%] sm:overflow-hidden">
+      <div className="Globe w-[130vw] h-[130vw] top-[45%] -translate-x-[10%] sm:w-[150vw] absolute sm:top-[35%] sm:h-[150vh] transform sm:-translate-x-[16%] sm:overflow-hidden sm:z-[10] z-[9]">
         <World globeConfig={globeConfig} data={positionData} />
       </div>
 
       <div className="absolute bottom-[30px] flex w-full justify-center">
         <Mouse size="50px" className="mouse text-white" />
       </div>
-      <div className="flex h-screen items-center flex-col sm:justify-center sm:pt-0 pt-[30%]">
+      <div className="flex h-screen items-center flex-col sm:justify-center sm:pt-0 pt-[30%] z-[10] pb-auto">
         <h1
           ref={ref1}
           className="text-white font-[800] sm:text-[5vw] text-[5vh] text-center leading-[40px] sm:leading-[100px] tracking-wide z-[10] left-[20%] select-none"
@@ -379,9 +384,17 @@ function ServicesSection() {
         <div className="first-section-text sm:p-10 p-4 flex flex-col items-center justify-center w-full gap-10 h-full relative flex-wrap">
           <div className="first-info flex w-full h-full justify-evenly items-center sm:items-stretch overflow-hidden sm:flex-row flex-col">
             <div className="left flex flex-col gap-5">
-              <div className="video bg-[#3c096c] sm:w-[40vw] w-[80vw] sm:h-full  sm:max-h-[75vh] h-[40vh] rounded-3xl p-5 sm:p-10 flex flex-col justify-between">
-                <div className="brainmodel absolute right-0  bottom-0 sm:w-[20vw] sm:h-[20vw] w-[35vw] h-[35vw]">
-                  <BrainModel scale={4} />
+              <div className="video bg-[#371367] sm:w-[40vw] w-[80vw] sm:h-full  sm:max-h-[75vh] h-[40vh] rounded-3xl p-5 sm:p-10 flex flex-col justify-between">
+                <div className="brainmodel absolute right-[15px] bottom-[50px] sm:w-[15vw] w-[35vw]">
+                <video
+                  loop
+                  muted
+                  autoPlay
+                  playsInline
+                >
+                  <source src={'/brain-final2.mp4'} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
                 </div>
                 <div>
                   <Link
@@ -412,7 +425,7 @@ function ServicesSection() {
               </div>
             </div>
             <div className="right flex flex-col gap-5 ">
-              <div className="video sm:w-[40vw] w-[80vw] sm:h-full sm:max-h-[75vh] h-[40vh] bg-[#3c096c] rounded-3xl flex flex-col p-5 sm:p-10 relative justify-between">
+              <div className="video sm:w-[40vw] w-[80vw] sm:h-full sm:max-h-[75vh] h-[40vh] bg-[#371367] rounded-3xl flex flex-col p-5 sm:p-10 relative justify-between">
                 <div className="brainmodel absolute sm:right-[-15%] right-[-20%] bottom-5 sm:w-[35vw] w-[70vw]">
                   <DotLottieReact
                     src="https://lottie.host/b0a2acd5-a7aa-49bc-89ce-5c66c54ca586/VfQO43rteM.json"
