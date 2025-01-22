@@ -1,4 +1,4 @@
-import BrainModel from "@/components/BrainModel";
+// import BrainModel from "@/components/BrainModel";
 import ParticlesBg from "@/components/ParticlesBg";
 import DotPattern from "@/components/ui/dot-pattern";
 import { World } from "@/components/ui/globe";
