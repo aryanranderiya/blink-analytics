@@ -415,7 +415,7 @@ function ServicesSection() {
           <div className="first-info flex w-full h-full justify-evenly items-center sm:items-stretch overflow-hidden sm:flex-row flex-col">
             <div className="left flex flex-col gap-5">
               <div className="video bg-[#371367] sm:w-[40vw] w-[80vw] sm:h-full  sm:max-h-[75vh] h-[40vh] rounded-3xl p-5 sm:p-10 flex flex-col justify-between">
-                <div className="brainmodel absolute right-[15px] bottom-[50px] sm:w-[15vw] w-[28vw]">
+                <div className="brainmodel absolute right-[15px] sm:bottom-[50px] bottom-[30px]  sm:w-[15vw] w-[28vw]">
                 <video
                   loop
                   muted
@@ -441,16 +441,16 @@ function ServicesSection() {
                   </p>
                 </div>
                 <ul className="flex flex-col gap-2 list-none mt-2 text-[10px] sm:text-[20px] sm:leading-[30px]">
-                  <li className="bg-white rounded-r-3xl max-w-max px-[10px] sm:px-5 py-2 font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">
+                  <li className="bg-white rounded-r-3xl max-w-max px-[10px] sm:px-5 sm:py-2 py-[5px] font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">
                     Automated Content Generation
                   </li>
-                  <li className="bg-white rounded-r-3xl max-w-max px-[10px] sm:px-5 py-2 font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">
+                  <li className="bg-white rounded-r-3xl max-w-max px-[10px] sm:px-5 sm:py-2 py-[5px] font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">
                     Personalized Experiences
                   </li>
-                  <li className="bg-white rounded-r-3xl max-w-max px-[10px] sm:px-5 py-2 font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">
+                  <li className="bg-white rounded-r-3xl max-w-max px-[10px] sm:px-5 sm:py-2 py-[5px] font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">
                     Efficient Workflows
                   </li>
-                  <li className="bg-white rounded-r-3xl max-w-max px-[10px] sm:px-5 py-2 font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">
+                  <li className="bg-white rounded-r-3xl max-w-max px-[10px] sm:px-5 sm:py-2 py-[5px] font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">
                     Innovative Problem Solving
                   </li>
                 </ul>
@@ -480,16 +480,16 @@ function ServicesSection() {
                   </p>
                 </div>
                 <ul className="flex flex-col gap-2 list-none mt-2 text-[10px] sm:text-[20px] sm:leading-[30px]">
-                  <li className="bg-white rounded-r-3xl max-w-max px-[10px] sm:px-5 py-2 font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">
+                  <li className="bg-white rounded-r-3xl max-w-max px-[5px] sm:px-5 sm:py-2 py-[5px] font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">
                     Informed Decision-Making
                   </li>
-                  <li className="bg-white rounded-r-3xl max-w-max px-[10px] sm:px-5 py-2 font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">
+                  <li className="bg-white rounded-r-3xl max-w-max px-[5px] sm:px-5 sm:py-2  py-[5px] font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">
                     Trend Identification
                   </li>
-                  <li className="bg-white rounded-r-3xl max-w-max px-[10px] sm:px-5 py-2 font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">
+                  <li className="bg-white rounded-r-3xl max-w-max px-[5px] sm:px-5 sm:py-2 py-[5px] font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">
                     Predictive Analytics
                   </li>
-                  <li className="bg-white rounded-r-3xl max-w-max px-[10px] sm:px-5 py-2 font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">
+                  <li className="bg-white rounded-r-3xl max-w-max px-[5px] sm:px-5 sm:py-2 py-[5px] font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">
                     Business Intelligence
                   </li>
                 </ul>
@@ -500,7 +500,7 @@ function ServicesSection() {
       </section>
       <section
         ref={serviceRef}
-        className="bg-gradient-to-tr from-pink-500 to-[#5a189a] via-[#5a189a] from w-full h-[200vh] overflow-hidden z-[1] rounded-t-3xl relative services-div "
+        className="bg-gradient-to-tr from-pink-500 to-[#5a189a] via-[#5a189a]  w-full h-[200vh] overflow-hidden z-[1] rounded-t-3xl relative services-div"
       >
         <DotPattern
           className={cn(
@@ -596,11 +596,11 @@ const slides = [
     alt: "LangChain",
   },
   {
-    src: "../src/assets/slider/spark.png",
+    src: "https://i.imgur.com/GrxkbTc.png",
     alt: "Apache Spark",
   },
   {
-    src: "../src/assets/slider/bigquery.png",
+    src: "https://imgur.com/IBpXwzl.png",
     alt: "BigQuery",
   },
 ];
