@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
     <footer className="sm:min-h-[25vh] h-fit flex justify-evenly flex-col z-[0]">
-      <div className="text-[11vw] font-bold leading-none text-center overflow-y-hidden">
+      <div className="text-[11vw] font-bold leading-[80%] mt-[20px] text-center overflow-y-hidden">
         <span className="instrumentserif-italic text-[12vw] ">BLINK </span>
         ANALYTICS
       </div>
