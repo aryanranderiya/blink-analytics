@@ -1,4 +1,5 @@
 // import BrainModel from "@/components/BrainModel";
+import BrainModel from "@/components/BrainModel";
 import ParticlesBg from "@/components/ParticlesBg";
 import DotPattern from "@/components/ui/dot-pattern";
 import { World } from "@/components/ui/globe";
@@ -25,7 +26,7 @@ function HeroSection() {
   useEffect(() => {
     setTimeout(() => {
       setisLoaded(true);
-    }, 1300);
+    }, 1000);
   }, []);
 
   const globeConfig = {
@@ -229,6 +230,13 @@ function ServicesSection() {
   const serviceRef = useRef(null);
   const cardsDivRef = useRef(null);
   const firstRef = useRef(null);
+  const [isLoaded, setisLoaded] = useState(false);
+
+  useEffect(()=>{
+    setTimeout(() => {
+      setisLoaded(true);
+    }, 1000);
+  })
 
   useEffect(() => {
     gsap.fromTo(
@@ -415,16 +423,8 @@ function ServicesSection() {
           <div className="first-info flex w-full h-full justify-evenly items-center sm:items-stretch overflow-hidden sm:flex-row flex-col">
             <div className="left flex flex-col gap-5">
               <div className="video bg-[#371367] sm:w-[40vw] w-[80vw] sm:h-full  sm:max-h-[75vh] h-[40vh] rounded-3xl p-5 sm:p-10 flex flex-col justify-between">
-                <div className="brainmodel absolute right-[15px] sm:bottom-[50px] bottom-[30px]  sm:w-[15vw] w-[28vw]">
-                <video
-                  loop
-                  muted
-                  autoPlay
-                  playsInline
-                >
-                  <source src={'/brain-final2.mp4'} type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
+                <div className="brainmodel absolute right-0  bottom-0 sm:w-[20vw] sm:h-[20vw] w-[35vw] h-[35vw]">
+                {isLoaded &&  <BrainModel scale={4} />}
                 </div>
                 <div>
                   <Link
