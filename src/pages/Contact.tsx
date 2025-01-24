@@ -30,12 +30,14 @@ export default function Contact() {
           data, and achieving remarkable results.
         </h2>
 
-        <div className="flex gap-2 mt-4">
+        <div className="sm:flex-row flex-col gap-2 mt-4">
           <Chip size={window.innerWidth > 640 ? 'lg' : 'md'} variant="bordered" color="primary">
-            <div className="text-[#240046]">+91 1234567890</div>
+            <div className="text-[#240046]">+1 (682) 408-3798 | Fort Worth, TX</div>
           </Chip>
-
-          <Chip size={window.innerWidth > 640 ? 'lg' : 'md'} variant="bordered" color="primary">
+          <Chip size={window.innerWidth > 640 ? 'lg' : 'md'} variant="bordered" color="primary" className="  sm:ml-[10px] mt-[10px]">
+            <div className="text-[#240046]">+91 (992) 452-7163 | Ahmedabad, India</div>
+          </Chip>
+          <Chip size={window.innerWidth > 640 ? 'lg' : 'md'} variant="bordered" color="primary"className="  sm:ml-[10px] mt-[10px]" >
             <div className="text-[#240046]">
               <a href="mailto:support@blinkanalytics.in">
                 support@blinkanalytics.in
@@ -46,7 +48,7 @@ export default function Contact() {
       </div>
 
       {/* Form Section */}
-      <div className="bg-gradient-to-tr from-[#7b2cbf] to-[#3c096c] flex-grow sm:rounded-l-3xl rounded-3xl sm:p-10 p-5 z-[2] sm:w-[40vw] w-full">
+      <div className="bg-gradient-to-tr from-[#7b2cbf] to-[#3c096c] flex-grow sm:rounded-l-3xl rounded-t-3xl sm:p-10 p-5 z-[2] sm:w-[40vw] w-full">
         <div className="text-white text-xl font-bold tracking-wide">
           Send us a message directly!
         </div>
