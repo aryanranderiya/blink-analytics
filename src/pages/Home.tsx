@@ -583,11 +583,11 @@ const slides = [
     alt: "LangChain",
   },
   {
-    src: "../src/assets/slider/spark.png",
+    src: "/slider/spark.png",
     alt: "Apache Spark",
   },
   {
-    src: "../src/assets/slider/bigquery.png",
+    src: "/slider/bigquery.png",
     alt: "BigQuery",
   },
 ];
