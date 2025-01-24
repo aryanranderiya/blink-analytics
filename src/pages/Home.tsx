@@ -596,11 +596,11 @@ const slides = [
     alt: "LangChain",
   },
   {
-    src: "https://i.imgur.com/GrxkbTc.png",
+    src: "/slider/spark.png",
     alt: "Apache Spark",
   },
   {
-    src: "https://imgur.com/IBpXwzl.png",
+    src: "/slider/bigquery.png",
     alt: "BigQuery",
   },
 ];
