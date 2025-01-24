@@ -1,3 +1,4 @@
+// import BrainModel from "@/components/BrainModel";
 import BrainModel from "@/components/BrainModel";
 import ParticlesBg from "@/components/ParticlesBg";
 import DotPattern from "@/components/ui/dot-pattern";
@@ -10,6 +11,7 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { ArrowRight, Mouse } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { isMobile } from "react-device-detect";
 import Slider from "react-infinite-logo-slider";
 
 function HeroSection() {
@@ -24,7 +26,7 @@ function HeroSection() {
   useEffect(() => {
     setTimeout(() => {
       setisLoaded(true);
-    }, 1300);
+    }, 1000);
   }, []);
 
   const globeConfig = {
@@ -161,6 +163,10 @@ function HeroSection() {
     };
   }, []);
 
+  if(isMobile){
+    console.log(World)
+  }
+
   return (
     <section
       ref={heroRef}
@@ -173,7 +179,7 @@ function HeroSection() {
       <div className="absolute bottom-[30px] flex w-full justify-center">
         <Mouse size="50px" className="mouse text-white" />
       </div>
-      <div className="flex h-screen items-center flex-col sm:justify-center sm:pt-0 pt-[30%]">
+      <div className="flex h-screen items-center flex-col sm:justify-center sm:pt-0 pt-[30%] z-[10] pb-auto">
         <h1
           ref={ref1}
           className="text-white font-[800] sm:text-[5vw] text-[5vh] text-center leading-[40px] sm:leading-[100px] tracking-wide z-[10] left-[20%] select-none"
@@ -224,6 +230,13 @@ function ServicesSection() {
   const serviceRef = useRef(null);
   const cardsDivRef = useRef(null);
   const firstRef = useRef(null);
+  const [isLoaded, setisLoaded] = useState(false);
+
+  useEffect(()=>{
+    setTimeout(() => {
+      setisLoaded(true);
+    }, 1000);
+  })
 
   useEffect(() => {
     gsap.fromTo(
@@ -409,9 +422,9 @@ function ServicesSection() {
         <div className="first-section-text sm:p-10 p-4 flex flex-col items-center justify-center w-full gap-10 h-full relative flex-wrap">
           <div className="first-info flex w-full h-full justify-evenly items-center sm:items-stretch overflow-hidden sm:flex-row flex-col">
             <div className="left flex flex-col gap-5">
-              <div className="video bg-[#3c096c] sm:w-[40vw] w-[80vw] sm:h-full  sm:max-h-[75vh] h-[40vh] rounded-3xl p-5 sm:p-10 flex flex-col justify-between">
+              <div className="video bg-[#371367] sm:w-[40vw] w-[80vw] sm:h-full  sm:max-h-[75vh] h-[40vh] rounded-3xl p-5 sm:p-10 flex flex-col justify-between">
                 <div className="brainmodel absolute right-0  bottom-0 sm:w-[20vw] sm:h-[20vw] w-[35vw] h-[35vw]">
-                  <BrainModel scale={4} />
+                {isLoaded &&  <BrainModel scale={4} />}
                 </div>
                 <div>
                   <Link
@@ -428,23 +441,23 @@ function ServicesSection() {
                   </p>
                 </div>
                 <ul className="flex flex-col gap-2 list-none mt-2 text-[10px] sm:text-[20px] sm:leading-[30px]">
-                  <li className="bg-white rounded-r-3xl max-w-max px-[10px] sm:px-5 py-2 font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">
+                  <li className="bg-white rounded-r-3xl max-w-max px-[10px] sm:px-5 sm:py-2 py-[5px] font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">
                     Automated Content Generation
                   </li>
-                  <li className="bg-white rounded-r-3xl max-w-max px-[10px] sm:px-5 py-2 font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">
+                  <li className="bg-white rounded-r-3xl max-w-max px-[10px] sm:px-5 sm:py-2 py-[5px] font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">
                     Personalized Experiences
                   </li>
-                  <li className="bg-white rounded-r-3xl max-w-max px-[10px] sm:px-5 py-2 font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">
+                  <li className="bg-white rounded-r-3xl max-w-max px-[10px] sm:px-5 sm:py-2 py-[5px] font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">
                     Efficient Workflows
                   </li>
-                  <li className="bg-white rounded-r-3xl max-w-max px-[10px] sm:px-5 py-2 font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">
+                  <li className="bg-white rounded-r-3xl max-w-max px-[10px] sm:px-5 sm:py-2 py-[5px] font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">
                     Innovative Problem Solving
                   </li>
                 </ul>
               </div>
             </div>
             <div className="right flex flex-col gap-5 ">
-              <div className="video sm:w-[40vw] w-[80vw] sm:h-full sm:max-h-[75vh] h-[40vh] bg-[#3c096c] rounded-3xl flex flex-col p-5 sm:p-10 relative justify-between">
+              <div className="video sm:w-[40vw] w-[80vw] sm:h-full sm:max-h-[75vh] h-[40vh] bg-[#371367] rounded-3xl flex flex-col p-5 sm:p-10 relative justify-between">
                 <div className="brainmodel absolute sm:right-[-15%] right-[-20%] bottom-5 sm:w-[35vw] w-[70vw]">
                   <DotLottieReact
                     src="https://lottie.host/b0a2acd5-a7aa-49bc-89ce-5c66c54ca586/VfQO43rteM.json"
@@ -467,16 +480,16 @@ function ServicesSection() {
                   </p>
                 </div>
                 <ul className="flex flex-col gap-2 list-none mt-2 text-[10px] sm:text-[20px] sm:leading-[30px]">
-                  <li className="bg-white rounded-r-3xl max-w-max px-[10px] sm:px-5 py-2 font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">
+                  <li className="bg-white rounded-r-3xl max-w-max px-[5px] sm:px-5 sm:py-2 py-[5px] font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">
                     Informed Decision-Making
                   </li>
-                  <li className="bg-white rounded-r-3xl max-w-max px-[10px] sm:px-5 py-2 font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">
+                  <li className="bg-white rounded-r-3xl max-w-max px-[5px] sm:px-5 sm:py-2  py-[5px] font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">
                     Trend Identification
                   </li>
-                  <li className="bg-white rounded-r-3xl max-w-max px-[10px] sm:px-5 py-2 font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">
+                  <li className="bg-white rounded-r-3xl max-w-max px-[5px] sm:px-5 sm:py-2 py-[5px] font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">
                     Predictive Analytics
                   </li>
-                  <li className="bg-white rounded-r-3xl max-w-max px-[10px] sm:px-5 py-2 font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">
+                  <li className="bg-white rounded-r-3xl max-w-max px-[5px] sm:px-5 sm:py-2 py-[5px] font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">
                     Business Intelligence
                   </li>
                 </ul>
@@ -487,7 +500,7 @@ function ServicesSection() {
       </section>
       <section
         ref={serviceRef}
-        className="bg-gradient-to-tr from-pink-500 to-[#5a189a] via-[#5a189a] from w-full h-[200vh] overflow-hidden z-[1] rounded-t-3xl relative services-div "
+        className="bg-gradient-to-tr from-pink-500 to-[#5a189a] via-[#5a189a]  w-full h-[200vh] overflow-hidden z-[1] rounded-t-3xl relative services-div"
       >
         <DotPattern
           className={cn(

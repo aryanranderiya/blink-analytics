@@ -25,8 +25,8 @@ export default function About() {
     if (cardsRef.current) {
       gsap.set(cardsRef.current.children, { x: "100%", opacity: 0 });
     }
-    if (statsRef.current) {
-      gsap.set(statsRef.current.children, { y: "50px", opacity: 0 });
+    if (statsRef?.current) {
+      gsap.set(statsRef?.current.children, { y: "50px", opacity: 0 });
     }
   }, []);
 
@@ -61,18 +61,19 @@ export default function About() {
         },
       });
 
-      // // Animate stats from bottom to top
-      // gsap.to(statsRef.current.children, {
-      //   y: 0,
-      //   opacity: 1,
-      //   stagger: 0.1,
-      //   duration: 0.8,
-      //   ease: "power2.out",
-      //   scrollTrigger: {
-      //     trigger: statsRef.current,
-      //     start: "top 80%",
-      //   },
-      // });
+      // Animate stats from bottom to top
+      if (statsRef?.current?.children)
+        gsap.to(statsRef?.current.children, {
+          y: 0,
+          opacity: 1,
+          stagger: 0.1,
+          duration: 0.8,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: statsRef.current,
+            start: "top 80%",
+          },
+        });
     }
 
     return () => {
@@ -129,7 +130,7 @@ export default function About() {
   };
 
   return (
-    <div className="main bg-black min-h-screen z-[1] flex flex-col md:flex-row items-center justify-between overflow-hidden relative">
+    <div className="main bg-black min-h-screen z-[1]  flex-col items-center justify-between overflow-hidden relative">
       <DotPattern
         className={cn(
           "[mask-image:linear-gradient(to_bottom_right,white,transparent)] absolute inset-0"
@@ -158,9 +159,11 @@ export default function About() {
             ))}
           </div>
         </h1>
-        {/* <div
+      </div>
+      <div className="right bg-transparent min-h-screen p-10 md:rounded-l-[50px] z-[10] flex-[2] flex sm:flex-row flex-col gap-10">
+        <div
           ref={statsRef}
-          className="info-grid grid grid-cols-2 sm:gap-5 gap-2 mt-10"
+          className="info-grid grid grid-cols-2 sm:gap-5 gap-2  z-[10]"
         >
           {[
             {
@@ -199,10 +202,11 @@ export default function About() {
               </p>
             </div>
           ))}
-        </div> */}
-      </div>
-      <div className="right bg-transparent min-h-screen p-10 md:rounded-l-[50px] z-[10] flex-[2] flex flex-col gap-5">
-        <div ref={cardsRef} className="content flex flex-col gap-5">
+        </div>
+        <div
+          ref={cardsRef}
+          className="content flex sm:max-w-[50vw] flex-col gap-5"
+        >
           {[
             {
               title: "Our Mission",
@@ -230,7 +234,7 @@ export default function About() {
             },
           ].map((item, index) => (
             <div
-              className={`flex flex-col text-justify group cursor-pointer gap-5 border-2 rounded-l-[40px] relative border-purple-500 p-5 hover:border-[#c77dff] transition-colors hover:bg-[#36096c] bg-black`}
+              className={`flex flex-col text-justify group cursor-pointer gap-5 border-2 sm:rounded-t-[40px] rounded-l-[40px] relative border-purple-500 p-5 hover:border-[#c77dff] transition-colors hover:bg-[#36096c] bg-black`}
               key={index}
             >
               <div className="flex items-center gap-5 ">

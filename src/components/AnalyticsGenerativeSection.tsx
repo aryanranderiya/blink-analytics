@@ -107,7 +107,7 @@ export default function Section({
                 loop
                 muted
                 playsInline
-                className="rounded-md shadow-lg"
+                className="rounded-3xl shadow-lg"
                 onLoadedData={(e) => {
                   const highResSource = services[index].highResGif;
                   if (!highResSource) return;

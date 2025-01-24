@@ -1,5 +1,6 @@
 import Section from "@/components/AnalyticsGenerativeSection";
 import InterestedSection from "@/components/InterestedSection";
+import ScrollProgress from "@/components/ui/scroll-progress";
 import { useRef } from "react";
 
 export default function Services() {
@@ -39,6 +40,7 @@ export default function Services() {
 
   return (
     <>
+      <ScrollProgress />
       <Section
         title="Innovate with Generative AI"
         services={services}
