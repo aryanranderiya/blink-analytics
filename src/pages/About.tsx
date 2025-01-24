@@ -25,8 +25,8 @@ export default function About() {
     if (cardsRef.current) {
       gsap.set(cardsRef.current.children, { x: "100%", opacity: 0 });
     }
-    if (statsRef.current) {
-      gsap.set(statsRef.current.children, { y: "50px", opacity: 0 });
+    if (statsRef?.current) {
+      gsap.set(statsRef?.current.children, { y: "50px", opacity: 0 });
     }
   }, []);
 
