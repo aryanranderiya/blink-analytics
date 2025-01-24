@@ -342,40 +342,58 @@ function ServicesSection() {
       }
     );
 
-    const mm = gsap.matchMedia();
+    // const mm = gsap.matchMedia();
 
-    mm.add(
-      {
-        // Desktop view
-        isDesktop: "(min-width: 1024px)",
-        // Tablet view
-        isTablet: "(min-width: 768px) and (max-width: 1023px)",
-      },
-      (context) => {
-        const { isDesktop, isTablet } = context.conditions as {
-          isDesktop: boolean;
-          isTablet: boolean;
-        };
+    // mm.add(
+    //   {
+    //     // Desktop view
+    //     isDesktop: "(min-width: 1024px)",
+    //     // Tablet view
+    //     isTablet: "(min-width: 768px) and (max-width: 1023px)",
+    //   },
+    //   (context) => {
+        
+    //     const { isDesktop, isTablet } = context.conditions as {
+    //       isDesktop: boolean;
+    //       isTablet: boolean;
+    //     };
+    //     const animation = gsap.to(".cards-div", {
+    //       xPercent: isDesktop ? -168 : isTablet ? -400 : -200,
+    //       ease: "none",
+    //       scrollTrigger: {
+    //         trigger: ".services-div",
+    //         start: "top 0%",
+    //         end: "top -100%",
+    //         pin: true,
+    //         scrub: 1,
+    //       },
+    //     });
 
-        const animation = gsap.to(".cards-div", {
-          xPercent: isDesktop ? -168 : isTablet ? -400 : -610,
-          ease: "none",
-          scrollTrigger: {
-            trigger: ".services-div",
-            start: "top top",
-            end: "top -100%",
-            pin: true,
-            scrub: 2,
-          },
-        });
+    //     // Cleanup for this context
+    //     return () => animation.kill();
+    const scrollTrigger = gsap.context(() => {
+      // Pin the entire ServicesSection and allow horizontal scrolling for cards
+      gsap.to(".cards-div-container", {
+        xPercent: isMobile? -90 : -65, // Move the cards horizontally
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".services-div", // Pin the ServicesSection
+          start: "top top", // Start pinning when this section reaches the top
+          end: "+=100%", // Pin duration is 300% of the viewport height
+          pin: true, // Pin this section
+          scrub: 2, // Smooth scroll synchronization
+        },
+      });
+    });
 
-        // Cleanup for this context
-        return () => animation.kill();
+    return () => {
+      scrollTrigger.revert(); // Clean up ScrollTriggers on component unmount
+    };
       }
     );
 
-    return () => mm.revert();
-  }, []);
+    // return () => mm.revert();
+  // }, []);
   const sections = [
     { bgColor: "bg-black", text: "RLHF AND SFT", videoSrc: "/RLHF.mp4" },
     {
@@ -596,11 +614,11 @@ const slides = [
     alt: "LangChain",
   },
   {
-    src: "/slider/spark.png",
+    src: "https://i.imgur.com/GrxkbTc.png",
     alt: "Apache Spark",
   },
   {
-    src: "/slider/bigquery.png",
+    src: "https://imgur.com/IBpXwzl.png",
     alt: "BigQuery",
   },
 ];
