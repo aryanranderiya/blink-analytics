@@ -10,7 +10,7 @@ export default function Contact() {
     setLoading(true);
     event.preventDefault();
 
-    const API_KEY = import.meta.env.WEB3FORMS_API_KEY;
+    const API_KEY = import.meta.env.VITE_WEB3FORMS_API_KEY;
 
     if (!API_KEY) {
       setLoading(false);
@@ -121,6 +121,12 @@ export default function Contact() {
               name="access_key"
               value="YOUR_ACCESS_KEY_HERE"
             />
+            <input
+              type="hidden"
+              name="subject"
+              value="New Contact Form Submission | Blink Analytics"
+            />
+            <input type="hidden" name="from_name" value="blinkanalytics.in" />
             <Input label="Enter Name" name="name" variant="faded" required />
             <Input label="Enter Email" name="email" variant="faded" required />
           </div>
