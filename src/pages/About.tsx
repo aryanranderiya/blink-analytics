@@ -62,17 +62,18 @@ export default function About() {
       });
 
       // Animate stats from bottom to top
-      gsap.to(statsRef.current.children, {
-        y: 0,
-        opacity: 1,
-        stagger: 0.1,
-        duration: 0.8,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: statsRef.current,
-          start: "top 80%",
-        },
-      });
+      if (statsRef?.current?.children)
+        gsap.to(statsRef?.current.children, {
+          y: 0,
+          opacity: 1,
+          stagger: 0.1,
+          duration: 0.8,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: statsRef.current,
+            start: "top 80%",
+          },
+        });
     }
 
     return () => {
@@ -158,10 +159,9 @@ export default function About() {
             ))}
           </div>
         </h1>
-        
       </div>
       <div className="right bg-transparent min-h-screen p-10 md:rounded-l-[50px] z-[10] flex-[2] flex sm:flex-row flex-col gap-10">
-      <div
+        <div
           ref={statsRef}
           className="info-grid grid grid-cols-2 sm:gap-5 gap-2  z-[10]"
         >
@@ -203,7 +203,10 @@ export default function About() {
             </div>
           ))}
         </div>
-        <div ref={cardsRef} className="content flex sm:max-w-[50vw] flex-col gap-5">
+        <div
+          ref={cardsRef}
+          className="content flex sm:max-w-[50vw] flex-col gap-5"
+        >
           {[
             {
               title: "Our Mission",
