@@ -377,7 +377,7 @@ function ServicesSection() {
     return () => mm.revert();
   }, []);
   const sections = [
-    { bgColor: "bg-black", text: "RLHF AND SFT", videoSrc: "/RAG.mp4" },
+    { bgColor: "bg-black", text: "RLHF AND SFT", videoSrc: "/RLHF.mp4" },
     {
       bgColor: "bg-black",
       text: "RAG IMPLEMENTATION",
