@@ -442,7 +442,7 @@ function ServicesSection() {
             <div className="left flex flex-col gap-5">
               <div className="video bg-[#371367] sm:w-[40vw] w-[80vw] sm:h-full  sm:max-h-[75vh] h-[40vh] rounded-3xl p-5 sm:p-10 flex flex-col justify-between">
                 <div className="brainmodel absolute right-0  bottom-0 sm:w-[20vw] sm:h-[20vw] w-[35vw] h-[35vw]">
-                {isLoaded &&  <BrainModel scale={4} />}
+                <BrainModel scale={4} />
                 </div>
                 <div>
                   <Link
