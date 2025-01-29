@@ -163,8 +163,8 @@ function HeroSection() {
     };
   }, []);
 
-  if(isMobile){
-    console.log(World)
+  if (isMobile) {
+    console.log(World);
   }
 
   return (
@@ -230,13 +230,13 @@ function ServicesSection() {
   const serviceRef = useRef(null);
   const cardsDivRef = useRef(null);
   const firstRef = useRef(null);
-  const [isLoaded, setisLoaded] = useState(false);
+  // const [isLoaded, setisLoaded] = useState(false);
 
-  useEffect(()=>{
-    setTimeout(() => {
-      setisLoaded(true);
-    }, 1000);
-  })
+  // useEffect(()=>{
+  //   setTimeout(() => {
+  //     setisLoaded(true);
+  //   }, 1000);
+  // })
 
   useEffect(() => {
     gsap.fromTo(
@@ -352,7 +352,7 @@ function ServicesSection() {
     //     isTablet: "(min-width: 768px) and (max-width: 1023px)",
     //   },
     //   (context) => {
-        
+
     //     const { isDesktop, isTablet } = context.conditions as {
     //       isDesktop: boolean;
     //       isTablet: boolean;
@@ -374,7 +374,7 @@ function ServicesSection() {
     const scrollTrigger = gsap.context(() => {
       // Pin the entire ServicesSection and allow horizontal scrolling for cards
       gsap.to(".cards-div-container", {
-        xPercent: isMobile? -90 : -65, // Move the cards horizontally
+        xPercent: isMobile ? -90 : -65, // Move the cards horizontally
         ease: "none",
         scrollTrigger: {
           trigger: ".services-div", // Pin the ServicesSection
@@ -389,10 +389,9 @@ function ServicesSection() {
     return () => {
       scrollTrigger.revert(); // Clean up ScrollTriggers on component unmount
     };
-      }
-    );
+  });
 
-    // return () => mm.revert();
+  // return () => mm.revert();
   // }, []);
   const sections = [
     { bgColor: "bg-black", text: "RLHF AND SFT", videoSrc: "/RLHF.mp4" },
@@ -442,7 +441,7 @@ function ServicesSection() {
             <div className="left flex flex-col gap-5">
               <div className="video bg-[#371367] sm:w-[40vw] w-[80vw] sm:h-full  sm:max-h-[75vh] h-[40vh] rounded-3xl p-5 sm:p-10 flex flex-col justify-between">
                 <div className="brainmodel absolute right-0  bottom-0 sm:w-[20vw] sm:h-[20vw] w-[35vw] h-[35vw]">
-                <BrainModel scale={4} />
+                  <BrainModel scale={4} />
                 </div>
                 <div>
                   <Link
