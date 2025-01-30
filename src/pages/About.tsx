@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 // import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import { useLocation } from "react-router-dom";
 import { Lightbulb, ShieldCheck, TargetIcon } from "lucide-react";
+import ScrollProgress from "@/components/ui/scroll-progress";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -130,6 +131,8 @@ export default function About() {
   };
 
   return (
+    <>
+    <ScrollProgress/>
     <div className="main bg-black min-h-screen z-[1]  flex-col items-center justify-between overflow-hidden relative">
       <DotPattern
         className={cn(
@@ -257,5 +260,6 @@ export default function About() {
         </div>
       </div>
     </div>
+    </>
   );
 }
