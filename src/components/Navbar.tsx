@@ -51,6 +51,57 @@ export default function NavbarComponent() {
     }
   }, [isMenuVisible]);
 
+  // Utility function to get a random character
+  function getRandomCharacter() {
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ;!@#$%^&*(){}[]Ø";
+    return chars[Math.floor(Math.random() * chars.length)];
+  }
+
+  // Object to store shuffled texts for each menu item
+  const [shufflingTexts, setShufflingTexts] = useState<{
+    [key: number]: string[];
+  }>(
+    navItems.reduce((acc, _, index) => {
+      acc[index] = [...navItems[index].title]; // Initial state as the actual title
+      return acc;
+    }, {} as { [key: number]: string[] })
+  );
+
+  // Store intervals for each menu item
+  const shuffleIntervalRefs = useRef<{ [key: number]: NodeJS.Timeout | null }>(
+    {}
+  );
+
+  const handleMouseEnter = (index: number) => {
+    let count = 0;
+    shuffleIntervalRefs.current[index] = setInterval(() => {
+      count++;
+      setShufflingTexts((prev) => ({
+        ...prev,
+        [index]: prev[index].map(() => getRandomCharacter()),
+      }));
+      if (count >= 30) {
+        setShufflingTexts((prev) => ({
+          ...prev,
+          [index]: [...navItems[index].title],
+        }));
+        clearInterval(shuffleIntervalRefs.current[index]!);
+        shuffleIntervalRefs.current[index] = null;
+      }
+    }, 10);
+  };
+
+  const handleMouseLeave = (index: number) => {
+    setShufflingTexts((prev) => ({
+      ...prev,
+      [index]: [...navItems[index].title],
+    }));
+    if (shuffleIntervalRefs.current[index]) {
+      clearInterval(shuffleIntervalRefs.current[index]!);
+      shuffleIntervalRefs.current[index] = null;
+    }
+  };
+
   return (
     <>
       <header
@@ -62,7 +113,7 @@ export default function NavbarComponent() {
               ref={logoRef}
               className="size-[100px] rounded-full mx-auto flex items-center justify-center group-hover:scale-75 transition-all"
             >
-              <img src="/blink-logo-2-removebg.png" alt="" />
+              <img src="/blink-logo-2-removebg.png" alt="Blink Logo" />
             </div>
 
             <div
@@ -89,20 +140,31 @@ export default function NavbarComponent() {
       <div
         className={`fixed z-[10] top-0 ${
           isMenuVisible ? "right-0" : "right-[-100%]"
-        } transition-all duration-400 h-screen w-[65vw] sm:w-[350px] rounded-tl-[20px] rounded-bl-[20px] bg-[#ede8f5] shadow-lg flex flex-col items-start py-6 sm:px-8 px-3 backdrop-blur-lg`}
+        } transition-all duration-400 h-screen w-[65vw] sm:w-[360px] rounded-tl-[20px] rounded-bl-[20px] bg-[#ede8f5] shadow-lg flex flex-col items-start py-6 sm:px-8 px-3 backdrop-blur-lg`}
       >
         <nav
           ref={navRef}
-          className="mt-[80px] w-full text-black sm:text-3xl text-2xl flex flex-col sm:pl-5 pl-3 h-full gap-[20px]"
+          className="mt-[80px] w-full text-black sm:text-3xl text-2xl flex flex-col sm:pl-2 pl-3 h-full gap-[20px]"
         >
           {navItems.map((item, index) => (
             <Link
               to={item.link}
               key={index}
-              className="overflow-hidden relative py-[2px]"
+              className="overflow-hidden relative py-[2px] group"
+              onMouseEnter={() => handleMouseEnter(index)}
+              onMouseLeave={() => handleMouseLeave(index)}
             >
-              <div className="cursor-pointer font-bold select-none uppercase  nav-text-item relative group inline-block">
-                {item.title}
+              <div className="cursor-pointer font-bold select-none uppercase nav-text-item relative group inline-bloc ktransition-all duration-75 flex-nowrap text-nowrap">
+                {shufflingTexts[index].map((letter, letterIndex) => (
+                  <span
+                    key={letterIndex}
+                    className="group-hover:text-purple-500 group-hover:italic group-hover:font-serif"
+                    // style={{ fontFamily: "Times New Roman" }}
+                  >
+                    {letter}
+                  </span>
+                ))}
+
                 <div className="absolute rounded-full -bottom-[5px] left-0 w-0 h-[3px] bg-black transition-all duration-500 group-hover:w-full" />
               </div>
             </Link>

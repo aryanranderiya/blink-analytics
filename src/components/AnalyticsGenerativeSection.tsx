@@ -107,26 +107,32 @@ export default function Section({
                 loop
                 muted
                 playsInline
-                className="rounded-3xl shadow-lg"
-                onLoadedData={(e) => {
-                  const highResSource = services[index].highResGif;
-                  if (!highResSource) return;
+                className="rounded-3xl shadow-lg w-[600px]"
+                // onLoadedData={(e) => {
+                //   const highResSource = services[index].highResGif;
+                //   if (!highResSource) return;
 
-                  const videoElement = e.currentTarget;
-                  if (videoElement.dataset.highResLoaded === "true") return;
+                //   const videoElement = e.currentTarget;
+                //   if (videoElement.dataset.highResLoaded === "true") return;
 
-                  const highResVideo = document.createElement("video");
-                  highResVideo.src = highResSource;
+                //   const highResVideo = document.createElement("video");
+                //   highResVideo.src = highResSource;
+                //   highResVideo.preload = "auto";
+                //   highResVideo.muted = videoElement.muted; // Match muted state
+                //   highResVideo.playsInline = true; // Ensure inline playback
 
-                  highResVideo.addEventListener("loadeddata", () => {
-                    setTimeout(() => {
-                      videoElement.src = highResSource;
-                      videoElement.load();
-                      videoElement.play();
-                      videoElement.dataset.highResLoaded = "true";
-                    }, 1000);
-                  });
-                }}
+                //   highResVideo.addEventListener("loadeddata", () => {
+                //     setTimeout(() => {
+                //       highResVideo.currentTime = videoElement.currentTime; // Sync playback position
+                //       videoElement.parentNode?.replaceChild(
+                //         highResVideo,
+                //         videoElement
+                //       ); // Swap videos
+                //       highResVideo.play();
+                //       highResVideo.dataset.highResLoaded = "true";
+                //     }, 1000);
+                //   });
+                // }}
               >
                 <source src={item.gif} type="video/mp4" />
                 Your browser does not support the video tag.
