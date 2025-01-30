@@ -21,6 +21,14 @@ function App() {
     window.scrollTo(0, 0);
   }, [location]);
 
+  useEffect(() => {
+    window.onpageshow = function (event) {
+      if (event.persisted) {
+        window.location.reload();
+      }
+    };
+  }, []);
+
   // useEffect(() => {
   //   if (mainRef.current) {
   //     // Force rerender or apply any needed logic to ensure the scrollbar initializes properly

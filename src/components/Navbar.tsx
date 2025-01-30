@@ -67,7 +67,7 @@ export default function NavbarComponent() {
 
             <div
               ref={textRef}
-              className="absolute font-medium tracking-wide flex text-white h-full w-fit whitespace-nowrap text-xl opacity-0 group-hover:left-[85px] group-hover:opacity-100 transition-all left-0 top-0 items-center"
+              className={`absolute font-medium tracking-wide flex ${location.pathname == '/contact' ? "text-[#240046]" : "text-white"} h-full w-fit whitespace-nowrap text-xl opacity-0 group-hover:left-[85px] group-hover:opacity-100 transition-all left-0 top-0 items-center`}
             >
               <span>Blink Analytics</span>
             </div>
