@@ -1,8 +1,8 @@
 export default function CustomCursor({
-  position,
+  // position,
   delayedPosition,
 }: {
-  position: { x: number; y: number };
+  // position: { x: number; y: number };
   delayedPosition: { x: number; y: number };
 }) {
   return (
@@ -25,7 +25,7 @@ export default function CustomCursor({
           top: delayedPosition.y,
           transform: "translate(-50%, -50%)",
         }}
-      ></div>
+      />
 
       {/* Medium blurred effect */}
       <div
@@ -35,17 +35,17 @@ export default function CustomCursor({
           top: delayedPosition.y - 40,
           transform: "translate(-50%, -50%)",
         }}
-      ></div>
+      />
 
       {/* Extra large blurred effect */}
       <div
-        className={`fixed rounded-full h-[70vw] w-[70vw] bg-[#00ff7b] bg-opacity-5 blur-3xl z-0 pointer-events-none`}
+        className={`fixed rounded-full h-[70vw] w-[70vw] bg-pink-500 bg-opacity-5 blur-3xl z-0 pointer-events-none`}
         style={{
           left: delayedPosition.x,
           top: delayedPosition.y,
           transform: "translate(-50%, -50%)",
         }}
-      ></div>
+      />
     </>
   );
 }
