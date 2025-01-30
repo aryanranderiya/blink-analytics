@@ -33,6 +33,16 @@ function App() {
   }, [location]);
 
   useEffect(() => {
+    window.onpageshow = function (event) {
+      if (event.persisted) {
+        window.location.reload();
+      }
+    };
+  }, []);
+
+
+
+  useEffect(() => {
     const videoElements: HTMLVideoElement[] = [];
 
     [...dataAnalyticsServices, ...generativeAIServices].forEach((service) => {

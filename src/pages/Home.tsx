@@ -172,7 +172,7 @@ function HeroSection() {
       ref={heroRef}
       className="w-full h-screen bg-gradient-to-b from-[#10002b] to-[#000000] sticky top-0 z-[1] hero-section overflow-hidden"
     >
-      <div className="Globe w-[130vw] h-[130vw] top-[45%] -translate-x-[10%] sm:w-[150vw] absolute sm:top-[35%] sm:h-[150vh] transform sm:-translate-x-[16%] sm:overflow-hidden">
+      <div className="Globe w-[130vw] h-[130vw] top-[45%] -translate-x-[10%] sm:w-[150vw] absolute sm:top-[35%] sm:h-[150vh] transform sm:-translate-x-[16%] sm:overflow-hidden sm:pointer-events-auto pointer-events-none">
         {isLoaded && <World globeConfig={globeConfig} data={positionData} />}
       </div>
 
@@ -207,6 +207,7 @@ function HeroSection() {
             Advantage
           </span>
         </h1>
+        { isMobile && (<div className="w-full h-full z-[10]"></div>)}
       </div>
 
       <p

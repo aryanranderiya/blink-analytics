@@ -1,10 +1,17 @@
 import { Button, Chip, Input, Textarea } from "@nextui-org/react";
 import { Loader } from "lucide-react";
 import React from "react";
+import 'react-responsive-modal/styles.css';
+import { Modal } from 'react-responsive-modal';
 
 export default function Contact() {
+  const [open, setOpen] = React.useState(false);
   const [result, setResult] = React.useState("");
+  const [status, setStatus] = React.useState(0);
   const [loading, setLoading] = React.useState(false);
+  const onOpenModal = () => setOpen(true);
+  const onCloseModal = () => setOpen(false);
+
 
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     setLoading(true);
@@ -32,11 +39,14 @@ export default function Contact() {
     const data = await response.json();
 
     if (data.success) {
-      setResult("Form Submitted Successfully");
+      setResult("Thank you for reaching out. We will get back to you as soon as possible.");
+      setStatus(1);
+      onOpenModal();
       formElement?.reset();
     } else {
       console.log("Error", data);
       setResult(data.message);
+      setStatus(0);
     }
     setLoading(false);
   };
@@ -105,6 +115,16 @@ export default function Contact() {
           </Chip>
         </div>
       </div>
+      <Modal open={open} onClose={onCloseModal} center classNames={{modal: 'customModal', overlay: 'customOverlay', closeButton: 'closeButton'}}>
+        <div className="flex sm:flex-row flex-col p-[20px] h-full w-full gap-[30px] align-center justify-center">
+          <div className="flex flex-col gap-[10px]">
+            <span className="w-[30px] h-[2px] bg-[#3c096c]"></span>
+            {status == 1 && <h1 className="text-black text-[16px]">We have recieved your message!</h1>}
+            <p className="text-[#3c096c] font-[600]  text-left text-[20px] sm:text-[30px] max-w-[350px]">{result}</p> 
+          </div>
+          <img src="/contact.webp" alt="" width={300} className="max-w-[300px]"/>
+        </div>
+      </Modal>
 
       {/* Form Section */}
       <div className="bg-gradient-to-tr from-[#7b2cbf] to-[#3c096c] flex-grow sm:rounded-l-3xl rounded-t-3xl sm:p-10 p-5 z-[2] sm:w-[40vw] w-full">
@@ -143,7 +163,7 @@ export default function Contact() {
             {loading ? <Loader className="animate-spin" /> : "Submit"}
           </Button>
         </form>
-        <span className="text-white mt-3">{result}</span>
+        {/* <span className="text-white mt-3">{result}</span> */}
       </div>
     </div>
   );
