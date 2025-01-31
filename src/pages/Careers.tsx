@@ -48,11 +48,15 @@ export default function Careers() {
         </p>
         <Link target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSf-NtRJC-HA-L8Fja5LtGZlSPrqLSrCyvcMP75isr72VC3z4A/viewform?usp=sharing">
         <Button
+          as="a"
+          href="https://docs.google.com/forms/d/e/1FAIpQLSf-NtRJC-HA-L8Fja5LtGZlSPrqLSrCyvcMP75isr72VC3z4A/viewform?usp=sharing"
+          target="_blank"
+          rel="noopener noreferrer"
           radius="full"
           variant="faded"
           size="lg"
           endContent={
-            <div className="rounded-full bg-black min-h-[40px] min-w-[40px] flex justify-center items-center ">
+            <div className="rounded-full bg-black min-h-[40px] min-w-[40px] flex justify-center items-center">
               <ArrowRight color="white" />
             </div>
           }
