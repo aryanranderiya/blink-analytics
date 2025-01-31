@@ -3,6 +3,7 @@ import DotPattern from "@/components/ui/dot-pattern";
 import { Button, Link } from "@nextui-org/react";
 import { ArrowUpRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import ScrollProgress from "@/components/ui/scroll-progress";
 import { cn } from "@/lib/utils";
 function ServiceCard({
   title,
@@ -34,6 +35,8 @@ function ServiceCard({
     };
   }, []);
   return (
+    <>
+    <ScrollProgress />
     <div
       ref={cardRef}
       className={`h-[55vh] w-screen sm:flex sm:flex-row flex-col-reverse justify-between z-[10] gap-5 transition-all p-10 ${
@@ -80,6 +83,7 @@ function ServiceCard({
       </video>
       </div>
     </div>
+    </>
   );
 }
 export default function Services() {

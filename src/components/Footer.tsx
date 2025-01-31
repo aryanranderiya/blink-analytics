@@ -15,9 +15,9 @@ export default function Footer() {
           </div>
           <div className="text-nowrap">+91 (992) 452-7163 | Ahmedabad, India</div>
         </div>
-        <div className="flex justify-between sm:text-[14px] text-[6px]">
-        <div className="sm:text-[12px] text-[12px]">&copy; BLINK ANALYTICS, {new Date().getFullYear()} </div>
-        <div className="text-nowrap sm:text-[12px] text-[12px]">
+        <div className="flex justify-between sm:text-[14px] text-[8px]">
+        <div className="sm:text-[12px] text-[8px]">&copy; BLINK ANALYTICS, {new Date().getFullYear()} </div>
+        <div className="text-nowrap sm:text-[12px] text-[8px]">
           Designed & Developed by{" "}
           <a
             href="https://aryanranderiya.com"
