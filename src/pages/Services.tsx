@@ -55,19 +55,20 @@ function ServiceCard({
         >
           {title}
         </div>
-        <div className={`sm:text-lg text-[10px] ${reverse ? "sm:text-right" : "sm:text-left"}`}>
+        <div className={`sm:text-[1.1vw] text-[10px] ${reverse ? "sm:text-right" : "sm:text-left"}`}>
           {description}
         </div>
-        <Link href="/contact">
           <Button
-            className="w-fit bg-gradient-to-r from-pink-700 to-[#7B2CBF] text-white"
+            as="a"
+            href="/contact"
+            rel="noopener noreferrer"
+            className="w-fit max-h-[50px] bg-gradient-to-r from-pink-700 to-[#7B2CBF] text-white"
             radius="full"
             size="lg"
             endContent={<ArrowUpRight />}
           >
             Call to Action
           </Button>
-        </Link>
       </div>
       <div className="sm:min-w-[40vw] sm:max-w-[40vw] rounded-3xl">
       <video
