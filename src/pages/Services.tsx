@@ -1,6 +1,6 @@
 import InterestedSection from "@/components/InterestedSection";
 import DotPattern from "@/components/ui/dot-pattern";
-import { Button, Link } from "@nextui-org/react";
+import { Button } from "@nextui-org/react";
 import { ArrowUpRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import ScrollProgress from "@/components/ui/scroll-progress";
