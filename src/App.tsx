@@ -72,9 +72,9 @@ function App() {
         ref={mainRef}
         onMouseMove={location.pathname != "/" ? handleMouseMove : undefined}
       >
-        {location.pathname != "/" && (
+        {/* {location.pathname != "/" && (
           <CustomCursor delayedPosition={delayedPosition} />
-        )}
+        )} */}
         <Navbar />
         <Preloader />
         <Routes>
