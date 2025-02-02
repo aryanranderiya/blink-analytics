@@ -567,8 +567,10 @@ function ServicesSection() {
           </div>
         </div>
         <div className="flex items-center w-full justify-center mt-10">
-          <Link href="/services">
             <Button
+              as="a"
+              href="/services"
+              rel="noopener noreferrer"
               radius="full"
               variant="faded"
               size="lg"
@@ -581,7 +583,6 @@ function ServicesSection() {
             >
               Explore more!
             </Button>
-          </Link>
         </div>
       </section>
     </>
@@ -680,8 +681,10 @@ function ContactSection() {
             </span>
             <br /> to propel your Business
           </h1>
-          <Link href="/contact">
             <Button
+              as="a"
+              href="/contact"
+              rel="noopener noreferrer"
               radius="full"
               variant="faded"
               className="pr-[2px]"
@@ -694,7 +697,6 @@ function ContactSection() {
             >
               Get Access
             </Button>
-          </Link>
         </div>
         <div className="bottom flex flex-col items-center justify-center gap-10 ">
           <p className="sm:text-xl text-sm font-bold text-[#999999] tracking-wide max-w-[80vw] sm:max-w-[60vw] text-center mb-5">
@@ -729,20 +731,22 @@ function ContactSection() {
 function LastSection() {
   return (
     <section className="bg-[#10002b] w-full sm:h-[50vh] h-[35vh] z-[1] sticky top-0  rounded-t-3xl flex flex-col sm:p-10 p-10 items-center sm:justify-center  justify-evenly sm:gap-4 gap-2">
-      <div className="font-bold sm:text-5xl text-2xl text-white max-w-screen-sm sm:max-w-screen-2xl text-center inline">
+      <div className="font-bold sm:text-5xl text-xl text-white max-w-screen-sm sm:max-w-screen-2xl text-center inline">
         Transform Your Business with{" "}
         <span className="text-transparent bg-clip-text bg-gradient-to-tr from-pink-500 to-purple-500">
           Cutting-Edge
         </span>
         &nbsp;AI Solutions
       </div>
-      <div className="font-medium sm:text-xl text-xs text-white text-center max-w-[60vw]">
+      <div className="font-medium sm:text-xl text-xs text-white text-center max-w-[80vw]">
         Partner with us to leverage advanced AI technologies to drive innovation
         and growth. Reach out today to see how we can help you achieve your
         business goals.
       </div>
-      <Link href="/contact">
         <Button
+          as="a"
+          href="/contact"
+          rel="noopener noreferrer"
           radius="full"
           variant="faded"
           size={window.innerWidth > 640 ? "lg" : "sm"}
@@ -755,7 +759,6 @@ function LastSection() {
         >
           Hire us now
         </Button>
-      </Link>
     </section>
   );
 }
