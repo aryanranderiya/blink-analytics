@@ -14,6 +14,7 @@ import { useEffect, useRef, useState } from "react";
 import { isMobile } from "react-device-detect";
 import Slider from "react-infinite-logo-slider";
 import { Link } from "react-router-dom";
+import { services } from "./Services";
 
 function HeroSection() {
   const [isLoaded, setisLoaded] = useState(false);
@@ -393,41 +394,6 @@ function ServicesSection() {
     };
   });
 
-  // return () => mm.revert();
-  // }, []);
-  const sections = [
-    { bgColor: "bg-black", text: "RLHF AND SFT", videoSrc: "/RLHF.mp4" },
-    {
-      bgColor: "bg-black",
-      text: "RAG IMPLEMENTATION",
-      videoSrc: "/RAG-updated.mp4",
-    },
-    {
-      bgColor: "bg-black",
-      text: "GENERATIVE AI SERVICES",
-      videoSrc: "/RAG-updated.mp4",
-    },
-    {
-      bgColor: "bg-black",
-      text: "CHATBOT MAKING",
-      videoSrc: "/RAG-updated.mp4",
-    },
-    {
-      bgColor: "bg-black",
-      text: "AI AGENTS IMPLEMENTATION",
-      videoSrc: "/RAG-updated.mp4",
-    },
-    {
-      bgColor: "bg-black",
-      text: "ENTERPRISE BASED SECURE MODELS",
-      videoSrc: "/RAG-updated.mp4",
-    },
-    {
-      bgColor: "bg-black",
-      text: "DATA ANALYTICS SERVICES",
-      videoSrc: "/RAG-updated.mp4",
-    },
-  ];
   return (
     <>
       <section
@@ -536,13 +502,13 @@ function ServicesSection() {
           className="cards-div flex flex-col sm:p-10 p-5 sm:mt-[150px] mt-[80px] items-start justify-center pt-[20vh] sm: h-fit max-w-screen"
         >
           <div className="flex gap-10 cards-div-container overflow-hidden">
-            {sections.map((section, index) => (
+            {services.map((service, index) => (
               <section
                 key={index}
-                className={`sm:min-h-[50vh] sm:w-[35vw] h-full w-[90vw] ${section.bgColor} rounded-xl flex flex-col cursor-pointer p-5`}
+                className={`sm:min-h-[45vh] sm:w-[35vw] h-full w-[90vw] ${service.bgColor} rounded-xl flex flex-col cursor-pointer justify-center p-5 items-center`}
               >
                 <div className="grow">
-                  {section.videoSrc ? (
+                  {service.videoSrc ? (
                     <video
                       width="600"
                       height="auto"
@@ -550,18 +516,19 @@ function ServicesSection() {
                       muted
                       autoPlay
                       playsInline
+                      className="rounded-3xl"
                     >
-                      <source src={section.videoSrc} type="video/mp4" />
+                      <source src={service.videoSrc} type="video/mp4" />
                       Your browser does not support the video tag.
                     </video>
                   ) : null}
                 </div>
                 <div
-                  className={`pt-3 bebas sm:text-large text-md font-medium ${
-                    section.bgColor === "bg-black" ? "text-white" : "text-black"
+                  className={`pt-3 bebas sm:text-large text-md font-medium w-full ${
+                    service.bgColor === "bg-black" ? "text-white" : "text-black"
                   }`}
                 >
-                  {section.text}
+                  {service.text}
                 </div>
               </section>
             ))}

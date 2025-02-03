@@ -9,18 +9,6 @@ export default function InterestedSection() {
         Interested in working with us?
       </div>
 
-      {/* <Button
-        as={Link}
-        href="/contact"
-        type="button"
-        className="w-fit max-h-[50px] bg-gradient-to-r from-pink-700 to-[#7B2CBF] text-white"
-        radius="full"
-        size="lg"
-        endContent={<ArrowUpRight />}
-      >
-        Call to Action
-      </Button> */}
-
       <Button
         // as="a"
         // href="/contact"

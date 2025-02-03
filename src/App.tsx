@@ -28,8 +28,8 @@ function App() {
   // });
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [location]);
+    setTimeout(() => window.scrollTo(0, 0), 100);
+  }, [location.pathname]);
 
   useEffect(() => {
     window.onpageshow = function (event) {
