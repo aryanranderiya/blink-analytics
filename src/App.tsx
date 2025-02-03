@@ -1,23 +1,22 @@
 import { ReactLenis } from "@studio-freight/react-lenis";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import "./App.css";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import Preloader from "./components/Preloader";
+import About from "./pages/About";
+import Careers from "./pages/Careers";
 import Contact from "./pages/Contact";
 import DataAnalytics, { dataAnalyticsServices } from "./pages/DataAnalytics";
 import GenerativeAI, { generativeAIServices } from "./pages/GenerativeAI";
 import Home from "./pages/Home";
 import Services from "./pages/Services";
-import About from "./pages/About";
-import Careers from "./pages/Careers";
 // import CustomCursor from "./components/CustomCursor";
 
 function App() {
   const location = useLocation();
   const mainRef = useRef(null);
-  const [hasPreloaded, setHasPreloaded] = useState(false);
   // const [position, setPosition] = useState({
   //   x: window.innerWidth / 2,
   //   y: window.innerHeight / 2,
@@ -31,10 +30,6 @@ function App() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location]);
-
-  useEffect(() => {
-    setHasPreloaded(true);
-  }, []);
 
   useEffect(() => {
     window.onpageshow = function (event) {
