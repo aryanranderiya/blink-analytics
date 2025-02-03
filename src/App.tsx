@@ -1,5 +1,5 @@
 import { ReactLenis } from "@studio-freight/react-lenis";
-import {  useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import "./App.css";
 import Footer from "./components/Footer";
@@ -17,6 +17,7 @@ import Careers from "./pages/Careers";
 function App() {
   const location = useLocation();
   const mainRef = useRef(null);
+  const [hasPreloaded, setHasPreloaded] = useState(false);
   // const [position, setPosition] = useState({
   //   x: window.innerWidth / 2,
   //   y: window.innerHeight / 2,
@@ -32,14 +33,16 @@ function App() {
   }, [location]);
 
   useEffect(() => {
+    setHasPreloaded(true);
+  }, []);
+
+  useEffect(() => {
     window.onpageshow = function (event) {
       if (event.persisted) {
         window.location.reload();
       }
     };
   }, []);
-
-
 
   useEffect(() => {
     const videoElements: HTMLVideoElement[] = [];
@@ -56,7 +59,7 @@ function App() {
         video.src = "";
       });
     };
-  }, [dataAnalyticsServices, generativeAIServices]);
+  }, []);
 
   // const handleMouseMove = useCallback((event: React.MouseEvent) => {
   //   setTimeout(() => {
@@ -66,10 +69,7 @@ function App() {
 
   return (
     <ReactLenis root>
-      <main
-        className="bg-[#EDE8F5]"
-        ref={mainRef}
-      >
+      <main className="bg-[#EDE8F5]" ref={mainRef}>
         {/* {location.pathname != "/" && (
           <CustomCursor delayedPosition={delayedPosition} />
         )} */}

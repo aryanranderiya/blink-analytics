@@ -6,13 +6,14 @@ import { World } from "@/components/ui/globe";
 import { positionData } from "@/data/positionData";
 import { cn } from "@/lib/utils";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
-import { Button, Link } from "@nextui-org/react";
+import { Button } from "@nextui-org/react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { ArrowRight, Mouse } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { isMobile } from "react-device-detect";
 import Slider from "react-infinite-logo-slider";
+import { Link } from "react-router-dom";
 
 function HeroSection() {
   const [isLoaded, setisLoaded] = useState(false);
@@ -207,7 +208,7 @@ function HeroSection() {
             Advantage
           </span>
         </h1>
-        { isMobile && (<div className="w-full h-full z-[10]"></div>)}
+        {isMobile && <div className="w-full h-full z-[10]"></div>}
       </div>
 
       <p
@@ -446,7 +447,7 @@ function ServicesSection() {
                 </div>
                 <div>
                   <Link
-                    href="/generative-ai"
+                    to="/generative-ai"
                     className="bebasneue  text-[4vh] sm:text-[4vw] text-transparent bg-clip-text bg-gradient-to-tr from-[#c77dff] to-[#e0aaff] cursor-pointer hover:underline decoration-[#7b2cbf]"
                   >
                     Generative AI
@@ -485,7 +486,7 @@ function ServicesSection() {
                 </div>
                 <div>
                   <Link
-                    href="/data-analytics"
+                    to="/data-analytics"
                     className="bebasneue text-[4vh] sm:text-[4vw] text-transparent bg-clip-text bg-gradient-to-tr from-[#c77dff] to-[#e0aaff] cursor-pointer hover:underline decoration-[#7b2cbf]"
                   >
                     Data Analytics
@@ -567,22 +568,22 @@ function ServicesSection() {
           </div>
         </div>
         <div className="flex items-center w-full justify-center mt-10">
-            <Button
-              as="a"
-              href="/services"
-              rel="noopener noreferrer"
-              radius="full"
-              variant="faded"
-              size="lg"
-              className="pr-[2px]"
-              endContent={
-                <div className="rounded-full bg-gradient-to-tr from-pink-500 to-purple-500 min-h-[40px] min-w-[40px] flex justify-center items-center ">
-                  <ArrowRight color="white" />
-                </div>
-              }
-            >
-              Explore more!
-            </Button>
+          <Button
+            as={Link}
+            to="/services"
+            type="button"
+            radius="full"
+            variant="faded"
+            size="lg"
+            className="pr-[2px]"
+            endContent={
+              <div className="rounded-full bg-gradient-to-tr from-pink-500 to-purple-500 min-h-[40px] min-w-[40px] flex justify-center items-center ">
+                <ArrowRight color="white" />
+              </div>
+            }
+          >
+            Explore more!
+          </Button>
         </div>
       </section>
     </>
@@ -681,10 +682,14 @@ function ContactSection() {
             </span>
             <br /> to propel your Business
           </h1>
+          <Link to="/contact">
             <Button
-              as="a"
-              href="/contact"
-              rel="noopener noreferrer"
+              // as="a"
+              // href="/contact"
+              // rel="noopener noreferrer"
+              as={Link}
+              to="/contact"
+              type="button"
               radius="full"
               variant="faded"
               className="pr-[2px]"
@@ -697,6 +702,7 @@ function ContactSection() {
             >
               Get Access
             </Button>
+          </Link>
         </div>
         <div className="bottom flex flex-col items-center justify-center gap-10 ">
           <p className="sm:text-xl text-sm font-bold text-[#999999] tracking-wide max-w-[80vw] sm:max-w-[60vw] text-center mb-5">
@@ -743,22 +749,24 @@ function LastSection() {
         and growth. Reach out today to see how we can help you achieve your
         business goals.
       </div>
-        <Button
-          as="a"
-          href="/contact"
-          rel="noopener noreferrer"
-          radius="full"
-          variant="faded"
-          size={window.innerWidth > 640 ? "lg" : "sm"}
-          endContent={
-            <div className="rounded-full bg-gradient-to-tr from-pink-500 to-purple-500 h-[25px] w-[25px] sm:min-h-[40px] sm:min-w-[40px] flex justify-center items-center ">
-              <ArrowRight color="white" />
-            </div>
-          }
-          className="pr-1"
-        >
-          Hire us now
-        </Button>
+      {/* <Link to="/contact"> */}
+      <Button
+        as={Link}
+        to="/contact"
+        type="button"
+        radius="full"
+        variant="faded"
+        size={window.innerWidth > 640 ? "lg" : "sm"}
+        endContent={
+          <div className="rounded-full bg-gradient-to-tr from-pink-500 to-purple-500 h-[25px] w-[25px] sm:min-h-[40px] sm:min-w-[40px] flex justify-center items-center ">
+            <ArrowRight color="white" />
+          </div>
+        }
+        className="pr-1"
+      >
+        Hire us now
+      </Button>
+      {/* </Link> */}
     </section>
   );
 }

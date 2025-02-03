@@ -5,6 +5,7 @@ import { ArrowUpRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import ScrollProgress from "@/components/ui/scroll-progress";
 import { cn } from "@/lib/utils";
+import { Link } from "react-router-dom";
 function ServiceCard({
   title,
   description,
@@ -25,7 +26,7 @@ function ServiceCard({
           setIsVisible(entry.isIntersecting);
         });
       },
-      { threshold: window.innerWidth > 640 ? 0.3 : 0.9}
+      { threshold: window.innerWidth > 640 ? 0.3 : 0.9 }
     );
     if (cardRef.current) {
       observer.observe(cardRef.current);
@@ -36,32 +37,38 @@ function ServiceCard({
   }, []);
   return (
     <>
-    <ScrollProgress />
-    <div
-      ref={cardRef}
-      className={`h-[55vh] w-screen sm:flex sm:flex-row flex-col-reverse justify-between z-[10] gap-5 transition-all p-10 ${
-        reverse ? "sm:flex-row-reverse" : ""
-      } ${isVisible ? "opacity-100" : "opacity-0 translate-y-10"}`}
-    >
+      <ScrollProgress />
       <div
-        className={`w-full flex flex-col text-white h-full justify-center  ${
-          reverse ? "sm:items-end" : "sm:items-start"
-        } gap-4 `}
+        ref={cardRef}
+        className={`h-[55vh] w-screen sm:flex sm:flex-row flex-col-reverse justify-between z-[10] gap-5 transition-all p-10 ${
+          reverse ? "sm:flex-row-reverse" : ""
+        } ${isVisible ? "opacity-100" : "opacity-0 translate-y-10"}`}
       >
         <div
-          className={`sm:text-5xl text-4xl bebasneue text-[400] text-[#9d4edd] w-full ${
-            reverse ? "sm:text-right" : "sm:text-left"
-          } `}
+          className={`w-full flex flex-col text-white h-full justify-center  ${
+            reverse ? "sm:items-end" : "sm:items-start"
+          } gap-4 `}
         >
-          {title}
-        </div>
-        <div className={`sm:text-[1.1vw] text-[10px] ${reverse ? "sm:text-right" : "sm:text-left"}`}>
-          {description}
-        </div>
+          <div
+            className={`sm:text-5xl text-4xl bebasneue text-[400] text-[#9d4edd] w-full ${
+              reverse ? "sm:text-right" : "sm:text-left"
+            } `}
+          >
+            {title}
+          </div>
+          <div
+            className={`sm:text-[1.1vw] text-[10px] ${
+              reverse ? "sm:text-right" : "sm:text-left"
+            }`}
+          >
+            {description}
+          </div>
+          {/* <Link to={"/contact"}> */}
+          {/* // rel="noopener noreferrer" */}
           <Button
-            as="a"
-            href="/contact"
-            rel="noopener noreferrer"
+            as={Link}
+            to="/contact"
+            type="button"
             className="w-fit max-h-[50px] bg-gradient-to-r from-pink-700 to-[#7B2CBF] text-white"
             radius="full"
             size="lg"
@@ -69,21 +76,22 @@ function ServiceCard({
           >
             Call to Action
           </Button>
+          {/* </Link> */}
+        </div>
+        <div className="sm:min-w-[40vw] sm:max-w-[40vw] rounded-3xl">
+          <video
+            width={window.innerWidth > 640 ? "600" : "800"}
+            height="auto"
+            loop
+            muted
+            autoPlay
+            playsInline
+          >
+            <source src={image} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
       </div>
-      <div className="sm:min-w-[40vw] sm:max-w-[40vw] rounded-3xl">
-      <video
-        width={window.innerWidth > 640 ? '600' : '800'}
-        height="auto"
-        loop
-        muted
-        autoPlay
-        playsInline
-      >
-        <source src={image} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-      </div>
-    </div>
     </>
   );
 }
@@ -135,15 +143,22 @@ export default function Services() {
   return (
     <>
       <div className="h-fit bg-black z-[1] sticky flex flex-col snap-y snap-mandatory overflow-hidden pb-[150px]">
-      <div className="p-10 bg-gradient-to-r from-[#240046] to-[#7B2CBF] rounded-b-3xl sm:pt-[150px] pt-[90px] sm:pb-[70px] pb-[30px] z-[10]">
-        <h1 className="font-bold sm:text-7xl text-3xl text-white">Custom AI Solutions for Every Need</h1>
-        <div className="sm:text-lg text-sm text-foreground-400 max-w-[80vw]">Explore our range of AI-driven services designed to transform your business operations. From fine-tuning models to implementing secure enterprise solutions, we deliver cutting-edge technologies tailored to your goals.</div>
-      </div>
-      <DotPattern
-        className={cn(
-          "[mask-image:linear-gradient(to_right,white,#ffffff60,transparent)] absolute inset-0"
-        )}
-      />
+        <div className="p-10 bg-gradient-to-r from-[#240046] to-[#7B2CBF] rounded-b-3xl sm:pt-[150px] pt-[90px] sm:pb-[70px] pb-[30px] z-[10]">
+          <h1 className="font-bold sm:text-7xl text-3xl text-white">
+            Custom AI Solutions for Every Need
+          </h1>
+          <div className="sm:text-lg text-sm text-foreground-400 max-w-[80vw]">
+            Explore our range of AI-driven services designed to transform your
+            business operations. From fine-tuning models to implementing secure
+            enterprise solutions, we deliver cutting-edge technologies tailored
+            to your goals.
+          </div>
+        </div>
+        <DotPattern
+          className={cn(
+            "[mask-image:linear-gradient(to_right,white,#ffffff60,transparent)] absolute inset-0"
+          )}
+        />
         {services.map((service, index) => (
           <ServiceCard
             key={index}
