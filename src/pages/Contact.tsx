@@ -3,6 +3,7 @@ import { Loader } from "lucide-react";
 import React from "react";
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
+import { isMobile } from "react-device-detect";
 
 export default function Contact() {
   const [open, setOpen] = React.useState(false);
@@ -11,7 +12,6 @@ export default function Contact() {
   const [loading, setLoading] = React.useState(false);
   const onOpenModal = () => setOpen(true);
   const onCloseModal = () => setOpen(false);
-
 
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     setLoading(true);
@@ -88,7 +88,7 @@ export default function Contact() {
             color="primary"
           >
             <div className="text-[#240046]">
-              +1 (682) 408-3798 | Fort Worth, TX
+              +1 (682) 408-3798 | Fort Worth, US
             </div>
           </Chip>
           <Chip
@@ -122,7 +122,7 @@ export default function Contact() {
             {status == 1 && <h1 className="text-black text-[16px]">We have recieved your message!</h1>}
             <p className="text-[#3c096c] font-[600]  text-left text-[20px] sm:text-[30px] max-w-[350px]">{result}</p> 
           </div>
-          <img src="/contact.webp" alt="" width={300} className="max-w-[300px]"/>
+          <img src="/contact.webp" alt="" width={isMobile ? 200 : 300} className="max-w-[300px]"/>
         </div>
       </Modal>
 

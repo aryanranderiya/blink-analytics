@@ -510,7 +510,7 @@ function ServicesSection() {
                 <div className="grow">
                   {service.videoSrc ? (
                     <video
-                      width="600"
+                      width={isMobile ? "600" : "800"}
                       height="auto"
                       loop
                       muted

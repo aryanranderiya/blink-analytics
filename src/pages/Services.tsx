@@ -96,26 +96,6 @@ function ServiceCard({
 
 export const services = [
   {
-    title: "RLHF and SFT",
-    description:
-      "At Blink Analytics, we specialize in integrating Reinforcement Learning with Human Feedback (RLHF) and Supervised Fine-Tuning (SFT) to enhance AI model performance. RLHF is a cutting-edge technique that allows models to learn from human feedback, improving the system’s ability to understand complex, context-driven tasks. SFT focuses on fine-tuning pre-trained models with domain-specific datasets, enabling them to deliver more accurate and reliable results. These techniques are essential for creating personalized AI systems that align with business needs, ensuring smarter decision-making and seamless user experiences. Whether you are looking to refine your model’s performance or build sophisticated AI solutions, Blink Analytics can help you achieve exceptional outcomes.",
-    image: "/RLHF.mp4",
-    reverse: false,
-    bgColor: "bg-black",
-    text: "RLHF AND SFT",
-    videoSrc: "/RLHF.mp4",
-  },
-  {
-    title: "RAG Implementation",
-    description:
-      "Retrieval-Augmented Generation (RAG) is a powerful technique that Blink Analytics implements to enhance the quality and relevance of AI-generated content. By combining the capabilities of pre-trained models with a dynamic retrieval system, RAG allows AI to access real-time knowledge bases and databases during inference, ensuring that the generated content is contextually accurate and up-to-date. This is particularly valuable for applications where timely and relevant information is crucial, such as in customer support, content generation, and decision-making systems. At Blink Analytics, we offer RAG implementation services that help businesses achieve better, more reliable AI outputs while reducing the risks of outdated or irrelevant information.",
-    image: "/RAG-updated.mp4",
-    reverse: true,
-    bgColor: "bg-black",
-    text: "RAG IMPLEMENTATION",
-    videoSrc: "/services/rag.mp4",
-  },
-  {
     title: "Generative AI Services",
     description:
       "Blink Analytics offers cutting-edge Generative AI services, which enable businesses to create highly personalized and innovative content at scale. Generative AI leverages powerful machine learning algorithms to understand and mimic the structure of existing data, whether it’s text, images, or audio. This allows for the creation of new, realistic content that fits the specific needs of your business. From generating dynamic marketing copy to designing unique visuals or audio clips, our generative models ensure that you get high-quality, tailored outputs that drive creativity, enhance productivity, and reduce manual work. Let Blink Analytics help you unlock the potential of generative AI for your business needs today! Contact Us now!",
@@ -125,6 +105,27 @@ export const services = [
     text: "GENERATIVE AI SERVICES",
     videoSrc: "/services/genai.mp4",
   },
+  {
+    title: "RLHF and SFT",
+    description:
+      "At Blink Analytics, we specialize in integrating Reinforcement Learning with Human Feedback (RLHF) and Supervised Fine-Tuning (SFT) to enhance AI model performance. RLHF is a cutting-edge technique that allows models to learn from human feedback, improving the system’s ability to understand complex, context-driven tasks. SFT focuses on fine-tuning pre-trained models with domain-specific datasets, enabling them to deliver more accurate and reliable results. These techniques are essential for creating personalized AI systems that align with business needs, ensuring smarter decision-making and seamless user experiences. Whether you are looking to refine your model’s performance or build sophisticated AI solutions, Blink Analytics can help you achieve exceptional outcomes.",
+    image: "/RLHF.mp4",
+    reverse: true,
+    bgColor: "bg-black",
+    text: "RLHF AND SFT",
+    videoSrc: "/RLHF.mp4",
+  },
+  {
+    title: "RAG Implementation",
+    description:
+      "Retrieval-Augmented Generation (RAG) is a powerful technique that Blink Analytics implements to enhance the quality and relevance of AI-generated content. By combining the capabilities of pre-trained models with a dynamic retrieval system, RAG allows AI to access real-time knowledge bases and databases during inference, ensuring that the generated content is contextually accurate and up-to-date. This is particularly valuable for applications where timely and relevant information is crucial, such as in customer support, content generation, and decision-making systems. At Blink Analytics, we offer RAG implementation services that help businesses achieve better, more reliable AI outputs while reducing the risks of outdated or irrelevant information.",
+    image: "/RAG-updated.mp4",
+    reverse: false,
+    bgColor: "bg-black",
+    text: "RAG IMPLEMENTATION",
+    videoSrc: "/services/rag.mp4",
+  },
+  
   {
     title: "Chatbot Making",
     description:

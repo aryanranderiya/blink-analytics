@@ -7,7 +7,7 @@ export default function Footer() {
       </div>
       <div className="flex-col px-3 pb-[5px] sm:text-[16px] text-[8px] sm:gap-2 gap-0 flex-wrap items-center justify-center">
         <div className="flex w-full justify-between">
-          <div className="text-nowrap">+1 (682) 408-3798 | Fort Worth, TX</div>
+          <div className="text-nowrap">+1 (682) 408-3798 | Fort Worth, US</div>
           <div>
             <a href="mailto:support@blinkanalytics.in" className="text-nowrap">
               support@blinkanalytics.in
