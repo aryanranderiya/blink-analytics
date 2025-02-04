@@ -64,8 +64,6 @@ function ServiceCard({
           >
             {description}
           </div>
-          {/* <Link to={"/contact"}> */}
-          {/* // rel="noopener noreferrer" */}
           <Button
             as={Link}
             to="/contact"
@@ -77,7 +75,6 @@ function ServiceCard({
           >
             Connect with Us
           </Button>
-          {/* </Link> */}
         </div>
         <div className="sm:min-w-[40vw] sm:max-w-[40vw] rounded-3xl">
           <video
