@@ -516,7 +516,7 @@ function ServicesSection() {
                       muted
                       autoPlay
                       playsInline
-                      className="rounded-3xl"
+                      className="rounded-xl"
                     >
                       <source src={service.videoSrc} type="video/mp4" />
                       Your browser does not support the video tag.

@@ -27,7 +27,7 @@ function ServiceCard({
           setIsVisible(entry.isIntersecting);
         });
       },
-      { threshold: window.innerWidth > 640 ? 0.3 : 0.9 }
+      { threshold: window.innerWidth > 640 ? 0.3 : 0.8 }
     );
     if (cardRef.current) {
       observer.observe(cardRef.current);
@@ -151,7 +151,7 @@ export const services = [
   {
     title: "Enterprise-Based Secure Models",
     description:
-      "At Blink Analytics, we understand the unique challenges large enterprises face when it comes to implementing AI systems. Our enterprise-based secure models are specifically designed to ensure the highest level of security, privacy, and compliance. We implement robust encryption, secure data storage, and adherence to industry regulations to protect sensitive business information while still leveraging the power of AI. Whether you're looking to deploy AI across multiple departments or need a highly secure solution for confidential projects, Blink Analytics offers enterprise-grade models that prioritize both performance and security. Let us help you harness the full potential of AI while safeguarding your data and ensuring compliance with industry standards.",
+      "At Blink Analytics, we understand the unique challenges large enterprises face when it comes to implementing AI systems. Our enterprise-based secure models are specifically designed to ensure the highest level of security, privacy, and compliance. We implement robust encryption, secure data storage, and adherence to industry regulations to protect sensitive business information while still leveraging the power of AI. Whether you're looking to deploy AI across multiple departments or need a highly secure solution for confidential projects, Blink Analytics offers enterprise-grade models that prioritize both performance and security.",
     image: "/RAG.mp4",
     reverse: true,
     bgColor: "bg-black",
