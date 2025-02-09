@@ -62,10 +62,10 @@ export default function Contact() {
       />
 
       <div className="sm:p-10 p-4 sm:pt-24 pt-20 flex flex-col sm:gap-5 gap-2 z-[1] sm:pb-10 pb-14">
-        <h1 className="font-[800] sm:text-6xl text-4xl text-[#240046]">
+        <h1 className="font-[800] sm:text-6xl text-4xl text-[#240046] 2K:text-[3vw]">
           Ready to Elevate your Business?
         </h1>
-        <h1 className="font-bold sm:text-5xl text-2xl text-[#240046] leading-tight">
+        <h1 className="font-bold sm:text-5xl text-2xl text-[#240046] leading-tight 2K:text-[2vw]">
           Let's turn&nbsp;
           <span className="text-transparent bg-clip-text bg-gradient-to-tr from-[#9d4edd] to-[#3c096c] inline">
             Ideas
@@ -76,7 +76,7 @@ export default function Contact() {
           </span>
         </h1>
 
-        <h2 className="font-medium sm:text-4xl text-lg text-[#240046] sm:max-w-[70vw] max-w-full">
+        <h2 className="font-medium sm:text-4xl text-lg text-[#240046] sm:max-w-[70vw] max-w-full 2K:text-[1.3vw]">
           We’re just one click away from driving innovation, transforming your
           data, and achieving remarkable results.
         </h2>
@@ -87,7 +87,7 @@ export default function Contact() {
             variant="bordered"
             color="primary"
           >
-            <div className="text-[#240046]">
+            <div className="text-[#240046] 2K:text-[1vw]">
               +1 (682) 408-3798 | Fort Worth, US
             </div>
           </Chip>
@@ -97,7 +97,7 @@ export default function Contact() {
             color="primary"
             className="  sm:ml-[10px] mt-[10px]"
           >
-            <div className="text-[#240046]">
+            <div className="text-[#240046] 2K:text-[1vw]">
               +91 (992) 452-7163 | Ahmedabad, India
             </div>
           </Chip>
@@ -107,7 +107,7 @@ export default function Contact() {
             color="primary"
             className="  sm:ml-[10px] mt-[10px]"
           >
-            <div className="text-[#240046]">
+            <div className="text-[#240046] 2K:text-[1vw]">
               <a href="mailto:support@blinkanalytics.in">
                 support@blinkanalytics.in
               </a>
@@ -128,7 +128,7 @@ export default function Contact() {
 
       {/* Form Section */}
       <div className="bg-gradient-to-tr from-[#7b2cbf] to-[#3c096c] flex-grow sm:rounded-l-3xl rounded-t-3xl sm:p-10 p-5 z-[2] sm:w-[40vw] w-full">
-        <div className="text-white text-xl font-bold tracking-wide">
+        <div className="text-white text-xl font-bold tracking-wide 2K:text-[2vw]">
           Send us a message directly!
         </div>
         <form
@@ -159,7 +159,7 @@ export default function Contact() {
             required
           />
 
-          <Button size="lg" radius="full" type="submit">
+          <Button size="lg" radius="full" type="submit" className="2K:text-[1.3vw]">
             {loading ? <Loader className="animate-spin" /> : "Submit"}
           </Button>
         </form>

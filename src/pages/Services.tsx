@@ -51,7 +51,7 @@ function ServiceCard({
           } gap-4 `}
         >
           <div
-            className={`sm:text-5xl text-4xl bebasneue text-[400] text-[#9d4edd] w-full ${
+            className={`sm:text-5xl text-4xl bebasneue text-[400] text-[#9d4edd] w-full 2K:text-[3vw] ${
               reverse ? "sm:text-right" : "sm:text-left"
             } `}
           >
@@ -76,9 +76,9 @@ function ServiceCard({
             Connect with Us
           </Button>
         </div>
-        <div className="sm:min-w-[40vw] sm:max-w-[40vw] rounded-3xl">
+        <div className="sm:min-w-[40vw] sm:max-w-[40vw] rounded-3xl flex justify-center align-center">
           <video
-            width={window.innerWidth > 640 ? "600" : "800"}
+            width={window.innerWidth > 640 ? (window.innerWidth > 2000 ? "800" : "600") : "800"}
             height="auto"
             loop
             muted
@@ -176,7 +176,7 @@ export default function Services() {
           <h1 className="font-bold sm:text-7xl text-3xl text-white">
             Custom AI Solutions for Every Need
           </h1>
-          <div className="sm:text-lg text-sm text-foreground-400 max-w-[80vw]">
+          <div className="sm:text-lg text-sm text-foreground-400 max-w-[80vw] 2K:text-[1.5vw] 2K:leading-[50px]">
             Explore our range of AI-driven services designed to transform your
             business operations. From fine-tuning models to implementing secure
             enterprise solutions, we deliver cutting-edge technologies tailored

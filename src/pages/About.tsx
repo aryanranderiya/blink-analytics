@@ -140,7 +140,7 @@ export default function About() {
         )}
       />
       <div className="left sm:p-10 p-5 flex-[3] flex flex-col self-start !pt-[100px]">
-        <h1 className="sm:text-2xl text-3xl text-[#9d4edd] font-semibold border-l-5 border-l-[#9d4edd] pl-2">
+        <h1 className="sm:text-2xl text-3xl text-[#9d4edd] font-semibold border-l-5 border-l-[#9d4edd] pl-2 2K:text-[2vw]">
           About Us
         </h1>
         <h1 className="text-4xl md:text-6xl font-bold tracking-wide leading-tight text-white z-[10] mt-4">
@@ -197,10 +197,10 @@ export default function About() {
               key={index}
             >
               <span className="w-[50px] h-[4px] bg-purple-500" />
-              <h2 className="number text-white text-3xl font-bold leading-none">
+              <h2 className="number text-white text-3xl font-bold leading-none 2K:text-[2vw]">
                 {item.number}
               </h2>
-              <p className="desc text-white text-xl md:text-2xl leading-tight">
+              <p className="desc text-white text-xl md:text-2xl leading-tight 2K:text-[1.5vw]">
                 {item.info}
               </p>
             </div>
@@ -250,11 +250,11 @@ export default function About() {
                   /> */}
                   {item.icon2}
                 </div>
-                <h2 className="text-3xl md:text-5xl text-white font-bold tracking-wide">
+                <h2 className="text-3xl md:text-5xl text-white font-bold tracking-wide 2K:text-[2vw]">
                   {item.title}
                 </h2>
               </div>
-              <p className="text-white text-base md:text-lg">{item.desc}</p>
+              <p className="text-white text-base md:text-lg 2K:text-[1.5vw] 2K:leading-[50px]">{item.desc}</p>
             </div>
           ))}
         </div>

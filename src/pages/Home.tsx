@@ -18,6 +18,7 @@ import { services } from "./Services";
 
 function HeroSection() {
   const [isLoaded, setisLoaded] = useState(false);
+  
   const ref1 = useRef(null);
   const ref2 = useRef(null);
   const ref3 = useRef(null);
@@ -29,7 +30,10 @@ function HeroSection() {
     setTimeout(() => {
       setisLoaded(true);
     }, 1000);
+    
   }, []);
+
+  
 
   const globeConfig = {
     pointSize: 10,
@@ -184,7 +188,7 @@ function HeroSection() {
       <div className="flex h-screen items-center flex-col sm:justify-center sm:pt-0 pt-[30%] z-[10] pb-auto">
         <h1
           ref={ref1}
-          className="text-white font-[800] sm:text-[5vw] text-[5vh] text-center leading-[40px] sm:leading-[100px] tracking-wide z-[10] left-[20%] select-none"
+          className="text-white font-[800] sm:text-[5vw] text-[5vh] text-center  tracking-wide z-[10] left-[20%] select-none"
         >
           Transforming Data into{" "}
           <span className="instrumentserif-italic capitalize text-[#E0AAFF]">
@@ -193,7 +197,7 @@ function HeroSection() {
         </h1>
         <h1
           ref={ref2}
-          className="text-white font-[800] sm:text-[5vw] text-[5vh] text-center leading-[40px] sm:leading-[100px] tracking-wide z-[10] left-[35%] select-none"
+          className="text-white font-[800] sm:text-[5vw] text-[5vh] text-center tracking-wide z-[10] left-[35%] select-none"
         >
           Models into{" "}
           <span className="instrumentserif-italic capitalize text-[#E0AAFF]">
@@ -202,7 +206,7 @@ function HeroSection() {
         </h1>
         <h1
           ref={ref3}
-          className="text-white font-[800] sm:text-[5vw] text-[5vh] text-center leading-[40px] sm:leading-[100px] z-[10] tracking-wide left-[30%] select-none"
+          className="text-white font-[800] sm:text-[5vw] text-[5vh] text-center z-[10] tracking-wide left-[30%] select-none"
         >
           and <span className="text-white">AI</span> into your{" "}
           <span className="instrumentserif-italic capitalize text-[#E0AAFF]">
@@ -233,13 +237,10 @@ function ServicesSection() {
   const serviceRef = useRef(null);
   const cardsDivRef = useRef(null);
   const firstRef = useRef(null);
+
   // const [isLoaded, setisLoaded] = useState(false);
 
-  // useEffect(()=>{
-  //   setTimeout(() => {
-  //     setisLoaded(true);
-  //   }, 1000);
-  // })
+  
 
   useEffect(() => {
     gsap.fromTo(
@@ -401,14 +402,14 @@ function ServicesSection() {
         className="bg-[#ede8f5] pt-10 h-[100vh] z-[1] sticky top-0 flex flex-col items-center justify-start rounded-t-3xl "
       >
         <ParticlesBg parentRef={firstRef} />
-        <h1 className="text-[#112241] font-[800] sm:text-[4vw] text-3xl text-center select-none first-heading instrumentserif-italic">
+        <h1 className="text-[#112241] font-[800] sm:text-[4vw] text-3xl text-center select-none first-heading instrumentserif-italic 2K:mt-[100px]">
           What we do
         </h1>
         <div className="first-section-text sm:p-10 p-4 flex flex-col items-center justify-center w-full gap-10 h-full relative flex-wrap">
           <div className="first-info flex w-full h-full justify-evenly items-center sm:items-stretch overflow-hidden sm:flex-row flex-col">
-            <div className="left flex flex-col gap-5">
-              <div className="video bg-[#371367] sm:w-[40vw] w-[80vw] sm:h-full  sm:max-h-[75vh] h-[40vh] rounded-3xl p-5 sm:p-10 flex flex-col justify-between">
-                <div className="brainmodel absolute right-0  bottom-0 sm:w-[20vw] sm:h-[20vw] w-[35vw] h-[35vw]">
+            <div className="left flex flex-col gap-5 justify-center">
+              <div className={`video bg-[#371367] sm:w-[40vw] w-[80vw] sm:h-full  sm:max-h-[75vh] h-[40vh] rounded-3xl p-5 sm:p-10 flex flex-col justify-between 2K:max-h-[60vh]`}>
+                <div className="brainmodel absolute right-0  bottom-0 sm:w-[20vw] sm:h-[20vw] w-[35vw] h-[35vw] 2K:bottom-[10%] 2K:right-10">
                   <BrainModel scale={4} />
                 </div>
                 <div>
@@ -418,14 +419,14 @@ function ServicesSection() {
                   >
                     Generative AI
                   </Link>
-                  <p className="text-white text-xs sm:text-[20px] sm:leading-[30px] ">
+                  <p className="text-white text-xs sm:text-[20px] sm:leading-[30px] 2K:text-[1.5vw] 2K:leading-[50px]">
                     Unleash your creativity and redefine possibilities with our
                     generative AI solutions. Whether it's content creation,
                     marketing automation, or system integration, we help you
                     harness AI to innovate and excel.
                   </p>
                 </div>
-                <ul className="flex flex-col gap-2 list-none mt-2 text-[10px] sm:text-[20px] sm:leading-[30px]">
+                <ul className="flex flex-col gap-2 list-none mt-2 text-[10px] sm:text-[20px] sm:leading-[30px] 2K:text-[1vw] 2K:leading-[50px]">
                   <li className="bg-white rounded-r-3xl max-w-max px-[10px] sm:px-5 sm:py-2 py-[5px] font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">
                     Automated Content Generation
                   </li>
@@ -441,8 +442,8 @@ function ServicesSection() {
                 </ul>
               </div>
             </div>
-            <div className="right flex flex-col gap-5 ">
-              <div className="video sm:w-[40vw] w-[80vw] sm:h-full sm:max-h-[75vh] h-[40vh] bg-[#371367] rounded-3xl flex flex-col p-5 sm:p-10 relative justify-between">
+            <div className="right flex flex-col gap-5 justify-center">
+              <div className="video sm:w-[40vw] w-[80vw] sm:h-full sm:max-h-[75vh] h-[40vh] bg-[#371367] rounded-3xl flex flex-col p-5 sm:p-10 relative justify-between 2K:max-h-[60vh]">
                 <div className="brainmodel absolute sm:right-[-15%] right-[-20%] bottom-5 sm:w-[35vw] w-[70vw]">
                   <DotLottieReact
                     src="https://lottie.host/b0a2acd5-a7aa-49bc-89ce-5c66c54ca586/VfQO43rteM.json"
@@ -457,14 +458,14 @@ function ServicesSection() {
                   >
                     Data Analytics
                   </Link>
-                  <p className="text-white text-xs sm:text-[20px] sm:leading-[30px]">
+                  <p className="text-white text-xs sm:text-[20px] sm:leading-[30px] 2K:text-[1.5vw] 2K:leading-[50px]">
                     Empower your business with data-driven strategies. Our
                     analytics services unlock the potential of your data,
                     enabling smarter decisions, predictive capabilities, and
                     optimized performance across all domains.
                   </p>
                 </div>
-                <ul className="flex flex-col gap-2 list-none mt-2 text-[10px] sm:text-[20px] sm:leading-[30px]">
+                <ul className="flex flex-col gap-2 list-none mt-2 text-[10px] sm:text-[20px] sm:leading-[30px] 2K:text-[1vw] 2K:leading-[50px]">
                   <li className="bg-white rounded-r-3xl max-w-max px-[5px] sm:px-5 sm:py-2 py-[5px] font-bold hover:pr-10 transition-smooth duration-200 hover:bg-[#e0aaff] select-none">
                     Informed Decision-Making
                   </li>
@@ -492,14 +493,14 @@ function ServicesSection() {
             "[mask-image:linear-gradient(to_left,white,#ffffff80,transparent)] absolute inset-0"
           )}
         />
-        <div className="services-title flex items-center justify-center w-full  cursor-pointer absolute top-20 left-1/2 transform -translate-x-1/2 overflow-hidden mb-[50px]">
+        <div className="services-title flex items-center justify-center w-full  cursor-pointer absolute top-20 left-1/2 transform -translate-x-1/2 overflow-hidden mb-[50px] 2K:mt-[100px]">
           <h1 className="font-[800] bebasneue tracking-[3px] sm:text-[4vw] text-5xl uppercase text-white text-center">
             Our Services
           </h1>
         </div>
         <div
           ref={cardsDivRef}
-          className="cards-div flex flex-col sm:p-10 p-5 sm:mt-[150px] mt-[80px] items-start justify-center pt-[20vh] sm: h-fit max-w-screen"
+          className="cards-div flex flex-col sm:p-10 p-5 sm:mt-[150px] mt-[80px] items-start justify-center pt-[20vh] sm: h-fit max-w-screen 2K:mt-[300px]"
         >
           <div className="flex gap-10 cards-div-container overflow-hidden">
             {services.map((service, index) => (
@@ -507,7 +508,7 @@ function ServicesSection() {
                 key={index}
                 className={`sm:min-h-[45vh] sm:w-[35vw] h-full w-[90vw] ${service.bgColor} rounded-xl flex flex-col cursor-pointer justify-center p-5 items-center`}
               >
-                <div className="grow">
+                <div className="grow flex align-center justify-center ">
                   {service.videoSrc ? (
                     <video
                       width={isMobile ? "600" : "800"}
@@ -524,7 +525,7 @@ function ServicesSection() {
                   ) : null}
                 </div>
                 <div
-                  className={`pt-3 bebas sm:text-large text-md font-medium w-full ${
+                  className={`pt-3 bebas sm:text-large text-md font-medium w-full 2K:text-2xl ${
                     service.bgColor === "bg-black" ? "text-white" : "text-black"
                   }`}
                 >
@@ -541,7 +542,7 @@ function ServicesSection() {
             type="button"
             radius="full"
             variant="faded"
-            size="lg"
+            size='lg'
             className="pr-[2px]"
             endContent={
               <div className="rounded-full bg-gradient-to-tr from-pink-500 to-purple-500 min-h-[40px] min-w-[40px] flex justify-center items-center ">
@@ -642,9 +643,9 @@ function ContactSection() {
       </div>
       <div className="container flex flex-col items-center justify-center sm:p-10 p-[4vh] w-full h-full sm:gap-10 gap-5">
         <div className="top flex flex-col items-center justify-center gap-10">
-          <h1 className="bebasneue font-[800] tracking-wide leading-none sm:text-7xl text-4xl text-white text-center spacing-[5px] gap-4">
+          <h1 className="bebasneue font-[800] tracking-wide leading-none sm:text-7xl text-4xl text-white text-center spacing-[5px] gap-4 2K:text-[5vw]">
             Leverage&nbsp;
-            <span className="bebasneue font-[800] tracking-wide leading-none sm:text-7xl text-4xl text-transparent bg-clip-text bg-gradient-to-tr from-pink-500 to-purple-500 text-center spacing-[5px]">
+            <span className="bebasneue font-[800] tracking-wide leading-none sm:text-7xl text-4xl text-transparent bg-clip-text bg-gradient-to-tr from-pink-500 to-purple-500 text-center spacing-[5px] 2K:text-[5vw]">
               AI and Data{" "}
             </span>
             <br /> to propel your Business
@@ -672,14 +673,14 @@ function ContactSection() {
           </Link>
         </div>
         <div className="bottom flex flex-col items-center justify-center gap-10 ">
-          <p className="sm:text-xl text-sm font-bold text-[#999999] tracking-wide max-w-[80vw] sm:max-w-[60vw] text-center mb-5">
+          <p className="sm:text-xl text-sm font-bold text-[#999999] tracking-wide max-w-[80vw] sm:max-w-[60vw] text-center mb-5 2K:text-[2vw] 2K:leading-[50px]">
             Powering innovation with the best in AI technology—our expertise is
             built on cutting-edge tools that redefine analytics and
             decision-making. These trusted solutions enable us to deliver
             precision, performance, and unparalleled insights for your business.
           </p>
           <Slider
-            width={window.innerWidth > 640 ? "220px" : "100px"}
+            width={window.innerWidth > 640 ? (window.innerWidth > 2000 ? "400px" : "220px") : "100px"}
             duration={30}
             pauseOnHover={false}
             blurBorders={false}
@@ -690,7 +691,7 @@ function ContactSection() {
                 <img
                   src={slide.src}
                   alt={slide.alt}
-                  className="h-[50px] w-[50px] sm:h-[100px] sm:w-[100px] object-contain grayscale hover:grayscale-0 transition-all"
+                  className="h-[50px] w-[50px] sm:h-[100px] sm:w-[100px] object-contain grayscale hover:grayscale-0 transition-all 2K:h-[200px] 2K:w-[200px]"
                 />
               </Slider.Slide>
             ))}
@@ -703,15 +704,15 @@ function ContactSection() {
 
 function LastSection() {
   return (
-    <section className="bg-[#10002b] w-full sm:h-[50vh] h-[35vh] z-[1] sticky top-0  rounded-t-3xl flex flex-col sm:p-10 p-10 items-center sm:justify-center  justify-evenly sm:gap-4 gap-2">
-      <div className="font-bold sm:text-5xl text-xl text-white max-w-screen-sm sm:max-w-screen-2xl text-center inline">
+    <section className="bg-[#10002b] w-full sm:h-[50vh] h-[35vh] z-[1] sticky top-0  rounded-t-3xl flex flex-col sm:p-10 p-10 items-center sm:justify-center  justify-evenly sm:gap-4 gap-2 2K:gap-[50px]">
+      <div className="font-bold sm:text-5xl text-xl text-white max-w-screen-sm sm:max-w-screen-2xl text-center inline 2K:text-[4vw]">
         Transform Your Business with{" "}
         <span className="text-transparent bg-clip-text bg-gradient-to-tr from-pink-500 to-purple-500">
           Cutting-Edge
         </span>
         &nbsp;AI Solutions
       </div>
-      <div className="font-medium sm:text-xl text-xs text-white text-center max-w-[80vw]">
+      <div className="font-medium sm:text-xl text-xs text-white text-center max-w-[80vw] 2K:text-[2vw] 2K:leading-[60px]">
         Partner with us to leverage advanced AI technologies to drive innovation
         and growth. Reach out today to see how we can help you achieve your
         business goals.

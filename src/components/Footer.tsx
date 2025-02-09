@@ -5,7 +5,7 @@ export default function Footer() {
         <span className="instrumentserif-italic text-[12vw] ">BLINK </span>
         ANALYTICS
       </div>
-      <div className="flex-col px-3 pb-[5px] sm:text-[16px] text-[8px] sm:gap-2 gap-0 flex-wrap items-center justify-center">
+      <div className="flex-col px-3 pb-[5px] sm:text-[16px] text-[8px] sm:gap-2 gap-0 flex-wrap items-center justify-center 2K:text-[25px]">
         <div className="flex w-full justify-between">
           <div className="text-nowrap">+1 (682) 408-3798 | Fort Worth, US</div>
           <div>
@@ -16,8 +16,8 @@ export default function Footer() {
           <div className="text-nowrap">+91 (992) 452-7163 | Ahmedabad, India</div>
         </div>
         <div className="flex justify-between sm:text-[14px] text-[8px]">
-        <div className="sm:text-[12px] text-[8px]">&copy; BLINK ANALYTICS, {new Date().getFullYear()} </div>
-        <div className="text-nowrap sm:text-[12px] text-[8px]">
+        <div className="sm:text-[12px] text-[8px] 2K:text-[25px]">&copy; BLINK ANALYTICS, {new Date().getFullYear()} </div>
+        <div className="text-nowrap sm:text-[12px] text-[8px] 2K:text-[25px]">
           Designed & Developed by{" "}
           <a
             href="https://aryanranderiya.com"

@@ -130,13 +130,13 @@ export default function NavbarComponent() {
         </Link>
 
         <div
-          className={`ml-auto bg-white p-2 rounded-full bg-opacity-60 backdrop-blur-lg border-black border-[2px] w-[50px] h-[50px] flex items-center justify-center cursor-pointer menu-button-container`}
+          className={`ml-auto bg-white p-2 rounded-full bg-opacity-60 backdrop-blur-lg border-black border-[2px] w-[50px] h-[50px] flex items-center justify-center cursor-pointer menu-button-container 2K:w-[100px] 2K:h-[100px] 2K:mt-[30px]`}
           onClick={() => setisMenuVisible((old) => !old)}
         >
           {isMenuVisible ? (
-            <X width={20} color="#112241" />
+            <X width={window.innerWidth > 2000 ? 80 : 20} color="#112241" />
           ) : (
-            <MenuIcon width={18} color="black" />
+            <MenuIcon width={window.innerWidth > 2000 ? 80 : 20} color="black" />
           )}
         </div>
       </header>

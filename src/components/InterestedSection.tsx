@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 
 export default function InterestedSection() {
   return (
-    <div className="sm:h-[30vh] h-[20vh] sticky bg-[#5a189a] z-[1] rounded-b-3xl p-10 flex justify-center items-center flex-col gap-3">
-      <div className="sm:text-4xl text-2xl text-center text-white">
+    <div className="sm:h-[30vh] h-[20vh] sticky bg-[#5a189a] z-[1] rounded-b-3xl p-10 flex justify-center items-center flex-col gap-3 2K:gap-[70px]">
+      <div className="sm:text-4xl text-2xl text-center text-white 2K:text-[4vw]">
         Interested in working with us?
       </div>
 
