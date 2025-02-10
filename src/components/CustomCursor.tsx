@@ -7,17 +7,6 @@ export default function CustomCursor({
 }) {
   return (
     <>
-      {/* Small cursor effect */}
-      {/* <div
-        className={`fixed rounded-full h-[15px] w-[15px] bg-[#00ff7b] duration-75 transition-transform z-20 pointer-events-none`}
-        style={{
-          left: position.x,
-          top: position.y,
-          transform: "translate(-50%, -50%)",
-        }}
-      ></div> */}
-
-      {/* Large blurred effect */}
       <div
         className={`fixed rounded-full h-[30vw] w-[30vw] bg-purple-600 bg-opacity-10 blur-3xl z-10 pointer-events-none`}
         style={{
