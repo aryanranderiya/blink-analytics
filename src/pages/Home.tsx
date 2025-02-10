@@ -643,7 +643,7 @@ function ContactSection() {
       </div>
       <div className="container flex flex-col items-center justify-center sm:p-10 p-[4vh] w-full h-full sm:gap-10 gap-5">
         <div className="top flex flex-col items-center justify-center gap-10">
-          <h1 className="bebasneue font-[800] tracking-wide leading-none sm:text-7xl text-4xl text-white text-center spacing-[5px] gap-4 2K:text-[5vw]">
+          <h1 className="bebasneue font-[800] tracking-wide leading-none sm:text-7xl text-4xl text-white text-center spacing-[5px] gap-4 2K:text-[5vw] w-full">
             Leverage&nbsp;
             <span className="bebasneue font-[800] tracking-wide leading-none sm:text-7xl text-4xl text-transparent bg-clip-text bg-gradient-to-tr from-pink-500 to-purple-500 text-center spacing-[5px] 2K:text-[5vw]">
               AI and Data{" "}

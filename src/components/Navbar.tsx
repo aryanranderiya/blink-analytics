@@ -51,57 +51,6 @@ export default function NavbarComponent() {
     }
   }, [isMenuVisible]);
 
-  // Utility function to get a random character
-  function getRandomCharacter() {
-    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ;!@#$%^&*(){}[]Ø";
-    return chars[Math.floor(Math.random() * chars.length)];
-  }
-
-  // Object to store shuffled texts for each menu item
-  const [shufflingTexts, setShufflingTexts] = useState<{
-    [key: number]: string[];
-  }>(
-    navItems.reduce((acc, _, index) => {
-      acc[index] = [...navItems[index].title]; // Initial state as the actual title
-      return acc;
-    }, {} as { [key: number]: string[] })
-  );
-
-  // Store intervals for each menu item
-  const shuffleIntervalRefs = useRef<{ [key: number]: NodeJS.Timeout | null }>(
-    {}
-  );
-
-  const handleMouseEnter = (index: number) => {
-    let count = 0;
-    shuffleIntervalRefs.current[index] = setInterval(() => {
-      count++;
-      setShufflingTexts((prev) => ({
-        ...prev,
-        [index]: prev[index].map(() => getRandomCharacter()),
-      }));
-      if (count >= 30) {
-        setShufflingTexts((prev) => ({
-          ...prev,
-          [index]: [...navItems[index].title],
-        }));
-        clearInterval(shuffleIntervalRefs.current[index]!);
-        shuffleIntervalRefs.current[index] = null;
-      }
-    }, 10);
-  };
-
-  const handleMouseLeave = (index: number) => {
-    setShufflingTexts((prev) => ({
-      ...prev,
-      [index]: [...navItems[index].title],
-    }));
-    if (shuffleIntervalRefs.current[index]) {
-      clearInterval(shuffleIntervalRefs.current[index]!);
-      shuffleIntervalRefs.current[index] = null;
-    }
-  };
-
   return (
     <>
       <header
@@ -155,21 +104,9 @@ export default function NavbarComponent() {
               to={item.link}
               key={index}
               className="overflow-hidden relative py-[2px] group"
-              onMouseEnter={() => handleMouseEnter(index)}
-              onMouseLeave={() => handleMouseLeave(index)}
             >
-              <div className="cursor-pointer font-bold select-none uppercase nav-text-item relative group inline-bloc ktransition-all duration-75 flex-nowrap text-nowrap">
-                {shufflingTexts[index].map((letter, letterIndex) => (
-                  <span
-                    key={letterIndex}
-                    className="group-hover:text-purple-500 group-hover:italic group-hover:font-serif"
-                    // style={{ fontFamily: "Times New Roman" }}
-                  >
-                    {letter}
-                  </span>
-                ))}
-
-                <div className="absolute rounded-full -bottom-[5px] left-0 w-0 h-[3px] bg-black transition-all duration-500 group-hover:w-full" />
+              <div className="cursor-pointer font-bold select-none uppercase nav-text-item relative group inline-bloc ktransition-all duration-75 flex-nowrap text-nowrap hover:text-purple-500 hover:italic">
+                {item.title}
               </div>
             </Link>
           ))}

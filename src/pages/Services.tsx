@@ -21,13 +21,14 @@ function ServiceCard({
   const cardRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
   useEffect(() => {
+    
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           setIsVisible(entry.isIntersecting);
         });
       },
-      { threshold: window.innerWidth > 640 ? 0.3 : 0.8 }
+      { threshold: window.innerWidth > 640 ? 0.3 : 0.9 }
     );
     if (cardRef.current) {
       observer.observe(cardRef.current);
@@ -76,14 +77,16 @@ function ServiceCard({
             Connect with Us
           </Button>
         </div>
-        <div className="sm:min-w-[40vw] sm:max-w-[40vw] rounded-3xl flex justify-center align-center">
+        <div className="sm:min-w-[40vw] sm:max-w-[40vw]  flex justify-center align-center">
           <video
+            
             width={window.innerWidth > 640 ? (window.innerWidth > 2000 ? "800" : "600") : "800"}
             height="auto"
             loop
             muted
             autoPlay
             playsInline
+            className="sm:rounded-[50px] rounded-[10px]"
           >
             <source src={image} type="video/mp4" />
             Your browser does not support the video tag.

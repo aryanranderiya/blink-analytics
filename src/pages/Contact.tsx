@@ -148,7 +148,7 @@ export default function Contact() {
             />
             <input type="hidden" name="from_name" value="blinkanalytics.in" />
             <Input label="Enter Name" name="name" variant="faded" required />
-            <Input label="Enter Email" name="email" variant="faded" required />
+            <Input label="Enter Email" type="email" name="email" variant="faded" required />
           </div>
           <Textarea
             size="lg"
