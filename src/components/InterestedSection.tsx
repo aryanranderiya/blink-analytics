@@ -10,11 +10,11 @@ export default function InterestedSection() {
       </div>
 
       <Button
-        // as="a"
-        // href="/contact"
-        // rel="noopener noreferrer"
-        as={Link}
+        as="a"
         href="/contact"
+        rel="noopener noreferrer"
+        // as={Link}
+        // href="/contact"
         type="button"
         radius="full"
         variant="faded"
