@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import ScrollProgress from "@/components/ui/scroll-progress";
 import { cn } from "@/lib/utils";
 import { Link } from "react-router-dom";
+import { isMobile } from "react-device-detect";
 
 function ServiceCard({
   title,
@@ -21,7 +22,7 @@ function ServiceCard({
   const cardRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
   useEffect(() => {
-    
+  
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -59,7 +60,7 @@ function ServiceCard({
             {title}
           </div>
           <div
-            className={`sm:text-[1.1vw] text-[10px] ${
+            className={`sm:text-[1.1vw] text-[10px]  ${
               reverse ? "sm:text-right" : "sm:text-left"
             }`}
           >
@@ -71,7 +72,7 @@ function ServiceCard({
             type="button"
             className="w-fit max-h-[50px] bg-gradient-to-r from-pink-700 to-[#7B2CBF] text-white"
             radius="full"
-            size="lg"
+            size='lg'
             endContent={<ArrowUpRight />}
           >
             Connect with Us
@@ -101,7 +102,7 @@ export const services = [
   {
     title: "Generative AI Services",
     description:
-      "Blink Analytics offers cutting-edge Generative AI services, which enable businesses to create highly personalized and innovative content at scale. Generative AI leverages powerful machine learning algorithms to understand and mimic the structure of existing data, whether it’s text, images, or audio. This allows for the creation of new, realistic content that fits the specific needs of your business. From generating dynamic marketing copy to designing unique visuals or audio clips, our generative models ensure that you get high-quality, tailored outputs that drive creativity, enhance productivity, and reduce manual work. Let Blink Analytics help you unlock the potential of generative AI for your business needs today! Contact Us now!",
+      "Blink Analytics delivers advanced Generative AI services, empowering businesses to create personalized content at scale. Our AI generates high-quality text, images, and audio, enhancing creativity, productivity, and efficiency. From marketing copy to unique visuals, we help streamline content creation. Unlock the power of Generative AI with Blink Analytics today!",
     image: "/RAG.mp4",
     reverse: false,
     bgColor: "bg-black",
@@ -111,7 +112,7 @@ export const services = [
   {
     title: "RLHF and SFT",
     description:
-      "At Blink Analytics, we specialize in integrating Reinforcement Learning with Human Feedback (RLHF) and Supervised Fine-Tuning (SFT) to enhance AI model performance. RLHF is a cutting-edge technique that allows models to learn from human feedback, improving the system’s ability to understand complex, context-driven tasks. SFT focuses on fine-tuning pre-trained models with domain-specific datasets, enabling them to deliver more accurate and reliable results. These techniques are essential for creating personalized AI systems that align with business needs, ensuring smarter decision-making and seamless user experiences. Whether you are looking to refine your model’s performance or build sophisticated AI solutions, Blink Analytics can help you achieve exceptional outcomes.",
+      "Blink Analytics enhances AI performance with Reinforcement Learning with Human Feedback (RLHF) and Supervised Fine-Tuning (SFT). RLHF refines models using human input, improving context understanding. SFT fine-tunes pre-trained models with domain-specific data for accuracy. These techniques ensure smarter AI solutions, better decision-making, and seamless user experiences tailored to business needs.",
     image: "/RLHF.mp4",
     reverse: true,
     bgColor: "bg-black",
@@ -121,7 +122,7 @@ export const services = [
   {
     title: "RAG Implementation",
     description:
-      "Retrieval-Augmented Generation (RAG) is a powerful technique that Blink Analytics implements to enhance the quality and relevance of AI-generated content. By combining the capabilities of pre-trained models with a dynamic retrieval system, RAG allows AI to access real-time knowledge bases and databases during inference, ensuring that the generated content is contextually accurate and up-to-date. This is particularly valuable for applications where timely and relevant information is crucial, such as in customer support, content generation, and decision-making systems. At Blink Analytics, we offer RAG implementation services that help businesses achieve better, more reliable AI outputs while reducing the risks of outdated or irrelevant information.",
+      "Blink Analytics utilizes Retrieval-Augmented Generation (RAG) to enhance AI content quality and relevance. RAG integrates pre-trained models with real-time data retrieval, ensuring accurate, up-to-date outputs. Ideal for customer support, content creation, and decision-making, our RAG solutions help businesses achieve reliable AI results while minimizing outdated or irrelevant information risks.",
     image: "/RAG-updated.mp4",
     reverse: false,
     bgColor: "bg-black",
@@ -132,7 +133,7 @@ export const services = [
   {
     title: "Chatbot Making",
     description:
-      "At Blink Analytics, we understand the power of intelligent chatbots in transforming customer experiences. Our chatbot-making service focuses on developing advanced, conversational AI systems that can handle complex customer interactions seamlessly. By leveraging natural language processing (NLP) and machine learning, we create chatbots that understand user intent, context, and can provide accurate, real-time responses. Whether it’s for customer support, lead generation, or automating routine tasks, our chatbots are designed to enhance engagement, reduce operational costs, and improve customer satisfaction. Blink Analytics ensures that every chatbot we develop is tailored to your unique business goals and delivers an exceptional user experience every time.",
+      "Blink Analytics builds intelligent chatbots to transform customer experiences. Using NLP and machine learning, our chatbots understand intent, context, and provide real-time responses. Ideal for support, lead generation, and automation, they enhance engagement, reduce costs, and improve satisfaction. Each chatbot is tailored to business goals for an exceptional user experience.",
     image: "/RAG.mp4",
     reverse: true,
     bgColor: "bg-black",
@@ -142,7 +143,7 @@ export const services = [
   {
     title: "AI Agents Implementation",
     description:
-      "AI agents are autonomous, intelligent systems that can perform specific tasks and make decisions on behalf of your business. At Blink Analytics, we specialize in implementing AI agents that can learn from user interactions, improve over time, and execute complex tasks with minimal human intervention. Whether it's for optimizing business processes, enhancing decision-making, or automating customer service, our AI agents are designed to integrate seamlessly with your existing systems. With continuous learning and adaptability, our AI agents help businesses boost productivity, reduce manual effort, and streamline operations. Let Blink Analytics help you create a more efficient, automated, and intelligent environment with AI agents tailored to your needs.",
+      "Blink Analytics develops AI agents that autonomously perform tasks and make decisions. These intelligent systems learn from interactions, improve over time, and integrate seamlessly into business processes. Ideal for automation, decision-making, and customer service, our AI agents enhance productivity, reduce manual effort, and streamline operations for a smarter, efficient future.",
     image: "/RAG.mp4",
     reverse: false,
     bgColor: "bg-black",
@@ -152,7 +153,7 @@ export const services = [
   {
     title: "Enterprise-Based Secure Models",
     description:
-      "At Blink Analytics, we understand the unique challenges large enterprises face when it comes to implementing AI systems. Our enterprise-based secure models are specifically designed to ensure the highest level of security, privacy, and compliance. We implement robust encryption, secure data storage, and adherence to industry regulations to protect sensitive business information while still leveraging the power of AI. Whether you're looking to deploy AI across multiple departments or need a highly secure solution for confidential projects, Blink Analytics offers enterprise-grade models that prioritize both performance and security.",
+      "Blink Analytics provides secure, enterprise-grade AI models tailored for large businesses. We ensure top-tier security, privacy, and compliance through encryption, secure storage, and regulatory adherence. Whether deploying AI across departments or handling confidential projects, our solutions protect sensitive data while delivering powerful, scalable AI performance for your enterprise needs.",
     image: "/RAG.mp4",
     reverse: true,
     bgColor: "bg-black",
@@ -162,7 +163,7 @@ export const services = [
   {
     title: "Data Analytics Services",
     description:
-      "Blink Analytics provides comprehensive Data Analytics services to help businesses unlock valuable insights from their data. Our expertise spans across data processing, visualization, and predictive analytics, allowing companies to make data-driven decisions with confidence. We utilize state-of-the-art tools and AI-driven techniques to analyze complex datasets and deliver actionable intelligence. Whether you need real-time analytics, trend forecasting, or custom dashboards, our data analytics solutions empower businesses to optimize strategies and drive success.",
+      "Blink Analytics offers comprehensive Data Analytics services to unlock valuable insights. We specialize in data processing, visualization, and predictive analytics, enabling data-driven decisions. Using AI-driven techniques, we analyze complex datasets to deliver actionable intelligence. From real-time analytics to trend forecasting, our solutions help businesses optimize strategies and drive success.",
     image: "/services/data_analytics1.mp4",
     reverse: false,
     bgColor: "bg-black",

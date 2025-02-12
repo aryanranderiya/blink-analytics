@@ -16,7 +16,8 @@ export default {
   ],
   theme: {
 	screens: {
-		'xs': { min: '0px', max: '639px' }, // => @media (min-width: 0px and max-width: 639px) { ... }
+		'xxs': {min: '0px', max:'360px'},
+		'xs': { min: '361px', max: '639px' }, // => @media (min-width: 0px and max-width: 639px) { ... }
 		'sm': '640px', // => @media (min-width: 640px) { ... }
 		'md': '768px', // => @media (min-width: 768px) { ... }
 		'lg': '1024px', // => @media (min-width: 1024px) { ... }
