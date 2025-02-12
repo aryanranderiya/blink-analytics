@@ -378,7 +378,7 @@ function ServicesSection() {
     const scrollTrigger = gsap.context(() => {
       // Pin the entire ServicesSection and allow horizontal scrolling for cards
       gsap.to(".cards-div-container", {
-        xPercent: isMobile ? -90 : -65, // Move the cards horizontally
+        xPercent: isMobile ? (window.innerWidth > 360 ? -90 : -92) : -65, // Move the cards horizontally
         ease: "none",
         scrollTrigger: {
           trigger: ".services-div", // Pin the ServicesSection
