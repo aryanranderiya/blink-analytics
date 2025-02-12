@@ -6,7 +6,6 @@ import { useEffect, useRef, useState } from "react";
 import ScrollProgress from "@/components/ui/scroll-progress";
 import { cn } from "@/lib/utils";
 import { Link } from "react-router-dom";
-import { isMobile } from "react-device-detect";
 
 function ServiceCard({
   title,
