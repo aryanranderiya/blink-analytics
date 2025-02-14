@@ -346,35 +346,6 @@ function ServicesSection() {
       }
     );
 
-    // const mm = gsap.matchMedia();
-
-    // mm.add(
-    //   {
-    //     // Desktop view
-    //     isDesktop: "(min-width: 1024px)",
-    //     // Tablet view
-    //     isTablet: "(min-width: 768px) and (max-width: 1023px)",
-    //   },
-    //   (context) => {
-
-    //     const { isDesktop, isTablet } = context.conditions as {
-    //       isDesktop: boolean;
-    //       isTablet: boolean;
-    //     };
-    //     const animation = gsap.to(".cards-div", {
-    //       xPercent: isDesktop ? -168 : isTablet ? -400 : -200,
-    //       ease: "none",
-    //       scrollTrigger: {
-    //         trigger: ".services-div",
-    //         start: "top 0%",
-    //         end: "top -100%",
-    //         pin: true,
-    //         scrub: 1,
-    //       },
-    //     });
-
-    //     // Cleanup for this context
-    //     return () => animation.kill();
     const scrollTrigger = gsap.context(() => {
       // Pin the entire ServicesSection and allow horizontal scrolling for cards
       gsap.to(".cards-div-container", {
@@ -588,8 +559,8 @@ const slides = [
     alt: "Apache Spark",
   },
   {
-    src: "https://imgur.com/IBpXwzl.png",
-    alt: "BigQuery",
+    src: "https://i.imgur.com/jkIYx0s.png",
+    alt: "Gemini",
   },
 ];
 
