@@ -40,9 +40,9 @@ Follow these steps to set up and run the project on your local machine:
 
 4. **Push the changes on Github**:
 
-  Push the changes on Github:
+    Push the changes on Github:
 
-  ```bash
-  git add .
-  git commit -m <commit msg>
-  git push origin main
+    ```bash
+    git add .
+    git commit -m <commit msg>
+    git push origin main
