@@ -141,24 +141,6 @@ function HeroSection() {
       )
     );
 
-    // animations.push(
-    //   gsap.fromTo(
-    //     paragraphRef2.current,
-    //     { opacity: 0, x: -100 },
-    //     {
-    //       opacity: 1,
-    //       y: 0,
-    //       x: 0,
-    //       scrollTrigger: {
-    //         trigger: heroRef.current,
-    //         start: "top -6%",
-    //         end: "top -15%",
-    //         scrub: 0.3,
-    //       },
-    //     }
-    //   )
-    // );
-
     // Refresh ScrollTrigger after all animations
     ScrollTrigger.refresh();
 
@@ -222,13 +204,7 @@ function HeroSection() {
       >
         Welcome to Blink Analytics!
       </p>
-      {/* <p
-        ref={paragraphRef2}
-        className="text-white absolute text-[1vw] top-[64%] right-[5%] z-10 w-[24vw] text-left"
-      >
-        Our mission is to empower businesses with intelligent, scalable, and
-        transformative analytics.
-      </p> */}
+      
     </section>
   );
 }
@@ -237,10 +213,6 @@ function ServicesSection() {
   const serviceRef = useRef(null);
   const cardsDivRef = useRef(null);
   const firstRef = useRef(null);
-
-  // const [isLoaded, setisLoaded] = useState(false);
-
-  
 
   useEffect(() => {
     gsap.fromTo(

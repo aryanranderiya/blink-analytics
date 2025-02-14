@@ -1,50 +1,48 @@
-# React + TypeScript + Vite
+# Blink Analytics
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Blink Analytics is a data analytics company dedicated to transforming complex data into actionable insights. Leveraging advanced analytics and state-of-the-art technology, we empower businesses to make informed decisions and drive growth.
 
-Currently, two official plugins are available:
+## Prerequisites
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Before setting up the project locally, ensure you have the following installed:
 
-## Expanding the ESLint configuration
+- **Node.js**: Version 21.x or later
+- **npm**: Version 10.x or later (comes with Node.js)
+- **Git**: For version control and repository cloning
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Getting Started
 
-- Configure the top-level `parserOptions` property like this:
+Follow these steps to set up and run the project on your local machine:
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+1. **Clone the Repository**:
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+   Open your terminal and run:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+   ```bash
+   git clone <your github repo link>
+   cd blink-analytics
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+2. **Run the Projecy**:
+
+   In your terminal:
+
+   ```bash
+   npm run dev
+
+3. **After Introducing any changes**:
+
+   Try to find and fix build issues:
+
+   ```bash
+   npm run build
+   ```
+   If it gives out any erros, fix those by following the guidelines, if not you can move forward
+
+4. **Push the changes on Github**:
+
+  Push the changes on Github:
+
+  ```bash
+  git add .
+  git commit -m <commit msg>
+  git push origin main
