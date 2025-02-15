@@ -27,6 +27,7 @@ Follow these steps to set up and run the project on your local machine:
    In your terminal:
 
    ```bash
+   npm install
    npm run dev
 
 3. **After Introducing any changes**:
