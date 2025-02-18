@@ -12,20 +12,10 @@ import DataAnalytics, { dataAnalyticsServices } from "./pages/DataAnalytics";
 import GenerativeAI, { generativeAIServices } from "./pages/GenerativeAI";
 import Home from "./pages/Home";
 import Services from "./pages/Services";
-// import CustomCursor from "./components/CustomCursor";
 
 function App() {
   const location = useLocation();
   const mainRef = useRef(null);
-  // const [position, setPosition] = useState({
-  //   x: window.innerWidth / 2,
-  //   y: window.innerHeight / 2,
-  // });
-
-  // const [delayedPosition, setDelayedPosition] = useState({
-  //   x: window.innerWidth / 2,
-  //   y: window.innerHeight / 2,
-  // });
 
   useEffect(() => {
     setTimeout(() => window.scrollTo(0, 0), 100);
@@ -56,18 +46,12 @@ function App() {
     };
   }, []);
 
-  // const handleMouseMove = useCallback((event: React.MouseEvent) => {
-  //   setTimeout(() => {
-  //     setDelayedPosition({ x: event.clientX, y: event.clientY });
-  //   }, 80);
-  // }, []);
+  
 
   return (
     <ReactLenis root>
       <main className="bg-[#EDE8F5]" ref={mainRef}>
-        {/* {location.pathname != "/" && (
-          <CustomCursor delayedPosition={delayedPosition} />
-        )} */}
+        
         <Navbar />
         <Preloader />
         <Routes>

@@ -20,8 +20,7 @@ function ServiceCard({
 }) {
   const cardRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
-  useEffect(() => {
-  
+  useEffect(() => {  
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -86,7 +85,7 @@ function ServiceCard({
             muted
             autoPlay
             playsInline
-            className="sm:rounded-[50px] rounded-[10px]"
+            className="sm:rounded-[50px] rounded-[10px] 2K:rounded-[150px]"
           >
             <source src={image} type="video/mp4" />
             Your browser does not support the video tag.
