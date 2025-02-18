@@ -12,12 +12,12 @@ export default function InterestedSection() {
         as="a"
         href="/contact"
         rel="noopener noreferrer"
-        // as={Link} 
+        // as={Link}
         // href="/contact"
         type="button"
         radius="full"
         variant="faded"
-        className="pr-[2px]"
+        className="pr-[2px] min-h-fit"
         size={window.innerWidth > 640 ? "lg" : "sm"}
         endContent={
           <div className="rounded-full bg-gradient-to-tr from-pink-500 to-purple-500 h-[20px] w-[20px] sm:min-h-[40px] sm:min-w-[40px] flex justify-center items-center ">
